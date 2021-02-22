@@ -18,7 +18,7 @@ namespace FFT.Oanda.Tests
     [TestMethod]
     public async Task GetAccounts()
     {
-      using var api = new API(AccountType.Practice, Configuration.Instance.OandaApiKey);
+      using var api = new OandaApiClient(AccountType.Practice, Configuration.Instance.OandaApiKey);
 
       var accountList = (await api.GetAccounts())!;
 

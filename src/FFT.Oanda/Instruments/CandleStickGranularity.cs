@@ -9,7 +9,7 @@ namespace FFT.Oanda.Instruments
   /// The granularity of a candlestick.
   /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter))]
-  public enum CandleStickGranularity
+  public enum CandlestickGranularity
   {
     /// <summary>
     /// 5 second candlesticks, minute alignment.

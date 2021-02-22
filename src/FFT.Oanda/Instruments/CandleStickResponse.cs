@@ -9,16 +9,16 @@ namespace FFT.Oanda.Instruments
   /// <summary>
   /// Response containing instrument, granularity, and list of candles.
   /// </summary>
-  public sealed class CandleStickResponse
+  public sealed class CandlestickResponse
   {
     /// <summary>
-    /// Initializes a new instance of the <see cref="CandleStickResponse"/>
+    /// Initializes a new instance of the <see cref="CandlestickResponse"/>
     /// class.
     /// </summary>
     [JsonConstructor]
-    public CandleStickResponse(
+    public CandlestickResponse(
       string instrument,
-      CandleStickGranularity granularity,
+      CandlestickGranularity granularity,
       ImmutableList<CandleStick> candles)
     {
       Instrument = instrument;
@@ -34,7 +34,7 @@ namespace FFT.Oanda.Instruments
     /// <summary>
     /// The granularity of the candlesticks provided.
     /// </summary>
-    public CandleStickGranularity Granularity { get; }
+    public CandlestickGranularity Granularity { get; }
 
     /// <summary>
     /// The list of candlesticks that satisfy the request.

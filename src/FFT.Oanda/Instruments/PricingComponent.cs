@@ -8,22 +8,25 @@ namespace FFT.Oanda.Instruments
   /// <summary>
   /// The Price component(s) to get candlestick data for.
   /// </summary>
-  [Flags]
-  public enum PricingComponent
+  public sealed record PricingComponent
   {
     /// <summary>
-    /// Bid
+    /// Bid.
     /// </summary>
-    B = 1,
+    public bool Bid { get; init; }
 
     /// <summary>
-    /// Ask
+    /// Ask.
     /// </summary>
-    A = 2,
+    public bool Ask { get; init; }
 
     /// <summary>
-    /// Mid point
+    /// Mid point.
     /// </summary>
-    M = 4,
+    public bool Mid { get; init; }
+
+    /// <inheritdoc/>
+    public override string ToString()
+      => (Bid ? "B" : string.Empty) + (Ask ? "A" : string.Empty) + (Mid ? "M" : string.Empty);
   }
 }

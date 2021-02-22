@@ -9,7 +9,7 @@ namespace FFT.Oanda.Pricing
   /// An instrument name, a granularity, and a price component to get
   /// candlestick data for.
   /// </summary>
-  public sealed class CandleSpecification
+  public sealed record CandleSpecification
   {
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
@@ -21,7 +21,7 @@ namespace FFT.Oanda.Pricing
     /// <summary>
     /// The candlestick granularity to get data for.
     /// </summary>
-    public CandleStickGranularity CandleStickGranularity { get; init; }
+    public CandlestickGranularity CandleStickGranularity { get; init; }
 
     /// <summary>
     /// The Price component(s) to get candlestick data for. Can be used as flags
@@ -31,15 +31,6 @@ namespace FFT.Oanda.Pricing
 
     /// <inheritdoc/>
     public override string ToString()
-    {
-      var result = $"{InstrumentName}:{CandleStickGranularity}:";
-      if (PricingComponent.HasFlag(PricingComponent.B))
-        result += "B";
-      if (PricingComponent.HasFlag(PricingComponent.A))
-        result += "A";
-      if (PricingComponent.HasFlag(PricingComponent.M))
-        result += "M";
-      return result;
-    }
+      => $"{InstrumentName}:{CandleStickGranularity}:{PricingComponent}";
   }
 }
