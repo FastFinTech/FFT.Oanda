@@ -5,6 +5,7 @@ namespace FFT.Oanda
 {
   using System;
   using System.Collections.Generic;
+  using System.Collections.Immutable;
   using System.Globalization;
   using System.Net;
   using System.Net.Http;
@@ -16,6 +17,7 @@ namespace FFT.Oanda
   using FFT.Oanda.Instruments;
   using FFT.Oanda.Orders;
   using FFT.Oanda.Orders.OrderRequests;
+  using FFT.Oanda.Positions;
   using FFT.Oanda.Pricing;
   using FFT.Oanda.Trades;
   using FFT.Oanda.Transactions;
@@ -55,41 +57,10 @@ namespace FFT.Oanda
       _client.Dispose();
     }
 
-    /// <summary>
-    /// Checks for http response status codes that are documented here:
-    /// https://developer.oanda.com/rest-live-v20/troubleshooting-errors/.
-    /// Throws known exceptions with data.
-    /// </summary>
-    /// <exception cref="HttpRequestException">
-    /// Thrown if the <paramref name="responseMessage"/> does not have a success
-    /// status code, AND the status code is not included in the api documentation.
-    /// </exception>
-    private async Task CheckErrors(HttpResponseMessage responseMessage)
+    private async Task<T> ParseResponse<T>(HttpResponseMessage response)
     {
-      var hasKnownException = false;
-      switch (responseMessage.StatusCode)
-      {
-        case HttpStatusCode.BadRequest: // 400
-        case HttpStatusCode.Unauthorized: // 401
-        case HttpStatusCode.Forbidden: // 403
-        case HttpStatusCode.NotFound: // 404
-        case HttpStatusCode.MethodNotAllowed: // 405
-          hasKnownException = true;
-          break;
-      }
-
-      if (hasKnownException)
-      {
-        // TODO: Since the documentation is a little incomplete at
-        // https://developer.oanda.com/rest-live-v20/troubleshooting-errors/,
-        // these situations need to be investigated so we can get the details
-        // and create hard-typed exceptions that contain all the available
-        // information.
-        var content = await responseMessage.Content.ReadAsStringAsync();
-        throw new Exception($"Request was rejected by the oanda api: {content}");
-      }
-
-      responseMessage.EnsureSuccessStatusCode();
+      await RequestFailedException.ThrowIfNecessary(response);
+      return (await response.Content.ReadFromJsonAsync<T>())!;
     }
   }
 
@@ -106,8 +77,7 @@ namespace FFT.Oanda
 
       using var request = new HttpRequestMessage(HttpMethod.Get, "v3/users/@/accounts");
       using var response = await _client.SendAsync(request);
-      await CheckErrors(response);
-      return (await response.Content.ReadFromJsonAsync<AccountListResponse>())!;
+      return await ParseResponse<AccountListResponse>(response);
     }
 
     /// <summary>
@@ -118,7 +88,7 @@ namespace FFT.Oanda
     {
       using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}/summary");
       using var response = await _client.SendAsync(request);
-      await CheckErrors(response);
+      await RequestFailedException.ThrowIfNecessary(response);
       return (await response.Content.ReadFromJsonAsync<AccountSummaryResponse>())!;
     }
 
@@ -130,7 +100,7 @@ namespace FFT.Oanda
     {
       using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}");
       using var response = await _client.SendAsync(request);
-      await CheckErrors(response);
+      await RequestFailedException.ThrowIfNecessary(response);
       return (await response.Content.ReadFromJsonAsync<AccountResponse>())!;
     }
 
@@ -157,7 +127,7 @@ namespace FFT.Oanda
 
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
       using var response = await _client.SendAsync(request);
-      await CheckErrors(response);
+      await RequestFailedException.ThrowIfNecessary(response);
       return (await response.Content.ReadFromJsonAsync<AccountInstrumentListResponse>())!;
     }
 
@@ -182,7 +152,7 @@ namespace FFT.Oanda
 
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
       using var response = await _client.SendAsync(request);
-      await CheckErrors(response);
+      await RequestFailedException.ThrowIfNecessary(response);
       return (await response.Content.ReadFromJsonAsync<AccountChangesResponse>())!;
     }
 
@@ -201,18 +171,7 @@ namespace FFT.Oanda
       };
 
       using var response = await _client.SendAsync(message);
-
-      // TODO: The api documentation says both these status codes return the
-      // same response content. I doubt it very much, this needs to be followed
-      // up and investigated.
-
-      if (response.StatusCode == (HttpStatusCode)400 || response.StatusCode == (HttpStatusCode)403)
-      {
-        var failData = (await response.Content.ReadFromJsonAsync<AccountConfigurationRejectedException.AccountConfigurationRejection>())!;
-        throw new AccountConfigurationRejectedException(failData);
-      }
-
-      await CheckErrors(response);
+      await RequestFailedException.ThrowIfNecessary(response);
       return (await response.Content.ReadFromJsonAsync<AccountConfigurationResponse>())!;
     }
   }
@@ -291,7 +250,7 @@ namespace FFT.Oanda
       var url = QueryHelpers.AddQueryString($"v3/instruments/{candleSpecification.InstrumentName}/candles", query);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
       using var response = await _client.SendAsync(request);
-      await CheckErrors(response);
+      await RequestFailedException.ThrowIfNecessary(response);
       return (await response.Content.ReadFromJsonAsync<CandlestickResponse>())!;
     }
 
@@ -377,7 +336,7 @@ namespace FFT.Oanda
       var url = QueryHelpers.AddQueryString($"v3/instruments/{candleSpecification.InstrumentName}/candles", query);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
       using var response = await _client.SendAsync(request);
-      await CheckErrors(response);
+      await RequestFailedException.ThrowIfNecessary(response);
       return (await response.Content.ReadFromJsonAsync<CandlestickResponse>())!;
     }
 
@@ -401,7 +360,7 @@ namespace FFT.Oanda
 
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
       using var response = await _client.SendAsync(request);
-      await CheckErrors(response);
+      await RequestFailedException.ThrowIfNecessary(response);
       return (await response.Content.ReadFromJsonAsync<OrderBookResponse>())!;
     }
 
@@ -428,7 +387,7 @@ namespace FFT.Oanda
 
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
       using var response = await _client.SendAsync(request);
-      await CheckErrors(response);
+      await RequestFailedException.ThrowIfNecessary(response);
       return (await response.Content.ReadFromJsonAsync<PositionBookResponse>())!;
     }
   }
@@ -453,19 +412,7 @@ namespace FFT.Oanda
       };
 
       using var response = await _client.SendAsync(request);
-
-      if (response.StatusCode == (HttpStatusCode)400)
-      {
-        var data = (await response.Content.ReadFromJsonAsync<OrderRejectedException.ErrorData>())!;
-        throw new OrderRejectedException(data);
-      }
-      else if (response.StatusCode == (HttpStatusCode)404)
-      {
-        var data = (await response.Content.ReadFromJsonAsync<OrderOrAccountNotFoundException.ErrorData>())!;
-        throw new OrderOrAccountNotFoundException(data);
-      }
-
-      await CheckErrors(response);
+      await RequestFailedException.ThrowIfNecessary(response);
       return (await response.Content.ReadFromJsonAsync<CreateOrderResponse>())!;
     }
 
@@ -514,7 +461,7 @@ namespace FFT.Oanda
       var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/orders", query);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
       using var response = await _client.SendAsync(request);
-      await CheckErrors(response);
+      await RequestFailedException.ThrowIfNecessary(response);
       return (await response.Content.ReadFromJsonAsync<GetOrdersResponse>())!;
     }
 
@@ -529,7 +476,7 @@ namespace FFT.Oanda
       var url = $"v3/accounts/{accountId}/pendingOrders";
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
       using var response = await _client.SendAsync(request);
-      await CheckErrors(response);
+      await RequestFailedException.ThrowIfNecessary(response);
       return (await response.Content.ReadFromJsonAsync<GetOrdersResponse>())!;
     }
 
@@ -543,7 +490,7 @@ namespace FFT.Oanda
       var url = $"v3/accounts/{accountId}/orders/{orderId}";
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
       using var response = await _client.SendAsync(request);
-      await CheckErrors(response);
+      await RequestFailedException.ThrowIfNecessary(response);
       return (await response.Content.ReadFromJsonAsync<GetSingleOrderResponse>())!;
     }
 
@@ -584,20 +531,8 @@ namespace FFT.Oanda
       if (!string.IsNullOrWhiteSpace(clientRequestId))
         request.Headers.Add("ClientRequestID", clientRequestId);
 
-      using var response = (await _client.SendAsync(request))!;
-
-      if (response.StatusCode == (HttpStatusCode)400)
-      {
-        var orderRejection = (await response.Content.ReadFromJsonAsync<OrderRejectedException.ErrorData>())!;
-        throw new OrderRejectedException(orderRejection);
-      }
-      else if (response.StatusCode == (HttpStatusCode)404)
-      {
-        var failData = (await response.Content.ReadFromJsonAsync<OrderOrAccountNotFoundException.ErrorData>())!;
-        throw new OrderOrAccountNotFoundException(failData);
-      }
-
-      await CheckErrors(response);
+      using var response = await _client.SendAsync(request);
+      await RequestFailedException.ThrowIfNecessary(response);
       return (await response.Content.ReadFromJsonAsync<ReplaceOrderResponse>())!;
     }
 
@@ -616,14 +551,7 @@ namespace FFT.Oanda
         request.Headers.Add("ClientRequestID", clientRequestId);
 
       using var response = await _client.SendAsync(request);
-
-      if (response.StatusCode == (HttpStatusCode)404)
-      {
-        var errorData = (await response.Content.ReadFromJsonAsync<OrderOrAccountNotFoundException.ErrorData>())!;
-        throw new OrderOrAccountNotFoundException(errorData);
-      }
-
-      await CheckErrors(response);
+      await RequestFailedException.ThrowIfNecessary(response);
       return (await response.Content.ReadFromJsonAsync<CancelOrderResponse>())!;
     }
 
@@ -647,19 +575,7 @@ namespace FFT.Oanda
         }),
       };
       using var response = await _client.SendAsync(request);
-
-      if (response.StatusCode == (HttpStatusCode)400)
-      {
-        var data = (await response.Content.ReadFromJsonAsync<OrderClientExtensionsSpecificationInvalidException.ErrorData>())!;
-        throw new OrderClientExtensionsSpecificationInvalidException(data);
-      }
-      else if (response.StatusCode == (HttpStatusCode)404)
-      {
-        var data = (await response.Content.ReadFromJsonAsync<OrderOrAccountNotFoundException.ErrorData>())!;
-        throw new OrderOrAccountNotFoundException(data);
-      }
-
-      await CheckErrors(response);
+      await RequestFailedException.ThrowIfNecessary(response);
       return (await response.Content.ReadFromJsonAsync<UpdateOrderClientExtensionsResponse>())!;
     }
   }
@@ -702,15 +618,14 @@ namespace FFT.Oanda
       var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/trades", query);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
       using var response = await _client.SendAsync(request);
-
-      await CheckErrors(response);
+      await RequestFailedException.ThrowIfNecessary(response);
       return (await response.Content.ReadFromJsonAsync<GetTradesResponse>())!;
     }
 
     /// <summary>
     /// Get the list of open Trades for an Account.
     /// </summary>
-    /// <param name="accountId"></param>
+    /// <param name="accountId">Account Identifier</param>
     public async Task<GetTradesResponse> GetOpenTrades(string accountId)
     {
       if (string.IsNullOrWhiteSpace(accountId))
@@ -718,6 +633,301 @@ namespace FFT.Oanda
 
       using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}/openTrades");
       using var response = await _client.SendAsync(request);
+      await RequestFailedException.ThrowIfNecessary(response);
+      return (await response.Content.ReadFromJsonAsync<GetTradesResponse>())!;
     }
+
+    /// <summary>
+    /// Get the details of a specific Trade in an Account.
+    /// </summary>
+    /// <param name="accountId">
+    /// “-“-delimited string with format
+    /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+    /// 001-011-5838423-001.
+    /// </param>
+    /// <param name="tradeSpecifier">
+    /// Either the Trade’s OANDA-assigned TradeID or the Trade’s client-provided
+    /// ClientID prefixed by the “@” symbol.
+    /// </param>
+    public async Task<GetTradeResponse> GetTrade(string accountId, string tradeSpecifier)
+    {
+      if (string.IsNullOrWhiteSpace(accountId))
+        throw new ArgumentException(nameof(accountId));
+
+      if (string.IsNullOrWhiteSpace(tradeSpecifier))
+        throw new ArgumentException(nameof(accountId));
+
+      using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}/trades/{tradeSpecifier}");
+      using var response = await _client.SendAsync(request);
+      await RequestFailedException.ThrowIfNecessary(response);
+      return (await response.Content.ReadFromJsonAsync<GetTradeResponse>())!;
+    }
+
+    /// <summary>
+    /// Close (partially or fully) a specific open Trade in an Account.
+    /// </summary>
+    /// <param name="accountId">
+    /// “-“-delimited string with format
+    /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+    /// 001-011-5838423-001.
+    /// </param>
+    /// <param name="tradeSpecifier">
+    /// Either the Trade’s OANDA-assigned TradeID or the Trade’s client-provided
+    /// ClientID prefixed by the “@” symbol.
+    /// </param>
+    /// <param name="numUnits">
+    /// Indication of how much of the Trade to close. Either the string “ALL”
+    /// (indicating that all of the Trade should be closed), or a DecimalNumber
+    /// representing the number of units of the open Trade to Close using a
+    /// TradeClose MarketOrder. The units specified must always be positive, and
+    /// the magnitude of the value cannot exceed the magnitude of the Trade’s
+    /// open units.
+    /// </param>
+    /// <exception cref="TradeCannotBeClosedException">
+    /// Thrown when the api rejects the trade closed request.
+    /// </exception>
+    public async Task<CloseTradeResponse> CloseTrade(string accountId, string tradeSpecifier, NumUnits numUnits)
+    {
+      if (string.IsNullOrWhiteSpace(accountId))
+        throw new ArgumentException(nameof(accountId));
+
+      if (string.IsNullOrWhiteSpace(tradeSpecifier))
+        throw new ArgumentException(nameof(accountId));
+
+      var url = $"v3/accounts/{accountId}/trades/{tradeSpecifier}/close";
+      using var request = new HttpRequestMessage(HttpMethod.Put, url)
+      {
+        Content = JsonContent.Create(new
+        {
+          Units = numUnits,
+        }),
+      };
+      using var response = await _client.SendAsync(request);
+      await RequestFailedException.ThrowIfNecessary(response);
+      return (await response.Content.ReadFromJsonAsync<CloseTradeResponse>())!;
+    }
+
+    /// <summary>
+    /// Update the Client Extensions for a Trade. Do not add, update, or delete the Client Extensions if your account is associated with MT4.
+    /// </summary>
+    /// <param name="accountId">
+    /// “-“-delimited string with format
+    /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+    /// 001-011-5838423-001.
+    /// </param>
+    /// <param name="tradeSpecifier">
+    /// Either the Trade’s OANDA-assigned TradeID or the Trade’s client-provided
+    /// ClientID prefixed by the “@” symbol.
+    /// </param>
+    /// <param name="clientExtensions">
+    /// The value to be attached to the given trade.
+    /// </param>
+    public async Task<TradeClientExtensionsUpdateResponse> SetTradeClientExtensions(string accountId, string tradeSpecifier, ClientExtensions clientExtensions)
+    {
+      if (string.IsNullOrWhiteSpace(accountId))
+        throw new ArgumentException(nameof(accountId));
+
+      if (string.IsNullOrWhiteSpace(tradeSpecifier))
+        throw new ArgumentException(nameof(accountId));
+
+      using var request = new HttpRequestMessage(HttpMethod.Put, $"v3/accounts/{accountId}/trades/{tradeSpecifier}/clientExtensions")
+      {
+        Content = JsonContent.Create(new
+        {
+          ClientExtensions = clientExtensions,
+        }),
+      };
+      using var response = await _client.SendAsync(request);
+      return await ParseResponse<TradeClientExtensionsUpdateResponse>(response);
+    }
+
+    /// <summary>
+    /// Create, replace and cancel a Trade’s dependent Orders (Take Profit, Stop
+    /// Loss and Trailing Stop Loss) through the Trade itself.
+    /// </summary>
+    /// <param name="accountId">
+    /// “-“-delimited string with format
+    /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+    /// 001-011-5838423-001.
+    /// </param>
+    /// <param name="tradeSpecifier">
+    /// Either the Trade’s OANDA-assigned TradeID or the Trade’s client-provided
+    /// ClientID prefixed by the “@” symbol.
+    /// </param>
+    /// <param name="takeProfit">
+    /// /// The specification of the Take Profit to create/modify/cancel. If
+    /// takeProfit is set to null, the Take Profit Order will be cancelled if it
+    /// exists. If takeProfit is not provided, the existing Take Profit Order
+    /// will not be modified. If a sub-field of takeProfit is not specified, that
+    /// field will be set to a default value on create, and be inherited by the
+    /// replacing order on modify.
+    /// </param>
+    /// <param name="stopLoss">
+    /// The specification of the Stop Loss to create/modify/cancel. If stopLoss
+    /// is set to null, the Stop Loss Order will be cancelled if it exists. If
+    /// stopLoss is not provided, the existing Stop Loss Order will not be
+    /// modified. If a sub-field of stopLoss is not specified, that field will be
+    /// set to a default value on create, and be inherited by the replacing order
+    /// on modify.
+    /// </param>
+    /// <param name="trailingStopLoss">
+    /// The specification of the Trailing Stop Loss to create/modify/cancel. If
+    /// trailingStopLoss is set to null, the Trailing Stop Loss Order will be
+    /// cancelled if it exists. If trailingStopLoss is not provided, the existing
+    /// Trailing Stop Loss Order will not be modified. If a sub-field of
+    /// trailingStopLoss is not specified, that field will be set to a default
+    /// value on create, and be inherited by the replacing order on modify.
+    /// </param>
+    /// <param name="guaranteedStopLoss">
+    /// The specification of the Guaranteed Stop Loss to create/modify/cancel. If
+    /// guaranteedStopLoss is set to null, the Guaranteed Stop Loss Order will be
+    /// cancelled if it exists. If guaranteedStopLoss is not provided, the
+    /// existing Guaranteed Stop Loss Order will not be modified. If a sub-field
+    /// of guaranteedStopLoss is not specified, that field will be set to a
+    /// default value on create, and be inherited by the replacing order on
+    /// modify.
+    /// </param>
+    public async Task<SetTradeOrdersResponse> SetTradeOrders(string accountId, string tradeSpecifier, TakeProfitDetails? takeProfit, StopLossDetails? stopLoss, TrailingStopLossDetails? trailingStopLoss, GuaranteedStopLossDetails? guaranteedStopLoss)
+    {
+      if (string.IsNullOrWhiteSpace(accountId))
+        throw new ArgumentException(nameof(accountId));
+
+      if (string.IsNullOrWhiteSpace(tradeSpecifier))
+        throw new ArgumentException(nameof(accountId));
+
+      using var request = new HttpRequestMessage(HttpMethod.Put, $"v3/accounts/{accountId}/trades/{tradeSpecifier}/orders")
+      {
+        Content = JsonContent.Create(new
+        {
+          TakeProfit = takeProfit,
+          StopLoss = stopLoss,
+          TrailingStopLoss = trailingStopLoss,
+          GuaranteedStopLoss = guaranteedStopLoss,
+        }),
+      };
+      using var response = await _client.SendAsync(request);
+      return await ParseResponse<SetTradeOrdersResponse>(response);
+    }
+  }
+
+  // Position endpoint
+  public partial class OandaApiClient
+  {
+    /// <summary>
+    /// List all Positions for an Account. The Positions returned are for every
+    /// instrument that has had a position during the lifetime of an the
+    /// Account.
+    /// </summary>
+    /// <param name="accountId">
+    /// “-“-delimited string with format
+    /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+    /// 001-011-5838423-001.
+    /// </param>
+    public async Task<GetPositionsResponse> GetPositions(string accountId)
+    {
+      if (string.IsNullOrWhiteSpace(accountId))
+        throw new ArgumentException(nameof(accountId));
+
+      using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}/positions");
+      using var response = await _client.SendAsync(request);
+      return await ParseResponse<GetPositionsResponse>(response);
+    }
+
+    /// <summary>
+    /// List all open Positions for an Account. An open Position is a Position
+    /// that currently has a Trade opened for it.
+    /// </summary>
+    /// <param name="accountId">
+    /// “-“-delimited string with format
+    /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+    /// 001-011-5838423-001.
+    /// </param>
+    public async Task<GetPositionsResponse> GetOpenPositions(string accountId)
+    {
+      if (string.IsNullOrWhiteSpace(accountId))
+        throw new ArgumentException(nameof(accountId));
+
+      using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}/openPositions");
+      using var response = await _client.SendAsync(request);
+      return await ParseResponse<GetPositionsResponse>(response);
+    }
+
+    /// <summary>
+    /// Get the details of a single Instrument’s Position in an Account. The
+    /// Position may by open or not.
+    /// </summary>
+    /// <param name="accountId">
+    /// “-“-delimited string with format
+    /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+    /// 001-011-5838423-001.
+    /// </param>
+    /// <param name="instrument">Name of the Instrument.</param>
+    public async Task<GetPositionResponse> GetPosition(string accountId, string instrument)
+    {
+      if (string.IsNullOrWhiteSpace(accountId))
+        throw new ArgumentException(nameof(accountId));
+
+      if (string.IsNullOrWhiteSpace(instrument))
+        throw new ArgumentException(nameof(instrument));
+
+      using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}/positions/{instrument}");
+      using var response = await _client.SendAsync(request);
+      return await ParseResponse<GetPositionResponse>(response);
+    }
+
+    /// <summary>
+    /// Closeout the open Position for a specific instrument in an Account.
+    /// </summary>
+    /// <param name="accountId">
+    /// “-“-delimited string with format
+    /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+    /// 001-011-5838423-001.
+    /// </param>
+    /// <param name="instrument">Name of the Instrument.</param>
+    /// <param name="longUnits">
+    /// Indication of how much of the long Position to closeout using a
+    /// PositionCloseout MarketOrder. The units specified must always be
+    /// positive.
+    /// </param>
+    /// <param name="shortUnits">
+    /// Indication of how much of the short Position to closeout using a
+    /// PositionCloseout MarketOrder. The units specified must always be
+    /// positive.
+    /// </param>
+    /// <param name="longClientExtensions">
+    /// The client extensions to add to the MarketOrder used to close the long
+    /// position.
+    /// </param>
+    /// <param name="shortClientExtensions">
+    /// The client extensions to add to the MarketOrder used to close the short
+    /// position.
+    /// </param>
+    public async Task<ClosePositionResponse> ClosePosition(string accountId, string instrument, NumUnits longUnits, NumUnits shortUnits, ClientExtensions? longClientExtensions, ClientExtensions? shortClientExtensions)
+    {
+      if (string.IsNullOrWhiteSpace(accountId))
+        throw new ArgumentException(nameof(accountId));
+
+      if (string.IsNullOrWhiteSpace(instrument))
+        throw new ArgumentException(nameof(instrument));
+
+      using var request = new HttpRequestMessage(HttpMethod.Put, $"v3/accounts/{accountId}/positions/{instrument}/close")
+      {
+        Content = JsonContent.Create(new
+        {
+          longUnits,
+          longClientExtensions,
+          shortUnits,
+          shortClientExtensions,
+        }),
+      };
+      using var response = await _client.SendAsync(request);
+      return await ParseResponse<ClosePositionResponse>(response);
+    }
+  }
+
+  // Transaction endpoint
+  public partial class OandaApiClient
+  {
+
   }
 }

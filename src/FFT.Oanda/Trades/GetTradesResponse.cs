@@ -1,10 +1,10 @@
 ﻿// Copyright (c) True Goodwill. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-namespace FFT.Oanda
+namespace FFT.Oanda.Trades
 {
   using System.Collections.Immutable;
-  using FFT.Oanda.Trades;
+  using System.Text.Json.Serialization;
 
   /// <summary>
   /// Returned by the <see cref="OandaApiClient.GetTrades(string,
@@ -15,6 +15,7 @@ namespace FFT.Oanda
     /// <summary>
     /// Initializes a new instance of the <see cref="GetTradesResponse"/> class.
     /// </summary>
+    [JsonConstructor]
     public GetTradesResponse(
       ImmutableList<Trade> trades,
       string lastTransactionID)
