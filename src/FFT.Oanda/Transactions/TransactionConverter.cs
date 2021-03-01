@@ -25,8 +25,12 @@ namespace FFT.Oanda.Transactions
       var element = JsonSerializer.Deserialize<JsonElement>(ref readerCopy, options);
       var typeElement = element.GetProperty("type");
       if (typeElement.ValueKind != JsonValueKind.String) throw new JsonException();
-      var transactionType = Enum.Parse<TransactionType>(typeElement.GetString()!);
-      return transactionType switch
+
+      var transactionType = typeElement.GetString()!;
+      if (transactionType == "HEARTBEAT")
+        throw new JsonException("It's a heartbeat");
+
+      return Enum.Parse<TransactionType>(transactionType) switch
       {
         TransactionType.CLIENT_CONFIGURE => JsonSerializer.Deserialize<ClientConfigureTransaction>(ref reader, options),
         TransactionType.CLIENT_CONFIGURE_REJECT => JsonSerializer.Deserialize<ClientConfigureRejectTransaction>(ref reader, options),

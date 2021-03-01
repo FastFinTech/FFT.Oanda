@@ -4,14 +4,21 @@
 namespace FFT.Oanda
 {
   using System;
+  using System.Buffers;
   using System.Collections.Generic;
   using System.Collections.Immutable;
+  using System.Diagnostics;
   using System.Globalization;
+  using System.IO;
+  using System.IO.Pipelines;
   using System.Net;
   using System.Net.Http;
   using System.Net.Http.Json;
+  using System.Runtime.CompilerServices;
   using System.Runtime.Serialization;
+  using System.Text.Json;
   using System.Text.Json.Serialization;
+  using System.Threading;
   using System.Threading.Tasks;
   using FFT.Oanda.Accounts;
   using FFT.Oanda.Instruments;
@@ -22,17 +29,20 @@ namespace FFT.Oanda
   using FFT.Oanda.Trades;
   using FFT.Oanda.Transactions;
   using Microsoft.AspNetCore.WebUtilities;
+  using static System.Math;
 
   /// <summary>
   /// Provides a client for the oanda api v2.
   /// </summary>
   public sealed partial class OandaApiClient : IDisposable
   {
+    private const byte EOL = (byte)'\n'; // end of line, used to separate json messages.
     private const string DateTimeFormatString = "YYYY-MM-DDTHH:mm:ss.fffffffffZ";
 
     private readonly AccountType _accountType;
     private readonly string _key;
     private readonly HttpClient _client;
+    private readonly HttpClient _streamClient;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="OandaApiClient"/> class.
@@ -49,18 +59,54 @@ namespace FFT.Oanda
       _client.BaseAddress = new Uri(_accountType == AccountType.Real ? "https://api-fxtrade.oanda.com/" : "https://api-fxpractice.oanda.com/");
       _client.DefaultRequestHeaders.Add("Authorization", $"Bearer {_key}");
       _client.DefaultRequestHeaders.Add("AcceptDatetimeFormat", "RFC3339");
+
+      _streamClient = new HttpClient(new SocketsHttpHandler());
+      _client.BaseAddress = new Uri(_accountType == AccountType.Real ? "https://stream-fxtrade.oanda.com/" : "https://stream-fxpractice.oanda.com/");
+      _client.DefaultRequestHeaders.Add("Authorization", $"Bearer {_key}");
+      _client.DefaultRequestHeaders.Add("AcceptDatetimeFormat", "RFC3339");
     }
 
     /// <inheritdoc/>
     public void Dispose()
     {
       _client.Dispose();
+      _streamClient.Dispose();
     }
 
     private async Task<T> ParseResponse<T>(HttpResponseMessage response)
     {
       await RequestFailedException.ThrowIfNecessary(response);
       return (await response.Content.ReadFromJsonAsync<T>())!;
+    }
+
+    private async IAsyncEnumerable<ReadOnlySequence<byte>> ReadLines(Stream stream, [EnumeratorCancellation] CancellationToken cancellationToken = default)
+    {
+      var reader = PipeReader.Create(stream);
+      try
+      {
+        while (true)
+        {
+          var result = await reader.ReadAsync(cancellationToken);
+          var buffer = result.Buffer;
+          var position = buffer.PositionOf(EOL);
+          if (position.HasValue)
+          {
+            var slice = buffer.Slice(0, position.Value);
+            yield return slice;
+            reader.AdvanceTo(position.Value);
+          }
+          else
+          {
+            reader.AdvanceTo(buffer.Start, buffer.End);
+            if (result.IsCompleted)
+              yield break;
+          }
+        }
+      }
+      finally
+      {
+        reader.Complete();
+      }
     }
   }
 
@@ -197,13 +243,6 @@ namespace FFT.Oanda
     /// price, while an un-smoothed candlestick uses the first price from its
     /// time range as its open price.
     /// </param>
-    /// <param name="includeFirst">
-    /// A flag that controls whether the candlestick that is covered by the from
-    /// time should be included in the results. This flag enables clients to use
-    /// the timestamp of the last completed candlestick received to poll for
-    /// future candlesticks but avoid receiving the previous candlestick
-    /// repeatedly.
-    /// </param>
     /// <param name="dailyAlignment">
     /// The hour of the day (in the specified timezone) to use for granularities
     /// that have daily alignments. [default=17, minimum=0, maximum=23].
@@ -222,13 +261,14 @@ namespace FFT.Oanda
       CandleSpecification candleSpecification,
       int count = 500,
       bool smooth = false,
-      bool includeFirst = true,
       int dailyAlignment = 17,
       string alignmentTimezone = "America/New_York",
       WeeklyAlignment weeklyAlignment = WeeklyAlignment.FRIDAY)
     {
       if (candleSpecification is null)
         throw new ArgumentNullException(nameof(candleSpecification));
+
+      candleSpecification.Validate();
 
       if (dailyAlignment < 0 || dailyAlignment > 23)
         throw new ArgumentException(nameof(dailyAlignment));
@@ -242,7 +282,6 @@ namespace FFT.Oanda
         { "granularity", candleSpecification.CandleStickGranularity.ToString() },
         { "count", count.ToString(CultureInfo.InvariantCulture) },
         { "smooth", smooth.ToString() },
-        { "includeFirst", includeFirst.ToString() },
         { "dailyAlignment", dailyAlignment.ToString(CultureInfo.InvariantCulture) },
         { "alignmentTimezone", alignmentTimezone },
         { "weeklyAlignment", weeklyAlignment.ToString() },
@@ -268,6 +307,7 @@ namespace FFT.Oanda
     /// </param>
     /// <param name="to">
     /// The end of the time range to fetch candlesticks for.
+    /// When null, to the present time. TODO: Check this actually works.
     /// </param>
     /// <param name="smooth">
     /// A flag that controls whether the candlestick is “smoothed” or not. A
@@ -299,7 +339,7 @@ namespace FFT.Oanda
     public async Task<CandlestickResponse> GetCandlestickData(
       CandleSpecification candleSpecification,
       DateTime from,
-      DateTime to,
+      DateTime? to,
       bool smooth = false,
       bool includeFirst = true,
       int dailyAlignment = 17,
@@ -308,6 +348,8 @@ namespace FFT.Oanda
     {
       if (candleSpecification is null)
         throw new ArgumentNullException(nameof(candleSpecification));
+
+      candleSpecification.Validate();
 
       if (dailyAlignment < 0 || dailyAlignment > 23)
         throw new ArgumentException(nameof(dailyAlignment));
@@ -318,21 +360,29 @@ namespace FFT.Oanda
       if (from.Kind != DateTimeKind.Utc)
         throw new ArgumentException("Kind must be set as utc.", nameof(from));
 
-      if (to.Kind != DateTimeKind.Utc)
-        throw new ArgumentException("Kind must be set as utc.", nameof(to));
+      if (to.HasValue)
+      {
+        if (to.Value.Kind != DateTimeKind.Utc)
+          throw new ArgumentException("Kind must be set as utc.", nameof(to));
+      }
 
       var query = new Dictionary<string, string>
       {
         { "price", candleSpecification.PricingComponent.ToString() },
         { "granularity", candleSpecification.CandleStickGranularity.ToString() },
         { "from", from.ToString(DateTimeFormatString, CultureInfo.InvariantCulture) },
-        { "to", to.ToString(DateTimeFormatString, CultureInfo.InvariantCulture) },
         { "smooth", smooth.ToString() },
         { "includeFirst", includeFirst.ToString() },
         { "dailyAlignment", dailyAlignment.ToString(CultureInfo.InvariantCulture) },
         { "alignmentTimezone", alignmentTimezone },
         { "weeklyAlignment", weeklyAlignment.ToString() },
       };
+
+      // TODO: check that this works when to is null.
+
+      if (to.HasValue)
+        query["to"] = to.Value.ToString(DateTimeFormatString, CultureInfo.InvariantCulture);
+
       var url = QueryHelpers.AddQueryString($"v3/instruments/{candleSpecification.InstrumentName}/candles", query);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
       using var response = await _client.SendAsync(request);
@@ -352,6 +402,9 @@ namespace FFT.Oanda
     /// </param>
     public async Task<OrderBookResponse> GetOrderBook(string instrumentName, DateTime? time = null)
     {
+      if (string.IsNullOrWhiteSpace(instrumentName))
+        throw new ArgumentException(nameof(instrumentName));
+
       var url = $"v3/instruments/{instrumentName}/orderBook";
       if (time.HasValue)
       {
@@ -379,6 +432,9 @@ namespace FFT.Oanda
       // TODO: The response header contains a link to the next/previous position
       // books. Perhaps consider adding these to the method's output?
 
+      if (string.IsNullOrWhiteSpace(instrumentName))
+        throw new ArgumentException(nameof(instrumentName));
+
       var url = $"v3/instruments/{instrumentName}/positionBook";
       if (time.HasValue)
       {
@@ -398,29 +454,35 @@ namespace FFT.Oanda
     /// <summary>
     /// Create an Order for an Account.
     /// </summary>
-    /// <param name="accountId">Account Identifier [required].</param>
+    /// <param name="accountId">
+    /// “-“-delimited string with format
+    /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+    /// 001-011-5838423-001.
+    /// </param>
     /// <param name="orderRequest">Specification of the Order to create.</param>
-    /// <exception cref="OrderRejectedException">Thrown when the order request was rejected.</exception>
     public async Task<CreateOrderResponse> CreateOrder(string accountId, OrderRequest orderRequest)
     {
       // TODO: A response to a successful request also contains a link to the
       // order that was generated. Include this in the returned data.
 
+      if (string.IsNullOrWhiteSpace(accountId))
+        throw new ArgumentException(nameof(accountId));
+
       using var request = new HttpRequestMessage(HttpMethod.Post, $"v3/accounts/{accountId}/orders")
       {
         Content = JsonContent.Create(orderRequest, orderRequest.GetType()),
       };
-
       using var response = await _client.SendAsync(request);
-      await RequestFailedException.ThrowIfNecessary(response);
-      return (await response.Content.ReadFromJsonAsync<CreateOrderResponse>())!;
+      return await ParseResponse<CreateOrderResponse>(response);
     }
 
     /// <summary>
     /// Get a list of Orders for an Account.
     /// </summary>
     /// <param name="accountId">
-    /// Account Identifier [required].
+    /// “-“-delimited string with format
+    /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+    /// 001-011-5838423-001.
     /// </param>
     /// <param name="instrumentName">
     /// The instrument to filter the requested orders by.
@@ -440,6 +502,9 @@ namespace FFT.Oanda
     /// </param>
     public async Task<GetOrdersResponse> GetOrders(string accountId, string? instrumentName = null, OrderStateFilter state = OrderStateFilter.PENDING, int count = 50, string? beforeId = null, string[]? ids = null)
     {
+      if (string.IsNullOrWhiteSpace(accountId))
+        throw new ArgumentException(nameof(accountId));
+
       if (count < 1 || count > 500)
         throw new ArgumentException(nameof(count));
 
@@ -461,44 +526,60 @@ namespace FFT.Oanda
       var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/orders", query);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
       using var response = await _client.SendAsync(request);
-      await RequestFailedException.ThrowIfNecessary(response);
-      return (await response.Content.ReadFromJsonAsync<GetOrdersResponse>())!;
+      return await ParseResponse<GetOrdersResponse>(response);
     }
 
     /// <summary>
     /// List all pending Orders in an Account.
     /// </summary>
     /// <param name="accountId">
-    /// Account Identifier [required].
+    /// “-“-delimited string with format
+    /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+    /// 001-011-5838423-001.
     /// </param>
     public async Task<GetOrdersResponse> GetPendingOrders(string accountId)
     {
+      if (string.IsNullOrWhiteSpace(accountId))
+        throw new ArgumentException(nameof(accountId));
+
       var url = $"v3/accounts/{accountId}/pendingOrders";
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
       using var response = await _client.SendAsync(request);
-      await RequestFailedException.ThrowIfNecessary(response);
-      return (await response.Content.ReadFromJsonAsync<GetOrdersResponse>())!;
+      return await ParseResponse<GetOrdersResponse>(response);
     }
 
     /// <summary>
     /// Get details for a single Order in an Account.
     /// </summary>
-    /// <param name="accountId">Account Identifier [required].</param>
+    /// <param name="accountId">
+    /// “-“-delimited string with format
+    /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+    /// 001-011-5838423-001.
+    /// </param>
     /// <param name="orderId">The Order Specifier [required].</param>
     public async Task<GetSingleOrderResponse> GetSingleOrder(string accountId, string orderId)
     {
+      if (string.IsNullOrWhiteSpace(accountId))
+        throw new ArgumentException(nameof(accountId));
+
+      if (string.IsNullOrWhiteSpace(orderId))
+        throw new ArgumentException(nameof(orderId));
+
       var url = $"v3/accounts/{accountId}/orders/{orderId}";
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
       using var response = await _client.SendAsync(request);
-      await RequestFailedException.ThrowIfNecessary(response);
-      return (await response.Content.ReadFromJsonAsync<GetSingleOrderResponse>())!;
+      return await ParseResponse<GetSingleOrderResponse>(response);
     }
 
     /// <summary>
     /// Replace an Order in an Account by simultaneously cancelling it and
     /// creating a replacement Order.
     /// </summary>
-    /// <param name="accountId">Account Identifier [required].</param>
+    /// <param name="accountId">
+    /// “-“-delimited string with format
+    /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+    /// 001-011-5838423-001.
+    /// </param>
     /// <param name="orderId">
     /// The id of the order to be replaced [required].
     /// </param>
@@ -508,19 +589,16 @@ namespace FFT.Oanda
     /// <param name="clientRequestId">
     /// Client specified RequestID to be sent with request.
     /// </param>
-    /// <exception cref="OrderRejectedException">
-    /// Thrown when the order replacement request is rejected.
-    /// </exception>
-    /// <exception cref="OrderOrAccountNotFoundException">
-    /// Thrown when the account or the order to be replaced does not exist.
-    /// </exception>
-    /// <exception cref="HttpRequestException">
-    /// Thrown for other non-success response statuses.
-    /// </exception>
     public async Task<ReplaceOrderResponse> ReplaceOrder(string accountId, string orderId, OrderRequest replacementOrder, string clientRequestId = null)
     {
       // TODO: Response header also contains a link to the new order. Add it to
       // the method's output.
+
+      if (string.IsNullOrWhiteSpace(accountId))
+        throw new ArgumentException(nameof(accountId));
+
+      if (string.IsNullOrWhiteSpace(orderId))
+        throw new ArgumentException(nameof(orderId));
 
       var url = $"v3/accounts/{accountId}/orders/{orderId}";
       using var request = new HttpRequestMessage(HttpMethod.Put, url)
@@ -532,18 +610,27 @@ namespace FFT.Oanda
         request.Headers.Add("ClientRequestID", clientRequestId);
 
       using var response = await _client.SendAsync(request);
-      await RequestFailedException.ThrowIfNecessary(response);
-      return (await response.Content.ReadFromJsonAsync<ReplaceOrderResponse>())!;
+      return await ParseResponse<ReplaceOrderResponse>(response);
     }
 
     /// <summary>
     /// Cancel a pending Order in an Account.
     /// </summary>
-    /// <param name="accountId">Account Identifier [required].</param>
+    /// <param name="accountId">
+    /// “-“-delimited string with format
+    /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+    /// 001-011-5838423-001.
+    /// </param>
     /// <param name="orderId">The Order Specifier. Can be the order id or "@" + the order's client id. [required].</param>
     /// <param name="clientRequestId">Client specified RequestID to be sent with request.</param>
     public async Task<CancelOrderResponse> CancelOrder(string accountId, string orderId, string? clientRequestId = null)
     {
+      if (string.IsNullOrWhiteSpace(accountId))
+        throw new ArgumentException(nameof(accountId));
+
+      if (string.IsNullOrWhiteSpace(orderId))
+        throw new ArgumentException(nameof(orderId));
+
       var url = $"v3/accounts/{accountId}/orders/{orderId}/cancel";
       using var request = new HttpRequestMessage(HttpMethod.Put, url);
 
@@ -551,20 +638,28 @@ namespace FFT.Oanda
         request.Headers.Add("ClientRequestID", clientRequestId);
 
       using var response = await _client.SendAsync(request);
-      await RequestFailedException.ThrowIfNecessary(response);
-      return (await response.Content.ReadFromJsonAsync<CancelOrderResponse>())!;
+      return await ParseResponse<CancelOrderResponse>(response);
     }
 
     /// <summary>
     /// Update the Client Extensions for an Order in an Account.Do not set, modify, or delete clientExtensions if your account is associated with MT4.
     /// </summary>
-    /// <param name="accountId"></param>
+    /// <param name="accountId">
+    /// “-“-delimited string with format
+    /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+    /// 001-011-5838423-001.
+    /// </param>
     /// <param name="orderSpecifier"></param>
     /// <param name="clientExtensions"></param>
     /// <param name="tradeClientExtensions"></param>
-    /// <returns></returns>
     public async Task<UpdateOrderClientExtensionsResponse> SetOrderClientExtensions(string accountId, string orderSpecifier, ClientExtensions? clientExtensions, ClientExtensions? tradeClientExtensions)
     {
+      if (string.IsNullOrWhiteSpace(accountId))
+        throw new ArgumentException(nameof(accountId));
+
+      if (string.IsNullOrWhiteSpace(orderSpecifier))
+        throw new ArgumentException(nameof(orderSpecifier));
+
       var url = $"v3/accounts/{accountId}/orders/{orderSpecifier}/clientExtensions";
       using var request = new HttpRequestMessage(HttpMethod.Put, url)
       {
@@ -575,8 +670,7 @@ namespace FFT.Oanda
         }),
       };
       using var response = await _client.SendAsync(request);
-      await RequestFailedException.ThrowIfNecessary(response);
-      return (await response.Content.ReadFromJsonAsync<UpdateOrderClientExtensionsResponse>())!;
+      return await ParseResponse<UpdateOrderClientExtensionsResponse>(response);
     }
   }
 
@@ -586,7 +680,11 @@ namespace FFT.Oanda
     /// <summary>
     /// Get a list of Trades for an Account.
     /// </summary>
-    /// <param name="accountId">Account Identifier [required].</param>
+    /// <param name="accountId">
+    /// “-“-delimited string with format
+    /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+    /// 001-011-5838423-001.
+    /// </param>
     /// <param name="state">The state to filter the requested Trades by. [default=OPEN].</param>
     /// <param name="instrument">The instrument to filter the requested Trades by.</param>
     /// <param name="count">The maximum number of Trades to return. [default=50, maximum=500].</param>
@@ -618,14 +716,17 @@ namespace FFT.Oanda
       var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/trades", query);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
       using var response = await _client.SendAsync(request);
-      await RequestFailedException.ThrowIfNecessary(response);
-      return (await response.Content.ReadFromJsonAsync<GetTradesResponse>())!;
+      return await ParseResponse<GetTradesResponse>(response);
     }
 
     /// <summary>
     /// Get the list of open Trades for an Account.
     /// </summary>
-    /// <param name="accountId">Account Identifier</param>
+    /// <param name="accountId">
+    /// “-“-delimited string with format
+    /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+    /// 001-011-5838423-001.
+    /// </param>
     public async Task<GetTradesResponse> GetOpenTrades(string accountId)
     {
       if (string.IsNullOrWhiteSpace(accountId))
@@ -633,8 +734,7 @@ namespace FFT.Oanda
 
       using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}/openTrades");
       using var response = await _client.SendAsync(request);
-      await RequestFailedException.ThrowIfNecessary(response);
-      return (await response.Content.ReadFromJsonAsync<GetTradesResponse>())!;
+      return await ParseResponse<GetTradesResponse>(response);
     }
 
     /// <summary>
@@ -659,8 +759,7 @@ namespace FFT.Oanda
 
       using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}/trades/{tradeSpecifier}");
       using var response = await _client.SendAsync(request);
-      await RequestFailedException.ThrowIfNecessary(response);
-      return (await response.Content.ReadFromJsonAsync<GetTradeResponse>())!;
+      return await ParseResponse<GetTradeResponse>(response);
     }
 
     /// <summary>
@@ -703,8 +802,7 @@ namespace FFT.Oanda
         }),
       };
       using var response = await _client.SendAsync(request);
-      await RequestFailedException.ThrowIfNecessary(response);
-      return (await response.Content.ReadFromJsonAsync<CloseTradeResponse>())!;
+      return await ParseResponse<CloseTradeResponse>(response);
     }
 
     /// <summary>
@@ -928,6 +1026,585 @@ namespace FFT.Oanda
   // Transaction endpoint
   public partial class OandaApiClient
   {
+    /// <summary>
+    /// Get a list of Transactions pages that satisfy a time-based Transaction
+    /// query.
+    /// </summary>
+    /// <param name="accountId">
+    /// “-“-delimited string with format
+    /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+    /// 001-011-5838423-001.
+    /// </param>
+    /// <param name="from">
+    /// The starting time (inclusive) of the time range for the Transactions
+    /// being queried. If null, the account creation time will be used.
+    /// </param>
+    /// <param name="to">
+    /// The ending time (inclusive) of the time range for the Transactions being
+    /// queried. If null, the current time will be used.
+    /// </param>
+    public async Task<GetTransactionIdRangeResponse> GetTransactionIdRange(string accountId, DateTime? from = null, DateTime? to = null)
+    {
+      // TODO: Test what happens when input is a range with no transactions.
 
+      if (string.IsNullOrWhiteSpace(accountId))
+        throw new ArgumentException(nameof(accountId));
+
+      var query = new Dictionary<string, string>
+      {
+        { "pageSize", "1000" }, // maximum allowed by the api
+      };
+
+      if (from.HasValue) // otherwise fall back to api defaults
+        query.Add("from", from.Value.ToString(DateTimeFormatString));
+
+      if (to.HasValue) // otherwise fall back to api defaults
+        query.Add("to", to.Value.ToString(DateTimeFormatString));
+
+      var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/transactions", query);
+      using var request = new HttpRequestMessage(HttpMethod.Get, url);
+      using var response = await _client.SendAsync(request);
+      await RequestFailedException.ThrowIfNecessary(response);
+      return (await response.Content.ReadFromJsonAsync<GetTransactionIdRangeResponse>())!;
+    }
+
+    /// <summary>
+    /// Get the details of a single Account Transaction.
+    /// </summary>
+    /// <param name="accountId">
+    /// “-“-delimited string with format
+    /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+    /// 001-011-5838423-001.
+    /// </param>
+    /// <param name="transactionId">A Transaction ID.</param>
+    public async Task<GetTransactionResponse> GetTransaction(string accountId, string transactionId)
+    {
+      if (string.IsNullOrWhiteSpace(accountId))
+        throw new ArgumentException(nameof(accountId));
+
+      if (string.IsNullOrWhiteSpace(transactionId))
+        throw new ArgumentException(nameof(transactionId));
+
+      var url = $"v3/accounts/{accountId}/transactions/{transactionId}";
+      using var request = new HttpRequestMessage(HttpMethod.Get, url);
+      using var response = await _client.SendAsync(request);
+      return await ParseResponse<GetTransactionResponse>(response);
+    }
+
+    /// <summary>
+    /// Get a range of Transactions for an Account based on the Transaction IDs.
+    /// </summary>
+    /// <param name="accountId">
+    /// “-“-delimited string with format
+    /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+    /// 001-011-5838423-001.
+    /// </param>
+    /// <param name="fromTransactionId">The starting Transaction ID (inclusive)
+    /// to fetch.</param>
+    /// <param name="toTransactionId">The ending Transaction ID (inclusive) to
+    /// fetch.</param>
+    /// <param name="types">The filter that restricts the types of Transactions
+    /// to retrieve. Null for all transaction types.</param>
+    public async Task<GetTransactionsResponse> GetTransactions(string accountId, int fromTransactionId, int toTransactionId, TransactionFilter[]? types = null)
+    {
+      // TODO: Experiment to see if null filter works.
+
+      if (string.IsNullOrWhiteSpace(accountId))
+        throw new ArgumentException(nameof(accountId));
+
+      if (fromTransactionId < 0)
+        throw new ArgumentException($"Must be greater than or equal to zero.", nameof(fromTransactionId));
+
+      if (toTransactionId < 0)
+        throw new ArgumentException($"Must be greater than or equal to zero.", nameof(toTransactionId));
+
+      if (toTransactionId < fromTransactionId)
+        throw new ArgumentException($"'{nameof(toTransactionId)}' must be greater than or equal to '{nameof(fromTransactionId)}'.", nameof(toTransactionId));
+
+      if (toTransactionId - fromTransactionId >= 1000)
+        throw new ArgumentException($"Max number of transactions is 1000.", nameof(toTransactionId));
+
+      var query = new Dictionary<string, string>
+      {
+        { "from", fromTransactionId.ToString(CultureInfo.InvariantCulture) },
+        { "to", toTransactionId.ToString(CultureInfo.InvariantCulture) },
+      };
+
+      if (types is { Length: > 0 })
+        query.Add("type", string.Join(",", types));
+
+      var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/transactions/idrange", query);
+      using var request = new HttpRequestMessage(HttpMethod.Get, url);
+      using var response = await _client.SendAsync(request);
+      return await ParseResponse<GetTransactionsResponse>(response);
+    }
+
+    /// <summary>
+    /// Get a range of Transactions for an Account starting at (but not
+    /// including) a provided Transaction ID.
+    /// </summary>
+    /// <param name="accountId">
+    /// “-“-delimited string with format
+    /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+    /// 001-011-5838423-001.
+    /// </param>
+    /// <param name="fromTransactionId">The ID of the last Transaction fetched.
+    /// This query will return all Transactions newer than the
+    /// TransactionID.</param>
+    /// <param name="types">A filter for restricting the types of Transactions
+    /// to retrieve. Null to retrieve all Transaction types.</param>
+    public async Task<GetTransactionsResponse> GetTransactionsSince(string accountId, int fromTransactionId, TransactionFilter[]? types = null)
+    {
+      if (string.IsNullOrWhiteSpace(accountId))
+        throw new ArgumentException(nameof(accountId));
+
+      var url = $"v3/accounts/{accountId}/transactions/sinceid?id={fromTransactionId}";
+      if (types is { Length: > 0 })
+        url = QueryHelpers.AddQueryString(url, "type", string.Join(",", types));
+
+      using var request = new HttpRequestMessage(HttpMethod.Get, url);
+      using var response = await _client.SendAsync(request);
+      return await ParseResponse<GetTransactionsResponse>(response);
+    }
+
+    /// <summary>
+    /// Get a stream of Transactions and TransactionHeartbeats for an Account
+    /// starting from when the request is made. Values returned are either
+    /// inheriting <see cref="Transaction"/> or are of type <see
+    /// cref="TransactionHeartbeat"/>.
+    /// </summary>
+    /// <param name="accountId">
+    /// “-“-delimited string with format
+    /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+    /// 001-011-5838423-001.
+    /// </param>
+    /// <param name="cancellationToken">Cancels the enumeration and closes the
+    /// stream connection.</param>
+    public async IAsyncEnumerable<object> GetTransactionsStream(string accountId, [EnumeratorCancellation] CancellationToken cancellationToken)
+    {
+      if (string.IsNullOrWhiteSpace(accountId))
+        throw new ArgumentException(nameof(accountId));
+
+      var url = $"v3/accounts/{accountId}/transactions/stream";
+      using var stream = await _streamClient.GetStreamAsync(url);
+      await foreach (var slice in ReadLines(stream).WithCancellation(cancellationToken))
+      {
+        yield return Parse(slice);
+      }
+
+      static object Parse(ReadOnlySequence<byte> slice)
+      {
+        try
+        {
+          var reader = new Utf8JsonReader(slice);
+          return JsonSerializer.Deserialize<Transaction>(ref reader)!;
+        }
+        catch (Exception x)
+        {
+          if (x is JsonException jx && jx.Message.Contains("heartbeat"))
+          {
+            var reader = new Utf8JsonReader(slice);
+            return JsonSerializer.Deserialize<TransactionHeartbeat>(ref reader)!;
+          }
+
+          throw;
+        }
+      }
+    }
+  }
+
+  // Pricing endpoing
+  public partial class OandaApiClient
+  {
+    /// <summary>
+    /// Get dancing bears and most recently completed candles within an Account
+    /// for specified combinations of instrument, granularity, and price
+    /// component.
+    /// </summary>
+    /// <param name="accountId">
+    /// “-“-delimited string with format
+    /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+    /// 001-011-5838423-001.
+    /// </param>
+    /// <param name="candleSpecifications">List of candle specifications to get
+    /// pricing for.</param>
+    /// <param name="units">The number of units used to calculate the
+    /// volume-weighted average bid and ask prices in the returned
+    /// candles.</param>
+    /// <param name="smooth">A flag that controls whether the candlestick is
+    /// “smoothed” or not. A smoothed candlestick uses the previous candle’s
+    /// close price as its open price, while an unsmoothed candlestick uses the
+    /// first price from its time range as its open price.</param>
+    /// <param name="dailyAlignment">The hour of the day (in the specified
+    /// timezone) to use for granularities that have daily alignments.
+    /// [default=17, minimum=0, maximum=23]</param>
+    /// <param name="alignmentTimezone">The timezone to use for the
+    /// dailyAlignment parameter. Candlesticks with daily alignment will be
+    /// aligned to the dailyAlignment hour within the alignmentTimezone. Note
+    /// that the returned times will still be represented in UTC.</param>
+    /// <param name="weeklyAlignment">The day of the week used for granularities
+    /// that have weekly alignment.</param>
+    public async Task<LatestCandlesResponse> GetLatestCandles(
+      string accountId,
+      CandleSpecification[] candleSpecifications,
+      decimal units = 1,
+      bool smooth = false,
+      int dailyAlignment = 17,
+      string alignmentTimezone = "America/New_York",
+      WeeklyAlignment weeklyAlignment = WeeklyAlignment.FRIDAY)
+    {
+      if (string.IsNullOrWhiteSpace(accountId))
+        throw new ArgumentException(nameof(accountId));
+
+      if (candleSpecifications is not { Length: > 0 })
+        throw new ArgumentNullException(nameof(candleSpecifications));
+
+      foreach (var specification in candleSpecifications)
+      {
+        if (specification is null)
+          throw new ArgumentException(nameof(candleSpecifications));
+        specification.Validate();
+      }
+
+      if (dailyAlignment < 0 || dailyAlignment > 23)
+        throw new ArgumentException(nameof(dailyAlignment));
+
+      if (string.IsNullOrWhiteSpace(alignmentTimezone))
+        throw new ArgumentException(nameof(alignmentTimezone));
+
+      var query = new Dictionary<string, string>
+      {
+        { "units", units.ToString(CultureInfo.InvariantCulture) },
+        { "smooth", smooth.ToString() },
+        { "dailyAlignment", dailyAlignment.ToString(CultureInfo.InvariantCulture) },
+        { "alignmentTimezone", alignmentTimezone },
+        { "weeklyAlignment", weeklyAlignment.ToString() },
+        { "candleSpecifications", string.Join<CandleSpecification>(',', candleSpecifications) },
+      };
+
+      var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/candles/latest", query);
+      using var request = new HttpRequestMessage(HttpMethod.Get, url);
+      using var response = await _client.SendAsync(request);
+      return await ParseResponse<LatestCandlesResponse>(response);
+    }
+
+    /// <summary>
+    /// Get pricing information for a specified list of Instruments within an
+    /// Account.
+    /// </summary>
+    /// <param name="accountId">
+    /// “-“-delimited string with format
+    /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+    /// 001-011-5838423-001.
+    /// </param>
+    /// <param name="instruments">List of Instruments to get pricing for.
+    /// </param>
+    /// <param name="since">
+    /// Date/Time filter to apply to the response. Only prices and home
+    /// conversions (if requested) with a time later than this filter (i.e. the
+    /// price has changed after the since time) will be provided, and are
+    /// filtered independently.
+    /// </param>
+    /// <param name="includeHomeConversions">
+    /// Flag that enables the inclusion of the homeConversions field in the
+    /// returned response. An entry will be returned for each currency in the
+    /// set of all base and quote currencies present in the requested
+    /// instruments list.
+    /// </param>
+    public async Task<PricingInformationResponse> GetPricingInformation(string accountId, string[] instruments, DateTime? since = null, bool includeHomeConversions = false)
+    {
+      if (string.IsNullOrWhiteSpace(accountId))
+        throw new ArgumentException(nameof(accountId));
+
+      if (instruments is not { Length: > 0 })
+        throw new ArgumentNullException(nameof(instruments));
+
+      foreach (var instrument in instruments)
+      {
+        if (string.IsNullOrWhiteSpace(instrument))
+          throw new ArgumentException(nameof(instruments));
+      }
+
+      var query = new Dictionary<string, string>
+      {
+        { "instruments", string.Join(',', instruments) },
+        { "includeHomeConversions", includeHomeConversions.ToString() },
+      };
+
+      if (since.HasValue)
+        query["since"] = since.Value.ToString(DateTimeFormatString);
+
+      var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/pricing", query);
+      using var request = new HttpRequestMessage(HttpMethod.Get, url);
+      using var response = await _client.SendAsync(request);
+      return await ParseResponse<PricingInformationResponse>(response);
+    }
+
+    /// <summary>
+    /// Get a stream of Account Prices starting from when the request is made.
+    /// This pricing stream does not include every single price created for the
+    /// Account, but instead will provide at most 4 prices per second (every 250
+    /// milliseconds) for each instrument being requested. If more than one
+    /// price is created for an instrument during the 250 millisecond window,
+    /// only the price in effect at the end of the window is sent. This means
+    /// that during periods of rapid price movement, subscribers to this stream
+    /// will not be sent every price. Pricing windows for different connections
+    /// to the price stream are not all aligned in the same way (i.e. they are
+    /// not all aligned to the top of the second). This means that during
+    /// periods of rapid price movement, different subscribers may observe
+    /// different prices depending on their alignment.
+    /// </summary>
+    /// <param name="accountId">
+    /// “-“-delimited string with format
+    /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+    /// 001-011-5838423-001.
+    /// </param>
+    /// <param name="instruments">
+    /// List of Instruments to stream Prices for.
+    /// </param>
+    /// <param name="snapshot">
+    /// Flag that enables/disables the sending of a pricing snapshot when
+    /// initially connecting to the stream.
+    /// </param>
+    /// <param name="includeHomeConversions">
+    /// Flag that enables the inclusion of the homeConversions field in the
+    /// returned response. An entry will be returned for each currency in the
+    /// set of all base and quote currencies present in the requested
+    /// instruments list.
+    /// </param>
+    /// <param name="cancellationToken">
+    /// Close the stream and break the enumeration.</param>
+    public async IAsyncEnumerable<object> GetPricingStream(string accountId, string[] instruments, bool snapshot = true, bool includeHomeConversions = false, [EnumeratorCancellation] CancellationToken cancellationToken = default)
+    {
+      var query = new Dictionary<string, string>
+      {
+        { "instruments", string.Join(',', instruments) },
+        { "snapshot", snapshot.ToString() },
+        { "includeHomeConversions", includeHomeConversions.ToString() },
+      };
+      var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/pricing/stream", query);
+      using var stream = await _streamClient.GetStreamAsync(url);
+      await foreach (var slice in ReadLines(stream, cancellationToken))
+      {
+        yield return Parse(slice);
+      }
+
+      static object Parse(ReadOnlySequence<byte> slice)
+      {
+        try
+        {
+          var reader = new Utf8JsonReader(slice);
+          return JsonSerializer.Deserialize<ClientPrice>(ref reader)!;
+        }
+        catch (Exception x)
+        {
+          try
+          {
+            var reader = new Utf8JsonReader(slice);
+            return JsonSerializer.Deserialize<PricingHeartbeat>(ref reader)!;
+          }
+          catch (Exception y)
+          {
+            Debugger.Break();
+            throw;
+          }
+        }
+      }
+    }
+
+    /// <summary>
+    /// Fetch candlestick data for an instrument. This method overload uses the
+    /// "count" parameter (instead of the "from" and "to" parameters) to
+    /// determine the range of candles to return.
+    /// </summary>
+    /// <param name="accountId">
+    /// “-“-delimited string with format
+    /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+    /// 001-011-5838423-001.
+    /// </param>
+    /// <param name="candleSpecification">
+    /// An instrument name, a granularity, and a price component to get
+    /// candlestick data for.
+    /// </param>
+    /// <param name="count">
+    /// The number of candlesticks to return in the response. [maximum=5000].
+    /// </param>
+    /// <param name="smooth">
+    /// A flag that controls whether the candlestick is “smoothed” or not. A
+    /// smoothed candlestick uses the previous candle’s close price as its open
+    /// price, while an un-smoothed candlestick uses the first price from its
+    /// time range as its open price.
+    /// </param>
+    /// <param name="dailyAlignment">
+    /// The hour of the day (in the specified timezone) to use for granularities
+    /// that have daily alignments. [default=17, minimum=0, maximum=23].
+    /// </param>
+    /// <param name="alignmentTimezone">
+    /// The timezone to use for the dailyAlignment parameter. Candlesticks with
+    /// daily alignment will be aligned to the dailyAlignment hour within the
+    /// alignmentTimezone. Note that the returned times will still be
+    /// represented in UTC. [default=America/New_York].
+    /// </param>
+    /// <param name="weeklyAlignment">
+    /// The day of the week used for granularities that have weekly alignment.
+    /// [default=Friday].
+    /// </param>
+    /// <param name="units">
+    /// The number of units used to calculate the volume-weighted average bid
+    /// and ask prices in the returned candles.
+    /// </param>
+    public async Task<CandlestickResponse> GetCandlestickData(
+      string accountId,
+      CandleSpecification candleSpecification,
+      int count = 500,
+      bool smooth = false,
+      int dailyAlignment = 17,
+      string alignmentTimezone = "America/New_York",
+      WeeklyAlignment weeklyAlignment = WeeklyAlignment.FRIDAY,
+      int units = 1)
+    {
+      if (string.IsNullOrWhiteSpace(accountId))
+        throw new ArgumentException(nameof(accountId));
+
+      if (candleSpecification is null)
+        throw new ArgumentNullException(nameof(candleSpecification));
+
+      candleSpecification.Validate();
+
+      if (dailyAlignment < 0 || dailyAlignment > 23)
+        throw new ArgumentException(nameof(dailyAlignment));
+
+      if (string.IsNullOrWhiteSpace(alignmentTimezone))
+        throw new ArgumentException(nameof(alignmentTimezone));
+
+      var query = new Dictionary<string, string>
+      {
+        { "price", candleSpecification.PricingComponent.ToString() },
+        { "granularity", candleSpecification.CandleStickGranularity.ToString() },
+        { "count", count.ToString(CultureInfo.InvariantCulture) },
+        { "smooth", smooth.ToString() },
+        { "dailyAlignment", dailyAlignment.ToString(CultureInfo.InvariantCulture) },
+        { "alignmentTimezone", alignmentTimezone },
+        { "weeklyAlignment", weeklyAlignment.ToString() },
+        { "units", units.ToString(CultureInfo.InvariantCulture) },
+      };
+      var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/instruments/{candleSpecification.InstrumentName}/candles", query);
+      using var request = new HttpRequestMessage(HttpMethod.Get, url);
+      using var response = await _client.SendAsync(request);
+      await RequestFailedException.ThrowIfNecessary(response);
+      return (await response.Content.ReadFromJsonAsync<CandlestickResponse>())!;
+    }
+
+    /// <summary>
+    /// Fetch candlestick data for an instrument. This method overload uses the
+    /// "count" parameter (instead of the "from" and "to" parameters) to
+    /// determine the range of candles to return.
+    /// </summary>
+    /// <param name="accountId">
+    /// “-“-delimited string with format
+    /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+    /// 001-011-5838423-001.
+    /// </param>
+    /// <param name="candleSpecification">
+    /// An instrument name, a granularity, and a price component to get
+    /// candlestick data for.
+    /// </param>
+    /// <param name="from">
+    /// The start of the time range to fetch candlesticks for.
+    /// </param>
+    /// <param name="to">
+    /// The end of the time range to fetch candlesticks for.
+    /// When null, to the present time. TODO: Check this actually works.
+    /// </param>
+    /// <param name="smooth">
+    /// A flag that controls whether the candlestick is “smoothed” or not. A
+    /// smoothed candlestick uses the previous candle’s close price as its open
+    /// price, while an un-smoothed candlestick uses the first price from its
+    /// time range as its open price.
+    /// </param>
+    /// <param name="includeFirst">
+    /// A flag that controls whether the candlestick that is covered by the from
+    /// time should be included in the results. This flag enables clients to use
+    /// the timestamp of the last completed candlestick received to poll for
+    /// future candlesticks but avoid receiving the previous candlestick
+    /// repeatedly.
+    /// </param>
+    /// <param name="dailyAlignment">
+    /// The hour of the day (in the specified timezone) to use for granularities
+    /// that have daily alignments. [default=17, minimum=0, maximum=23].
+    /// </param>
+    /// <param name="alignmentTimezone">
+    /// The timezone to use for the dailyAlignment parameter. Candlesticks with
+    /// daily alignment will be aligned to the dailyAlignment hour within the
+    /// alignmentTimezone. Note that the returned times will still be
+    /// represented in UTC. [default=America/New_York].
+    /// </param>
+    /// <param name="weeklyAlignment">
+    /// The day of the week used for granularities that have weekly alignment.
+    /// [default=Friday].
+    /// </param>
+    /// <param name="units">
+    /// The number of units used to calculate the volume-weighted average bid
+    /// and ask prices in the returned candles.
+    /// </param>
+    public async Task<CandlestickResponse> GetCandlestickData(
+      string accountId,
+      CandleSpecification candleSpecification,
+      DateTime from,
+      DateTime? to,
+      bool smooth = false,
+      bool includeFirst = true,
+      int dailyAlignment = 17,
+      string alignmentTimezone = "America/New_York",
+      WeeklyAlignment weeklyAlignment = WeeklyAlignment.FRIDAY,
+      int units = 1)
+    {
+      if (string.IsNullOrWhiteSpace(accountId))
+        throw new ArgumentException(nameof(accountId));
+
+      if (candleSpecification is null)
+        throw new ArgumentNullException(nameof(candleSpecification));
+
+      candleSpecification.Validate();
+
+      if (dailyAlignment < 0 || dailyAlignment > 23)
+        throw new ArgumentException(nameof(dailyAlignment));
+
+      if (string.IsNullOrWhiteSpace(alignmentTimezone))
+        throw new ArgumentException(nameof(alignmentTimezone));
+
+      if (from.Kind != DateTimeKind.Utc)
+        throw new ArgumentException("Kind must be set as utc.", nameof(from));
+
+      if (to.HasValue)
+      {
+        if (to.Value.Kind != DateTimeKind.Utc)
+          throw new ArgumentException("Kind must be set as utc.", nameof(to));
+      }
+
+      var query = new Dictionary<string, string>
+      {
+        { "price", candleSpecification.PricingComponent.ToString() },
+        { "granularity", candleSpecification.CandleStickGranularity.ToString() },
+        { "from", from.ToString(DateTimeFormatString, CultureInfo.InvariantCulture) },
+        { "smooth", smooth.ToString() },
+        { "includeFirst", includeFirst.ToString() },
+        { "dailyAlignment", dailyAlignment.ToString(CultureInfo.InvariantCulture) },
+        { "alignmentTimezone", alignmentTimezone },
+        { "weeklyAlignment", weeklyAlignment.ToString() },
+        { "units", units.ToString(CultureInfo.InvariantCulture) },
+      };
+
+      // TODO: check that this works when to is null.
+
+      if (to.HasValue)
+        query["to"] = to.Value.ToString(DateTimeFormatString, CultureInfo.InvariantCulture);
+
+      var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/instruments/{candleSpecification.InstrumentName}/candles", query);
+      using var request = new HttpRequestMessage(HttpMethod.Get, url);
+      using var response = await _client.SendAsync(request);
+      await RequestFailedException.ThrowIfNecessary(response);
+      return (await response.Content.ReadFromJsonAsync<CandlestickResponse>())!;
+    }
   }
 }

@@ -36,11 +36,6 @@ namespace FFT.Oanda.Pricing
       CloseoutAsk = closeoutAsk;
     }
 
-    // TODO: This class is "delivered" in a stream of objects, and I think each
-    // has a "type" field that helps us know how to deserialize it. It would be
-    // best to figure out all of these classes and give them a common base class
-    // and JsonConverter for deserialization.
-
     /// <summary>
     /// The string “PRICE”. Used to identify the a Price object when found in a
     /// stream.
@@ -76,12 +71,16 @@ namespace FFT.Oanda.Pricing
     /// </summary>
     public ImmutableList<PriceBucket> Asks { get; }
 
+    // TODO: I think this should probably be nullable for when the instrument is not tradeable
+
     /// <summary>
     /// The closeout bid Price. This Price is used when a bid is required to
     /// closeout a Position (margin closeout or manual) yet there is no bid
     /// liquidity. The closeout bid is never used to open a new position.
     /// </summary>
     public decimal CloseoutBid { get; }
+
+    // TODO: I think this should probably be nullable for when the instrument is not tradeable
 
     /// <summary>
     /// The closeout ask Price. This Price is used when a ask is required to

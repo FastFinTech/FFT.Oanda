@@ -3,6 +3,7 @@
 
 namespace FFT.Oanda.Pricing
 {
+  using System;
   using FFT.Oanda.Instruments;
 
   /// <summary>
@@ -32,5 +33,17 @@ namespace FFT.Oanda.Pricing
     /// <inheritdoc/>
     public override string ToString()
       => $"{InstrumentName}:{CandleStickGranularity}:{PricingComponent}";
+
+    /// <summary>
+    /// Call this method to throw an exception if this instance does not contain
+    /// suitable values for sending to the oanda api.
+    /// </summary>
+    public void Validate()
+    {
+      // TODO: Does not provide clear error messages. Fix this.
+      if (string.IsNullOrWhiteSpace(InstrumentName))
+        throw new ArgumentNullException(nameof(InstrumentName));
+      PricingComponent.Validate();
+    }
   }
 }

@@ -28,5 +28,15 @@ namespace FFT.Oanda.Instruments
     /// <inheritdoc/>
     public override string ToString()
       => (Bid ? "B" : string.Empty) + (Ask ? "A" : string.Empty) + (Mid ? "M" : string.Empty);
+
+    /// <summary>
+    /// Throws an <see cref="ArgumentException"/> if this instance contains
+    /// an invalid combination of values.
+    /// </summary>
+    public void Validate()
+    {
+      if (!(Bid || Ask || Mid))
+        throw new ArgumentException("At least one pricing component must be required.");
+    }
   }
 }
