@@ -10,6 +10,16 @@
     <TargetFramework>net5</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <IsPackable>true</IsPackable>
+
+    <PackageId>FFT.Oanda</PackageId>
+    <Summary>A .net client for the Oanda api V2.</Summary>
+    <Description>$(Summary)</Description>
+    <Company>True Goodwill</Company>
+    <Authors>True Goodwill</Authors>
+    <PackageProjectUrl>https://github.com/FastFinTech/FFT.Oanda</PackageProjectUrl>
+    <RepositoryUrl>$(PackageProjectUrl)</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>oanda;api</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
