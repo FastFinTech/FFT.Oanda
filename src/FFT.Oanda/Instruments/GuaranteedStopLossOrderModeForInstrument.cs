@@ -30,5 +30,4 @@ namespace FFT.Oanda.Instruments
     /// </summary>
     REQUIRED,
   }
-
 }

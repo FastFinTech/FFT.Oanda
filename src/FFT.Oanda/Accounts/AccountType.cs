@@ -3,15 +3,18 @@
 
 namespace FFT.Oanda.Accounts
 {
+  /// <summary>
+  /// Used to define which account api endpoint you wish to connect to.
+  /// </summary>
   public enum AccountType
   {
     /// <summary>
-    /// A "real-money" account.
+    /// A real-money account.
     /// </summary>
     Real,
 
     /// <summary>
-    /// A pretend account used for practice / experimentation.
+    /// A practice account with pretend money.
     /// </summary>
     Practice,
   }
