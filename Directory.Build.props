@@ -1,4 +1,10 @@
 <Project>
+
+  <!-- Set the repository root into a variable -->
+  <PropertyGroup>
+    <SourceRoot>$(MSBuildThisFileDirectory)</SourceRoot>
+  </PropertyGroup>
+
   <PropertyGroup>
     <LangVersion>9</LangVersion>
     <Nullable>enable</Nullable>
@@ -12,10 +18,14 @@
     <!--<IncludeSymbols>true</IncludeSymbols>-->
     <!--<SymbolPackageFormat>snupkg</SymbolPackageFormat>-->
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-    <PackageIcon>$(MSBuildThisFileDirectory)Icon.ico</PackageIcon>
-    <ApplicationIcon>$(MSBuildThisFileDirectory)Icon.ico</ApplicationIcon>
+    <PackageIcon>Icon.ico</PackageIcon>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="$(SourceRoot)Icon.ico" Pack="true" Visible="false" PackagePath="/" />
+  </ItemGroup>
+  
   <ItemGroup>
     <!-- <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.4" PrivateAssets="all" /> -->
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
