@@ -29,10 +29,11 @@ namespace FFT.Oanda
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="NumUnits"/> struct.
+    /// Initializes a new instance of the <see cref="NumUnits"/> struct. Use
+    /// this constructor when you need to specify a fixed number of units.
     /// </summary>
-    /// <param name="value">Either "ALL" or the string representation of a
-    /// decimal value for a fixed number of units.</param>
+    /// <param name="value">The fixed number of units that you wish to
+    /// specify.</param>
     public NumUnits(decimal value)
     {
       _value = value;
@@ -45,24 +46,18 @@ namespace FFT.Oanda
     public static NumUnits All { get; } = new NumUnits("ALL");
 
     /// <summary>
-    /// <see langword="true"/> if this value represents "ALL" units rather than
-    /// a fixed number of units.
+    /// Gets <see langword="true"/> if this value represents "ALL" units rather
+    /// than a fixed number of units. Gets <see langword="false"/> otherwise.
     /// </summary>
     public bool IsAllUnits => !_value.HasValue;
 
     /// <summary>
-    /// The fixed number of units represented by this value, if it is NOT "ALL"
-    /// units.
+    /// Gets the fixed number of units represented by this value, if it is NOT
+    /// "ALL" units.
     /// </summary>
     /// <exception cref="InvalidOperationException">Thrown if this value
     /// represents "ALL" units.</exception>
-    public decimal Value
-    {
-      get
-      {
-        return _value!.Value;
-      }
-    }
+    public decimal Value => _value!.Value;
 
     /// <inheritdoc/>
     public override string ToString()
