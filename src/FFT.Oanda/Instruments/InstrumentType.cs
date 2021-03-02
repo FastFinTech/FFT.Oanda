@@ -3,9 +3,12 @@
 
 namespace FFT.Oanda.Instruments
 {
+  using System.Text.Json.Serialization;
+
   /// <summary>
   /// The type of an Instrument.
   /// </summary>
+  [JsonConverter(typeof(JsonStringEnumConverter))]
   public enum InstrumentType
   {
     /// <summary>

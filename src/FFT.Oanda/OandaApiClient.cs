@@ -20,6 +20,7 @@ namespace FFT.Oanda
   using System.Text.Json.Serialization;
   using System.Threading;
   using System.Threading.Tasks;
+  using FFT.Disposables;
   using FFT.Oanda.Accounts;
   using FFT.Oanda.Instruments;
   using FFT.Oanda.Orders;
@@ -34,13 +35,11 @@ namespace FFT.Oanda
   /// <summary>
   /// Provides a client for the oanda api v2.
   /// </summary>
-  public sealed partial class OandaApiClient : IDisposable
+  public sealed partial class OandaApiClient : DisposeBase
   {
     private const byte EOL = (byte)'\n'; // end of line, used to separate json messages.
-    private const string DateTimeFormatString = "YYYY-MM-DDTHH:mm:ss.fffffffffZ";
+    private const string DATETIMEFORMATSTRING = "YYYY-MM-DDTHH:mm:ss.fffffffffZ";
 
-    private readonly AccountType _accountType;
-    private readonly string _key;
     private readonly HttpClient _client;
     private readonly HttpClient _streamClient;
 
@@ -49,44 +48,62 @@ namespace FFT.Oanda
     /// </summary>
     public OandaApiClient(AccountType accountType, string key)
     {
-      _accountType = accountType;
-      _key = key;
+      AccountType = accountType;
+      Key = key;
 
       // Specifying the handler to satisfy the Oanda api requirements here:
       // https://developer.oanda.com/rest-live-v20/best-practices/ As discussed
       // here: https://github.com/dotnet/runtime/issues/24613
       _client = new HttpClient(new SocketsHttpHandler());
-      _client.BaseAddress = new Uri(_accountType == AccountType.Real ? "https://api-fxtrade.oanda.com/" : "https://api-fxpractice.oanda.com/");
-      _client.DefaultRequestHeaders.Add("Authorization", $"Bearer {_key}");
+      _client.BaseAddress = new Uri(AccountType == AccountType.Real ? "https://api-fxtrade.oanda.com/" : "https://api-fxpractice.oanda.com/");
+      _client.DefaultRequestHeaders.Add("Authorization", $"Bearer {Key}");
       _client.DefaultRequestHeaders.Add("AcceptDatetimeFormat", "RFC3339");
 
       _streamClient = new HttpClient(new SocketsHttpHandler());
-      _client.BaseAddress = new Uri(_accountType == AccountType.Real ? "https://stream-fxtrade.oanda.com/" : "https://stream-fxpractice.oanda.com/");
-      _client.DefaultRequestHeaders.Add("Authorization", $"Bearer {_key}");
-      _client.DefaultRequestHeaders.Add("AcceptDatetimeFormat", "RFC3339");
+      _streamClient.BaseAddress = new Uri(AccountType == AccountType.Real ? "https://stream-fxtrade.oanda.com/" : "https://stream-fxpractice.oanda.com/");
+      _streamClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {Key}");
+      _streamClient.DefaultRequestHeaders.Add("AcceptDatetimeFormat", "RFC3339");
     }
 
+    /// <summary>
+    /// The account type that this instance will connect to. Affects the
+    /// endpoint used for http connections.
+    /// </summary>
+    public AccountType AccountType { get; }
+
+    /// <summary>
+    /// The authorization used to authenticate by this instance.
+    /// </summary>
+    public string Key { get; }
+
     /// <inheritdoc/>
-    public void Dispose()
+    protected override void CustomDispose()
     {
       _client.Dispose();
       _streamClient.Dispose();
     }
 
-    private async Task<T> ParseResponse<T>(HttpResponseMessage response)
+    private static async Task<T> ParseResponse<T>(HttpResponseMessage response)
     {
       await RequestFailedException.ThrowIfNecessary(response);
+
+      // This particular extension method automatically uses the "WebOptions"
+      // options for json deserialization. If we ever switch away to manually
+      // deserializing, we will need to remember to specify the "WebOptions" to
+      // be used for deserialization. The "PolymorphicDeserializer" class has an
+      // example of how to do that.
       return (await response.Content.ReadFromJsonAsync<T>())!;
     }
 
     private async IAsyncEnumerable<ReadOnlySequence<byte>> ReadLines(Stream stream, [EnumeratorCancellation] CancellationToken cancellationToken = default)
     {
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       var reader = PipeReader.Create(stream);
       try
       {
         while (true)
         {
-          var result = await reader.ReadAsync(cancellationToken);
+          var result = await reader.ReadAsync(cts.Token);
           var buffer = result.Buffer;
           var position = buffer.PositionOf(EOL);
           if (position.HasValue)
@@ -134,8 +151,7 @@ namespace FFT.Oanda
     {
       using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}/summary");
       using var response = await _client.SendAsync(request);
-      await RequestFailedException.ThrowIfNecessary(response);
-      return (await response.Content.ReadFromJsonAsync<AccountSummaryResponse>())!;
+      return await ParseResponse<AccountSummaryResponse>(response);
     }
 
     /// <summary>
@@ -146,8 +162,7 @@ namespace FFT.Oanda
     {
       using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}");
       using var response = await _client.SendAsync(request);
-      await RequestFailedException.ThrowIfNecessary(response);
-      return (await response.Content.ReadFromJsonAsync<AccountResponse>())!;
+      return await ParseResponse<AccountResponse>(response);
     }
 
     /// <summary>
@@ -173,8 +188,7 @@ namespace FFT.Oanda
 
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
       using var response = await _client.SendAsync(request);
-      await RequestFailedException.ThrowIfNecessary(response);
-      return (await response.Content.ReadFromJsonAsync<AccountInstrumentListResponse>())!;
+      return await ParseResponse<AccountInstrumentListResponse>(response);
     }
 
     /// <summary>
@@ -198,8 +212,7 @@ namespace FFT.Oanda
 
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
       using var response = await _client.SendAsync(request);
-      await RequestFailedException.ThrowIfNecessary(response);
-      return (await response.Content.ReadFromJsonAsync<AccountChangesResponse>())!;
+      return await ParseResponse<AccountChangesResponse>(response);
     }
 
     /// <summary>
@@ -217,8 +230,7 @@ namespace FFT.Oanda
       };
 
       using var response = await _client.SendAsync(message);
-      await RequestFailedException.ThrowIfNecessary(response);
-      return (await response.Content.ReadFromJsonAsync<AccountConfigurationResponse>())!;
+      return await ParseResponse<AccountConfigurationResponse>(response);
     }
   }
 
@@ -370,7 +382,7 @@ namespace FFT.Oanda
       {
         { "price", candleSpecification.PricingComponent.ToString() },
         { "granularity", candleSpecification.CandleStickGranularity.ToString() },
-        { "from", from.ToString(DateTimeFormatString, CultureInfo.InvariantCulture) },
+        { "from", from.ToString(DATETIMEFORMATSTRING, CultureInfo.InvariantCulture) },
         { "smooth", smooth.ToString() },
         { "includeFirst", includeFirst.ToString() },
         { "dailyAlignment", dailyAlignment.ToString(CultureInfo.InvariantCulture) },
@@ -381,7 +393,7 @@ namespace FFT.Oanda
       // TODO: check that this works when to is null.
 
       if (to.HasValue)
-        query["to"] = to.Value.ToString(DateTimeFormatString, CultureInfo.InvariantCulture);
+        query["to"] = to.Value.ToString(DATETIMEFORMATSTRING, CultureInfo.InvariantCulture);
 
       var url = QueryHelpers.AddQueryString($"v3/instruments/{candleSpecification.InstrumentName}/candles", query);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
@@ -408,7 +420,7 @@ namespace FFT.Oanda
       var url = $"v3/instruments/{instrumentName}/orderBook";
       if (time.HasValue)
       {
-        url = QueryHelpers.AddQueryString(url, "time", time.Value.ToString(DateTimeFormatString, CultureInfo.InvariantCulture));
+        url = QueryHelpers.AddQueryString(url, "time", time.Value.ToString(DATETIMEFORMATSTRING, CultureInfo.InvariantCulture));
       }
 
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
@@ -438,7 +450,7 @@ namespace FFT.Oanda
       var url = $"v3/instruments/{instrumentName}/positionBook";
       if (time.HasValue)
       {
-        url = QueryHelpers.AddQueryString(url, "time", time.Value.ToString(DateTimeFormatString, CultureInfo.InvariantCulture));
+        url = QueryHelpers.AddQueryString(url, "time", time.Value.ToString(DATETIMEFORMATSTRING, CultureInfo.InvariantCulture));
       }
 
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
@@ -1056,10 +1068,10 @@ namespace FFT.Oanda
       };
 
       if (from.HasValue) // otherwise fall back to api defaults
-        query.Add("from", from.Value.ToString(DateTimeFormatString));
+        query.Add("from", from.Value.ToString(DATETIMEFORMATSTRING));
 
       if (to.HasValue) // otherwise fall back to api defaults
-        query.Add("to", to.Value.ToString(DateTimeFormatString));
+        query.Add("to", to.Value.ToString(DATETIMEFORMATSTRING));
 
       var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/transactions", query);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
@@ -1187,28 +1199,9 @@ namespace FFT.Oanda
 
       var url = $"v3/accounts/{accountId}/transactions/stream";
       using var stream = await _streamClient.GetStreamAsync(url);
-      await foreach (var slice in ReadLines(stream).WithCancellation(cancellationToken))
+      await foreach (var slice in ReadLines(stream, cancellationToken))
       {
-        yield return Parse(slice);
-      }
-
-      static object Parse(ReadOnlySequence<byte> slice)
-      {
-        try
-        {
-          var reader = new Utf8JsonReader(slice);
-          return JsonSerializer.Deserialize<Transaction>(ref reader)!;
-        }
-        catch (Exception x)
-        {
-          if (x is JsonException jx && jx.Message.Contains("heartbeat"))
-          {
-            var reader = new Utf8JsonReader(slice);
-            return JsonSerializer.Deserialize<TransactionHeartbeat>(ref reader)!;
-          }
-
-          throw;
-        }
+        yield return PolymorphicDeserializer.DeserializeTransactionStreamObject(slice);
       }
     }
   }
@@ -1332,7 +1325,7 @@ namespace FFT.Oanda
       };
 
       if (since.HasValue)
-        query["since"] = since.Value.ToString(DateTimeFormatString);
+        query["since"] = since.Value.ToString(DATETIMEFORMATSTRING);
 
       var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/pricing", query);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
@@ -1386,29 +1379,7 @@ namespace FFT.Oanda
       using var stream = await _streamClient.GetStreamAsync(url);
       await foreach (var slice in ReadLines(stream, cancellationToken))
       {
-        yield return Parse(slice);
-      }
-
-      static object Parse(ReadOnlySequence<byte> slice)
-      {
-        try
-        {
-          var reader = new Utf8JsonReader(slice);
-          return JsonSerializer.Deserialize<ClientPrice>(ref reader)!;
-        }
-        catch (Exception x)
-        {
-          try
-          {
-            var reader = new Utf8JsonReader(slice);
-            return JsonSerializer.Deserialize<PricingHeartbeat>(ref reader)!;
-          }
-          catch (Exception y)
-          {
-            Debugger.Break();
-            throw;
-          }
-        }
+        yield return PolymorphicDeserializer.DeserializePriceStreamObject(slice);
       }
     }
 
@@ -1586,7 +1557,7 @@ namespace FFT.Oanda
       {
         { "price", candleSpecification.PricingComponent.ToString() },
         { "granularity", candleSpecification.CandleStickGranularity.ToString() },
-        { "from", from.ToString(DateTimeFormatString, CultureInfo.InvariantCulture) },
+        { "from", from.ToString(DATETIMEFORMATSTRING, CultureInfo.InvariantCulture) },
         { "smooth", smooth.ToString() },
         { "includeFirst", includeFirst.ToString() },
         { "dailyAlignment", dailyAlignment.ToString(CultureInfo.InvariantCulture) },
@@ -1598,7 +1569,7 @@ namespace FFT.Oanda
       // TODO: check that this works when to is null.
 
       if (to.HasValue)
-        query["to"] = to.Value.ToString(DateTimeFormatString, CultureInfo.InvariantCulture);
+        query["to"] = to.Value.ToString(DATETIMEFORMATSTRING, CultureInfo.InvariantCulture);
 
       var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/instruments/{candleSpecification.InstrumentName}/candles", query);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);

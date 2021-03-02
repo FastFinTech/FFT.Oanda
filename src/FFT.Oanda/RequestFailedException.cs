@@ -37,11 +37,12 @@ namespace FFT.Oanda
       if (response.IsSuccessStatusCode)
         return;
 
+      RequestFailedException exception;
       try
       {
         using var stream = await response.Content.ReadAsStreamAsync();
         using var doc = await JsonDocument.ParseAsync(stream);
-        throw new RequestFailedException(response.StatusCode, doc.RootElement.Clone());
+        exception = new RequestFailedException(response.StatusCode, doc.RootElement.Clone());
       }
       catch (Exception x)
       {
@@ -52,6 +53,8 @@ namespace FFT.Oanda
         Debug.Fail("Failed to parse json document from api error reponse.", x.ToString());
         throw;
       }
+
+      throw exception;
     }
   }
 }

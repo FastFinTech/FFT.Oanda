@@ -59,15 +59,15 @@ namespace FFT.Oanda
     /// represents "ALL" units.</exception>
     public decimal Value => _value!.Value;
 
-    /// <inheritdoc/>
+    /// <summary>
+    /// Returns "ALL" if this value represents all units. Otherwise, it returns
+    /// a string representation of the decimal value.
+    /// </summary>
     public override string ToString()
       => _value?.ToString() ?? "ALL";
 
     private sealed class NumUnitsJsonConverter : JsonConverter<NumUnits>
     {
-      public override bool CanConvert(Type typeToConvert)
-        => typeToConvert == typeof(NumUnits);
-
       public override NumUnits Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
       {
         if (reader.TokenType != JsonTokenType.String) throw new JsonException();

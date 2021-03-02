@@ -4,12 +4,14 @@
 namespace FFT.Oanda.Instruments
 {
   using System.Collections.Immutable;
+  using System.Diagnostics;
   using System.Text.Json.Serialization;
   using FFT.Oanda.Orders;
 
   /// <summary>
   /// Full specification of an instrument.
   /// </summary>
+  [DebuggerDisplay("{Name}/{DisplayName}")]
   public sealed class Instrument
   {
     /// <summary>
