@@ -23,7 +23,7 @@
   <!-- Icon settings -->
   <PropertyGroup>
     <!-- Package icon setting is relative to this file -->
-    <PackageIcon>Icon.ico</PackageIcon>
+    <PackageIcon>Icon.jpg</PackageIcon>
     <!-- Application icon setting needs absolute path or it will assume the value here is relative to the project file -->
     <ApplicationIcon>$(SourceRoot)Icon.ico</ApplicationIcon>
   </PropertyGroup>
