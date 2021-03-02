@@ -12,7 +12,7 @@
     <IsPackable>true</IsPackable>
 
     <PackageId>FFT.Oanda</PackageId>
-    <Summary>A .net client for the Oanda api V2.</Summary>
+    <Summary>A .net client for the Oanda api.</Summary>
     <Description>$(Summary)</Description>
     <Company>True Goodwill</Company>
     <Authors>True Goodwill</Authors>
@@ -24,12 +24,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!--<PackageReference Include="ConfigureAwait.Fody" Version="3.3.1" />-->
+    <PackageReference Include="ConfigureAwait.Fody" Version="3.3.1" />
     <PackageReference Include="FFT.Disposables" Version="0.0.6" />
-    <!--<PackageReference Include="Fody" Version="6.3.0">
+    <PackageReference Include="Fody" Version="6.3.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>-->
+    </PackageReference>
     <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.2.0" />
     <PackageReference Include="System.IO.Pipelines" Version="5.0.1" />
   </ItemGroup>
