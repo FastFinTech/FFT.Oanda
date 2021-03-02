@@ -18,14 +18,20 @@
     <!--<IncludeSymbols>true</IncludeSymbols>-->
     <!--<SymbolPackageFormat>snupkg</SymbolPackageFormat>-->
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+
+  <!-- Icon settings -->
+  <PropertyGroup>
+    <!-- Package icon setting is relative to this file -->
     <PackageIcon>Icon.ico</PackageIcon>
+    <!-- Application icon setting needs absolute path or it will assume the value here is relative to the project file -->
     <ApplicationIcon>$(SourceRoot)Icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="$(SourceRoot)Icon.ico" Pack="true" Visible="false" PackagePath="/" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <!-- <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.4" PrivateAssets="all" /> -->
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
