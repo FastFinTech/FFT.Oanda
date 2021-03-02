@@ -1,7 +1,9 @@
 # FFT.Oanda
 
 [![Source code](https://img.shields.io/static/v1?style=flat&label=&message=Source%20Code&logo=read-the-docs&color=informational)](https://github.com/FastFinTech/FFT.Oanda)
-[![NuGet package](https://img.shields.io/nuget/v/FFT.Oanda.svg)](https://nuget.org/packages/FFT.Oanda)
+[![NuGet
+package](https://img.shields.io/nuget/v/FFT.Oanda.svg)](https://nuget.org/packages/FFT.Oanda)
+[![Full documentation](https://img.shields.io/static/v1?style=flat&label=&message=Documentation&logo=read-the-docs&color=green)](https://fastfintech.github.io/FFT.Oanda/)
 
 `FFT.Oanda` is a .Net client for the [Oanda
 api](https://developer.oanda.com/rest-live-v20/introduction/)
@@ -20,7 +22,15 @@ using System;
 using FFT.Oanda;
 using FFT.Oanda.Accounts;
 using var client = new OandaApiClient(AccountType.Real, "your_api_key");
+
+// Get the id of the first account
 var myAccounts = await client.GetAccounts();
+var primaryAccountId = myAccounts[0].Id;
+
+// Subscribe to that account's transaction stream
+await foreach(var transaction in client.GetTransactionsStream(primaryAccountId))
+{
+}
 ```
 
-For full specification of client abilities, see the reference documenation. TODO: Add link.
+[See complete documentation including the list of `OandaApiClient` methods here.](https://fastfintech.github.io/FFT.Oanda/api/FFT.Oanda.OandaApiClient.html)
