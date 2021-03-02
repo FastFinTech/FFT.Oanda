@@ -19,7 +19,7 @@
     <!--<SymbolPackageFormat>snupkg</SymbolPackageFormat>-->
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
     <PackageIcon>Icon.ico</PackageIcon>
-    <ApplicationIcon>Icon.ico</ApplicationIcon>
+    <ApplicationIcon>$(SourceRoot)Icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
