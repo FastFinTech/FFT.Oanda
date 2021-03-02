@@ -23,9 +23,9 @@ namespace FFT.Oanda
   using Microsoft.AspNetCore.WebUtilities;
 
   /// <summary>
-  /// Provides a client for the oanda api v2.
+  /// Provides a client for the Oanda api.
   /// </summary>
-  public sealed partial class OandaApiClient : DisposeBase
+  public sealed partial class OandaApiClient : DisposeBase, IDisposable
   {
     private const string DATETIMEFORMATSTRING = "YYYY-MM-DDTHH:mm:ss.fffffffffZ";
 
@@ -35,10 +35,14 @@ namespace FFT.Oanda
     /// <summary>
     /// Initializes a new instance of the <see cref="OandaApiClient"/> class.
     /// </summary>
-    public OandaApiClient(AccountType accountType, string key)
+    /// <param name="accountType">Specify the type of account you wish to
+    /// connect to.</param>
+    /// <param name="accessKey">The secret access key that allows you to access
+    /// the api.</param>
+    public OandaApiClient(AccountType accountType, string accessKey)
     {
       AccountType = accountType;
-      Key = key;
+      Key = accessKey;
 
       // Specifying the handler to satisfy the Oanda api requirements here:
       // https://developer.oanda.com/rest-live-v20/best-practices/ As discussed
@@ -56,7 +60,7 @@ namespace FFT.Oanda
 
     /// <summary>
     /// The account type that this instance will connect to. Affects the
-    /// endpoint used for http connections.
+    /// endpoint used for connections.
     /// </summary>
     public AccountType AccountType { get; }
 
