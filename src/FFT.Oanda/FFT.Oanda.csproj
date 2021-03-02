@@ -20,7 +20,6 @@
     <RepositoryUrl>$(PackageProjectUrl)</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>oanda;api</PackageTags>
-    <ApplicationIcon>FFT.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
