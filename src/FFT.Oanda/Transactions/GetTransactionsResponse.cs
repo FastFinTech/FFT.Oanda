@@ -8,8 +8,7 @@ namespace FFT.Oanda.Transactions
 
   /// <summary>
   /// Returned by the <see cref="OandaApiClient.GetTransactions(string, int,
-  /// int, TransactionFilter)"/>
-  /// method.
+  /// int, TransactionFilter[])"/> method.
   /// </summary>
   public sealed class GetTransactionsResponse
   {

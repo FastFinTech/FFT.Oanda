@@ -3,6 +3,10 @@
 
 namespace FFT.Oanda
 {
+  /// <summary>
+  /// Used to specify the format that should be used for expressing times when
+  /// transmitting json to and from the oanda api.
+  /// </summary>
   public enum DateTimeFormat
   {
     /// <summary>

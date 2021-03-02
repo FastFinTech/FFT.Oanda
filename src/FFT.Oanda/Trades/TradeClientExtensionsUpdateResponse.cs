@@ -3,6 +3,7 @@
 
 namespace FFT.Oanda.Trades
 {
+  using System;
   using System.Collections.Immutable;
   using System.Text.Json.Serialization;
   using FFT.Oanda.Transactions;

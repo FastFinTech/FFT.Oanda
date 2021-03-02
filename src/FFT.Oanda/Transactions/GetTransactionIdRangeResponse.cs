@@ -12,7 +12,7 @@ namespace FFT.Oanda.Transactions
 
   /// <summary>
   /// Returned by the <see cref="OandaApiClient.GetTransactionIdRange(string,
-  /// DateTime, DateTime)"/> method.
+  /// DateTime?, DateTime?)"/> method.
   /// </summary>
   public sealed class GetTransactionIdRangeResponse
   {

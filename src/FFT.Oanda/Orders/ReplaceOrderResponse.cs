@@ -5,6 +5,7 @@ namespace FFT.Oanda.Orders
 {
   using System.Collections.Immutable;
   using System.Text.Json.Serialization;
+  using FFT.Oanda.Orders.OrderRequests;
   using FFT.Oanda.Transactions;
 
   /// <summary>
@@ -89,5 +90,4 @@ namespace FFT.Oanda.Orders
     /// </summary>
     public string LastTransactionID { get; }
   }
-
 }

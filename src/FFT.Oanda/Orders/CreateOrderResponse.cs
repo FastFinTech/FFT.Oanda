@@ -5,6 +5,7 @@ namespace FFT.Oanda.Orders
 {
   using System.Collections.Immutable;
   using System.Text.Json.Serialization;
+  using FFT.Oanda.Orders.OrderRequests;
   using FFT.Oanda.Transactions;
 
   /// <summary>
@@ -44,7 +45,7 @@ namespace FFT.Oanda.Orders
     /// <summary>
     /// The Transaction that filled the newly created Order. Only provided when
     /// the Order was immediately filled.
-    ///
+    /// </summary>
     public OrderFillTransaction? OrderFillTransaction { get; }
 
     /// <summary>
@@ -53,7 +54,7 @@ namespace FFT.Oanda.Orders
     /// </summary>
     public OrderCancelTransaction? OrderCancelTransaction { get; }
 
-    ///<summary>
+    /// <summary>
     /// The Transaction that reissues the Order. Only provided when the Order is
     /// configured to be reissued for its remaining units after a partial fill
     /// and the reissue was successful.
@@ -67,7 +68,7 @@ namespace FFT.Oanda.Orders
     /// </summary>
     public Transaction? OrderReissueRejectTransaction { get; }
 
-    ///<summary>
+    /// <summary>
     /// The IDs of all Transactions that were created while satisfying the
     /// request.
     /// </summary>
@@ -78,5 +79,4 @@ namespace FFT.Oanda.Orders
     /// </summary>
     public string LastTransactionID { get; }
   }
-
 }

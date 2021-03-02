@@ -4,20 +4,11 @@
 namespace FFT.Oanda
 {
   using System;
-  using System.Buffers;
   using System.Collections.Generic;
-  using System.Collections.Immutable;
-  using System.Diagnostics;
   using System.Globalization;
-  using System.IO;
-  using System.IO.Pipelines;
-  using System.Net;
   using System.Net.Http;
   using System.Net.Http.Json;
   using System.Runtime.CompilerServices;
-  using System.Runtime.Serialization;
-  using System.Text.Json;
-  using System.Text.Json.Serialization;
   using System.Threading;
   using System.Threading.Tasks;
   using FFT.Disposables;
@@ -30,14 +21,12 @@ namespace FFT.Oanda
   using FFT.Oanda.Trades;
   using FFT.Oanda.Transactions;
   using Microsoft.AspNetCore.WebUtilities;
-  using static System.Math;
 
   /// <summary>
   /// Provides a client for the oanda api v2.
   /// </summary>
   public sealed partial class OandaApiClient : DisposeBase
   {
-    private const byte EOL = (byte)'\n'; // end of line, used to separate json messages.
     private const string DATETIMEFORMATSTRING = "YYYY-MM-DDTHH:mm:ss.fffffffffZ";
 
     private readonly HttpClient _client;
@@ -94,37 +83,6 @@ namespace FFT.Oanda
       // example of how to do that.
       return (await response.Content.ReadFromJsonAsync<T>())!;
     }
-
-    private async IAsyncEnumerable<ReadOnlySequence<byte>> ReadLines(Stream stream, [EnumeratorCancellation] CancellationToken cancellationToken = default)
-    {
-      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
-      var reader = PipeReader.Create(stream);
-      try
-      {
-        while (true)
-        {
-          var result = await reader.ReadAsync(cts.Token);
-          var buffer = result.Buffer;
-          var position = buffer.PositionOf(EOL);
-          if (position.HasValue)
-          {
-            var slice = buffer.Slice(0, position.Value);
-            yield return slice;
-            reader.AdvanceTo(position.Value);
-          }
-          else
-          {
-            reader.AdvanceTo(buffer.Start, buffer.End);
-            if (result.IsCompleted)
-              yield break;
-          }
-        }
-      }
-      finally
-      {
-        reader.Complete();
-      }
-    }
   }
 
   // Accounts endpoint
@@ -139,7 +97,7 @@ namespace FFT.Oanda
       // https://stackoverflow.com/questions/28564961/authorization-header-is-lost-on-redirect#:~:text=The%20reason%20you%20are%20experiencing,One%20reason%20is%20security.&text=Your%20API%20is%20returning%20401,is%20missing%20(or%20incomplete).
 
       using var request = new HttpRequestMessage(HttpMethod.Get, "v3/users/@/accounts");
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       return await ParseResponse<AccountListResponse>(response);
     }
 
@@ -150,7 +108,7 @@ namespace FFT.Oanda
     public async Task<AccountSummaryResponse> GetAccountSummary(string accountId)
     {
       using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}/summary");
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       return await ParseResponse<AccountSummaryResponse>(response);
     }
 
@@ -161,7 +119,7 @@ namespace FFT.Oanda
     public async Task<AccountResponse> GetAccount(string accountId)
     {
       using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}");
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       return await ParseResponse<AccountResponse>(response);
     }
 
@@ -187,7 +145,7 @@ namespace FFT.Oanda
       }
 
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       return await ParseResponse<AccountInstrumentListResponse>(response);
     }
 
@@ -211,16 +169,13 @@ namespace FFT.Oanda
       }
 
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       return await ParseResponse<AccountChangesResponse>(response);
     }
 
     /// <summary>
     /// Set the client-configurable portions of an Account.
     /// </summary>
-    /// <exception cref="AccountConfigurationRejectedException">
-    /// Thrown when the configuration request is denied.
-    /// </exception>
     public async Task<AccountConfigurationResponse> SetAccountConfiguration(string accountId, AccountConfiguration accountConfiguration)
     {
       var url = $"v3/accounts/{accountId}/configuration";
@@ -229,7 +184,7 @@ namespace FFT.Oanda
         Content = JsonContent.Create(accountConfiguration),
       };
 
-      using var response = await _client.SendAsync(message);
+      using var response = await _client.SendAsync(message, DisposedToken);
       return await ParseResponse<AccountConfigurationResponse>(response);
     }
   }
@@ -300,7 +255,7 @@ namespace FFT.Oanda
       };
       var url = QueryHelpers.AddQueryString($"v3/instruments/{candleSpecification.InstrumentName}/candles", query);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       await RequestFailedException.ThrowIfNecessary(response);
       return (await response.Content.ReadFromJsonAsync<CandlestickResponse>())!;
     }
@@ -397,7 +352,7 @@ namespace FFT.Oanda
 
       var url = QueryHelpers.AddQueryString($"v3/instruments/{candleSpecification.InstrumentName}/candles", query);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       await RequestFailedException.ThrowIfNecessary(response);
       return (await response.Content.ReadFromJsonAsync<CandlestickResponse>())!;
     }
@@ -424,7 +379,7 @@ namespace FFT.Oanda
       }
 
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       await RequestFailedException.ThrowIfNecessary(response);
       return (await response.Content.ReadFromJsonAsync<OrderBookResponse>())!;
     }
@@ -454,7 +409,7 @@ namespace FFT.Oanda
       }
 
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       await RequestFailedException.ThrowIfNecessary(response);
       return (await response.Content.ReadFromJsonAsync<PositionBookResponse>())!;
     }
@@ -484,7 +439,7 @@ namespace FFT.Oanda
       {
         Content = JsonContent.Create(orderRequest, orderRequest.GetType()),
       };
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       return await ParseResponse<CreateOrderResponse>(response);
     }
 
@@ -537,7 +492,7 @@ namespace FFT.Oanda
 
       var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/orders", query);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       return await ParseResponse<GetOrdersResponse>(response);
     }
 
@@ -556,7 +511,7 @@ namespace FFT.Oanda
 
       var url = $"v3/accounts/{accountId}/pendingOrders";
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       return await ParseResponse<GetOrdersResponse>(response);
     }
 
@@ -568,18 +523,22 @@ namespace FFT.Oanda
     /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
     /// 001-011-5838423-001.
     /// </param>
-    /// <param name="orderId">The Order Specifier [required].</param>
-    public async Task<GetSingleOrderResponse> GetSingleOrder(string accountId, string orderId)
+    /// <param name="orderSpecifier">
+    /// The specification of an Order as referred to by clients. Either the
+    /// Order’s OANDA-assigned OrderID or the Order’s client-provided ClientID
+    /// prefixed by the “@” symbol.
+    /// </param>
+    public async Task<GetSingleOrderResponse> GetSingleOrder(string accountId, string orderSpecifier)
     {
       if (string.IsNullOrWhiteSpace(accountId))
         throw new ArgumentException(nameof(accountId));
 
-      if (string.IsNullOrWhiteSpace(orderId))
-        throw new ArgumentException(nameof(orderId));
+      if (string.IsNullOrWhiteSpace(orderSpecifier))
+        throw new ArgumentException(nameof(orderSpecifier));
 
-      var url = $"v3/accounts/{accountId}/orders/{orderId}";
+      var url = $"v3/accounts/{accountId}/orders/{orderSpecifier}";
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       return await ParseResponse<GetSingleOrderResponse>(response);
     }
 
@@ -592,8 +551,11 @@ namespace FFT.Oanda
     /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
     /// 001-011-5838423-001.
     /// </param>
-    /// <param name="orderId">
-    /// The id of the order to be replaced [required].
+    /// <param name="orderSpecifier">
+    /// The order to be replaced.
+    /// The specification of an Order as referred to by clients. Either the
+    /// Order’s OANDA-assigned OrderID or the Order’s client-provided ClientID
+    /// prefixed by the “@” symbol.
     /// </param>
     /// <param name="replacementOrder">
     /// Specification of the replacing Order.
@@ -601,7 +563,7 @@ namespace FFT.Oanda
     /// <param name="clientRequestId">
     /// Client specified RequestID to be sent with request.
     /// </param>
-    public async Task<ReplaceOrderResponse> ReplaceOrder(string accountId, string orderId, OrderRequest replacementOrder, string clientRequestId = null)
+    public async Task<ReplaceOrderResponse> ReplaceOrder(string accountId, string orderSpecifier, OrderRequest replacementOrder, string? clientRequestId = null)
     {
       // TODO: Response header also contains a link to the new order. Add it to
       // the method's output.
@@ -609,10 +571,10 @@ namespace FFT.Oanda
       if (string.IsNullOrWhiteSpace(accountId))
         throw new ArgumentException(nameof(accountId));
 
-      if (string.IsNullOrWhiteSpace(orderId))
-        throw new ArgumentException(nameof(orderId));
+      if (string.IsNullOrWhiteSpace(orderSpecifier))
+        throw new ArgumentException(nameof(orderSpecifier));
 
-      var url = $"v3/accounts/{accountId}/orders/{orderId}";
+      var url = $"v3/accounts/{accountId}/orders/{orderSpecifier}";
       using var request = new HttpRequestMessage(HttpMethod.Put, url)
       {
         Content = JsonContent.Create(replacementOrder, replacementOrder.GetType()),
@@ -621,7 +583,7 @@ namespace FFT.Oanda
       if (!string.IsNullOrWhiteSpace(clientRequestId))
         request.Headers.Add("ClientRequestID", clientRequestId);
 
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       return await ParseResponse<ReplaceOrderResponse>(response);
     }
 
@@ -633,37 +595,55 @@ namespace FFT.Oanda
     /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
     /// 001-011-5838423-001.
     /// </param>
-    /// <param name="orderId">The Order Specifier. Can be the order id or "@" + the order's client id. [required].</param>
+    /// <param name="orderSpecifier">
+    /// The order to be canceled.
+    /// The specification of an Order as referred to by clients. Either the
+    /// Order’s OANDA-assigned OrderID or the Order’s client-provided ClientID
+    /// prefixed by the “@” symbol.
+    /// </param>
     /// <param name="clientRequestId">Client specified RequestID to be sent with request.</param>
-    public async Task<CancelOrderResponse> CancelOrder(string accountId, string orderId, string? clientRequestId = null)
+    public async Task<CancelOrderResponse> CancelOrder(string accountId, string orderSpecifier, string? clientRequestId = null)
     {
       if (string.IsNullOrWhiteSpace(accountId))
         throw new ArgumentException(nameof(accountId));
 
-      if (string.IsNullOrWhiteSpace(orderId))
-        throw new ArgumentException(nameof(orderId));
+      if (string.IsNullOrWhiteSpace(orderSpecifier))
+        throw new ArgumentException(nameof(orderSpecifier));
 
-      var url = $"v3/accounts/{accountId}/orders/{orderId}/cancel";
+      var url = $"v3/accounts/{accountId}/orders/{orderSpecifier}/cancel";
       using var request = new HttpRequestMessage(HttpMethod.Put, url);
 
       if (!string.IsNullOrWhiteSpace(clientRequestId))
         request.Headers.Add("ClientRequestID", clientRequestId);
 
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       return await ParseResponse<CancelOrderResponse>(response);
     }
 
     /// <summary>
-    /// Update the Client Extensions for an Order in an Account.Do not set, modify, or delete clientExtensions if your account is associated with MT4.
+    /// Update the Client Extensions for an Order in an Account.Do not set,
+    /// modify, or delete clientExtensions if your account is associated with
+    /// MT4.
     /// </summary>
     /// <param name="accountId">
     /// “-“-delimited string with format
     /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
     /// 001-011-5838423-001.
     /// </param>
-    /// <param name="orderSpecifier"></param>
-    /// <param name="clientExtensions"></param>
-    /// <param name="tradeClientExtensions"></param>
+    /// <param name="orderSpecifier">
+    /// The specification of an Order as referred to by clients. Either the
+    /// Order’s OANDA-assigned OrderID or the Order’s client-provided ClientID
+    /// prefixed by the “@” symbol.
+    /// </param>
+    /// <param name="clientExtensions">
+    /// The Client Extensions to update for the Order. Do not set, modify, or
+    /// delete clientExtensions if your account is associated with MT4.
+    /// </param>
+    /// <param name="tradeClientExtensions">
+    /// The Client Extensions to update for the Trade created when the Order is
+    /// filled. Do not set, modify, or delete clientExtensions if your account
+    /// is associated with MT4.
+    /// </param>
     public async Task<UpdateOrderClientExtensionsResponse> SetOrderClientExtensions(string accountId, string orderSpecifier, ClientExtensions? clientExtensions, ClientExtensions? tradeClientExtensions)
     {
       if (string.IsNullOrWhiteSpace(accountId))
@@ -681,7 +661,7 @@ namespace FFT.Oanda
           TradeClientExtensions = tradeClientExtensions,
         }),
       };
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       return await ParseResponse<UpdateOrderClientExtensionsResponse>(response);
     }
   }
@@ -704,6 +684,8 @@ namespace FFT.Oanda
     /// <param name="tradeIds">List of Trade IDs to retrieve. Only supply this if you wish to specify exactly which trades you need the information for.</param>
     public async Task<GetTradesResponse> GetTrades(string accountId, TradeStateFilter state = TradeStateFilter.OPEN, string? instrument = null, int count = 50, string? beforeId = null, string[]? tradeIds = null)
     {
+      // TODO: Check if state is actually a csv list.
+
       if (string.IsNullOrWhiteSpace(accountId))
         throw new ArgumentException(accountId);
 
@@ -727,7 +709,7 @@ namespace FFT.Oanda
 
       var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/trades", query);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       return await ParseResponse<GetTradesResponse>(response);
     }
 
@@ -745,7 +727,7 @@ namespace FFT.Oanda
         throw new ArgumentException(nameof(accountId));
 
       using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}/openTrades");
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       return await ParseResponse<GetTradesResponse>(response);
     }
 
@@ -770,7 +752,7 @@ namespace FFT.Oanda
         throw new ArgumentException(nameof(accountId));
 
       using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}/trades/{tradeSpecifier}");
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       return await ParseResponse<GetTradeResponse>(response);
     }
 
@@ -794,9 +776,6 @@ namespace FFT.Oanda
     /// the magnitude of the value cannot exceed the magnitude of the Trade’s
     /// open units.
     /// </param>
-    /// <exception cref="TradeCannotBeClosedException">
-    /// Thrown when the api rejects the trade closed request.
-    /// </exception>
     public async Task<CloseTradeResponse> CloseTrade(string accountId, string tradeSpecifier, NumUnits numUnits)
     {
       if (string.IsNullOrWhiteSpace(accountId))
@@ -813,7 +792,7 @@ namespace FFT.Oanda
           Units = numUnits,
         }),
       };
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       return await ParseResponse<CloseTradeResponse>(response);
     }
 
@@ -847,7 +826,7 @@ namespace FFT.Oanda
           ClientExtensions = clientExtensions,
         }),
       };
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       return await ParseResponse<TradeClientExtensionsUpdateResponse>(response);
     }
 
@@ -915,7 +894,7 @@ namespace FFT.Oanda
           GuaranteedStopLoss = guaranteedStopLoss,
         }),
       };
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       return await ParseResponse<SetTradeOrdersResponse>(response);
     }
   }
@@ -939,7 +918,7 @@ namespace FFT.Oanda
         throw new ArgumentException(nameof(accountId));
 
       using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}/positions");
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       return await ParseResponse<GetPositionsResponse>(response);
     }
 
@@ -958,7 +937,7 @@ namespace FFT.Oanda
         throw new ArgumentException(nameof(accountId));
 
       using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}/openPositions");
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       return await ParseResponse<GetPositionsResponse>(response);
     }
 
@@ -981,7 +960,7 @@ namespace FFT.Oanda
         throw new ArgumentException(nameof(instrument));
 
       using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}/positions/{instrument}");
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       return await ParseResponse<GetPositionResponse>(response);
     }
 
@@ -1030,7 +1009,7 @@ namespace FFT.Oanda
           shortClientExtensions,
         }),
       };
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       return await ParseResponse<ClosePositionResponse>(response);
     }
   }
@@ -1075,7 +1054,7 @@ namespace FFT.Oanda
 
       var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/transactions", query);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       await RequestFailedException.ThrowIfNecessary(response);
       return (await response.Content.ReadFromJsonAsync<GetTransactionIdRangeResponse>())!;
     }
@@ -1099,7 +1078,7 @@ namespace FFT.Oanda
 
       var url = $"v3/accounts/{accountId}/transactions/{transactionId}";
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       return await ParseResponse<GetTransactionResponse>(response);
     }
 
@@ -1147,7 +1126,7 @@ namespace FFT.Oanda
 
       var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/transactions/idrange", query);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       return await ParseResponse<GetTransactionsResponse>(response);
     }
 
@@ -1175,7 +1154,7 @@ namespace FFT.Oanda
         url = QueryHelpers.AddQueryString(url, "type", string.Join(",", types));
 
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       return await ParseResponse<GetTransactionsResponse>(response);
     }
 
@@ -1197,9 +1176,10 @@ namespace FFT.Oanda
       if (string.IsNullOrWhiteSpace(accountId))
         throw new ArgumentException(nameof(accountId));
 
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       var url = $"v3/accounts/{accountId}/transactions/stream";
-      using var stream = await _streamClient.GetStreamAsync(url);
-      await foreach (var slice in ReadLines(stream, cancellationToken))
+      using var stream = await _streamClient.GetStreamAsync(url, cts.Token);
+      await foreach (var slice in stream.ReadLines(cts.Token))
       {
         yield return PolymorphicDeserializer.DeserializeTransactionStreamObject(slice);
       }
@@ -1228,9 +1208,10 @@ namespace FFT.Oanda
     /// “smoothed” or not. A smoothed candlestick uses the previous candle’s
     /// close price as its open price, while an unsmoothed candlestick uses the
     /// first price from its time range as its open price.</param>
-    /// <param name="dailyAlignment">The hour of the day (in the specified
-    /// timezone) to use for granularities that have daily alignments.
-    /// [default=17, minimum=0, maximum=23]</param>
+    /// <param name="dailyAlignment">
+    /// The hour of the day (in the specified timezone) to use for granularities
+    /// that have daily alignments. [default=17, minimum=0, maximum=23].
+    /// </param>
     /// <param name="alignmentTimezone">The timezone to use for the
     /// dailyAlignment parameter. Candlesticks with daily alignment will be
     /// aligned to the dailyAlignment hour within the alignmentTimezone. Note
@@ -1277,7 +1258,7 @@ namespace FFT.Oanda
 
       var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/candles/latest", query);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       return await ParseResponse<LatestCandlesResponse>(response);
     }
 
@@ -1329,7 +1310,7 @@ namespace FFT.Oanda
 
       var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/pricing", query);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       return await ParseResponse<PricingInformationResponse>(response);
     }
 
@@ -1369,6 +1350,7 @@ namespace FFT.Oanda
     /// Close the stream and break the enumeration.</param>
     public async IAsyncEnumerable<object> GetPricingStream(string accountId, string[] instruments, bool snapshot = true, bool includeHomeConversions = false, [EnumeratorCancellation] CancellationToken cancellationToken = default)
     {
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       var query = new Dictionary<string, string>
       {
         { "instruments", string.Join(',', instruments) },
@@ -1376,8 +1358,8 @@ namespace FFT.Oanda
         { "includeHomeConversions", includeHomeConversions.ToString() },
       };
       var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/pricing/stream", query);
-      using var stream = await _streamClient.GetStreamAsync(url);
-      await foreach (var slice in ReadLines(stream, cancellationToken))
+      using var stream = await _streamClient.GetStreamAsync(url, cts.Token);
+      await foreach (var slice in stream.ReadLines(cts.Token))
       {
         yield return PolymorphicDeserializer.DeserializePriceStreamObject(slice);
       }
@@ -1461,7 +1443,7 @@ namespace FFT.Oanda
       };
       var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/instruments/{candleSpecification.InstrumentName}/candles", query);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       await RequestFailedException.ThrowIfNecessary(response);
       return (await response.Content.ReadFromJsonAsync<CandlestickResponse>())!;
     }
@@ -1573,7 +1555,7 @@ namespace FFT.Oanda
 
       var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/instruments/{candleSpecification.InstrumentName}/candles", query);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request);
+      using var response = await _client.SendAsync(request, DisposedToken);
       await RequestFailedException.ThrowIfNecessary(response);
       return (await response.Content.ReadFromJsonAsync<CandlestickResponse>())!;
     }

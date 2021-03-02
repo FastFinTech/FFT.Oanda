@@ -9,7 +9,7 @@ namespace FFT.Oanda.Orders
 
   /// <summary>
   /// Returned by the <see cref="OandaApiClient.CancelOrder(string, string,
-  /// string?)"/> method when the order is successfully canceled.
+  /// string)"/> method when the order is successfully canceled.
   /// </summary>
   public sealed class CancelOrderResponse
   {

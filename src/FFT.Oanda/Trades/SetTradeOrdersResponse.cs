@@ -5,12 +5,13 @@ namespace FFT.Oanda.Trades
 {
   using System.Collections.Immutable;
   using System.Text.Json.Serialization;
+  using FFT.Oanda.Orders;
   using FFT.Oanda.Transactions;
 
   /// <summary>
   /// Returned by the <see cref="OandaApiClient.SetTradeOrders(string, string,
-  /// TakeProfitDetails?, StopLossDetails?, TrailingStopLossDetails?,
-  /// GuaranteedStopLossDetails?)"/> method.
+  /// TakeProfitDetails, StopLossDetails, TrailingStopLossDetails,
+  /// GuaranteedStopLossDetails)"/> method.
   /// </summary>
   public sealed class SetTradeOrdersResponse
   {

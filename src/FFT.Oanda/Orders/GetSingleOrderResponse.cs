@@ -34,5 +34,4 @@ namespace FFT.Oanda.Orders
     /// </summary>
     public string LastTransactionId { get; }
   }
-
 }
