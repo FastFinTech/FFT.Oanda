@@ -29,7 +29,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="$(SourceRoot)Icon.ico" Pack="true" Visible="false" PackagePath="/" />
+    <None Include="$(SourceRoot)Icon.jpg" Pack="true" Visible="false" PackagePath="/" />
   </ItemGroup>
 
   <ItemGroup>
