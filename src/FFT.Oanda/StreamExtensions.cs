@@ -3,6 +3,7 @@
 
 namespace FFT.Oanda
 {
+  using System;
   using System.Buffers;
   using System.Collections.Generic;
   using System.IO;
@@ -23,12 +24,11 @@ namespace FFT.Oanda
         {
           var result = await reader.ReadAsync(cancellationToken);
           var buffer = result.Buffer;
-          var position = buffer.PositionOf(EOL);
-          if (position.HasValue)
+          if (buffer.PositionOf(EOL) is SequencePosition position)
           {
-            var slice = buffer.Slice(0, position.Value);
+            var slice = buffer.Slice(0, position);
             yield return slice;
-            reader.AdvanceTo(position.Value);
+            reader.AdvanceTo(buffer.GetPosition(1, position));
           }
           else
           {
