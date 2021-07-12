@@ -27,7 +27,7 @@ namespace FFT.Oanda
   /// </summary>
   public sealed partial class OandaApiClient : DisposeBase, IDisposable
   {
-    private const string DATETIMEFORMATSTRING = "YYYY-MM-DDTHH:mm:ss.fffffffffZ";
+    private const string DATETIMEFORMATSTRING = "yyyy-MM-dd'T'HH:mm:ss.fffzzz"; // RFC3339/ISO 8601;
 
     private readonly HttpClient _client;
     private readonly HttpClient _streamClient;
