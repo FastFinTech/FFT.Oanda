@@ -1,0 +1,496 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class AccountChanges
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class AccountChanges
+   ">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/vs.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script> 
+    <style>    
+      .hljs { white-space: pre; overflow-x: auto; }
+    </style>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="FFT.Oanda.Accounts.AccountChanges">
+  
+  
+  <h1 id="FFT_Oanda_Accounts_AccountChanges" data-uid="FFT.Oanda.Accounts.AccountChanges" class="text-break">Class AccountChanges
+  </h1>
+  <div class="markdown level0 summary"><p>An AccountChanges Object is used to represent the changes to an Account’s
+Orders, Trades and Positions since a specified Account TransactionID in
+the past.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">AccountChanges</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="FFT.Oanda.Accounts.html">FFT.Oanda.Accounts</a></h6>
+  <h6><strong>Assembly</strong>: FFT.Oanda.dll</h6>
+  <h5 id="FFT_Oanda_Accounts_AccountChanges_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class AccountChanges : object</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChanges__ctor_ImmutableList_FFT_Oanda_Orders_Order__ImmutableList_FFT_Oanda_Orders_Order__ImmutableList_FFT_Oanda_Orders_Order__ImmutableList_FFT_Oanda_Orders_Order__ImmutableList_FFT_Oanda_Trades_TradeSummary__ImmutableList_FFT_Oanda_Trades_TradeSummary__ImmutableList_FFT_Oanda_Trades_TradeSummary__ImmutableList_FFT_Oanda_Positions_Position__ImmutableList_Transaction__.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChanges.%23ctor(ImmutableList%7BFFT.Oanda.Orders.Order%7D%2CImmutableList%7BFFT.Oanda.Orders.Order%7D%2CImmutableList%7BFFT.Oanda.Orders.Order%7D%2CImmutableList%7BFFT.Oanda.Orders.Order%7D%2CImmutableList%7BFFT.Oanda.Trades.TradeSummary%7D%2CImmutableList%7BFFT.Oanda.Trades.TradeSummary%7D%2CImmutableList%7BFFT.Oanda.Trades.TradeSummary%7D%2CImmutableList%7BFFT.Oanda.Positions.Position%7D%2CImmutableList%7BTransaction%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChanges.cs/#L23">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChanges__ctor_" data-uid="FFT.Oanda.Accounts.AccountChanges.#ctor*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChanges__ctor_ImmutableList_FFT_Oanda_Orders_Order__ImmutableList_FFT_Oanda_Orders_Order__ImmutableList_FFT_Oanda_Orders_Order__ImmutableList_FFT_Oanda_Orders_Order__ImmutableList_FFT_Oanda_Trades_TradeSummary__ImmutableList_FFT_Oanda_Trades_TradeSummary__ImmutableList_FFT_Oanda_Trades_TradeSummary__ImmutableList_FFT_Oanda_Positions_Position__ImmutableList_Transaction__" data-uid="FFT.Oanda.Accounts.AccountChanges.#ctor(ImmutableList{FFT.Oanda.Orders.Order},ImmutableList{FFT.Oanda.Orders.Order},ImmutableList{FFT.Oanda.Orders.Order},ImmutableList{FFT.Oanda.Orders.Order},ImmutableList{FFT.Oanda.Trades.TradeSummary},ImmutableList{FFT.Oanda.Trades.TradeSummary},ImmutableList{FFT.Oanda.Trades.TradeSummary},ImmutableList{FFT.Oanda.Positions.Position},ImmutableList{Transaction})">AccountChanges(ImmutableList&lt;Order&gt;, ImmutableList&lt;Order&gt;, ImmutableList&lt;Order&gt;, ImmutableList&lt;Order&gt;, ImmutableList&lt;TradeSummary&gt;, ImmutableList&lt;TradeSummary&gt;, ImmutableList&lt;TradeSummary&gt;, ImmutableList&lt;Position&gt;, ImmutableList&lt;Transaction&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FFT.Oanda.Accounts.AccountChanges.html">AccountChanges</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AccountChanges(ImmutableList&lt;Order&gt; ordersCreated, ImmutableList&lt;Order&gt; ordersCancelled, ImmutableList&lt;Order&gt; ordersFilled, ImmutableList&lt;Order&gt; ordersTriggered, ImmutableList&lt;TradeSummary&gt; tradesOpened, ImmutableList&lt;TradeSummary&gt; tradesReduced, ImmutableList&lt;TradeSummary&gt; tradesClosed, ImmutableList&lt;Position&gt; positions, ImmutableList&lt;Transaction&gt; transactions)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ImmutableList</span>&lt;<a class="xref" href="FFT.Oanda.Orders.Order.html">Order</a>&gt;</td>
+        <td><span class="parametername">ordersCreated</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ImmutableList</span>&lt;<a class="xref" href="FFT.Oanda.Orders.Order.html">Order</a>&gt;</td>
+        <td><span class="parametername">ordersCancelled</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ImmutableList</span>&lt;<a class="xref" href="FFT.Oanda.Orders.Order.html">Order</a>&gt;</td>
+        <td><span class="parametername">ordersFilled</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ImmutableList</span>&lt;<a class="xref" href="FFT.Oanda.Orders.Order.html">Order</a>&gt;</td>
+        <td><span class="parametername">ordersTriggered</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ImmutableList</span>&lt;<a class="xref" href="FFT.Oanda.Trades.TradeSummary.html">TradeSummary</a>&gt;</td>
+        <td><span class="parametername">tradesOpened</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ImmutableList</span>&lt;<a class="xref" href="FFT.Oanda.Trades.TradeSummary.html">TradeSummary</a>&gt;</td>
+        <td><span class="parametername">tradesReduced</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ImmutableList</span>&lt;<a class="xref" href="FFT.Oanda.Trades.TradeSummary.html">TradeSummary</a>&gt;</td>
+        <td><span class="parametername">tradesClosed</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ImmutableList</span>&lt;<a class="xref" href="FFT.Oanda.Positions.Position.html">Position</a>&gt;</td>
+        <td><span class="parametername">positions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ImmutableList</span>&lt;<span class="xref">Transaction</span>&gt;</td>
+        <td><span class="parametername">transactions</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChanges_OrdersCancelled.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChanges.OrdersCancelled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChanges.cs/#L55">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChanges_OrdersCancelled_" data-uid="FFT.Oanda.Accounts.AccountChanges.OrdersCancelled*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChanges_OrdersCancelled" data-uid="FFT.Oanda.Accounts.AccountChanges.OrdersCancelled">OrdersCancelled</h4>
+  <div class="markdown level1 summary"><p>The Orders cancelled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableList&lt;Order&gt; OrdersCancelled { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ImmutableList</span>&lt;<a class="xref" href="FFT.Oanda.Orders.Order.html">Order</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChanges_OrdersCreated.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChanges.OrdersCreated%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChanges.cs/#L50">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChanges_OrdersCreated_" data-uid="FFT.Oanda.Accounts.AccountChanges.OrdersCreated*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChanges_OrdersCreated" data-uid="FFT.Oanda.Accounts.AccountChanges.OrdersCreated">OrdersCreated</h4>
+  <div class="markdown level1 summary"><p>The Orders created. These Orders may have been filled, cancelled or
+triggered in the same period.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableList&lt;Order&gt; OrdersCreated { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ImmutableList</span>&lt;<a class="xref" href="FFT.Oanda.Orders.Order.html">Order</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChanges_OrdersFilled.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChanges.OrdersFilled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChanges.cs/#L60">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChanges_OrdersFilled_" data-uid="FFT.Oanda.Accounts.AccountChanges.OrdersFilled*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChanges_OrdersFilled" data-uid="FFT.Oanda.Accounts.AccountChanges.OrdersFilled">OrdersFilled</h4>
+  <div class="markdown level1 summary"><p>The Orders filled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableList&lt;Order&gt; OrdersFilled { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ImmutableList</span>&lt;<a class="xref" href="FFT.Oanda.Orders.Order.html">Order</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChanges_OrdersTriggered.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChanges.OrdersTriggered%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChanges.cs/#L65">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChanges_OrdersTriggered_" data-uid="FFT.Oanda.Accounts.AccountChanges.OrdersTriggered*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChanges_OrdersTriggered" data-uid="FFT.Oanda.Accounts.AccountChanges.OrdersTriggered">OrdersTriggered</h4>
+  <div class="markdown level1 summary"><p>The Orders triggered.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableList&lt;Order&gt; OrdersTriggered { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ImmutableList</span>&lt;<a class="xref" href="FFT.Oanda.Orders.Order.html">Order</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChanges_Positions.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChanges.Positions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChanges.cs/#L85">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChanges_Positions_" data-uid="FFT.Oanda.Accounts.AccountChanges.Positions*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChanges_Positions" data-uid="FFT.Oanda.Accounts.AccountChanges.Positions">Positions</h4>
+  <div class="markdown level1 summary"><p>The Positions changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableList&lt;Position&gt; Positions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ImmutableList</span>&lt;<a class="xref" href="FFT.Oanda.Positions.Position.html">Position</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChanges_TradesClosed.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChanges.TradesClosed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChanges.cs/#L80">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChanges_TradesClosed_" data-uid="FFT.Oanda.Accounts.AccountChanges.TradesClosed*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChanges_TradesClosed" data-uid="FFT.Oanda.Accounts.AccountChanges.TradesClosed">TradesClosed</h4>
+  <div class="markdown level1 summary"><p>The Trades closed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableList&lt;TradeSummary&gt; TradesClosed { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ImmutableList</span>&lt;<a class="xref" href="FFT.Oanda.Trades.TradeSummary.html">TradeSummary</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChanges_TradesOpened.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChanges.TradesOpened%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChanges.cs/#L70">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChanges_TradesOpened_" data-uid="FFT.Oanda.Accounts.AccountChanges.TradesOpened*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChanges_TradesOpened" data-uid="FFT.Oanda.Accounts.AccountChanges.TradesOpened">TradesOpened</h4>
+  <div class="markdown level1 summary"><p>The Trades opened.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableList&lt;TradeSummary&gt; TradesOpened { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ImmutableList</span>&lt;<a class="xref" href="FFT.Oanda.Trades.TradeSummary.html">TradeSummary</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChanges_TradesReduced.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChanges.TradesReduced%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChanges.cs/#L75">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChanges_TradesReduced_" data-uid="FFT.Oanda.Accounts.AccountChanges.TradesReduced*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChanges_TradesReduced" data-uid="FFT.Oanda.Accounts.AccountChanges.TradesReduced">TradesReduced</h4>
+  <div class="markdown level1 summary"><p>The Trades reduced.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableList&lt;TradeSummary&gt; TradesReduced { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ImmutableList</span>&lt;<a class="xref" href="FFT.Oanda.Trades.TradeSummary.html">TradeSummary</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChanges_Transactions.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChanges.Transactions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChanges.cs/#L90">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChanges_Transactions_" data-uid="FFT.Oanda.Accounts.AccountChanges.Transactions*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChanges_Transactions" data-uid="FFT.Oanda.Accounts.AccountChanges.Transactions">Transactions</h4>
+  <div class="markdown level1 summary"><p>The Transactions that have been generated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableList&lt;Transaction&gt; Transactions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ImmutableList</span>&lt;<span class="xref">Transaction</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChanges.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChanges%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChanges.cs/#L18" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+    <script src="//unpkg.com/highlightjs-dotnetconfig@0.9.1/dist/dotnetconfig.min.js"></script>
+  </body>
+</html>

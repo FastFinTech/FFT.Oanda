@@ -1,0 +1,1133 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class AccountChangesState
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class AccountChangesState
+   ">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/vs.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script> 
+    <style>    
+      .hljs { white-space: pre; overflow-x: auto; }
+    </style>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="FFT.Oanda.Accounts.AccountChangesState">
+  
+  
+  <h1 id="FFT_Oanda_Accounts_AccountChangesState" data-uid="FFT.Oanda.Accounts.AccountChangesState" class="text-break">Class AccountChangesState
+  </h1>
+  <div class="markdown level0 summary"><p>An AccountState Object is used to represent an Account’s current
+price-dependent state. Price-dependent Account state is dependent on
+OANDA’s current Prices and includes things like unrealized PL NAV and
+Trailing Stop Loss Order state. Fields will be omitted if their value has
+not changed since the specified transaction ID.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">AccountChangesState</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="FFT.Oanda.Accounts.html">FFT.Oanda.Accounts</a></h6>
+  <h6><strong>Assembly</strong>: FFT.Oanda.dll</h6>
+  <h5 id="FFT_Oanda_Accounts_AccountChangesState_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class AccountChangesState : object</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState__ctor_System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_DateTime__System_Nullable_System_Int32__System_Nullable_DateTime__System_Nullable_ImmutableList_FFT_Oanda_DynamicOrderState___System_Nullable_ImmutableList_FFT_Oanda_Trades_CalculatedTradeState___System_Nullable_ImmutableList_FFT_Oanda_Positions_CalculatedPositionState___.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState.%23ctor(System.Nullable%7BSystem.Decimal%7D%2CSystem.Nullable%7BSystem.Decimal%7D%2CSystem.Nullable%7BSystem.Decimal%7D%2CSystem.Nullable%7BSystem.Decimal%7D%2CSystem.Nullable%7BSystem.Decimal%7D%2CSystem.Nullable%7BSystem.Decimal%7D%2CSystem.Nullable%7BSystem.Decimal%7D%2CSystem.Nullable%7BSystem.Decimal%7D%2CSystem.Nullable%7BSystem.Decimal%7D%2CSystem.Nullable%7BSystem.Decimal%7D%2CSystem.Nullable%7BSystem.Decimal%7D%2CSystem.Nullable%7BSystem.Decimal%7D%2CSystem.Nullable%7BSystem.Decimal%7D%2CSystem.Nullable%7BSystem.Decimal%7D%2CSystem.Nullable%7BSystem.Decimal%7D%2CSystem.Nullable%7BSystem.Decimal%7D%2CSystem.Nullable%7BSystem.Decimal%7D%2CSystem.Nullable%7BSystem.Decimal%7D%2CSystem.Nullable%7BSystem.Decimal%7D%2CSystem.Nullable%7BSystem.Decimal%7D%2CSystem.Nullable%7BDateTime%7D%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BDateTime%7D%2CSystem.Nullable%7BImmutableList%7BFFT.Oanda.DynamicOrderState%7D%7D%2CSystem.Nullable%7BImmutableList%7BFFT.Oanda.Trades.CalculatedTradeState%7D%7D%2CSystem.Nullable%7BImmutableList%7BFFT.Oanda.Positions.CalculatedPositionState%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L24">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChangesState__ctor_" data-uid="FFT.Oanda.Accounts.AccountChangesState.#ctor*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChangesState__ctor_System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Nullable_DateTime__System_Nullable_System_Int32__System_Nullable_DateTime__System_Nullable_ImmutableList_FFT_Oanda_DynamicOrderState___System_Nullable_ImmutableList_FFT_Oanda_Trades_CalculatedTradeState___System_Nullable_ImmutableList_FFT_Oanda_Positions_CalculatedPositionState___" data-uid="FFT.Oanda.Accounts.AccountChangesState.#ctor(System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{DateTime},System.Nullable{System.Int32},System.Nullable{DateTime},System.Nullable{ImmutableList{FFT.Oanda.DynamicOrderState}},System.Nullable{ImmutableList{FFT.Oanda.Trades.CalculatedTradeState}},System.Nullable{ImmutableList{FFT.Oanda.Positions.CalculatedPositionState}})">AccountChangesState(Nullable&lt;Decimal&gt;, Nullable&lt;Decimal&gt;, Nullable&lt;Decimal&gt;, Nullable&lt;Decimal&gt;, Nullable&lt;Decimal&gt;, Nullable&lt;Decimal&gt;, Nullable&lt;Decimal&gt;, Nullable&lt;Decimal&gt;, Nullable&lt;Decimal&gt;, Nullable&lt;Decimal&gt;, Nullable&lt;Decimal&gt;, Nullable&lt;Decimal&gt;, Nullable&lt;Decimal&gt;, Nullable&lt;Decimal&gt;, Nullable&lt;Decimal&gt;, Nullable&lt;Decimal&gt;, Nullable&lt;Decimal&gt;, Nullable&lt;Decimal&gt;, Nullable&lt;Decimal&gt;, Nullable&lt;Decimal&gt;, Nullable&lt;DateTime&gt;, Nullable&lt;Int32&gt;, Nullable&lt;DateTime&gt;, Nullable&lt;ImmutableList&lt;DynamicOrderState&gt;&gt;, Nullable&lt;ImmutableList&lt;CalculatedTradeState&gt;&gt;, Nullable&lt;ImmutableList&lt;CalculatedPositionState&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FFT.Oanda.Accounts.AccountChangesState.html">AccountChangesState</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AccountChangesState(decimal? unrealizedPL, decimal? nAV, decimal? marginUsed, decimal? marginAvailable, decimal? positionValue, decimal? marginCloseoutUnrealizedPL, decimal? marginCloseoutNAV, decimal? marginCloseoutMarginUsed, decimal? marginCloseoutPercent, decimal? marginCloseoutPositionValue, decimal? withdrawalLimit, decimal? marginCallMarginUsed, decimal? marginCallPercent, decimal? balance, decimal? pL, decimal? resettablePL, decimal? financing, decimal? commission, decimal? dividendAdjustment, decimal? guaranteedExecutionFees, DateTime? marginCallEnterTime, int? marginCallExtensionCount, DateTime? lastMarginCallExtensionTime, ImmutableList&lt;DynamicOrderState&gt;? orders, ImmutableList&lt;CalculatedTradeState&gt;? trades, ImmutableList&lt;CalculatedPositionState&gt;? positions)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td><span class="parametername">unrealizedPL</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td><span class="parametername">nAV</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td><span class="parametername">marginUsed</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td><span class="parametername">marginAvailable</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td><span class="parametername">positionValue</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td><span class="parametername">marginCloseoutUnrealizedPL</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td><span class="parametername">marginCloseoutNAV</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td><span class="parametername">marginCloseoutMarginUsed</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td><span class="parametername">marginCloseoutPercent</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td><span class="parametername">marginCloseoutPositionValue</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td><span class="parametername">withdrawalLimit</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td><span class="parametername">marginCallMarginUsed</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td><span class="parametername">marginCallPercent</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td><span class="parametername">balance</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td><span class="parametername">pL</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td><span class="parametername">resettablePL</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td><span class="parametername">financing</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td><span class="parametername">commission</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td><span class="parametername">dividendAdjustment</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td><span class="parametername">guaranteedExecutionFees</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DateTime</span>&gt;</td>
+        <td><span class="parametername">marginCallEnterTime</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">marginCallExtensionCount</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DateTime</span>&gt;</td>
+        <td><span class="parametername">lastMarginCallExtensionTime</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ImmutableList</span>&lt;<a class="xref" href="FFT.Oanda.DynamicOrderState.html">DynamicOrderState</a>&gt;&gt;</td>
+        <td><span class="parametername">orders</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ImmutableList</span>&lt;<a class="xref" href="FFT.Oanda.Trades.CalculatedTradeState.html">CalculatedTradeState</a>&gt;&gt;</td>
+        <td><span class="parametername">trades</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ImmutableList</span>&lt;<a class="xref" href="FFT.Oanda.Positions.CalculatedPositionState.html">CalculatedPositionState</a>&gt;&gt;</td>
+        <td><span class="parametername">positions</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState_Balance.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState.Balance%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L164">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChangesState_Balance_" data-uid="FFT.Oanda.Accounts.AccountChangesState.Balance*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChangesState_Balance" data-uid="FFT.Oanda.Accounts.AccountChangesState.Balance">Balance</h4>
+  <div class="markdown level1 summary"><p>The current balance of the account. Expressed in the account's home
+currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal? Balance { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState_Commission.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState.Commission%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L188">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChangesState_Commission_" data-uid="FFT.Oanda.Accounts.AccountChangesState.Commission*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChangesState_Commission" data-uid="FFT.Oanda.Accounts.AccountChangesState.Commission">Commission</h4>
+  <div class="markdown level1 summary"><p>The total amount of commission paid over the lifetime of the Account.
+Expressed in the account's home currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal? Commission { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState_DividendAdjustment.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState.DividendAdjustment%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L195">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChangesState_DividendAdjustment_" data-uid="FFT.Oanda.Accounts.AccountChangesState.DividendAdjustment*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChangesState_DividendAdjustment" data-uid="FFT.Oanda.Accounts.AccountChangesState.DividendAdjustment">DividendAdjustment</h4>
+  <div class="markdown level1 summary"><p>The total amount of dividend adjustment paid over the lifetime of the
+Account in the Account’s home currency. Expressed in the account's home
+currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal? DividendAdjustment { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState_Financing.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState.Financing%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L182">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChangesState_Financing_" data-uid="FFT.Oanda.Accounts.AccountChangesState.Financing*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChangesState_Financing" data-uid="FFT.Oanda.Accounts.AccountChangesState.Financing">Financing</h4>
+  <div class="markdown level1 summary"><p>The total amount of financing paid/collected over the lifetime of the
+account. Expressed in the account's home currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal? Financing { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState_GuaranteedExecutionFees.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState.GuaranteedExecutionFees%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L202">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChangesState_GuaranteedExecutionFees_" data-uid="FFT.Oanda.Accounts.AccountChangesState.GuaranteedExecutionFees*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChangesState_GuaranteedExecutionFees" data-uid="FFT.Oanda.Accounts.AccountChangesState.GuaranteedExecutionFees">GuaranteedExecutionFees</h4>
+  <div class="markdown level1 summary"><p>The total amount of fees charged over the lifetime of the Account for
+the execution of guaranteed Stop Loss Orders. Expressed in the account's
+home currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal? GuaranteedExecutionFees { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState_LastMarginCallExtensionTime.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState.LastMarginCallExtensionTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L218">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChangesState_LastMarginCallExtensionTime_" data-uid="FFT.Oanda.Accounts.AccountChangesState.LastMarginCallExtensionTime*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChangesState_LastMarginCallExtensionTime" data-uid="FFT.Oanda.Accounts.AccountChangesState.LastMarginCallExtensionTime">LastMarginCallExtensionTime</h4>
+  <div class="markdown level1 summary"><p>The date/time of the Account’s last margin call extension.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime? LastMarginCallExtensionTime { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DateTime</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState_MarginAvailable.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState.MarginAvailable%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L103">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChangesState_MarginAvailable_" data-uid="FFT.Oanda.Accounts.AccountChangesState.MarginAvailable*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChangesState_MarginAvailable" data-uid="FFT.Oanda.Accounts.AccountChangesState.MarginAvailable">MarginAvailable</h4>
+  <div class="markdown level1 summary"><p>Margin available for Account currency. Expressed in the account's home
+currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal? MarginAvailable { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState_MarginCallEnterTime.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState.MarginCallEnterTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L208">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChangesState_MarginCallEnterTime_" data-uid="FFT.Oanda.Accounts.AccountChangesState.MarginCallEnterTime*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChangesState_MarginCallEnterTime" data-uid="FFT.Oanda.Accounts.AccountChangesState.MarginCallEnterTime">MarginCallEnterTime</h4>
+  <div class="markdown level1 summary"><p>The date/time when the Account entered a margin call state. Only
+provided if the Account is in a margin call.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime? MarginCallEnterTime { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DateTime</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState_MarginCallExtensionCount.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState.MarginCallExtensionCount%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L213">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChangesState_MarginCallExtensionCount_" data-uid="FFT.Oanda.Accounts.AccountChangesState.MarginCallExtensionCount*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChangesState_MarginCallExtensionCount" data-uid="FFT.Oanda.Accounts.AccountChangesState.MarginCallExtensionCount">MarginCallExtensionCount</h4>
+  <div class="markdown level1 summary"><p>The number of times that the Account’s current margin call was extended.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? MarginCallExtensionCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState_MarginCallMarginUsed.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState.MarginCallMarginUsed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L152">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChangesState_MarginCallMarginUsed_" data-uid="FFT.Oanda.Accounts.AccountChangesState.MarginCallMarginUsed*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChangesState_MarginCallMarginUsed" data-uid="FFT.Oanda.Accounts.AccountChangesState.MarginCallMarginUsed">MarginCallMarginUsed</h4>
+  <div class="markdown level1 summary"><p>The Account’s margin call margin used. Expressed in the account's home
+currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal? MarginCallMarginUsed { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState_MarginCallPercent.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState.MarginCallPercent%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L158">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChangesState_MarginCallPercent_" data-uid="FFT.Oanda.Accounts.AccountChangesState.MarginCallPercent*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChangesState_MarginCallPercent" data-uid="FFT.Oanda.Accounts.AccountChangesState.MarginCallPercent">MarginCallPercent</h4>
+  <div class="markdown level1 summary"><p>The Account’s margin call percentage. When this value is 1.0 or above
+the Account is in a margin call situation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal? MarginCallPercent { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState_MarginCloseoutMarginUsed.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState.MarginCloseoutMarginUsed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L127">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChangesState_MarginCloseoutMarginUsed_" data-uid="FFT.Oanda.Accounts.AccountChangesState.MarginCloseoutMarginUsed*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChangesState_MarginCloseoutMarginUsed" data-uid="FFT.Oanda.Accounts.AccountChangesState.MarginCloseoutMarginUsed">MarginCloseoutMarginUsed</h4>
+  <div class="markdown level1 summary"><p>The Account’s margin closeout margin used. Expressed in the account's
+home currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal? MarginCloseoutMarginUsed { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState_MarginCloseoutNAV.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState.MarginCloseoutNAV%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L121">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChangesState_MarginCloseoutNAV_" data-uid="FFT.Oanda.Accounts.AccountChangesState.MarginCloseoutNAV*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChangesState_MarginCloseoutNAV" data-uid="FFT.Oanda.Accounts.AccountChangesState.MarginCloseoutNAV">MarginCloseoutNAV</h4>
+  <div class="markdown level1 summary"><p>The Account’s margin closeout NAV. Expressed in the account's home
+currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal? MarginCloseoutNAV { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState_MarginCloseoutPercent.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState.MarginCloseoutPercent%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L133">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChangesState_MarginCloseoutPercent_" data-uid="FFT.Oanda.Accounts.AccountChangesState.MarginCloseoutPercent*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChangesState_MarginCloseoutPercent" data-uid="FFT.Oanda.Accounts.AccountChangesState.MarginCloseoutPercent">MarginCloseoutPercent</h4>
+  <div class="markdown level1 summary"><p>The Account’s margin closeout percentage. When this value is 1.0 or
+above the Account is in a margin closeout situation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal? MarginCloseoutPercent { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState_MarginCloseoutPositionValue.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState.MarginCloseoutPositionValue%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L139">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChangesState_MarginCloseoutPositionValue_" data-uid="FFT.Oanda.Accounts.AccountChangesState.MarginCloseoutPositionValue*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChangesState_MarginCloseoutPositionValue" data-uid="FFT.Oanda.Accounts.AccountChangesState.MarginCloseoutPositionValue">MarginCloseoutPositionValue</h4>
+  <div class="markdown level1 summary"><p>The value of the Account’s open positions as used for margin closeout
+calculations represented in the Account’s home currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal? MarginCloseoutPositionValue { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState_MarginCloseoutUnrealizedPL.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState.MarginCloseoutUnrealizedPL%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L115">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChangesState_MarginCloseoutUnrealizedPL_" data-uid="FFT.Oanda.Accounts.AccountChangesState.MarginCloseoutUnrealizedPL*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChangesState_MarginCloseoutUnrealizedPL" data-uid="FFT.Oanda.Accounts.AccountChangesState.MarginCloseoutUnrealizedPL">MarginCloseoutUnrealizedPL</h4>
+  <div class="markdown level1 summary"><p>The Account’s margin closeout unrealized PL. Expressed in the account's
+home currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal? MarginCloseoutUnrealizedPL { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState_MarginUsed.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState.MarginUsed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L97">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChangesState_MarginUsed_" data-uid="FFT.Oanda.Accounts.AccountChangesState.MarginUsed*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChangesState_MarginUsed" data-uid="FFT.Oanda.Accounts.AccountChangesState.MarginUsed">MarginUsed</h4>
+  <div class="markdown level1 summary"><p>Margin currently used for the Account. Expressed in the account's home
+currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal? MarginUsed { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState_NAV.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState.NAV%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L91">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChangesState_NAV_" data-uid="FFT.Oanda.Accounts.AccountChangesState.NAV*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChangesState_NAV" data-uid="FFT.Oanda.Accounts.AccountChangesState.NAV">NAV</h4>
+  <div class="markdown level1 summary"><p>The net asset value of the Account. Equal to Account balance +
+unrealizedPL. Expressed in the account's home currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal? NAV { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState_Orders.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState.Orders%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L223">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChangesState_Orders_" data-uid="FFT.Oanda.Accounts.AccountChangesState.Orders*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChangesState_Orders" data-uid="FFT.Oanda.Accounts.AccountChangesState.Orders">Orders</h4>
+  <div class="markdown level1 summary"><p>The price-dependent state of each pending Order in the Account.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableList&lt;DynamicOrderState&gt;? Orders { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ImmutableList</span>&lt;<a class="xref" href="FFT.Oanda.DynamicOrderState.html">DynamicOrderState</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState_PL.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState.PL%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L170">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChangesState_PL_" data-uid="FFT.Oanda.Accounts.AccountChangesState.PL*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChangesState_PL" data-uid="FFT.Oanda.Accounts.AccountChangesState.PL">PL</h4>
+  <div class="markdown level1 summary"><p>The total profit/loss realized over the lifetime of the Account.
+Expressed in the account's home currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal? PL { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState_Positions.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState.Positions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L233">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChangesState_Positions_" data-uid="FFT.Oanda.Accounts.AccountChangesState.Positions*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChangesState_Positions" data-uid="FFT.Oanda.Accounts.AccountChangesState.Positions">Positions</h4>
+  <div class="markdown level1 summary"><p>The price-dependent state for each open Position in the Account.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableList&lt;CalculatedPositionState&gt;? Positions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ImmutableList</span>&lt;<a class="xref" href="FFT.Oanda.Positions.CalculatedPositionState.html">CalculatedPositionState</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState_PositionValue.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState.PositionValue%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L109">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChangesState_PositionValue_" data-uid="FFT.Oanda.Accounts.AccountChangesState.PositionValue*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChangesState_PositionValue" data-uid="FFT.Oanda.Accounts.AccountChangesState.PositionValue">PositionValue</h4>
+  <div class="markdown level1 summary"><p>The value of the Account’s open positions. Expressed in the account's
+home currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal? PositionValue { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState_ResettablePL.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState.ResettablePL%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L176">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChangesState_ResettablePL_" data-uid="FFT.Oanda.Accounts.AccountChangesState.ResettablePL*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChangesState_ResettablePL" data-uid="FFT.Oanda.Accounts.AccountChangesState.ResettablePL">ResettablePL</h4>
+  <div class="markdown level1 summary"><p>The total realized profit/loss for the account since it was last reset
+by the client. Expressed in the account's home currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal? ResettablePL { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState_Trades.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState.Trades%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L228">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChangesState_Trades_" data-uid="FFT.Oanda.Accounts.AccountChangesState.Trades*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChangesState_Trades" data-uid="FFT.Oanda.Accounts.AccountChangesState.Trades">Trades</h4>
+  <div class="markdown level1 summary"><p>The price-dependent state for each open Trade in the Account.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableList&lt;CalculatedTradeState&gt;? Trades { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ImmutableList</span>&lt;<a class="xref" href="FFT.Oanda.Trades.CalculatedTradeState.html">CalculatedTradeState</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState_UnrealizedPL.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState.UnrealizedPL%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L85">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChangesState_UnrealizedPL_" data-uid="FFT.Oanda.Accounts.AccountChangesState.UnrealizedPL*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChangesState_UnrealizedPL" data-uid="FFT.Oanda.Accounts.AccountChangesState.UnrealizedPL">UnrealizedPL</h4>
+  <div class="markdown level1 summary"><p>The total unrealized profit/loss for all Trades currently open in the
+Account. Expressed in the account's home currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal? UnrealizedPL { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState_WithdrawalLimit.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState.WithdrawalLimit%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L146">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Accounts_AccountChangesState_WithdrawalLimit_" data-uid="FFT.Oanda.Accounts.AccountChangesState.WithdrawalLimit*"></a>
+  <h4 id="FFT_Oanda_Accounts_AccountChangesState_WithdrawalLimit" data-uid="FFT.Oanda.Accounts.AccountChangesState.WithdrawalLimit">WithdrawalLimit</h4>
+  <div class="markdown level1 summary"><p>The current WithdrawalLimit for the account which will be zero or a
+positive value indicating how much can be withdrawn from the account.
+Expressed in the account's home currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal? WithdrawalLimit { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Accounts_AccountChangesState.md&amp;value=---%0Auid%3A%20FFT.Oanda.Accounts.AccountChangesState%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Accounts/AccountChangesState.cs/#L19" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+    <script src="//unpkg.com/highlightjs-dotnetconfig@0.9.1/dist/dotnetconfig.min.js"></script>
+  </body>
+</html>

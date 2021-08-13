@@ -1,0 +1,1092 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class Order
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class Order
+   ">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/vs.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script> 
+    <style>    
+      .hljs { white-space: pre; overflow-x: auto; }
+    </style>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="FFT.Oanda.Orders.Order">
+  
+  
+  <h1 id="FFT_Oanda_Orders_Order" data-uid="FFT.Oanda.Orders.Order" class="text-break">Class Order
+  </h1>
+  <div class="markdown level0 summary"><p>The base Order definition specifies the properties that are common to all
+orders. Implemented by: MarketOrder, FixedPriceOrder, LimitOrder,
+StopOrder, MarketIfTouchedOrder, TakeProfitOrder, StopLossOrder,
+GuaranteedStopLossOrder, TrailingStopLossOrder.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Order</span></div>
+      <div class="level2"><a class="xref" href="FFT.Oanda.Orders.FixedPriceOrder.html">FixedPriceOrder</a></div>
+      <div class="level2"><a class="xref" href="FFT.Oanda.Orders.GuaranteedStopLossOrder.html">GuaranteedStopLossOrder</a></div>
+      <div class="level2"><a class="xref" href="FFT.Oanda.Orders.LimitOrder.html">LimitOrder</a></div>
+      <div class="level2"><a class="xref" href="FFT.Oanda.Orders.MarketIfTouchedOrder.html">MarketIfTouchedOrder</a></div>
+      <div class="level2"><a class="xref" href="FFT.Oanda.Orders.MarketOrder.html">MarketOrder</a></div>
+      <div class="level2"><a class="xref" href="FFT.Oanda.Orders.StopLossOrder.html">StopLossOrder</a></div>
+      <div class="level2"><a class="xref" href="FFT.Oanda.Orders.StopOrder.html">StopOrder</a></div>
+      <div class="level2"><a class="xref" href="FFT.Oanda.Orders.TakeProfitOrder.html">TakeProfitOrder</a></div>
+      <div class="level2"><a class="xref" href="FFT.Oanda.Orders.TrailingStopLossOrder.html">TrailingStopLossOrder</a></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="FFT.Oanda.Orders.html">FFT.Oanda.Orders</a></h6>
+  <h6><strong>Assembly</strong>: FFT.Oanda.dll</h6>
+  <h5 id="FFT_Oanda_Orders_Order_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class Order : object</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_Order__ctor_System_String_DateTime_FFT_Oanda_Orders_OrderState_FFT_Oanda_ClientExtensions_FFT_Oanda_Orders_OrderType_System_String_FFT_Oanda_Orders_TimeInForce_System_Nullable_DateTime__FFT_Oanda_Orders_OrderPositionFill_FFT_Oanda_Orders_OrderTriggerCondition_FFT_Oanda_Orders_TakeProfitDetails_FFT_Oanda_Orders_StopLossDetails_FFT_Oanda_Orders_GuaranteedStopLossDetails_FFT_Oanda_Orders_TrailingStopLossDetails_FFT_Oanda_ClientExtensions_System_Nullable_System_String__System_Nullable_DateTime__System_Nullable_System_String__System_Nullable_System_String__System_Nullable_ImmutableList_System_String___System_Nullable_System_String__System_Nullable_DateTime__System_Nullable_System_String__System_Nullable_System_String__.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.Order.%23ctor(System.String%2CDateTime%2CFFT.Oanda.Orders.OrderState%2CFFT.Oanda.ClientExtensions%2CFFT.Oanda.Orders.OrderType%2CSystem.String%2CFFT.Oanda.Orders.TimeInForce%2CSystem.Nullable%7BDateTime%7D%2CFFT.Oanda.Orders.OrderPositionFill%2CFFT.Oanda.Orders.OrderTriggerCondition%2CFFT.Oanda.Orders.TakeProfitDetails%2CFFT.Oanda.Orders.StopLossDetails%2CFFT.Oanda.Orders.GuaranteedStopLossDetails%2CFFT.Oanda.Orders.TrailingStopLossDetails%2CFFT.Oanda.ClientExtensions%2CSystem.Nullable%7BSystem.String%7D%2CSystem.Nullable%7BDateTime%7D%2CSystem.Nullable%7BSystem.String%7D%2CSystem.Nullable%7BSystem.String%7D%2CSystem.Nullable%7BImmutableList%7BSystem.String%7D%7D%2CSystem.Nullable%7BSystem.String%7D%2CSystem.Nullable%7BDateTime%7D%2CSystem.Nullable%7BSystem.String%7D%2CSystem.Nullable%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/Order.cs/#L22">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_Order__ctor_" data-uid="FFT.Oanda.Orders.Order.#ctor*"></a>
+  <h4 id="FFT_Oanda_Orders_Order__ctor_System_String_DateTime_FFT_Oanda_Orders_OrderState_FFT_Oanda_ClientExtensions_FFT_Oanda_Orders_OrderType_System_String_FFT_Oanda_Orders_TimeInForce_System_Nullable_DateTime__FFT_Oanda_Orders_OrderPositionFill_FFT_Oanda_Orders_OrderTriggerCondition_FFT_Oanda_Orders_TakeProfitDetails_FFT_Oanda_Orders_StopLossDetails_FFT_Oanda_Orders_GuaranteedStopLossDetails_FFT_Oanda_Orders_TrailingStopLossDetails_FFT_Oanda_ClientExtensions_System_Nullable_System_String__System_Nullable_DateTime__System_Nullable_System_String__System_Nullable_System_String__System_Nullable_ImmutableList_System_String___System_Nullable_System_String__System_Nullable_DateTime__System_Nullable_System_String__System_Nullable_System_String__" data-uid="FFT.Oanda.Orders.Order.#ctor(System.String,DateTime,FFT.Oanda.Orders.OrderState,FFT.Oanda.ClientExtensions,FFT.Oanda.Orders.OrderType,System.String,FFT.Oanda.Orders.TimeInForce,System.Nullable{DateTime},FFT.Oanda.Orders.OrderPositionFill,FFT.Oanda.Orders.OrderTriggerCondition,FFT.Oanda.Orders.TakeProfitDetails,FFT.Oanda.Orders.StopLossDetails,FFT.Oanda.Orders.GuaranteedStopLossDetails,FFT.Oanda.Orders.TrailingStopLossDetails,FFT.Oanda.ClientExtensions,System.Nullable{System.String},System.Nullable{DateTime},System.Nullable{System.String},System.Nullable{System.String},System.Nullable{ImmutableList{System.String}},System.Nullable{System.String},System.Nullable{DateTime},System.Nullable{System.String},System.Nullable{System.String})">Order(String, DateTime, OrderState, ClientExtensions, OrderType, String, TimeInForce, Nullable&lt;DateTime&gt;, OrderPositionFill, OrderTriggerCondition, TakeProfitDetails, StopLossDetails, GuaranteedStopLossDetails, TrailingStopLossDetails, ClientExtensions, Nullable&lt;String&gt;, Nullable&lt;DateTime&gt;, Nullable&lt;String&gt;, Nullable&lt;String&gt;, Nullable&lt;ImmutableList&lt;String&gt;&gt;, Nullable&lt;String&gt;, Nullable&lt;DateTime&gt;, Nullable&lt;String&gt;, Nullable&lt;String&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FFT.Oanda.Orders.Order.html">Order</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Order(string id, DateTime createTime, OrderState state, ClientExtensions clientExtensions, OrderType type, string instrument, TimeInForce timeInForce, DateTime? gtdTime, OrderPositionFill positionFill, OrderTriggerCondition triggerCondition, TakeProfitDetails takeProfitOnFill, StopLossDetails stopLossOnFill, GuaranteedStopLossDetails guaranteedStopLossOnFill, TrailingStopLossDetails trailingStopLossOnFill, ClientExtensions tradeClientExtensions, string? fillingTransactionID, DateTime? filledTime, string? tradeOpenedID, string? tradeReducedID, ImmutableList&lt;string&gt;? tradeClosedIDs, string? cancellingTransactionID, DateTime? cancelledTime, string? replacesOrderID, string? replacedByOrderID)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">id</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">createTime</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.OrderState.html">OrderState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.ClientExtensions.html">ClientExtensions</a></td>
+        <td><span class="parametername">clientExtensions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.OrderType.html">OrderType</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">instrument</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.TimeInForce.html">TimeInForce</a></td>
+        <td><span class="parametername">timeInForce</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DateTime</span>&gt;</td>
+        <td><span class="parametername">gtdTime</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.OrderPositionFill.html">OrderPositionFill</a></td>
+        <td><span class="parametername">positionFill</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.OrderTriggerCondition.html">OrderTriggerCondition</a></td>
+        <td><span class="parametername">triggerCondition</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.TakeProfitDetails.html">TakeProfitDetails</a></td>
+        <td><span class="parametername">takeProfitOnFill</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.StopLossDetails.html">StopLossDetails</a></td>
+        <td><span class="parametername">stopLossOnFill</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.GuaranteedStopLossDetails.html">GuaranteedStopLossDetails</a></td>
+        <td><span class="parametername">guaranteedStopLossOnFill</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.TrailingStopLossDetails.html">TrailingStopLossDetails</a></td>
+        <td><span class="parametername">trailingStopLossOnFill</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.ClientExtensions.html">ClientExtensions</a></td>
+        <td><span class="parametername">tradeClientExtensions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">fillingTransactionID</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DateTime</span>&gt;</td>
+        <td><span class="parametername">filledTime</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">tradeOpenedID</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">tradeReducedID</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ImmutableList</span>&lt;<span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="parametername">tradeClosedIDs</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">cancellingTransactionID</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DateTime</span>&gt;</td>
+        <td><span class="parametername">cancelledTime</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">replacesOrderID</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">replacedByOrderID</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_Order_CancelledTime.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.Order.CancelledTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/Order.cs/#L228">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_Order_CancelledTime_" data-uid="FFT.Oanda.Orders.Order.CancelledTime*"></a>
+  <h4 id="FFT_Oanda_Orders_Order_CancelledTime" data-uid="FFT.Oanda.Orders.Order.CancelledTime">CancelledTime</h4>
+  <div class="markdown level1 summary"><p>Date/time when the Order was cancelled (only provided when the state of
+the Order is CANCELLED).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime? CancelledTime { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DateTime</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_Order_CancellingTransactionID.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.Order.CancellingTransactionID%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/Order.cs/#L222">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_Order_CancellingTransactionID_" data-uid="FFT.Oanda.Orders.Order.CancellingTransactionID*"></a>
+  <h4 id="FFT_Oanda_Orders_Order_CancellingTransactionID" data-uid="FFT.Oanda.Orders.Order.CancellingTransactionID">CancellingTransactionID</h4>
+  <div class="markdown level1 summary"><p>ID of the Transaction that cancelled the Order (Only provided when the
+Order’s state is CANCELLED).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? CancellingTransactionID { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_Order_ClientExtensions.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.Order.ClientExtensions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/Order.cs/#L94">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_Order_ClientExtensions_" data-uid="FFT.Oanda.Orders.Order.ClientExtensions*"></a>
+  <h4 id="FFT_Oanda_Orders_Order_ClientExtensions" data-uid="FFT.Oanda.Orders.Order.ClientExtensions">ClientExtensions</h4>
+  <div class="markdown level1 summary"><p>The client extensions of the Order. Do not set, modify, or delete
+clientExtensions if your account is associated with MT4.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ClientExtensions ClientExtensions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.ClientExtensions.html">ClientExtensions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_Order_CreateTime.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.Order.CreateTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/Order.cs/#L83">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_Order_CreateTime_" data-uid="FFT.Oanda.Orders.Order.CreateTime*"></a>
+  <h4 id="FFT_Oanda_Orders_Order_CreateTime" data-uid="FFT.Oanda.Orders.Order.CreateTime">CreateTime</h4>
+  <div class="markdown level1 summary"><p>The time when the Order was created.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime CreateTime { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_Order_FilledTime.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.Order.FilledTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/Order.cs/#L195">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_Order_FilledTime_" data-uid="FFT.Oanda.Orders.Order.FilledTime*"></a>
+  <h4 id="FFT_Oanda_Orders_Order_FilledTime" data-uid="FFT.Oanda.Orders.Order.FilledTime">FilledTime</h4>
+  <div class="markdown level1 summary"><p>Date/time when the Order was filled (only provided when the Order’s
+state is FILLED).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime? FilledTime { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DateTime</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_Order_FillingTransactionID.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.Order.FillingTransactionID%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/Order.cs/#L189">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_Order_FillingTransactionID_" data-uid="FFT.Oanda.Orders.Order.FillingTransactionID*"></a>
+  <h4 id="FFT_Oanda_Orders_Order_FillingTransactionID" data-uid="FFT.Oanda.Orders.Order.FillingTransactionID">FillingTransactionID</h4>
+  <div class="markdown level1 summary"><p>ID of the Transaction that filled this Order (only provided when the
+Order’s state is FILLED).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? FillingTransactionID { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_Order_GtdTime.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.Order.GtdTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/Order.cs/#L115">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_Order_GtdTime_" data-uid="FFT.Oanda.Orders.Order.GtdTime*"></a>
+  <h4 id="FFT_Oanda_Orders_Order_GtdTime" data-uid="FFT.Oanda.Orders.Order.GtdTime">GtdTime</h4>
+  <div class="markdown level1 summary"><p>The date/time when the Order will be cancelled if its timeInForce
+is “GTD”.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime? GtdTime { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DateTime</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_Order_GuaranteedStopLossOnFill.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.Order.GuaranteedStopLossOnFill%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/Order.cs/#L167">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_Order_GuaranteedStopLossOnFill_" data-uid="FFT.Oanda.Orders.Order.GuaranteedStopLossOnFill*"></a>
+  <h4 id="FFT_Oanda_Orders_Order_GuaranteedStopLossOnFill" data-uid="FFT.Oanda.Orders.Order.GuaranteedStopLossOnFill">GuaranteedStopLossOnFill</h4>
+  <div class="markdown level1 summary"><p>GuaranteedStopLossDetails specifies the details of a Guaranteed Stop
+Loss Order to be created on behalf of a client. This may happen when an
+Order is filled that opens a Trade requiring a Guaranteed Stop Loss, or
+when a Trade’s dependent Guaranteed Stop Loss Order is modified directly
+through the Trade.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GuaranteedStopLossDetails GuaranteedStopLossOnFill { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.GuaranteedStopLossDetails.html">GuaranteedStopLossDetails</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_Order_Id.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.Order.Id%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/Order.cs/#L78">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_Order_Id_" data-uid="FFT.Oanda.Orders.Order.Id*"></a>
+  <h4 id="FFT_Oanda_Orders_Order_Id" data-uid="FFT.Oanda.Orders.Order.Id">Id</h4>
+  <div class="markdown level1 summary"><p>The Order’s identifier, unique within the Order’s Account.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Id { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_Order_Instrument.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.Order.Instrument%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/Order.cs/#L104">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_Order_Instrument_" data-uid="FFT.Oanda.Orders.Order.Instrument*"></a>
+  <h4 id="FFT_Oanda_Orders_Order_Instrument" data-uid="FFT.Oanda.Orders.Order.Instrument">Instrument</h4>
+  <div class="markdown level1 summary"><p>The Order’s Instrument.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Instrument { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_Order_PositionFill.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.Order.PositionFill%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/Order.cs/#L121">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_Order_PositionFill_" data-uid="FFT.Oanda.Orders.Order.PositionFill*"></a>
+  <h4 id="FFT_Oanda_Orders_Order_PositionFill" data-uid="FFT.Oanda.Orders.Order.PositionFill">PositionFill</h4>
+  <div class="markdown level1 summary"><p>Specification of how Positions in the Account are modified when the
+Order is filled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OrderPositionFill PositionFill { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.OrderPositionFill.html">OrderPositionFill</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_Order_ReplacedByOrderID.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.Order.ReplacedByOrderID%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/Order.cs/#L240">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_Order_ReplacedByOrderID_" data-uid="FFT.Oanda.Orders.Order.ReplacedByOrderID*"></a>
+  <h4 id="FFT_Oanda_Orders_Order_ReplacedByOrderID" data-uid="FFT.Oanda.Orders.Order.ReplacedByOrderID">ReplacedByOrderID</h4>
+  <div class="markdown level1 summary"><p>The ID of the Order that replaced this Order (only provided if this
+Order was cancelled as part of a cancel/replace).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? ReplacedByOrderID { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_Order_ReplacesOrderID.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.Order.ReplacesOrderID%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/Order.cs/#L234">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_Order_ReplacesOrderID_" data-uid="FFT.Oanda.Orders.Order.ReplacesOrderID*"></a>
+  <h4 id="FFT_Oanda_Orders_Order_ReplacesOrderID" data-uid="FFT.Oanda.Orders.Order.ReplacesOrderID">ReplacesOrderID</h4>
+  <div class="markdown level1 summary"><p>The ID of the Order that was replaced by this Order (only provided if
+this Order was created as part of a cancel/replace).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? ReplacesOrderID { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_Order_State.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.Order.State%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/Order.cs/#L88">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_Order_State_" data-uid="FFT.Oanda.Orders.Order.State*"></a>
+  <h4 id="FFT_Oanda_Orders_Order_State" data-uid="FFT.Oanda.Orders.Order.State">State</h4>
+  <div class="markdown level1 summary"><p>The current state of the Order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OrderState State { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.OrderState.html">OrderState</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_Order_StopLossOnFill.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.Order.StopLossOnFill%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/Order.cs/#L158">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_Order_StopLossOnFill_" data-uid="FFT.Oanda.Orders.Order.StopLossOnFill*"></a>
+  <h4 id="FFT_Oanda_Orders_Order_StopLossOnFill" data-uid="FFT.Oanda.Orders.Order.StopLossOnFill">StopLossOnFill</h4>
+  <div class="markdown level1 summary"><p>StopLossDetails specifies the details of a Stop Loss Order to be created
+on behalf of a client. This may happen when an Order is filled that
+opens a Trade requiring a Stop Loss, or when a Trade’s dependent Stop
+Loss Order is modified directly through the Trade.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StopLossDetails StopLossOnFill { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.StopLossDetails.html">StopLossDetails</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_Order_TakeProfitOnFill.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.Order.TakeProfitOnFill%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/Order.cs/#L150">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_Order_TakeProfitOnFill_" data-uid="FFT.Oanda.Orders.Order.TakeProfitOnFill*"></a>
+  <h4 id="FFT_Oanda_Orders_Order_TakeProfitOnFill" data-uid="FFT.Oanda.Orders.Order.TakeProfitOnFill">TakeProfitOnFill</h4>
+  <div class="markdown level1 summary"><p>TakeProfitDetails specifies the details of a Take Profit Order to be
+created on behalf of a client. This may happen when an Order is filled
+that opens a Trade requiring a Take Profit, or when a Trade’s dependent
+Take Profit Order is modified directly through the Trade.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TakeProfitDetails TakeProfitOnFill { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.TakeProfitDetails.html">TakeProfitDetails</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_Order_TimeInForce.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.Order.TimeInForce%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/Order.cs/#L109">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_Order_TimeInForce_" data-uid="FFT.Oanda.Orders.Order.TimeInForce*"></a>
+  <h4 id="FFT_Oanda_Orders_Order_TimeInForce" data-uid="FFT.Oanda.Orders.Order.TimeInForce">TimeInForce</h4>
+  <div class="markdown level1 summary"><p>The time-in-force requested for the Order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeInForce TimeInForce { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.TimeInForce.html">TimeInForce</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_Order_TradeClientExtensions.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.Order.TradeClientExtensions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/Order.cs/#L183">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_Order_TradeClientExtensions_" data-uid="FFT.Oanda.Orders.Order.TradeClientExtensions*"></a>
+  <h4 id="FFT_Oanda_Orders_Order_TradeClientExtensions" data-uid="FFT.Oanda.Orders.Order.TradeClientExtensions">TradeClientExtensions</h4>
+  <div class="markdown level1 summary"><p>Client Extensions to add to the Trade created when the Order is filled
+(if such a Trade is created). Do not set, modify, or delete
+tradeClientExtensions if your account is associated with MT4.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ClientExtensions TradeClientExtensions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.ClientExtensions.html">ClientExtensions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_Order_TradeClosedIDs.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.Order.TradeClosedIDs%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/Order.cs/#L216">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_Order_TradeClosedIDs_" data-uid="FFT.Oanda.Orders.Order.TradeClosedIDs*"></a>
+  <h4 id="FFT_Oanda_Orders_Order_TradeClosedIDs" data-uid="FFT.Oanda.Orders.Order.TradeClosedIDs">TradeClosedIDs</h4>
+  <div class="markdown level1 summary"><p>Trade IDs of Trades closed when the Order was filled (Only provided when
+the Order’s state is FILLED and one or more Trades were closed as a
+result of the fill).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableList&lt;string&gt;? TradeClosedIDs { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ImmutableList</span>&lt;<span class="xref">System.String</span>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_Order_TradeOpenedID.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.Order.TradeOpenedID%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/Order.cs/#L202">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_Order_TradeOpenedID_" data-uid="FFT.Oanda.Orders.Order.TradeOpenedID*"></a>
+  <h4 id="FFT_Oanda_Orders_Order_TradeOpenedID" data-uid="FFT.Oanda.Orders.Order.TradeOpenedID">TradeOpenedID</h4>
+  <div class="markdown level1 summary"><p>Trade ID of Trade opened when the Order was filled (only provided when
+the Order’s state is FILLED and a Trade was opened as a result of the
+fill).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? TradeOpenedID { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_Order_TradeReducedID.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.Order.TradeReducedID%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/Order.cs/#L209">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_Order_TradeReducedID_" data-uid="FFT.Oanda.Orders.Order.TradeReducedID*"></a>
+  <h4 id="FFT_Oanda_Orders_Order_TradeReducedID" data-uid="FFT.Oanda.Orders.Order.TradeReducedID">TradeReducedID</h4>
+  <div class="markdown level1 summary"><p>Trade ID of Trade reduced when the Order was filled (Only provided when
+the Order’s state is FILLED and a Trade was reduced as a result of the
+fill).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? TradeReducedID { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_Order_TrailingStopLossOnFill.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.Order.TrailingStopLossOnFill%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/Order.cs/#L176">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_Order_TrailingStopLossOnFill_" data-uid="FFT.Oanda.Orders.Order.TrailingStopLossOnFill*"></a>
+  <h4 id="FFT_Oanda_Orders_Order_TrailingStopLossOnFill" data-uid="FFT.Oanda.Orders.Order.TrailingStopLossOnFill">TrailingStopLossOnFill</h4>
+  <div class="markdown level1 summary"><p>TrailingStopLossDetails specifies the details of a Trailing Stop Loss
+Order to be created on behalf of a client. This may happen when an Order
+is filled that opens a Trade requiring a Trailing Stop Loss, or when a
+Trade’s dependent Trailing Stop Loss Order is modified directly through
+the Trade.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TrailingStopLossDetails TrailingStopLossOnFill { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.TrailingStopLossDetails.html">TrailingStopLossDetails</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_Order_TriggerCondition.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.Order.TriggerCondition%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/Order.cs/#L142">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_Order_TriggerCondition_" data-uid="FFT.Oanda.Orders.Order.TriggerCondition*"></a>
+  <h4 id="FFT_Oanda_Orders_Order_TriggerCondition" data-uid="FFT.Oanda.Orders.Order.TriggerCondition">TriggerCondition</h4>
+  <div class="markdown level1 summary"><p>Specification of which price component should be used when determining
+if an Order should be triggered and filled. This allows Orders to be
+triggered based on the bid, ask, mid, default (ask for buy, bid for
+sell) or inverse (ask for sell, bid for buy) price depending on the
+desired behaviour. Orders are always filled using their default price
+component. This feature is only provided through the REST API. Clients
+who choose to specify a non-default trigger condition will not see it
+reflected in any of OANDA’s proprietary or partner trading platforms,
+their transaction history or their account statements. OANDA platforms
+always assume that an Order’s trigger condition is set to the default
+value when indicating the distance from an Order’s trigger price, and
+will always provide the default trigger condition when creating or
+modifying an Order. A special restriction applies when creating a
+Guaranteed Stop Loss Order. In this case the TriggerCondition value must
+either be “DEFAULT”, or the“natural” trigger side “DEFAULT” results in.
+So for a Guaranteed Stop Loss Order for a long trade valid values are
+“DEFAULT” and “BID”, and for short trades “DEFAULT” and “ASK” are valid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OrderTriggerCondition TriggerCondition { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.OrderTriggerCondition.html">OrderTriggerCondition</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_Order_Type.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.Order.Type%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/Order.cs/#L99">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_Order_Type_" data-uid="FFT.Oanda.Orders.Order.Type*"></a>
+  <h4 id="FFT_Oanda_Orders_Order_Type" data-uid="FFT.Oanda.Orders.Order.Type">Type</h4>
+  <div class="markdown level1 summary"><p>The type of the Order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OrderType Type { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.OrderType.html">OrderType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_Order.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.Order%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/Order.cs/#L16" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+    <script src="//unpkg.com/highlightjs-dotnetconfig@0.9.1/dist/dotnetconfig.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,370 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Namespace FFT.Oanda.Transactions
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Namespace FFT.Oanda.Transactions
+   ">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/vs.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script> 
+    <style>    
+      .hljs { white-space: pre; overflow-x: auto; }
+    </style>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="FFT.Oanda.Transactions">
+  
+  <h1 id="FFT_Oanda_Transactions" data-uid="FFT.Oanda.Transactions" class="text-break">Namespace FFT.Oanda.Transactions
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+    <h3 id="classes">Classes
+  </h3>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.ClientConfigureRejectTransaction.html">ClientConfigureRejectTransaction</a></h4>
+      <section><p>A ClientConfigureRejectTransaction represents the reject of configuration
+of an Account by a client.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.ClientConfigureTransaction.html">ClientConfigureTransaction</a></h4>
+      <section><p>A ClientConfigureTransaction represents the configuration of an Account by
+a client.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.CloseTransaction.html">CloseTransaction</a></h4>
+      <section><p>A CloseTransaction represents the closing of an Account.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.CreateTransaction.html">CreateTransaction</a></h4>
+      <section><p>A CreateTransaction represents the creation of an Account.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.DailyFinancingTransaction.html">DailyFinancingTransaction</a></h4>
+      <section><p>A DailyFinancingTransaction represents the daily payment/collection of
+financing for an Account.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.DelayedTradeClosureTransaction.html">DelayedTradeClosureTransaction</a></h4>
+      <section><p>A DelayedTradeClosure Transaction is created administratively to indicate
+open trades that should have been closed but weren’t because the open
+trades’ instruments were untradeable at the time. Open trades listed in
+this transaction will be closed once their respective instruments become
+tradeable.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.DividendAdjustmentTransaction.html">DividendAdjustmentTransaction</a></h4>
+      <section><p>A DividendAdjustment Transaction is created administratively to pay or
+collect dividend adjustment mounts to or from an Account.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.FixedPriceOrderTransaction.html">FixedPriceOrderTransaction</a></h4>
+      <section><p>A FixedPriceOrderTransaction represents the creation of a Fixed Price
+Order in the user’s account. A Fixed Price Order is an Order that is
+filled immediately at a specified price.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.GetTransactionIdRangeResponse.html">GetTransactionIdRangeResponse</a></h4>
+      <section><p>Returned by the <see cref="!:OandaApiClient.GetTransactionIdRange(string,     DateTime?, DateTime?)"></see> method.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.GetTransactionResponse.html">GetTransactionResponse</a></h4>
+      <section><p>Returned by the <see cref="!:OandaApiClient.GetTransaction(string, string)"></see>
+method.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.GetTransactionsResponse.html">GetTransactionsResponse</a></h4>
+      <section><p>Returned by the <see cref="!:OandaApiClient.GetTransactions(string, int,     int, TransactionFilter[])"></see> method.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.GuaranteedStopLossOrderRejectTransaction.html">GuaranteedStopLossOrderRejectTransaction</a></h4>
+      <section><p>A GuaranteedStopLossOrderRejectTransaction represents the rejection of the
+creation of a GuaranteedStopLoss Order.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.GuaranteedStopLossOrderTransaction.html">GuaranteedStopLossOrderTransaction</a></h4>
+      <section><p>A GuaranteedStopLossOrderTransaction represents the creation of a
+GuaranteedStopLoss Order in the user’s Account.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.LimitOrderRejectTransaction.html">LimitOrderRejectTransaction</a></h4>
+      <section><p>A LimitOrderRejectTransaction represents the rejection of the creation of
+a Limit Order.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.LimitOrderTransaction.html">LimitOrderTransaction</a></h4>
+      <section><p>A LimitOrderTransaction represents the creation of a Limit Order in the
+user’s Account.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.MarginCallEnterTransaction.html">MarginCallEnterTransaction</a></h4>
+      <section><p>A MarginCallEnterTransaction is created when an Account enters the margin
+call state.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.MarginCallExitTransaction.html">MarginCallExitTransaction</a></h4>
+      <section><p>A MarginCallExitTransaction is created when an Account leaves the margin
+call state.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.MarginCallExtendTransaction.html">MarginCallExtendTransaction</a></h4>
+      <section><p>A MarginCallExtendTransaction is created when the margin call state for an
+Account has been extended.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.MarketIfTouchedOrderRejectTransaction.html">MarketIfTouchedOrderRejectTransaction</a></h4>
+      <section><p>A MarketIfTouchedOrderRejectTransaction represents the rejection of the
+creation of a MarketIfTouched Order.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.MarketIfTouchedOrderTransaction.html">MarketIfTouchedOrderTransaction</a></h4>
+      <section><p>A MarketIfTouchedOrderTransaction represents the creation of a
+MarketIfTouched Order in the user’s Account.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.MarketOrderRejectTransaction.html">MarketOrderRejectTransaction</a></h4>
+      <section><p>A MarketOrderRejectTransaction represents the rejection of the creation of
+a Market Order.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.MarketOrderTransaction.html">MarketOrderTransaction</a></h4>
+      <section><p>A MarketOrderTransaction represents the creation of a Market Order in the
+user’s account. A Market Order is an Order that is filled immediately at
+the current market price. Market Orders can be specialized when they are
+created to accomplish a specific task: to close a Trade, to closeout a
+Position or to participate in in a Margin closeout.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.OpeningOrderTransaction.html">OpeningOrderTransaction</a></h4>
+      <section><p>Base class for transactions that can open new trades. Note that the Market
+orders also inherit this base class, but they can also be used for closing
+trades.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.OpenTradeDividendAdjustment.html">OpenTradeDividendAdjustment</a></h4>
+      <section><p>Used to pay or collect a dividend adjustment amount for an open Trade within the Account.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.OpenTradeFinancing.html">OpenTradeFinancing</a></h4>
+      <section><p>OpenTradeFinancing is used to pay/collect daily financing charge for an
+open Trade within an Account.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.OrderCancelRejectTransaction.html">OrderCancelRejectTransaction</a></h4>
+      <section><p>An OrderCancelRejectTransaction represents the rejection of the
+cancellation of an Order in the client’s Account.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.OrderCancelTransaction.html">OrderCancelTransaction</a></h4>
+      <section><p>An OrderCancelTransaction represents the cancellation of an Order in the
+client’s Account.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.OrderClientExtensionsModifyRejectTransaction.html">OrderClientExtensionsModifyRejectTransaction</a></h4>
+      <section><p>A OrderClientExtensionsModifyRejectTransaction represents the rejection of
+the modification of an Order’s Client Extensions.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.OrderClientExtensionsModifyTransaction.html">OrderClientExtensionsModifyTransaction</a></h4>
+      <section><p>A OrderClientExtensionsModifyTransaction represents the modification of an
+Order’s Client Extensions.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.OrderFillTransaction.html">OrderFillTransaction</a></h4>
+      <section><p>An OrderFillTransaction represents the filling of an Order in the client’s
+Account.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.OrderTransaction.html">OrderTransaction</a></h4>
+      <section><p>Base class for transactions related to orders.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.PositionFinancing.html">PositionFinancing</a></h4>
+      <section><p>PositionFinancing is used to pay/collect daily financing charge for a
+Position within an Account.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.ReopenTransaction.html">ReopenTransaction</a></h4>
+      <section><p>A ReopenTransaction represents the re-opening of a closed Account.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.ResetResettablePLTransaction.html">ResetResettablePLTransaction</a></h4>
+      <section><p>A ResetResettablePLTransaction represents the resetting of the Account’s
+resettable PL counters.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.StopLossOrderRejectTransaction.html">StopLossOrderRejectTransaction</a></h4>
+      <section><p>A StopLossOrderRejectTransaction represents the rejection of the creation
+of a StopLoss Order.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.StopLossOrderTransaction.html">StopLossOrderTransaction</a></h4>
+      <section><p>A StopLossOrderTransaction represents the creation of a StopLoss Order in
+the user’s Account.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.StopOrderRejectTransaction.html">StopOrderRejectTransaction</a></h4>
+      <section><p>A StopOrderRejectTransaction represents the rejection of the creation of a
+Stop Order.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.StopOrderTransaction.html">StopOrderTransaction</a></h4>
+      <section><p>A StopOrderTransaction represents the creation of a Stop Order in the
+user’s Account.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.TakeProfitOrderRejectTransaction.html">TakeProfitOrderRejectTransaction</a></h4>
+      <section><p>A TakeProfitOrderRejectTransaction represents the rejection of the
+creation of a TakeProfit Order.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.TakeProfitOrderTransaction.html">TakeProfitOrderTransaction</a></h4>
+      <section><p>A TakeProfitOrderTransaction represents the creation of a TakeProfit Order
+in the user’s Account.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.TradeClientExtensionsModifyRejectTransaction.html">TradeClientExtensionsModifyRejectTransaction</a></h4>
+      <section><p>A TradeClientExtensionsModifyRejectTransaction represents the rejection of
+the modification of a Trade’s Client Extensions.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.TradeClientExtensionsModifyTransaction.html">TradeClientExtensionsModifyTransaction</a></h4>
+      <section><p>A TradeClientExtensionsModifyTransaction represents the modification of a
+Trade’s Client Extensions.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.TradeOpen.html">TradeOpen</a></h4>
+      <section><p>A TradeOpen object represents a Trade for an instrument that was opened in
+an Account. It is found embedded in Transactions that affect the position
+of an instrument in the Account, specifically the OrderFill Transaction.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.TradeReduce.html">TradeReduce</a></h4>
+      <section><p>A TradeReduce object represents a Trade for an instrument that was reduced
+(either partially or fully) in an Account. It is found embedded in
+Transactions that affect the position of an instrument in the account,
+specifically the OrderFill Transaction.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.TradeRelatedOrderTransaction.html">TradeRelatedOrderTransaction</a></h4>
+      <section><p>Base class for order transactions that are related to existing trades.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.TrailingStopLossOrderRejectTransaction.html">TrailingStopLossOrderRejectTransaction</a></h4>
+      <section><p>A TrailingStopLossOrderRejectTransaction represents the rejection of the
+creation of a TrailingStopLoss Order.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.TrailingStopLossOrderTransaction.html">TrailingStopLossOrderTransaction</a></h4>
+      <section><p>A TrailingStopLossOrderTransaction represents the creation of a
+TrailingStopLoss Order in the user’s Account.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.Transaction.html">Transaction</a></h4>
+      <section><p>The base Transaction specification. Specifies properties that are common
+between all Transactions.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.TransactionConverter.html">TransactionConverter</a></h4>
+      <section><p>Provides a way for inherited transaction types to be deserialized by parsing the
+<a class="xref" href="FFT.Oanda.Transactions.Transaction.html#FFT_Oanda_Transactions_Transaction_Type">Type</a> property to determine the appropriate type for
+deserialization.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.TransferFundsRejectTransaction.html">TransferFundsRejectTransaction</a></h4>
+      <section><p>A TransferFundsRejectTransaction represents the rejection of the transfer
+of funds in/out of an Account.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.TransferFundsTransaction.html">TransferFundsTransaction</a></h4>
+      <section><p>A TransferFundsTransaction represents the transfer of funds in/out of an
+Account.</p>
+</section>
+    <h3 id="enums">Enums
+  </h3>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.FixedPriceOrderReason.html">FixedPriceOrderReason</a></h4>
+      <section><p>The reason that the Fixed Price Order was created.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.FundingReason.html">FundingReason</a></h4>
+      <section><p>The reason that an Account is being funded.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.GuaranteedStopLossOrderReason.html">GuaranteedStopLossOrderReason</a></h4>
+      <section><p>The reason that the Guaranteed Stop Loss Order was initiated.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.LimitOrderReason.html">LimitOrderReason</a></h4>
+      <section><p>The reason that the Limit Order was initiated.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.MarketIfTouchedOrderReason.html">MarketIfTouchedOrderReason</a></h4>
+      <section><p>The reason that the Market-if-touched Order was initiated.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.MarketOrderReason.html">MarketOrderReason</a></h4>
+      <section><p>The reason that the Market Order was created.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.OrderCancelReason.html">OrderCancelReason</a></h4>
+      <section><p>The reason that an Order was cancelled.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.OrderFillReason.html">OrderFillReason</a></h4>
+      <section><p>The reason that an order was filled.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.StopLossOrderReason.html">StopLossOrderReason</a></h4>
+      <section><p>The reason that the Stop Loss Order was initiated.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.StopOrderReason.html">StopOrderReason</a></h4>
+      <section><p>The reason that the Stop Order was initiated.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.TakeProfitOrderReason.html">TakeProfitOrderReason</a></h4>
+      <section><p>The reason that the Take Profit Order was initiated.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.TrailingStopLossOrderReason.html">TrailingStopLossOrderReason</a></h4>
+      <section><p>The reason that the Trailing Stop Loss Order was initiated.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Transactions.TransactionType.html">TransactionType</a></h4>
+      <section><p>The possible types of a Transaction.</p>
+</section>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+    <script src="//unpkg.com/highlightjs-dotnetconfig@0.9.1/dist/dotnetconfig.min.js"></script>
+  </body>
+</html>

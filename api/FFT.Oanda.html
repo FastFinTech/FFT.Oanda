@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Namespace FFT.Oanda
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Namespace FFT.Oanda
+   ">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/vs.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script> 
+    <style>    
+      .hljs { white-space: pre; overflow-x: auto; }
+    </style>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="FFT.Oanda">
+  
+  <h1 id="FFT_Oanda" data-uid="FFT.Oanda" class="text-break">Namespace FFT.Oanda
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+    <h3 id="classes">Classes
+  </h3>
+      <h4><a class="xref" href="FFT.Oanda.ClientExtensions.html">ClientExtensions</a></h4>
+      <section><p>Allows a client to attach a clientID, tag and comment to orders and trades
+in their account. Do not set, modify, or delete this field if your account
+is associated with MT4.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.ConversionFactor.html">ConversionFactor</a></h4>
+      <section><p>A ConversionFactor contains information used to convert an amount, from an
+Instrument’s base or quote currency, to the home currency of an Account.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.DynamicOrderState.html">DynamicOrderState</a></h4>
+      <section><p>The dynamic state of an Order. This is only relevant to TrailingStopLoss
+Orders, as no other Order type has dynamic state.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.FinancingDayOfWeek.html">FinancingDayOfWeek</a></h4>
+      <section><p>A FinancingDayOfWeek message defines a day of the week when financing
+charges are debited or credited.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.HomeConversionFactors.html">HomeConversionFactors</a></h4>
+      <section><p>A HomeConversionFactors message contains information used to convert
+amounts, from an Instrument’s base or quote currency, to the home currency
+of an Account.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.OandaApiClient.html">OandaApiClient</a></h4>
+      <section><p>Provides a client for the Oanda api.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.RequestFailedException.html">RequestFailedException</a></h4>
+      <section><p>Thrown when an api request is denied. Check the <a class="xref" href="FFT.Oanda.RequestFailedException.html#FFT_Oanda_RequestFailedException_StatusCode">StatusCode</a>
+and <a class="xref" href="FFT.Oanda.RequestFailedException.html#FFT_Oanda_RequestFailedException_Content">Content</a> properties for information returned by the api.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Tag.html">Tag</a></h4>
+      <section><p>A tag associated with an entity.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.TransactionHeartbeat.html">TransactionHeartbeat</a></h4>
+      <section><p>A TransactionHeartbeat object is injected into the Transaction stream to
+ensure that the HTTP connection remains active.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.UnitsAvailable.html">UnitsAvailable</a></h4>
+      <section><p>Representation of how many units of an Instrument are available to be
+traded by an Order depending on its positionFill option.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.UnitsAvailableDetails.html">UnitsAvailableDetails</a></h4>
+      <section><p>Representation of many units of an Instrument are available to be traded
+for both long and short Orders.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.UpdateOrderClientExtensionsResponse.html">UpdateOrderClientExtensionsResponse</a></h4>
+      <section><p>Returned by the <see cref="!:OandaApiClient.SetOrderClientExtensions(string,     string, ClientExtensions?, ClientExtensions?)"></see> method when the request
+is successful.</p>
+</section>
+    <h3 id="structs">Structs
+  </h3>
+      <h4><a class="xref" href="FFT.Oanda.NumUnits.html">NumUnits</a></h4>
+      <section><p>Represents &quot;ALL&quot; units or a fixed number of units.</p>
+</section>
+    <h3 id="enums">Enums
+  </h3>
+      <h4><a class="xref" href="FFT.Oanda.DateTimeFormat.html">DateTimeFormat</a></h4>
+      <section><p>Used to specify the format that should be used for expressing times when
+transmitting json to and from the oanda api.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.DayOfWeek.html">DayOfWeek</a></h4>
+      <section><p>The DayOfWeek provides a representation of the day of the week.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Direction.html">Direction</a></h4>
+      <section><p>In the context of an Order or a Trade, defines whether the units are
+positive or negative.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.TransactionFilter.html">TransactionFilter</a></h4>
+      <section><p>A filter that can be used when fetching Transactions.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.TransactionRejectReason.html">TransactionRejectReason</a></h4>
+      <section><p>The reason that a Transaction was rejected.</p>
+</section>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+    <script src="//unpkg.com/highlightjs-dotnetconfig@0.9.1/dist/dotnetconfig.min.js"></script>
+  </body>
+</html>

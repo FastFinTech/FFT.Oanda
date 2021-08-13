@@ -1,0 +1,312 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Namespace FFT.Oanda.Orders
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Namespace FFT.Oanda.Orders
+   ">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/vs.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script> 
+    <style>    
+      .hljs { white-space: pre; overflow-x: auto; }
+    </style>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="FFT.Oanda.Orders">
+  
+  <h1 id="FFT_Oanda_Orders" data-uid="FFT.Oanda.Orders" class="text-break">Namespace FFT.Oanda.Orders
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+    <h3 id="classes">Classes
+  </h3>
+      <h4><a class="xref" href="FFT.Oanda.Orders.CancelOrderResponse.html">CancelOrderResponse</a></h4>
+      <section><p>Returned by the <see cref="!:OandaApiClient.CancelOrder(string, string,     string)"></see> method when the order is successfully canceled.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.CreateOrderResponse.html">CreateOrderResponse</a></h4>
+      <section><p>Returned by the <see cref="!:OandaApiClient.CreateOrder(string, OrderRequest)"></see> method and contains information about an order request
+that has been accepted.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.FixedPriceOrder.html">FixedPriceOrder</a></h4>
+      <section><p>A FixedPriceOrder is an order that is filled immediately upon creation
+using a fixed price.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.GetOrdersResponse.html">GetOrdersResponse</a></h4>
+      <section><p>Returned by the <see cref="!:OandaApiClient.GetOrders(string, string?, OrderStateFilter, int, string, string[])"></see> and the <see cref="!:OandaApiClient.GetPendingOrders(string)"></see> methods.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.GetSingleOrderResponse.html">GetSingleOrderResponse</a></h4>
+      <section><p>Returned by the <see cref="!:OandaApiClient.GetSingleOrder(string, string)"></see> method. Contains information about the single order.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.GuaranteedStopLossDetails.html">GuaranteedStopLossDetails</a></h4>
+      <section><p>GuaranteedStopLossDetails specifies the details of a Guaranteed Stop Loss
+Order to be created on behalf of a client. This may happen when an Order
+is filled that opens a Trade requiring a Guaranteed Stop Loss, or when a
+Trade’s dependent Guaranteed Stop Loss Order is modified directly through
+the Trade.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.GuaranteedStopLossOrder.html">GuaranteedStopLossOrder</a></h4>
+      <section><p>A GuaranteedStopLossOrder is an order that is linked to an open Trade and
+created with a price threshold which is guaranteed against slippage that
+may occur as the market crosses the price set for that order. The Order
+will be filled (closing the Trade) by the first price that is equal to or
+worse than the threshold. The price level specified for the
+GuaranteedStopLossOrder must be at least the configured minimum distance
+(in price units) away from the entry price for the traded instrument. A
+GuaranteedStopLossOrder cannot be used to open a new Position.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.GuaranteedStopLossOrderEntryData.html">GuaranteedStopLossOrderEntryData</a></h4>
+      <section><p>Details required by clients creating a Guaranteed Stop Loss Order.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.GuaranteedStopLossOrderLevelRestriction.html">GuaranteedStopLossOrderLevelRestriction</a></h4>
+      <section><p>A GuaranteedStopLossOrderLevelRestriction represents the total position
+size that can exist within a given price window for Trades with guaranteed
+Stop Loss Orders attached for a specific Instrument.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.LimitOrder.html">LimitOrder</a></h4>
+      <section><p>A LimitOrder is an order that is created with a price threshold, and will
+only be filled by a price that is equal to or better than the threshold.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.MarketIfTouchedOrder.html">MarketIfTouchedOrder</a></h4>
+      <section><p>A MarketIfTouchedOrder is an order that is created with a price threshold,
+and will only be filled by a market price that touches or crosses the
+threshold.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.MarketOrder.html">MarketOrder</a></h4>
+      <section><p>A MarketOrder is an order that is filled immediately upon creation using
+the current market price.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.MarketOrderDelayedTradeClose.html">MarketOrderDelayedTradeClose</a></h4>
+      <section><p>Details for the Market Order extensions specific to a Market Order placed
+with the intent of fully closing a specific open trade that should have
+already been closed but wasn’t due to halted market conditions.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.MarketOrderMarginCloseout.html">MarketOrderMarginCloseout</a></h4>
+      <section><p>Details for the Market Order extensions specific to a Market Order placed
+that is part of a Market Order Margin Closeout in a client’s account.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.MarketOrderPositionCloseout.html">MarketOrderPositionCloseout</a></h4>
+      <section><p>A MarketOrderPositionCloseout specifies the extensions to a Market Order
+when it has been created to closeout a specific Position.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.MarketOrderTradeClose.html">MarketOrderTradeClose</a></h4>
+      <section><p>A MarketOrderTradeClose specifies the extensions to a Market Order that
+has been created specifically to close a Trade.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.Order.html">Order</a></h4>
+      <section><p>The base Order definition specifies the properties that are common to all
+orders. Implemented by: MarketOrder, FixedPriceOrder, LimitOrder,
+StopOrder, MarketIfTouchedOrder, TakeProfitOrder, StopLossOrder,
+GuaranteedStopLossOrder, TrailingStopLossOrder.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.OrderConverter.html">OrderConverter</a></h4>
+      <section><p>Provides a way for inherited order types to be deserialized by parsing the
+<a class="xref" href="FFT.Oanda.Orders.Order.html#FFT_Oanda_Orders_Order_Type">Type</a> property to determine the appropriate type for
+deserialization.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.OrderIdentifier.html">OrderIdentifier</a></h4>
+      <section><p>An OrderIdentifier is used to refer to an Order, and contains both the
+OrderID and the ClientOrderID.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.ReplaceOrderResponse.html">ReplaceOrderResponse</a></h4>
+      <section><p>Returned by the <see cref="!:OandaApiClient.ReplaceOrder(string, string, OrderRequest, string)"></see> method when the order replacement request is
+successful.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.StopLossDetails.html">StopLossDetails</a></h4>
+      <section><p>StopLossDetails specifies the details of a Stop Loss Order to be created
+on behalf of a client. This may happen when an Order is filled that opens
+a Trade requiring a Stop Loss, or when a Trade’s dependent Stop Loss Order
+is modified directly through the Trade.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.StopLossOrder.html">StopLossOrder</a></h4>
+      <section><p>A StopLossOrder is an order that is linked to an open Trade and created
+with a price threshold. The Order will be filled (closing the Trade) by
+the first price that is equal to or worse than the threshold. A
+StopLossOrder cannot be used to open a new Position.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.StopOrder.html">StopOrder</a></h4>
+      <section><p>A StopOrder is an order that is created with a price threshold, and will
+only be filled by a price that is equal to or worse than the threshold.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.TakeProfitDetails.html">TakeProfitDetails</a></h4>
+      <section><p>TakeProfitDetails specifies the details of a Take Profit Order to be
+created on behalf of a client. This may happen when an Order is filled
+that opens a Trade requiring a Take Profit, or when a Trade’s dependent
+Take Profit Order is modified directly through the Trade.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.TakeProfitOrder.html">TakeProfitOrder</a></h4>
+      <section><p>A TakeProfitOrder is an order that is linked to an open Trade and created
+with a price threshold. The Order will be filled (closing the Trade) by
+the first price that is equal to or better than the threshold. A
+TakeProfitOrder cannot be used to open a new Position.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.TrailingStopLossDetails.html">TrailingStopLossDetails</a></h4>
+      <section><p>TrailingStopLossDetails specifies the details of a Trailing Stop Loss
+Order to be created on behalf of a client. This may happen when an Order
+is filled that opens a Trade requiring a Trailing Stop Loss, or when a
+Trade’s dependent Trailing Stop Loss Order is modified directly through
+the Trade.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.TrailingStopLossOrder.html">TrailingStopLossOrder</a></h4>
+      <section><p>A TrailingStopLossOrder is an order that is linked to an open Trade and
+created with a price distance. The price distance is used to calculate a
+trailing stop value for the order that is in the losing direction from the
+market price at the time of the order’s creation. The trailing stop value
+will follow the market price as it moves in the winning direction, and the
+order will filled (closing the Trade) by the first price that is equal to
+or worse than the trailing stop value. A TrailingStopLossOrder cannot be
+used to open a new Position.</p>
+</section>
+    <h3 id="enums">Enums
+  </h3>
+      <h4><a class="xref" href="FFT.Oanda.Orders.CancellableOrderType.html">CancellableOrderType</a></h4>
+      <section><p>The type of the Order.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.GuaranteedStopLossOrderModeForInstrument.html">GuaranteedStopLossOrderModeForInstrument</a></h4>
+      <section><p>The overall behaviour of the Account regarding Guaranteed Stop Loss Orders
+for a specific Instrument.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.LimitOrderReason.html">LimitOrderReason</a></h4>
+      <section><p>The reason that the Limit Order was initiated.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.MarketOrderMarginCloseoutReason.html">MarketOrderMarginCloseoutReason</a></h4>
+      <section><p>The reason that the Market Order was created to perform a margin closeout.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.OrderPositionFill.html">OrderPositionFill</a></h4>
+      <section><p>Specification of how Positions in the Account are modified when the Order
+is filled.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.OrderState.html">OrderState</a></h4>
+      <section><p>The current state of the order.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.OrderStateFilter.html">OrderStateFilter</a></h4>
+      <section><p>The state to filter the requested Orders by.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.OrderTriggerCondition.html">OrderTriggerCondition</a></h4>
+      <section><p>Specification of which price component should be used when determining if
+an Order should be triggered and filled. This allows Orders to be
+triggered based on the bid, ask, mid, default (ask for buy, bid for sell)
+or inverse (ask for sell, bid for buy) price depending on the desired
+behaviour. Orders are always filled using their default price component.
+This feature is only provided through the REST API. Clients who choose to
+specify a non-default trigger condition will not see it reflected in any
+of OANDA’s proprietary or partner trading platforms, their transaction
+history or their account statements. OANDA platforms always assume that an
+Order’s trigger condition is set to the default value when indicating the
+distance from an Order’s trigger price, and will always provide the
+default trigger condition when creating or modifying an Order. A special
+restriction applies when creating a Guaranteed Stop Loss Order. In this
+case the TriggerCondition value must either be “DEFAULT”, or the “natural”
+trigger side “DEFAULT” results in. So for a Guaranteed Stop Loss Order for
+a long trade valid values are “DEFAULT” and “BID”, and for short trades
+“DEFAULT” and “ASK” are valid.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.OrderType.html">OrderType</a></h4>
+      <section><p>The type of the Order.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.StopOrderReason.html">StopOrderReason</a></h4>
+      <section><p>The reason that the Stop Order was initiated.</p>
+</section>
+      <h4><a class="xref" href="FFT.Oanda.Orders.TimeInForce.html">TimeInForce</a></h4>
+      <section><p>The time-in-force of an Order. TimeInForce describes how long an Order
+should remain pending before being automatically cancelled by the
+execution system.</p>
+</section>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+    <script src="//unpkg.com/highlightjs-dotnetconfig@0.9.1/dist/dotnetconfig.min.js"></script>
+  </body>
+</html>

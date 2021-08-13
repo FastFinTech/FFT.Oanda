@@ -1,0 +1,519 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class MarketIfTouchedOrder
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class MarketIfTouchedOrder
+   ">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/vs.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script> 
+    <style>    
+      .hljs { white-space: pre; overflow-x: auto; }
+    </style>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="FFT.Oanda.Orders.MarketIfTouchedOrder">
+  
+  
+  <h1 id="FFT_Oanda_Orders_MarketIfTouchedOrder" data-uid="FFT.Oanda.Orders.MarketIfTouchedOrder" class="text-break">Class MarketIfTouchedOrder
+  </h1>
+  <div class="markdown level0 summary"><p>A MarketIfTouchedOrder is an order that is created with a price threshold,
+and will only be filled by a market price that touches or crosses the
+threshold.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="FFT.Oanda.Orders.Order.html">Order</a></div>
+    <div class="level2"><span class="xref">MarketIfTouchedOrder</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="FFT.Oanda.Orders.Order.html#FFT_Oanda_Orders_Order_Id">Order.Id</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Orders.Order.html#FFT_Oanda_Orders_Order_CreateTime">Order.CreateTime</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Orders.Order.html#FFT_Oanda_Orders_Order_State">Order.State</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Orders.Order.html#FFT_Oanda_Orders_Order_ClientExtensions">Order.ClientExtensions</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Orders.Order.html#FFT_Oanda_Orders_Order_Type">Order.Type</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Orders.Order.html#FFT_Oanda_Orders_Order_Instrument">Order.Instrument</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Orders.Order.html#FFT_Oanda_Orders_Order_TimeInForce">Order.TimeInForce</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Orders.Order.html#FFT_Oanda_Orders_Order_GtdTime">Order.GtdTime</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Orders.Order.html#FFT_Oanda_Orders_Order_PositionFill">Order.PositionFill</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Orders.Order.html#FFT_Oanda_Orders_Order_TriggerCondition">Order.TriggerCondition</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Orders.Order.html#FFT_Oanda_Orders_Order_TakeProfitOnFill">Order.TakeProfitOnFill</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Orders.Order.html#FFT_Oanda_Orders_Order_StopLossOnFill">Order.StopLossOnFill</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Orders.Order.html#FFT_Oanda_Orders_Order_GuaranteedStopLossOnFill">Order.GuaranteedStopLossOnFill</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Orders.Order.html#FFT_Oanda_Orders_Order_TrailingStopLossOnFill">Order.TrailingStopLossOnFill</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Orders.Order.html#FFT_Oanda_Orders_Order_TradeClientExtensions">Order.TradeClientExtensions</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Orders.Order.html#FFT_Oanda_Orders_Order_FillingTransactionID">Order.FillingTransactionID</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Orders.Order.html#FFT_Oanda_Orders_Order_FilledTime">Order.FilledTime</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Orders.Order.html#FFT_Oanda_Orders_Order_TradeOpenedID">Order.TradeOpenedID</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Orders.Order.html#FFT_Oanda_Orders_Order_TradeReducedID">Order.TradeReducedID</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Orders.Order.html#FFT_Oanda_Orders_Order_TradeClosedIDs">Order.TradeClosedIDs</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Orders.Order.html#FFT_Oanda_Orders_Order_CancellingTransactionID">Order.CancellingTransactionID</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Orders.Order.html#FFT_Oanda_Orders_Order_CancelledTime">Order.CancelledTime</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Orders.Order.html#FFT_Oanda_Orders_Order_ReplacesOrderID">Order.ReplacesOrderID</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Orders.Order.html#FFT_Oanda_Orders_Order_ReplacedByOrderID">Order.ReplacedByOrderID</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="FFT.Oanda.Orders.html">FFT.Oanda.Orders</a></h6>
+  <h6><strong>Assembly</strong>: FFT.Oanda.dll</h6>
+  <h5 id="FFT_Oanda_Orders_MarketIfTouchedOrder_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class MarketIfTouchedOrder : Order</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_MarketIfTouchedOrder__ctor_System_String_DateTime_FFT_Oanda_Orders_OrderState_FFT_Oanda_ClientExtensions_FFT_Oanda_Orders_OrderType_System_String_FFT_Oanda_Orders_TimeInForce_System_Nullable_DateTime__FFT_Oanda_Orders_OrderPositionFill_FFT_Oanda_Orders_OrderTriggerCondition_FFT_Oanda_Orders_TakeProfitDetails_FFT_Oanda_Orders_StopLossDetails_FFT_Oanda_Orders_GuaranteedStopLossDetails_FFT_Oanda_Orders_TrailingStopLossDetails_FFT_Oanda_ClientExtensions_System_Nullable_System_String__System_Nullable_DateTime__System_Nullable_System_String__System_Nullable_System_String__System_Nullable_ImmutableList_System_String___System_Nullable_System_String__System_Nullable_DateTime__System_Nullable_System_String__System_Nullable_System_String__System_Decimal_System_Decimal_System_Decimal_System_Decimal_.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.MarketIfTouchedOrder.%23ctor(System.String%2CDateTime%2CFFT.Oanda.Orders.OrderState%2CFFT.Oanda.ClientExtensions%2CFFT.Oanda.Orders.OrderType%2CSystem.String%2CFFT.Oanda.Orders.TimeInForce%2CSystem.Nullable%7BDateTime%7D%2CFFT.Oanda.Orders.OrderPositionFill%2CFFT.Oanda.Orders.OrderTriggerCondition%2CFFT.Oanda.Orders.TakeProfitDetails%2CFFT.Oanda.Orders.StopLossDetails%2CFFT.Oanda.Orders.GuaranteedStopLossDetails%2CFFT.Oanda.Orders.TrailingStopLossDetails%2CFFT.Oanda.ClientExtensions%2CSystem.Nullable%7BSystem.String%7D%2CSystem.Nullable%7BDateTime%7D%2CSystem.Nullable%7BSystem.String%7D%2CSystem.Nullable%7BSystem.String%7D%2CSystem.Nullable%7BImmutableList%7BSystem.String%7D%7D%2CSystem.Nullable%7BSystem.String%7D%2CSystem.Nullable%7BDateTime%7D%2CSystem.Nullable%7BSystem.String%7D%2CSystem.Nullable%7BSystem.String%7D%2CSystem.Decimal%2CSystem.Decimal%2CSystem.Decimal%2CSystem.Decimal)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/MarketIfTouchedOrder.cs/#L20">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_MarketIfTouchedOrder__ctor_" data-uid="FFT.Oanda.Orders.MarketIfTouchedOrder.#ctor*"></a>
+  <h4 id="FFT_Oanda_Orders_MarketIfTouchedOrder__ctor_System_String_DateTime_FFT_Oanda_Orders_OrderState_FFT_Oanda_ClientExtensions_FFT_Oanda_Orders_OrderType_System_String_FFT_Oanda_Orders_TimeInForce_System_Nullable_DateTime__FFT_Oanda_Orders_OrderPositionFill_FFT_Oanda_Orders_OrderTriggerCondition_FFT_Oanda_Orders_TakeProfitDetails_FFT_Oanda_Orders_StopLossDetails_FFT_Oanda_Orders_GuaranteedStopLossDetails_FFT_Oanda_Orders_TrailingStopLossDetails_FFT_Oanda_ClientExtensions_System_Nullable_System_String__System_Nullable_DateTime__System_Nullable_System_String__System_Nullable_System_String__System_Nullable_ImmutableList_System_String___System_Nullable_System_String__System_Nullable_DateTime__System_Nullable_System_String__System_Nullable_System_String__System_Decimal_System_Decimal_System_Decimal_System_Decimal_" data-uid="FFT.Oanda.Orders.MarketIfTouchedOrder.#ctor(System.String,DateTime,FFT.Oanda.Orders.OrderState,FFT.Oanda.ClientExtensions,FFT.Oanda.Orders.OrderType,System.String,FFT.Oanda.Orders.TimeInForce,System.Nullable{DateTime},FFT.Oanda.Orders.OrderPositionFill,FFT.Oanda.Orders.OrderTriggerCondition,FFT.Oanda.Orders.TakeProfitDetails,FFT.Oanda.Orders.StopLossDetails,FFT.Oanda.Orders.GuaranteedStopLossDetails,FFT.Oanda.Orders.TrailingStopLossDetails,FFT.Oanda.ClientExtensions,System.Nullable{System.String},System.Nullable{DateTime},System.Nullable{System.String},System.Nullable{System.String},System.Nullable{ImmutableList{System.String}},System.Nullable{System.String},System.Nullable{DateTime},System.Nullable{System.String},System.Nullable{System.String},System.Decimal,System.Decimal,System.Decimal,System.Decimal)">MarketIfTouchedOrder(String, DateTime, OrderState, ClientExtensions, OrderType, String, TimeInForce, Nullable&lt;DateTime&gt;, OrderPositionFill, OrderTriggerCondition, TakeProfitDetails, StopLossDetails, GuaranteedStopLossDetails, TrailingStopLossDetails, ClientExtensions, Nullable&lt;String&gt;, Nullable&lt;DateTime&gt;, Nullable&lt;String&gt;, Nullable&lt;String&gt;, Nullable&lt;ImmutableList&lt;String&gt;&gt;, Nullable&lt;String&gt;, Nullable&lt;DateTime&gt;, Nullable&lt;String&gt;, Nullable&lt;String&gt;, Decimal, Decimal, Decimal, Decimal)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FFT.Oanda.Orders.MarketIfTouchedOrder.html">MarketIfTouchedOrder</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MarketIfTouchedOrder(string id, DateTime createTime, OrderState state, ClientExtensions clientExtensions, OrderType type, string instrument, TimeInForce timeInForce, DateTime? gtdTime, OrderPositionFill positionFill, OrderTriggerCondition triggerCondition, TakeProfitDetails takeProfitOnFill, StopLossDetails stopLossOnFill, GuaranteedStopLossDetails guaranteedStopLossOnFill, TrailingStopLossDetails trailingStopLossOnFill, ClientExtensions tradeClientExtensions, string? fillingTransactionID, DateTime? filledTime, string? tradeOpenedID, string? tradeReducedID, ImmutableList&lt;string&gt;? tradeClosedIDs, string? cancellingTransactionID, DateTime? cancelledTime, string? replacesOrderID, string? replacedByOrderID, decimal units, decimal price, decimal priceBound, decimal initialMarketPrice)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">id</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">createTime</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.OrderState.html">OrderState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.ClientExtensions.html">ClientExtensions</a></td>
+        <td><span class="parametername">clientExtensions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.OrderType.html">OrderType</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">instrument</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.TimeInForce.html">TimeInForce</a></td>
+        <td><span class="parametername">timeInForce</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DateTime</span>&gt;</td>
+        <td><span class="parametername">gtdTime</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.OrderPositionFill.html">OrderPositionFill</a></td>
+        <td><span class="parametername">positionFill</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.OrderTriggerCondition.html">OrderTriggerCondition</a></td>
+        <td><span class="parametername">triggerCondition</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.TakeProfitDetails.html">TakeProfitDetails</a></td>
+        <td><span class="parametername">takeProfitOnFill</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.StopLossDetails.html">StopLossDetails</a></td>
+        <td><span class="parametername">stopLossOnFill</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.GuaranteedStopLossDetails.html">GuaranteedStopLossDetails</a></td>
+        <td><span class="parametername">guaranteedStopLossOnFill</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.TrailingStopLossDetails.html">TrailingStopLossDetails</a></td>
+        <td><span class="parametername">trailingStopLossOnFill</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.ClientExtensions.html">ClientExtensions</a></td>
+        <td><span class="parametername">tradeClientExtensions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">fillingTransactionID</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DateTime</span>&gt;</td>
+        <td><span class="parametername">filledTime</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">tradeOpenedID</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">tradeReducedID</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ImmutableList</span>&lt;<span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="parametername">tradeClosedIDs</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">cancellingTransactionID</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DateTime</span>&gt;</td>
+        <td><span class="parametername">cancelledTime</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">replacesOrderID</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">replacedByOrderID</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">units</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">price</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">priceBound</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">initialMarketPrice</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_MarketIfTouchedOrder_InitialMarketPrice.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.MarketIfTouchedOrder.InitialMarketPrice%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/MarketIfTouchedOrder.cs/#L108">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_MarketIfTouchedOrder_InitialMarketPrice_" data-uid="FFT.Oanda.Orders.MarketIfTouchedOrder.InitialMarketPrice*"></a>
+  <h4 id="FFT_Oanda_Orders_MarketIfTouchedOrder_InitialMarketPrice" data-uid="FFT.Oanda.Orders.MarketIfTouchedOrder.InitialMarketPrice">InitialMarketPrice</h4>
+  <div class="markdown level1 summary"><p>The Market price at the time when the MarketIfTouched Order was created.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal InitialMarketPrice { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_MarketIfTouchedOrder_Price.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.MarketIfTouchedOrder.Price%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/MarketIfTouchedOrder.cs/#L97">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_MarketIfTouchedOrder_Price_" data-uid="FFT.Oanda.Orders.MarketIfTouchedOrder.Price*"></a>
+  <h4 id="FFT_Oanda_Orders_MarketIfTouchedOrder_Price" data-uid="FFT.Oanda.Orders.MarketIfTouchedOrder.Price">Price</h4>
+  <div class="markdown level1 summary"><p>The price threshold specified for the MarketIfTouched Order. The
+MarketIfTouched Order will only be filled by a market price that crosses
+this price from the direction of the market price at the time when the
+Order was created (the initialMarketPrice). Depending on the value of
+the Order’s price and initialMarketPrice, the MarketIfTouchedOrder will
+behave like a Limit or a Stop Order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal Price { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_MarketIfTouchedOrder_PriceBound.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.MarketIfTouchedOrder.PriceBound%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/MarketIfTouchedOrder.cs/#L103">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_MarketIfTouchedOrder_PriceBound_" data-uid="FFT.Oanda.Orders.MarketIfTouchedOrder.PriceBound*"></a>
+  <h4 id="FFT_Oanda_Orders_MarketIfTouchedOrder_PriceBound" data-uid="FFT.Oanda.Orders.MarketIfTouchedOrder.PriceBound">PriceBound</h4>
+  <div class="markdown level1 summary"><p>The worst market price that may be used to fill this MarketIfTouched
+Order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal PriceBound { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_MarketIfTouchedOrder_Units.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.MarketIfTouchedOrder.Units%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/MarketIfTouchedOrder.cs/#L87">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_MarketIfTouchedOrder_Units_" data-uid="FFT.Oanda.Orders.MarketIfTouchedOrder.Units*"></a>
+  <h4 id="FFT_Oanda_Orders_MarketIfTouchedOrder_Units" data-uid="FFT.Oanda.Orders.MarketIfTouchedOrder.Units">Units</h4>
+  <div class="markdown level1 summary"><p>The quantity requested to be filled by the MarketIfTouched Order. A
+positive number of units results in a long Order, and a negative number
+of units results in a short Order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal Units { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_MarketIfTouchedOrder.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.MarketIfTouchedOrder%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/MarketIfTouchedOrder.cs/#L15" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+    <script src="//unpkg.com/highlightjs-dotnetconfig@0.9.1/dist/dotnetconfig.min.js"></script>
+  </body>
+</html>

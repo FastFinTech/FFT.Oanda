@@ -1,0 +1,906 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class Trade
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class Trade
+   ">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/vs.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script> 
+    <style>    
+      .hljs { white-space: pre; overflow-x: auto; }
+    </style>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="FFT.Oanda.Trades.Trade">
+  
+  
+  <h1 id="FFT_Oanda_Trades_Trade" data-uid="FFT.Oanda.Trades.Trade" class="text-break">Class Trade
+  </h1>
+  <div class="markdown level0 summary"><p>The specification of a Trade within an Account. This includes the full
+representation of the Trade’s dependent Orders in addition to the IDs of
+those Orders.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Trade</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="FFT.Oanda.Trades.html">FFT.Oanda.Trades</a></h6>
+  <h6><strong>Assembly</strong>: FFT.Oanda.dll</h6>
+  <h5 id="FFT_Oanda_Trades_Trade_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class Trade : object</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Trades_Trade__ctor_System_String_System_String_System_Decimal_DateTime_FFT_Oanda_Trades_TradeState_System_Decimal_System_Decimal_System_Decimal_System_Decimal_System_Decimal_System_Decimal_System_Nullable_System_Decimal__ImmutableList_System_String__System_Decimal_System_Decimal_DateTime_FFT_Oanda_ClientExtensions_FFT_Oanda_Orders_TakeProfitOrder_FFT_Oanda_Orders_StopLossOrder_FFT_Oanda_Orders_TrailingStopLossOrder_.md&amp;value=---%0Auid%3A%20FFT.Oanda.Trades.Trade.%23ctor(System.String%2CSystem.String%2CSystem.Decimal%2CDateTime%2CFFT.Oanda.Trades.TradeState%2CSystem.Decimal%2CSystem.Decimal%2CSystem.Decimal%2CSystem.Decimal%2CSystem.Decimal%2CSystem.Decimal%2CSystem.Nullable%7BSystem.Decimal%7D%2CImmutableList%7BSystem.String%7D%2CSystem.Decimal%2CSystem.Decimal%2CDateTime%2CFFT.Oanda.ClientExtensions%2CFFT.Oanda.Orders.TakeProfitOrder%2CFFT.Oanda.Orders.StopLossOrder%2CFFT.Oanda.Orders.TrailingStopLossOrder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/Trade.cs/#L24">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Trades_Trade__ctor_" data-uid="FFT.Oanda.Trades.Trade.#ctor*"></a>
+  <h4 id="FFT_Oanda_Trades_Trade__ctor_System_String_System_String_System_Decimal_DateTime_FFT_Oanda_Trades_TradeState_System_Decimal_System_Decimal_System_Decimal_System_Decimal_System_Decimal_System_Decimal_System_Nullable_System_Decimal__ImmutableList_System_String__System_Decimal_System_Decimal_DateTime_FFT_Oanda_ClientExtensions_FFT_Oanda_Orders_TakeProfitOrder_FFT_Oanda_Orders_StopLossOrder_FFT_Oanda_Orders_TrailingStopLossOrder_" data-uid="FFT.Oanda.Trades.Trade.#ctor(System.String,System.String,System.Decimal,DateTime,FFT.Oanda.Trades.TradeState,System.Decimal,System.Decimal,System.Decimal,System.Decimal,System.Decimal,System.Decimal,System.Nullable{System.Decimal},ImmutableList{System.String},System.Decimal,System.Decimal,DateTime,FFT.Oanda.ClientExtensions,FFT.Oanda.Orders.TakeProfitOrder,FFT.Oanda.Orders.StopLossOrder,FFT.Oanda.Orders.TrailingStopLossOrder)">Trade(String, String, Decimal, DateTime, TradeState, Decimal, Decimal, Decimal, Decimal, Decimal, Decimal, Nullable&lt;Decimal&gt;, ImmutableList&lt;String&gt;, Decimal, Decimal, DateTime, ClientExtensions, TakeProfitOrder, StopLossOrder, TrailingStopLossOrder)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FFT.Oanda.Trades.Trade.html">Trade</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Trade(string id, string instrument, decimal price, DateTime openTime, TradeState state, decimal initialUnits, decimal initialMarginRequired, decimal currentUnits, decimal realizedPL, decimal unrealizedPL, decimal marginUsed, decimal? averageClosePrice, ImmutableList&lt;string&gt; closingTransactionIDs, decimal financing, decimal dividendAdjustment, DateTime closeTime, ClientExtensions clientExtensions, TakeProfitOrder takeProfitOrder, StopLossOrder stopLossOrder, TrailingStopLossOrder trailingStopLossOrder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">id</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">instrument</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">price</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">openTime</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Trades.TradeState.html">TradeState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">initialUnits</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">initialMarginRequired</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">currentUnits</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">realizedPL</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">unrealizedPL</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">marginUsed</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td><span class="parametername">averageClosePrice</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ImmutableList</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">closingTransactionIDs</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">financing</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">dividendAdjustment</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">closeTime</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.ClientExtensions.html">ClientExtensions</a></td>
+        <td><span class="parametername">clientExtensions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.TakeProfitOrder.html">TakeProfitOrder</a></td>
+        <td><span class="parametername">takeProfitOrder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.StopLossOrder.html">StopLossOrder</a></td>
+        <td><span class="parametername">stopLossOrder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.TrailingStopLossOrder.html">TrailingStopLossOrder</a></td>
+        <td><span class="parametername">trailingStopLossOrder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Trades_Trade_AverageClosePrice.md&amp;value=---%0Auid%3A%20FFT.Oanda.Trades.Trade.AverageClosePrice%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/Trade.cs/#L136">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Trades_Trade_AverageClosePrice_" data-uid="FFT.Oanda.Trades.Trade.AverageClosePrice*"></a>
+  <h4 id="FFT_Oanda_Trades_Trade_AverageClosePrice" data-uid="FFT.Oanda.Trades.Trade.AverageClosePrice">AverageClosePrice</h4>
+  <div class="markdown level1 summary"><p>The average closing price of the Trade. Only present if the Trade has
+been closed or reduced at least once.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal? AverageClosePrice { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Trades_Trade_ClientExtensions.md&amp;value=---%0Auid%3A%20FFT.Oanda.Trades.Trade.ClientExtensions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/Trade.cs/#L164">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Trades_Trade_ClientExtensions_" data-uid="FFT.Oanda.Trades.Trade.ClientExtensions*"></a>
+  <h4 id="FFT_Oanda_Trades_Trade_ClientExtensions" data-uid="FFT.Oanda.Trades.Trade.ClientExtensions">ClientExtensions</h4>
+  <div class="markdown level1 summary"><p>The client extensions of the Trade.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ClientExtensions ClientExtensions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.ClientExtensions.html">ClientExtensions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Trades_Trade_CloseTime.md&amp;value=---%0Auid%3A%20FFT.Oanda.Trades.Trade.CloseTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/Trade.cs/#L159">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Trades_Trade_CloseTime_" data-uid="FFT.Oanda.Trades.Trade.CloseTime*"></a>
+  <h4 id="FFT_Oanda_Trades_Trade_CloseTime" data-uid="FFT.Oanda.Trades.Trade.CloseTime">CloseTime</h4>
+  <div class="markdown level1 summary"><p>The date/time when the Trade was fully closed. Only provided for Trades
+whose state is CLOSED.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime CloseTime { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Trades_Trade_ClosingTransactionIDs.md&amp;value=---%0Auid%3A%20FFT.Oanda.Trades.Trade.ClosingTransactionIDs%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/Trade.cs/#L141">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Trades_Trade_ClosingTransactionIDs_" data-uid="FFT.Oanda.Trades.Trade.ClosingTransactionIDs*"></a>
+  <h4 id="FFT_Oanda_Trades_Trade_ClosingTransactionIDs" data-uid="FFT.Oanda.Trades.Trade.ClosingTransactionIDs">ClosingTransactionIDs</h4>
+  <div class="markdown level1 summary"><p>The IDs of the Transactions that have closed portions of this Trade.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableList&lt;string&gt; ClosingTransactionIDs { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ImmutableList</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Trades_Trade_CurrentUnits.md&amp;value=---%0Auid%3A%20FFT.Oanda.Trades.Trade.CurrentUnits%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/Trade.cs/#L112">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Trades_Trade_CurrentUnits_" data-uid="FFT.Oanda.Trades.Trade.CurrentUnits*"></a>
+  <h4 id="FFT_Oanda_Trades_Trade_CurrentUnits" data-uid="FFT.Oanda.Trades.Trade.CurrentUnits">CurrentUnits</h4>
+  <div class="markdown level1 summary"><p>The number of units currently open for the Trade. This value is reduced
+to 0.0 as the Trade is closed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal CurrentUnits { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Trades_Trade_DividendAdjustment.md&amp;value=---%0Auid%3A%20FFT.Oanda.Trades.Trade.DividendAdjustment%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/Trade.cs/#L153">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Trades_Trade_DividendAdjustment_" data-uid="FFT.Oanda.Trades.Trade.DividendAdjustment*"></a>
+  <h4 id="FFT_Oanda_Trades_Trade_DividendAdjustment" data-uid="FFT.Oanda.Trades.Trade.DividendAdjustment">DividendAdjustment</h4>
+  <div class="markdown level1 summary"><p>The dividend adjustment paid for this Trade. Expressed in the account's
+home currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal DividendAdjustment { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Trades_Trade_Financing.md&amp;value=---%0Auid%3A%20FFT.Oanda.Trades.Trade.Financing%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/Trade.cs/#L147">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Trades_Trade_Financing_" data-uid="FFT.Oanda.Trades.Trade.Financing*"></a>
+  <h4 id="FFT_Oanda_Trades_Trade_Financing" data-uid="FFT.Oanda.Trades.Trade.Financing">Financing</h4>
+  <div class="markdown level1 summary"><p>The financing paid/collected for this Trade. Expressed in the account's
+home currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal Financing { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Trades_Trade_Id.md&amp;value=---%0Auid%3A%20FFT.Oanda.Trades.Trade.Id%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/Trade.cs/#L72">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Trades_Trade_Id_" data-uid="FFT.Oanda.Trades.Trade.Id*"></a>
+  <h4 id="FFT_Oanda_Trades_Trade_Id" data-uid="FFT.Oanda.Trades.Trade.Id">Id</h4>
+  <div class="markdown level1 summary"><p>The Trade’s identifier, unique within the Trade’s Account.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Id { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Trades_Trade_InitialMarginRequired.md&amp;value=---%0Auid%3A%20FFT.Oanda.Trades.Trade.InitialMarginRequired%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/Trade.cs/#L106">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Trades_Trade_InitialMarginRequired_" data-uid="FFT.Oanda.Trades.Trade.InitialMarginRequired*"></a>
+  <h4 id="FFT_Oanda_Trades_Trade_InitialMarginRequired" data-uid="FFT.Oanda.Trades.Trade.InitialMarginRequired">InitialMarginRequired</h4>
+  <div class="markdown level1 summary"><p>The margin required at the time the Trade was created. Note, this is the
+‘pure’ margin required, it is not the ‘effective’ margin used that
+factors in the trade risk if a GSLO is attached to the trade. Expressed
+in the account's home currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal InitialMarginRequired { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Trades_Trade_InitialUnits.md&amp;value=---%0Auid%3A%20FFT.Oanda.Trades.Trade.InitialUnits%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/Trade.cs/#L98">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Trades_Trade_InitialUnits_" data-uid="FFT.Oanda.Trades.Trade.InitialUnits*"></a>
+  <h4 id="FFT_Oanda_Trades_Trade_InitialUnits" data-uid="FFT.Oanda.Trades.Trade.InitialUnits">InitialUnits</h4>
+  <div class="markdown level1 summary"><p>The initial size of the Trade. Negative values indicate a short Trade,
+and positive values indicate a long Trade.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal InitialUnits { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Trades_Trade_Instrument.md&amp;value=---%0Auid%3A%20FFT.Oanda.Trades.Trade.Instrument%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/Trade.cs/#L77">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Trades_Trade_Instrument_" data-uid="FFT.Oanda.Trades.Trade.Instrument*"></a>
+  <h4 id="FFT_Oanda_Trades_Trade_Instrument" data-uid="FFT.Oanda.Trades.Trade.Instrument">Instrument</h4>
+  <div class="markdown level1 summary"><p>The Trade’s Instrument.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Instrument { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Trades_Trade_MarginUsed.md&amp;value=---%0Auid%3A%20FFT.Oanda.Trades.Trade.MarginUsed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/Trade.cs/#L130">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Trades_Trade_MarginUsed_" data-uid="FFT.Oanda.Trades.Trade.MarginUsed*"></a>
+  <h4 id="FFT_Oanda_Trades_Trade_MarginUsed" data-uid="FFT.Oanda.Trades.Trade.MarginUsed">MarginUsed</h4>
+  <div class="markdown level1 summary"><p>Margin currently used by the Trade. Expressed in the account's home
+currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal MarginUsed { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Trades_Trade_OpenTime.md&amp;value=---%0Auid%3A%20FFT.Oanda.Trades.Trade.OpenTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/Trade.cs/#L87">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Trades_Trade_OpenTime_" data-uid="FFT.Oanda.Trades.Trade.OpenTime*"></a>
+  <h4 id="FFT_Oanda_Trades_Trade_OpenTime" data-uid="FFT.Oanda.Trades.Trade.OpenTime">OpenTime</h4>
+  <div class="markdown level1 summary"><p>The date/time when the Trade was opened.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime OpenTime { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Trades_Trade_Price.md&amp;value=---%0Auid%3A%20FFT.Oanda.Trades.Trade.Price%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/Trade.cs/#L82">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Trades_Trade_Price_" data-uid="FFT.Oanda.Trades.Trade.Price*"></a>
+  <h4 id="FFT_Oanda_Trades_Trade_Price" data-uid="FFT.Oanda.Trades.Trade.Price">Price</h4>
+  <div class="markdown level1 summary"><p>The execution price of the Trade.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal Price { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Trades_Trade_RealizedPL.md&amp;value=---%0Auid%3A%20FFT.Oanda.Trades.Trade.RealizedPL%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/Trade.cs/#L118">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Trades_Trade_RealizedPL_" data-uid="FFT.Oanda.Trades.Trade.RealizedPL*"></a>
+  <h4 id="FFT_Oanda_Trades_Trade_RealizedPL" data-uid="FFT.Oanda.Trades.Trade.RealizedPL">RealizedPL</h4>
+  <div class="markdown level1 summary"><p>The total profit/loss realized on the closed portion of the Trade.
+Expressed in the account's home currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal RealizedPL { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Trades_Trade_State.md&amp;value=---%0Auid%3A%20FFT.Oanda.Trades.Trade.State%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/Trade.cs/#L92">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Trades_Trade_State_" data-uid="FFT.Oanda.Trades.Trade.State*"></a>
+  <h4 id="FFT_Oanda_Trades_Trade_State" data-uid="FFT.Oanda.Trades.Trade.State">State</h4>
+  <div class="markdown level1 summary"><p>The current state of the Trade.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TradeState State { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Trades.TradeState.html">TradeState</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Trades_Trade_StopLossOrder.md&amp;value=---%0Auid%3A%20FFT.Oanda.Trades.Trade.StopLossOrder%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/Trade.cs/#L176">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Trades_Trade_StopLossOrder_" data-uid="FFT.Oanda.Trades.Trade.StopLossOrder*"></a>
+  <h4 id="FFT_Oanda_Trades_Trade_StopLossOrder" data-uid="FFT.Oanda.Trades.Trade.StopLossOrder">StopLossOrder</h4>
+  <div class="markdown level1 summary"><p>Full representation of the Trade’s Stop Loss Order, only provided if
+such an Order exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StopLossOrder StopLossOrder { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.StopLossOrder.html">StopLossOrder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Trades_Trade_TakeProfitOrder.md&amp;value=---%0Auid%3A%20FFT.Oanda.Trades.Trade.TakeProfitOrder%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/Trade.cs/#L170">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Trades_Trade_TakeProfitOrder_" data-uid="FFT.Oanda.Trades.Trade.TakeProfitOrder*"></a>
+  <h4 id="FFT_Oanda_Trades_Trade_TakeProfitOrder" data-uid="FFT.Oanda.Trades.Trade.TakeProfitOrder">TakeProfitOrder</h4>
+  <div class="markdown level1 summary"><p>Full representation of the Trade’s Take Profit Order, only provided if
+such an Order exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TakeProfitOrder TakeProfitOrder { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.TakeProfitOrder.html">TakeProfitOrder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Trades_Trade_TrailingStopLossOrder.md&amp;value=---%0Auid%3A%20FFT.Oanda.Trades.Trade.TrailingStopLossOrder%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/Trade.cs/#L182">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Trades_Trade_TrailingStopLossOrder_" data-uid="FFT.Oanda.Trades.Trade.TrailingStopLossOrder*"></a>
+  <h4 id="FFT_Oanda_Trades_Trade_TrailingStopLossOrder" data-uid="FFT.Oanda.Trades.Trade.TrailingStopLossOrder">TrailingStopLossOrder</h4>
+  <div class="markdown level1 summary"><p>Full representation of the Trade’s Trailing Stop Loss Order, only
+provided if such an Order exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TrailingStopLossOrder TrailingStopLossOrder { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Orders.TrailingStopLossOrder.html">TrailingStopLossOrder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Trades_Trade_UnrealizedPL.md&amp;value=---%0Auid%3A%20FFT.Oanda.Trades.Trade.UnrealizedPL%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/Trade.cs/#L124">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Trades_Trade_UnrealizedPL_" data-uid="FFT.Oanda.Trades.Trade.UnrealizedPL*"></a>
+  <h4 id="FFT_Oanda_Trades_Trade_UnrealizedPL" data-uid="FFT.Oanda.Trades.Trade.UnrealizedPL">UnrealizedPL</h4>
+  <div class="markdown level1 summary"><p>The unrealized profit/loss on the open portion of the Trade. Expressed
+in the account's home currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal UnrealizedPL { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Trades_Trade.md&amp;value=---%0Auid%3A%20FFT.Oanda.Trades.Trade%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/Trade.cs/#L16" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+    <script src="//unpkg.com/highlightjs-dotnetconfig@0.9.1/dist/dotnetconfig.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class DelayedTradeClosureTransaction
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class DelayedTradeClosureTransaction
+   ">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/vs.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script> 
+    <style>    
+      .hljs { white-space: pre; overflow-x: auto; }
+    </style>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="FFT.Oanda.Transactions.DelayedTradeClosureTransaction">
+  
+  
+  <h1 id="FFT_Oanda_Transactions_DelayedTradeClosureTransaction" data-uid="FFT.Oanda.Transactions.DelayedTradeClosureTransaction" class="text-break">Class DelayedTradeClosureTransaction
+  </h1>
+  <div class="markdown level0 summary"><p>A DelayedTradeClosure Transaction is created administratively to indicate
+open trades that should have been closed but weren’t because the open
+trades’ instruments were untradeable at the time. Open trades listed in
+this transaction will be closed once their respective instruments become
+tradeable.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="FFT.Oanda.Transactions.Transaction.html">Transaction</a></div>
+    <div class="level2"><span class="xref">DelayedTradeClosureTransaction</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="FFT.Oanda.Transactions.Transaction.html#FFT_Oanda_Transactions_Transaction_Id">Transaction.Id</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Transactions.Transaction.html#FFT_Oanda_Transactions_Transaction_Time">Transaction.Time</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Transactions.Transaction.html#FFT_Oanda_Transactions_Transaction_UserID">Transaction.UserID</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Transactions.Transaction.html#FFT_Oanda_Transactions_Transaction_AccountID">Transaction.AccountID</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Transactions.Transaction.html#FFT_Oanda_Transactions_Transaction_BatchID">Transaction.BatchID</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Transactions.Transaction.html#FFT_Oanda_Transactions_Transaction_RequestID">Transaction.RequestID</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Transactions.Transaction.html#FFT_Oanda_Transactions_Transaction_Type">Transaction.Type</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="FFT.Oanda.Transactions.html">FFT.Oanda.Transactions</a></h6>
+  <h6><strong>Assembly</strong>: FFT.Oanda.dll</h6>
+  <h5 id="FFT_Oanda_Transactions_DelayedTradeClosureTransaction_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class DelayedTradeClosureTransaction : Transaction</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_DelayedTradeClosureTransaction__ctor_System_String_DateTime_System_Nullable_System_Int32__System_String_System_Nullable_System_String__System_Nullable_System_String__FFT_Oanda_Transactions_TransactionType_FFT_Oanda_Transactions_MarketOrderReason_ImmutableList_System_String__.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.DelayedTradeClosureTransaction.%23ctor(System.String%2CDateTime%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.String%2CSystem.Nullable%7BSystem.String%7D%2CSystem.Nullable%7BSystem.String%7D%2CFFT.Oanda.Transactions.TransactionType%2CFFT.Oanda.Transactions.MarketOrderReason%2CImmutableList%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/DelayedTradeClosureTransaction.cs/#L22">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Transactions_DelayedTradeClosureTransaction__ctor_" data-uid="FFT.Oanda.Transactions.DelayedTradeClosureTransaction.#ctor*"></a>
+  <h4 id="FFT_Oanda_Transactions_DelayedTradeClosureTransaction__ctor_System_String_DateTime_System_Nullable_System_Int32__System_String_System_Nullable_System_String__System_Nullable_System_String__FFT_Oanda_Transactions_TransactionType_FFT_Oanda_Transactions_MarketOrderReason_ImmutableList_System_String__" data-uid="FFT.Oanda.Transactions.DelayedTradeClosureTransaction.#ctor(System.String,DateTime,System.Nullable{System.Int32},System.String,System.Nullable{System.String},System.Nullable{System.String},FFT.Oanda.Transactions.TransactionType,FFT.Oanda.Transactions.MarketOrderReason,ImmutableList{System.String})">DelayedTradeClosureTransaction(String, DateTime, Nullable&lt;Int32&gt;, String, Nullable&lt;String&gt;, Nullable&lt;String&gt;, TransactionType, MarketOrderReason, ImmutableList&lt;String&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FFT.Oanda.Transactions.DelayedTradeClosureTransaction.html">DelayedTradeClosureTransaction</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DelayedTradeClosureTransaction(string id, DateTime time, int? userID, string accountID, string? batchID, string? requestID, TransactionType type, MarketOrderReason reason, ImmutableList&lt;string&gt; tradeIDs)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">id</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">time</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">userID</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">accountID</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">batchID</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">requestID</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Transactions.TransactionType.html">TransactionType</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Transactions.MarketOrderReason.html">MarketOrderReason</a></td>
+        <td><span class="parametername">reason</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ImmutableList</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">tradeIDs</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_DelayedTradeClosureTransaction_Reason.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.DelayedTradeClosureTransaction.Reason%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/DelayedTradeClosureTransaction.cs/#L49">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Transactions_DelayedTradeClosureTransaction_Reason_" data-uid="FFT.Oanda.Transactions.DelayedTradeClosureTransaction.Reason*"></a>
+  <h4 id="FFT_Oanda_Transactions_DelayedTradeClosureTransaction_Reason" data-uid="FFT.Oanda.Transactions.DelayedTradeClosureTransaction.Reason">Reason</h4>
+  <div class="markdown level1 summary"><p>The reason for the delayed trade closure.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MarketOrderReason Reason { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Transactions.MarketOrderReason.html">MarketOrderReason</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_DelayedTradeClosureTransaction_TradeIDs.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.DelayedTradeClosureTransaction.TradeIDs%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/DelayedTradeClosureTransaction.cs/#L55">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Transactions_DelayedTradeClosureTransaction_TradeIDs_" data-uid="FFT.Oanda.Transactions.DelayedTradeClosureTransaction.TradeIDs*"></a>
+  <h4 id="FFT_Oanda_Transactions_DelayedTradeClosureTransaction_TradeIDs" data-uid="FFT.Oanda.Transactions.DelayedTradeClosureTransaction.TradeIDs">TradeIDs</h4>
+  <div class="markdown level1 summary"><p>List of Trade ID’s identifying the open trades that will be closed when
+their respective instruments become tradeable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableList&lt;string&gt; TradeIDs { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ImmutableList</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_DelayedTradeClosureTransaction.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.DelayedTradeClosureTransaction%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/DelayedTradeClosureTransaction.cs/#L17" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+    <script src="//unpkg.com/highlightjs-dotnetconfig@0.9.1/dist/dotnetconfig.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1012 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class OrderFillTransaction
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class OrderFillTransaction
+   ">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/vs.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script> 
+    <style>    
+      .hljs { white-space: pre; overflow-x: auto; }
+    </style>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="FFT.Oanda.Transactions.OrderFillTransaction">
+  
+  
+  <h1 id="FFT_Oanda_Transactions_OrderFillTransaction" data-uid="FFT.Oanda.Transactions.OrderFillTransaction" class="text-break">Class OrderFillTransaction
+  </h1>
+  <div class="markdown level0 summary"><p>An OrderFillTransaction represents the filling of an Order in the client’s
+Account.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="FFT.Oanda.Transactions.Transaction.html">Transaction</a></div>
+    <div class="level2"><span class="xref">OrderFillTransaction</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="FFT.Oanda.Transactions.Transaction.html#FFT_Oanda_Transactions_Transaction_Id">Transaction.Id</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Transactions.Transaction.html#FFT_Oanda_Transactions_Transaction_Time">Transaction.Time</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Transactions.Transaction.html#FFT_Oanda_Transactions_Transaction_UserID">Transaction.UserID</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Transactions.Transaction.html#FFT_Oanda_Transactions_Transaction_AccountID">Transaction.AccountID</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Transactions.Transaction.html#FFT_Oanda_Transactions_Transaction_BatchID">Transaction.BatchID</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Transactions.Transaction.html#FFT_Oanda_Transactions_Transaction_RequestID">Transaction.RequestID</a>
+    </div>
+    <div>
+      <a class="xref" href="FFT.Oanda.Transactions.Transaction.html#FFT_Oanda_Transactions_Transaction_Type">Transaction.Type</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="FFT.Oanda.Transactions.html">FFT.Oanda.Transactions</a></h6>
+  <h6><strong>Assembly</strong>: FFT.Oanda.dll</h6>
+  <h5 id="FFT_Oanda_Transactions_OrderFillTransaction_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class OrderFillTransaction : Transaction</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_OrderFillTransaction__ctor_System_String_DateTime_System_Nullable_System_Int32__System_String_System_Nullable_System_String__System_Nullable_System_String__FFT_Oanda_Transactions_TransactionType_System_String_System_Nullable_System_String__System_String_System_Decimal_FFT_Oanda_HomeConversionFactors_System_Decimal_System_Decimal_FFT_Oanda_Transactions_OrderFillReason_System_Decimal_System_Decimal_System_Decimal_System_Decimal_System_Decimal_System_Decimal_System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Decimal_FFT_Oanda_Transactions_TradeOpen_System_Nullable_ImmutableList_FFT_Oanda_Transactions_TradeReduce___FFT_Oanda_Transactions_TradeReduce_System_Decimal_.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.OrderFillTransaction.%23ctor(System.String%2CDateTime%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.String%2CSystem.Nullable%7BSystem.String%7D%2CSystem.Nullable%7BSystem.String%7D%2CFFT.Oanda.Transactions.TransactionType%2CSystem.String%2CSystem.Nullable%7BSystem.String%7D%2CSystem.String%2CSystem.Decimal%2CFFT.Oanda.HomeConversionFactors%2CSystem.Decimal%2CSystem.Decimal%2CFFT.Oanda.Transactions.OrderFillReason%2CSystem.Decimal%2CSystem.Decimal%2CSystem.Decimal%2CSystem.Decimal%2CSystem.Decimal%2CSystem.Decimal%2CSystem.Nullable%7BSystem.Decimal%7D%2CSystem.Nullable%7BSystem.Decimal%7D%2CSystem.Decimal%2CFFT.Oanda.Transactions.TradeOpen%2CSystem.Nullable%7BImmutableList%7BFFT.Oanda.Transactions.TradeReduce%7D%7D%2CFFT.Oanda.Transactions.TradeReduce%2CSystem.Decimal)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/OrderFillTransaction.cs/#L19">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Transactions_OrderFillTransaction__ctor_" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.#ctor*"></a>
+  <h4 id="FFT_Oanda_Transactions_OrderFillTransaction__ctor_System_String_DateTime_System_Nullable_System_Int32__System_String_System_Nullable_System_String__System_Nullable_System_String__FFT_Oanda_Transactions_TransactionType_System_String_System_Nullable_System_String__System_String_System_Decimal_FFT_Oanda_HomeConversionFactors_System_Decimal_System_Decimal_FFT_Oanda_Transactions_OrderFillReason_System_Decimal_System_Decimal_System_Decimal_System_Decimal_System_Decimal_System_Decimal_System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Decimal_FFT_Oanda_Transactions_TradeOpen_System_Nullable_ImmutableList_FFT_Oanda_Transactions_TradeReduce___FFT_Oanda_Transactions_TradeReduce_System_Decimal_" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.#ctor(System.String,DateTime,System.Nullable{System.Int32},System.String,System.Nullable{System.String},System.Nullable{System.String},FFT.Oanda.Transactions.TransactionType,System.String,System.Nullable{System.String},System.String,System.Decimal,FFT.Oanda.HomeConversionFactors,System.Decimal,System.Decimal,FFT.Oanda.Transactions.OrderFillReason,System.Decimal,System.Decimal,System.Decimal,System.Decimal,System.Decimal,System.Decimal,System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Decimal,FFT.Oanda.Transactions.TradeOpen,System.Nullable{ImmutableList{FFT.Oanda.Transactions.TradeReduce}},FFT.Oanda.Transactions.TradeReduce,System.Decimal)">OrderFillTransaction(String, DateTime, Nullable&lt;Int32&gt;, String, Nullable&lt;String&gt;, Nullable&lt;String&gt;, TransactionType, String, Nullable&lt;String&gt;, String, Decimal, HomeConversionFactors, Decimal, Decimal, OrderFillReason, Decimal, Decimal, Decimal, Decimal, Decimal, Decimal, Nullable&lt;Decimal&gt;, Nullable&lt;Decimal&gt;, Decimal, TradeOpen, Nullable&lt;ImmutableList&lt;TradeReduce&gt;&gt;, TradeReduce, Decimal)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FFT.Oanda.Transactions.OrderFillTransaction.html">OrderFillTransaction</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OrderFillTransaction(string id, DateTime time, int? userID, string accountID, string? batchID, string? requestID, TransactionType type, string orderID, string? clientOrderID, string instrument, decimal units, HomeConversionFactors homeConversionFactors, decimal fullVWAP, decimal fullPrice, OrderFillReason reason, decimal pL, decimal quotePL, decimal financing, decimal baseFinancing, decimal quoteFinancing, decimal commission, decimal? guaranteedExecutionFee, decimal? quoteGuaranteedExecutionFee, decimal accountBalance, TradeOpen tradeOpened, ImmutableList&lt;TradeReduce&gt;? tradesClosed, TradeReduce tradeReduced, decimal halfSpreadCost)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">id</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">time</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">userID</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">accountID</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">batchID</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">requestID</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Transactions.TransactionType.html">TransactionType</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">orderID</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">clientOrderID</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">instrument</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">units</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.HomeConversionFactors.html">HomeConversionFactors</a></td>
+        <td><span class="parametername">homeConversionFactors</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">fullVWAP</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">fullPrice</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Transactions.OrderFillReason.html">OrderFillReason</a></td>
+        <td><span class="parametername">reason</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">pL</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">quotePL</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">financing</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">baseFinancing</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">quoteFinancing</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">commission</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td><span class="parametername">guaranteedExecutionFee</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td><span class="parametername">quoteGuaranteedExecutionFee</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">accountBalance</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Transactions.TradeOpen.html">TradeOpen</a></td>
+        <td><span class="parametername">tradeOpened</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ImmutableList</span>&lt;<a class="xref" href="FFT.Oanda.Transactions.TradeReduce.html">TradeReduce</a>&gt;&gt;</td>
+        <td><span class="parametername">tradesClosed</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Transactions.TradeReduce.html">TradeReduce</a></td>
+        <td><span class="parametername">tradeReduced</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">halfSpreadCost</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_OrderFillTransaction_AccountBalance.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.OrderFillTransaction.AccountBalance%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/OrderFillTransaction.cs/#L184">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Transactions_OrderFillTransaction_AccountBalance_" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.AccountBalance*"></a>
+  <h4 id="FFT_Oanda_Transactions_OrderFillTransaction_AccountBalance" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.AccountBalance">AccountBalance</h4>
+  <div class="markdown level1 summary"><p>The Account’s balance after the Order was filled. Expressed in the
+account's home currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal AccountBalance { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_OrderFillTransaction_BaseFinancing.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.OrderFillTransaction.BaseFinancing%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/OrderFillTransaction.cs/#L150">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Transactions_OrderFillTransaction_BaseFinancing_" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.BaseFinancing*"></a>
+  <h4 id="FFT_Oanda_Transactions_OrderFillTransaction_BaseFinancing" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.BaseFinancing">BaseFinancing</h4>
+  <div class="markdown level1 summary"><p>The financing paid or collected when the Order was filled, in the
+Instrument’s base currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal BaseFinancing { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_OrderFillTransaction_ClientOrderID.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.OrderFillTransaction.ClientOrderID%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/OrderFillTransaction.cs/#L90">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Transactions_OrderFillTransaction_ClientOrderID_" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.ClientOrderID*"></a>
+  <h4 id="FFT_Oanda_Transactions_OrderFillTransaction_ClientOrderID" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.ClientOrderID">ClientOrderID</h4>
+  <div class="markdown level1 summary"><p>The client Order ID of the Order filled (only provided if the client has
+assigned one).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? ClientOrderID { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_OrderFillTransaction_Commission.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.OrderFillTransaction.Commission%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/OrderFillTransaction.cs/#L164">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Transactions_OrderFillTransaction_Commission_" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.Commission*"></a>
+  <h4 id="FFT_Oanda_Transactions_OrderFillTransaction_Commission" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.Commission">Commission</h4>
+  <div class="markdown level1 summary"><p>The commission charged in the Account’s home currency as a result of
+filling the Order. The commission is always represented as a positive
+quantity of the Account’s home currency, however it reduces the balance
+in the Account. Expressed in the account's home currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal Commission { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_OrderFillTransaction_Financing.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.OrderFillTransaction.Financing%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/OrderFillTransaction.cs/#L144">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Transactions_OrderFillTransaction_Financing_" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.Financing*"></a>
+  <h4 id="FFT_Oanda_Transactions_OrderFillTransaction_Financing" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.Financing">Financing</h4>
+  <div class="markdown level1 summary"><p>The financing paid or collected when the Order was filled. Expressed in
+the account's home currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal Financing { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_OrderFillTransaction_FullPrice.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.OrderFillTransaction.FullPrice%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/OrderFillTransaction.cs/#L121">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Transactions_OrderFillTransaction_FullPrice_" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.FullPrice*"></a>
+  <h4 id="FFT_Oanda_Transactions_OrderFillTransaction_FullPrice" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.FullPrice">FullPrice</h4>
+  <div class="markdown level1 summary"><p>The price in effect for the account at the time of the Order fill.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal FullPrice { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_OrderFillTransaction_FullVWAP.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.OrderFillTransaction.FullVWAP%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/OrderFillTransaction.cs/#L116">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Transactions_OrderFillTransaction_FullVWAP_" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.FullVWAP*"></a>
+  <h4 id="FFT_Oanda_Transactions_OrderFillTransaction_FullVWAP" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.FullVWAP">FullVWAP</h4>
+  <div class="markdown level1 summary"><p>The price that all of the units of the OrderFill should have been filled
+at, in the absence of guaranteed price execution. This factors in the
+Account’s current ClientPrice, used liquidity and the units of the
+OrderFill only. If no Trades were closed with their price clamped for
+guaranteed stop loss enforcement, then this value will match the price
+fields of each Trade opened, closed, and reduced, and they will all be
+the exact same.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal FullVWAP { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_OrderFillTransaction_GuaranteedExecutionFee.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.OrderFillTransaction.GuaranteedExecutionFee%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/OrderFillTransaction.cs/#L171">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Transactions_OrderFillTransaction_GuaranteedExecutionFee_" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.GuaranteedExecutionFee*"></a>
+  <h4 id="FFT_Oanda_Transactions_OrderFillTransaction_GuaranteedExecutionFee" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.GuaranteedExecutionFee">GuaranteedExecutionFee</h4>
+  <div class="markdown level1 summary"><p>The total guaranteed execution fees charged for all Trades opened,
+closed or reduced with guaranteed Stop Loss Orders. Expressed in the
+account's home currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal? GuaranteedExecutionFee { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_OrderFillTransaction_HalfSpreadCost.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.OrderFillTransaction.HalfSpreadCost%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/OrderFillTransaction.cs/#L210">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Transactions_OrderFillTransaction_HalfSpreadCost_" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.HalfSpreadCost*"></a>
+  <h4 id="FFT_Oanda_Transactions_OrderFillTransaction_HalfSpreadCost" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.HalfSpreadCost">HalfSpreadCost</h4>
+  <div class="markdown level1 summary"><p>The half spread cost for the OrderFill, which is the sum of the
+halfSpreadCost values in the tradeOpened, tradesClosed and tradeReduced
+fields. This can be a positive or negative value. Expressed in the
+account's home currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal HalfSpreadCost { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_OrderFillTransaction_HomeConversionFactors.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.OrderFillTransaction.HomeConversionFactors%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/OrderFillTransaction.cs/#L105">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Transactions_OrderFillTransaction_HomeConversionFactors_" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.HomeConversionFactors*"></a>
+  <h4 id="FFT_Oanda_Transactions_OrderFillTransaction_HomeConversionFactors" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.HomeConversionFactors">HomeConversionFactors</h4>
+  <div class="markdown level1 summary"><p>The HomeConversionFactors in effect at the time of the OrderFill.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HomeConversionFactors HomeConversionFactors { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.HomeConversionFactors.html">HomeConversionFactors</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_OrderFillTransaction_Instrument.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.OrderFillTransaction.Instrument%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/OrderFillTransaction.cs/#L95">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Transactions_OrderFillTransaction_Instrument_" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.Instrument*"></a>
+  <h4 id="FFT_Oanda_Transactions_OrderFillTransaction_Instrument" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.Instrument">Instrument</h4>
+  <div class="markdown level1 summary"><p>The name of the filled Order’s instrument.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Instrument { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_OrderFillTransaction_OrderID.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.OrderFillTransaction.OrderID%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/OrderFillTransaction.cs/#L84">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Transactions_OrderFillTransaction_OrderID_" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.OrderID*"></a>
+  <h4 id="FFT_Oanda_Transactions_OrderFillTransaction_OrderID" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.OrderID">OrderID</h4>
+  <div class="markdown level1 summary"><p>The ID of the Order filled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string OrderID { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_OrderFillTransaction_PL.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.OrderFillTransaction.PL%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/OrderFillTransaction.cs/#L132">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Transactions_OrderFillTransaction_PL_" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.PL*"></a>
+  <h4 id="FFT_Oanda_Transactions_OrderFillTransaction_PL" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.PL">PL</h4>
+  <div class="markdown level1 summary"><p>The profit or loss incurred when the Order was filled. Expressed in the
+account's home currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal PL { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_OrderFillTransaction_QuoteFinancing.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.OrderFillTransaction.QuoteFinancing%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/OrderFillTransaction.cs/#L156">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Transactions_OrderFillTransaction_QuoteFinancing_" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.QuoteFinancing*"></a>
+  <h4 id="FFT_Oanda_Transactions_OrderFillTransaction_QuoteFinancing" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.QuoteFinancing">QuoteFinancing</h4>
+  <div class="markdown level1 summary"><p>The financing paid or collected when the Order was filled, in the
+Instrument’s quote currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal QuoteFinancing { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_OrderFillTransaction_QuoteGuaranteedExecutionFee.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.OrderFillTransaction.QuoteGuaranteedExecutionFee%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/OrderFillTransaction.cs/#L178">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Transactions_OrderFillTransaction_QuoteGuaranteedExecutionFee_" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.QuoteGuaranteedExecutionFee*"></a>
+  <h4 id="FFT_Oanda_Transactions_OrderFillTransaction_QuoteGuaranteedExecutionFee" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.QuoteGuaranteedExecutionFee">QuoteGuaranteedExecutionFee</h4>
+  <div class="markdown level1 summary"><p>The total guaranteed execution fees charged for all Trades opened,
+closed or reduced with guaranteed Stop Loss Orders, expressed in the
+Instrument’s quote currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal? QuoteGuaranteedExecutionFee { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_OrderFillTransaction_QuotePL.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.OrderFillTransaction.QuotePL%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/OrderFillTransaction.cs/#L138">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Transactions_OrderFillTransaction_QuotePL_" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.QuotePL*"></a>
+  <h4 id="FFT_Oanda_Transactions_OrderFillTransaction_QuotePL" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.QuotePL">QuotePL</h4>
+  <div class="markdown level1 summary"><p>The profit or loss incurred when the Order was filled, in the
+Instrument’s quote currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal QuotePL { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_OrderFillTransaction_Reason.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.OrderFillTransaction.Reason%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/OrderFillTransaction.cs/#L126">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Transactions_OrderFillTransaction_Reason_" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.Reason*"></a>
+  <h4 id="FFT_Oanda_Transactions_OrderFillTransaction_Reason" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.Reason">Reason</h4>
+  <div class="markdown level1 summary"><p>The reason that an Order was filled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OrderFillReason Reason { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Transactions.OrderFillReason.html">OrderFillReason</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_OrderFillTransaction_TradeOpened.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.OrderFillTransaction.TradeOpened%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/OrderFillTransaction.cs/#L190">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Transactions_OrderFillTransaction_TradeOpened_" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.TradeOpened*"></a>
+  <h4 id="FFT_Oanda_Transactions_OrderFillTransaction_TradeOpened" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.TradeOpened">TradeOpened</h4>
+  <div class="markdown level1 summary"><p>The Trade that was opened when the Order was filled (only provided if
+filling the Order resulted in a new Trade).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TradeOpen TradeOpened { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Transactions.TradeOpen.html">TradeOpen</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_OrderFillTransaction_TradeReduced.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.OrderFillTransaction.TradeReduced%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/OrderFillTransaction.cs/#L202">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Transactions_OrderFillTransaction_TradeReduced_" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.TradeReduced*"></a>
+  <h4 id="FFT_Oanda_Transactions_OrderFillTransaction_TradeReduced" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.TradeReduced">TradeReduced</h4>
+  <div class="markdown level1 summary"><p>The Trade that was reduced when the Order was filled (only provided if
+filling the Order resulted in reducing an open Trade).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TradeReduce TradeReduced { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FFT.Oanda.Transactions.TradeReduce.html">TradeReduce</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_OrderFillTransaction_TradesClosed.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.OrderFillTransaction.TradesClosed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/OrderFillTransaction.cs/#L196">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Transactions_OrderFillTransaction_TradesClosed_" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.TradesClosed*"></a>
+  <h4 id="FFT_Oanda_Transactions_OrderFillTransaction_TradesClosed" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.TradesClosed">TradesClosed</h4>
+  <div class="markdown level1 summary"><p>The Trades that were closed when the Order was filled (only provided if
+filling the Order resulted in a closing open Trades).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableList&lt;TradeReduce&gt;? TradesClosed { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ImmutableList</span>&lt;<a class="xref" href="FFT.Oanda.Transactions.TradeReduce.html">TradeReduce</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_OrderFillTransaction_Units.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.OrderFillTransaction.Units%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/OrderFillTransaction.cs/#L100">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Transactions_OrderFillTransaction_Units_" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.Units*"></a>
+  <h4 id="FFT_Oanda_Transactions_OrderFillTransaction_Units" data-uid="FFT.Oanda.Transactions.OrderFillTransaction.Units">Units</h4>
+  <div class="markdown level1 summary"><p>The number of units filled by the OrderFill.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal Units { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_OrderFillTransaction.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.OrderFillTransaction%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/OrderFillTransaction.cs/#L14" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+    <script src="//unpkg.com/highlightjs-dotnetconfig@0.9.1/dist/dotnetconfig.min.js"></script>
+  </body>
+</html>
