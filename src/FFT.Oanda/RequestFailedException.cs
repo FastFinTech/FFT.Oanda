@@ -8,6 +8,7 @@ namespace FFT.Oanda
   using System.Net;
   using System.Net.Http;
   using System.Text.Json;
+  using System.Threading;
   using System.Threading.Tasks;
 
   /// <summary>
@@ -32,7 +33,7 @@ namespace FFT.Oanda
     /// </summary>
     public JsonElement Content { get; }
 
-    internal static async Task ThrowIfNecessary(HttpResponseMessage response)
+    internal static async Task ThrowIfNecessary(HttpResponseMessage response, CancellationToken cancellationToken = default)
     {
       if (response.IsSuccessStatusCode)
         return;
@@ -40,8 +41,8 @@ namespace FFT.Oanda
       RequestFailedException exception;
       try
       {
-        using var stream = await response.Content.ReadAsStreamAsync();
-        using var doc = await JsonDocument.ParseAsync(stream);
+        using var stream = await response.Content.ReadAsStreamAsync(cancellationToken);
+        using var doc = await JsonDocument.ParseAsync(stream, default, cancellationToken);
         exception = new RequestFailedException(response.StatusCode, doc.RootElement.Clone());
       }
       catch (Exception x)

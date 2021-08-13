@@ -76,16 +76,21 @@ namespace FFT.Oanda
       _streamClient.Dispose();
     }
 
-    private static async Task<T> ParseResponse<T>(HttpResponseMessage response)
+    private static async Task<T> ParseResponse<T>(HttpResponseMessage response, CancellationToken cancellationToken)
     {
-      await RequestFailedException.ThrowIfNecessary(response);
+      await RequestFailedException.ThrowIfNecessary(response, cancellationToken);
 
       // This particular extension method automatically uses the "WebOptions"
       // options for json deserialization. If we ever switch away to manually
       // deserializing, we will need to remember to specify the "WebOptions" to
       // be used for deserialization. The "PolymorphicDeserializer" class has an
       // example of how to do that.
-      return (await response.Content.ReadFromJsonAsync<T>())!;
+      return (await response.Content.ReadFromJsonAsync<T>(null, cancellationToken))!;
+
+      // TODO: Since writing the comment above, I changed the method overload
+      // used above to accepting the parameters shown. Perhaps this has changed
+      // the default behaviour of using the "WebOptions" required. Runtime
+      // exceptions (or lack of them) will show if I've broken it or not.
     }
   }
 
@@ -95,36 +100,42 @@ namespace FFT.Oanda
     /// <summary>
     /// Get a list of all accounts.
     /// </summary>
-    public async Task<AccountListResponse> GetAccounts()
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<AccountListResponse> GetAccounts(CancellationToken cancellationToken = default)
     {
       // api redirects from "v3/accounts" to "v3/users/@/accounts"
       // https://stackoverflow.com/questions/28564961/authorization-header-is-lost-on-redirect#:~:text=The%20reason%20you%20are%20experiencing,One%20reason%20is%20security.&text=Your%20API%20is%20returning%20401,is%20missing%20(or%20incomplete).
 
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, "v3/users/@/accounts");
-      using var response = await _client.SendAsync(request, DisposedToken);
-      return await ParseResponse<AccountListResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<AccountListResponse>(response, cts.Token);
     }
 
     /// <summary>
     /// Get a summary for a single account. Does not provide full specification
     /// of pending Orders, open Trades and Positions.
     /// </summary>
-    public async Task<AccountSummaryResponse> GetAccountSummary(string accountId)
+    /// <param name="accountId">The account that the summary is required of.</param>
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<AccountSummaryResponse> GetAccountSummary(string accountId, CancellationToken cancellationToken = default)
     {
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}/summary");
-      using var response = await _client.SendAsync(request, DisposedToken);
-      return await ParseResponse<AccountSummaryResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<AccountSummaryResponse>(response, cts.Token);
     }
 
     /// <summary>
     /// Get the full details for a single account. Full pending order, open
     /// trade and open position representations are provided.
     /// </summary>
-    public async Task<AccountResponse> GetAccount(string accountId)
+    public async Task<AccountResponse> GetAccount(string accountId, CancellationToken cancellationToken = default)
     {
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}");
-      using var response = await _client.SendAsync(request, DisposedToken);
-      return await ParseResponse<AccountResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<AccountResponse>(response, cts.Token);
     }
 
     /// <summary>
@@ -140,7 +151,8 @@ namespace FFT.Oanda
     /// Supply this value if you wish to get instrument details for just this
     /// specific set of instruments.
     /// </param>
-    public async Task<AccountInstrumentListResponse> GetAccountInstruments(string accountId, string[]? specificInstruments = null)
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<AccountInstrumentListResponse> GetAccountInstruments(string accountId, string[]? specificInstruments = null, CancellationToken cancellationToken = default)
     {
       var url = $"v3/accounts/{accountId}/instruments";
       if (specificInstruments is { Length: > 0 })
@@ -148,9 +160,10 @@ namespace FFT.Oanda
         url += $"?instruments={string.Join(',', specificInstruments)}";
       }
 
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request, DisposedToken);
-      return await ParseResponse<AccountInstrumentListResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<AccountInstrumentListResponse>(response, cts.Token);
     }
 
     /// <summary>
@@ -164,7 +177,8 @@ namespace FFT.Oanda
     /// If you supply this as null, the response will not include the "Changes"
     /// data but will include the price-dependent state.
     /// </param>
-    public async Task<AccountChangesResponse> GetAccountChanges(string accountId, string? sinceTransactionId)
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<AccountChangesResponse> GetAccountChanges(string accountId, string? sinceTransactionId, CancellationToken cancellationToken = default)
     {
       var url = $"v3/accounts/{accountId}/changes";
       if (!string.IsNullOrWhiteSpace(sinceTransactionId))
@@ -172,24 +186,29 @@ namespace FFT.Oanda
         url += $"?sinceTransactionID={sinceTransactionId}";
       }
 
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request, DisposedToken);
-      return await ParseResponse<AccountChangesResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<AccountChangesResponse>(response, cts.Token);
     }
 
     /// <summary>
     /// Set the client-configurable portions of an Account.
     /// </summary>
-    public async Task<AccountConfigurationResponse> SetAccountConfiguration(string accountId, AccountConfiguration accountConfiguration)
+    /// <param name="accountId">The id of the account that will be updated.</param>
+    /// <param name="accountConfiguration">New account configuration information.</param>
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<AccountConfigurationResponse> SetAccountConfiguration(string accountId, AccountConfiguration accountConfiguration, CancellationToken cancellationToken = default)
     {
       var url = $"v3/accounts/{accountId}/configuration";
-      using var message = new HttpRequestMessage(HttpMethod.Patch, url)
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
+      using var request = new HttpRequestMessage(HttpMethod.Patch, url)
       {
         Content = JsonContent.Create(accountConfiguration),
       };
 
-      using var response = await _client.SendAsync(message, DisposedToken);
-      return await ParseResponse<AccountConfigurationResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<AccountConfigurationResponse>(response, cts.Token);
     }
   }
 
@@ -228,13 +247,15 @@ namespace FFT.Oanda
     /// The day of the week used for granularities that have weekly alignment.
     /// [default=Friday].
     /// </param>
+    /// <param name="cancellationToken">Cancels the operation.</param>
     public async Task<CandlestickResponse> GetCandlestickData(
       CandleSpecification candleSpecification,
       int count = 500,
       bool smooth = false,
       int dailyAlignment = 17,
       string alignmentTimezone = "America/New_York",
-      WeeklyAlignment weeklyAlignment = WeeklyAlignment.FRIDAY)
+      WeeklyAlignment weeklyAlignment = WeeklyAlignment.FRIDAY,
+      CancellationToken cancellationToken = default)
     {
       if (candleSpecification is null)
         throw new ArgumentNullException(nameof(candleSpecification));
@@ -258,10 +279,10 @@ namespace FFT.Oanda
         { "weeklyAlignment", weeklyAlignment.ToString() },
       };
       var url = QueryHelpers.AddQueryString($"v3/instruments/{candleSpecification.InstrumentName}/candles", query);
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request, DisposedToken);
-      await RequestFailedException.ThrowIfNecessary(response);
-      return (await response.Content.ReadFromJsonAsync<CandlestickResponse>())!;
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<CandlestickResponse>(response, cts.Token);
     }
 
     /// <summary>
@@ -307,6 +328,7 @@ namespace FFT.Oanda
     /// The day of the week used for granularities that have weekly alignment.
     /// [default=Friday].
     /// </param>
+    /// <param name="cancellationToken">Cancels the operation.</param>
     public async Task<CandlestickResponse> GetCandlestickData(
       CandleSpecification candleSpecification,
       DateTime from,
@@ -315,7 +337,8 @@ namespace FFT.Oanda
       bool includeFirst = true,
       int dailyAlignment = 17,
       string alignmentTimezone = "America/New_York",
-      WeeklyAlignment weeklyAlignment = WeeklyAlignment.FRIDAY)
+      WeeklyAlignment weeklyAlignment = WeeklyAlignment.FRIDAY,
+      CancellationToken cancellationToken = default)
     {
       if (candleSpecification is null)
         throw new ArgumentNullException(nameof(candleSpecification));
@@ -355,10 +378,10 @@ namespace FFT.Oanda
         query["to"] = to.Value.ToString(DATETIMEFORMATSTRING, CultureInfo.InvariantCulture);
 
       var url = QueryHelpers.AddQueryString($"v3/instruments/{candleSpecification.InstrumentName}/candles", query);
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request, DisposedToken);
-      await RequestFailedException.ThrowIfNecessary(response);
-      return (await response.Content.ReadFromJsonAsync<CandlestickResponse>())!;
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<CandlestickResponse>(response, cts.Token);
     }
 
     /// <summary>
@@ -371,7 +394,8 @@ namespace FFT.Oanda
     /// The time of the snapshot to fetch. If not specified, then the most
     /// recent snapshot is fetched.
     /// </param>
-    public async Task<OrderBookResponse> GetOrderBook(string instrumentName, DateTime? time = null)
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<OrderBookResponse> GetOrderBook(string instrumentName, DateTime? time = null, CancellationToken cancellationToken = default)
     {
       if (string.IsNullOrWhiteSpace(instrumentName))
         throw new ArgumentException(nameof(instrumentName));
@@ -382,10 +406,10 @@ namespace FFT.Oanda
         url = QueryHelpers.AddQueryString(url, "time", time.Value.ToString(DATETIMEFORMATSTRING, CultureInfo.InvariantCulture));
       }
 
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request, DisposedToken);
-      await RequestFailedException.ThrowIfNecessary(response);
-      return (await response.Content.ReadFromJsonAsync<OrderBookResponse>())!;
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<OrderBookResponse>(response, cts.Token);
     }
 
     /// <summary>
@@ -398,7 +422,8 @@ namespace FFT.Oanda
     /// The time of the snapshot to fetch. If not specified, then the most
     /// recent snapshot is fetched.
     /// </param>
-    public async Task<PositionBookResponse> GetPositionBook(string instrumentName, DateTime? time = null)
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<PositionBookResponse> GetPositionBook(string instrumentName, DateTime? time = null, CancellationToken cancellationToken = default)
     {
       // TODO: The response header contains a link to the next/previous position
       // books. Perhaps consider adding these to the method's output?
@@ -412,10 +437,10 @@ namespace FFT.Oanda
         url = QueryHelpers.AddQueryString(url, "time", time.Value.ToString(DATETIMEFORMATSTRING, CultureInfo.InvariantCulture));
       }
 
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request, DisposedToken);
-      await RequestFailedException.ThrowIfNecessary(response);
-      return (await response.Content.ReadFromJsonAsync<PositionBookResponse>())!;
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<PositionBookResponse>(response, cts.Token);
     }
   }
 
@@ -431,7 +456,8 @@ namespace FFT.Oanda
     /// 001-011-5838423-001.
     /// </param>
     /// <param name="orderRequest">Specification of the Order to create.</param>
-    public async Task<CreateOrderResponse> CreateOrder(string accountId, OrderRequest orderRequest)
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<CreateOrderResponse> CreateOrder(string accountId, OrderRequest orderRequest, CancellationToken cancellationToken = default)
     {
       // TODO: A response to a successful request also contains a link to the
       // order that was generated. Include this in the returned data.
@@ -439,12 +465,13 @@ namespace FFT.Oanda
       if (string.IsNullOrWhiteSpace(accountId))
         throw new ArgumentException(nameof(accountId));
 
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Post, $"v3/accounts/{accountId}/orders")
       {
         Content = JsonContent.Create(orderRequest, orderRequest.GetType()),
       };
-      using var response = await _client.SendAsync(request, DisposedToken);
-      return await ParseResponse<CreateOrderResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<CreateOrderResponse>(response, cts.Token);
     }
 
     /// <summary>
@@ -471,7 +498,8 @@ namespace FFT.Oanda
     /// <param name="ids">
     /// List of Order IDs to retrieve.
     /// </param>
-    public async Task<GetOrdersResponse> GetOrders(string accountId, string? instrumentName = null, OrderStateFilter state = OrderStateFilter.PENDING, int count = 50, string? beforeId = null, string[]? ids = null)
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<GetOrdersResponse> GetOrders(string accountId, string? instrumentName = null, OrderStateFilter state = OrderStateFilter.PENDING, int count = 50, string? beforeId = null, string[]? ids = null, CancellationToken cancellationToken = default)
     {
       if (string.IsNullOrWhiteSpace(accountId))
         throw new ArgumentException(nameof(accountId));
@@ -495,9 +523,10 @@ namespace FFT.Oanda
         query.Add("ids", string.Join(",", ids));
 
       var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/orders", query);
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request, DisposedToken);
-      return await ParseResponse<GetOrdersResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<GetOrdersResponse>(response, cts.Token);
     }
 
     /// <summary>
@@ -508,15 +537,17 @@ namespace FFT.Oanda
     /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
     /// 001-011-5838423-001.
     /// </param>
-    public async Task<GetOrdersResponse> GetPendingOrders(string accountId)
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<GetOrdersResponse> GetPendingOrders(string accountId, CancellationToken cancellationToken = default)
     {
       if (string.IsNullOrWhiteSpace(accountId))
         throw new ArgumentException(nameof(accountId));
 
       var url = $"v3/accounts/{accountId}/pendingOrders";
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request, DisposedToken);
-      return await ParseResponse<GetOrdersResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<GetOrdersResponse>(response, cts.Token);
     }
 
     /// <summary>
@@ -532,7 +563,8 @@ namespace FFT.Oanda
     /// Order’s OANDA-assigned OrderID or the Order’s client-provided ClientID
     /// prefixed by the “@” symbol.
     /// </param>
-    public async Task<GetSingleOrderResponse> GetSingleOrder(string accountId, string orderSpecifier)
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<GetSingleOrderResponse> GetSingleOrder(string accountId, string orderSpecifier, CancellationToken cancellationToken = default)
     {
       if (string.IsNullOrWhiteSpace(accountId))
         throw new ArgumentException(nameof(accountId));
@@ -541,9 +573,10 @@ namespace FFT.Oanda
         throw new ArgumentException(nameof(orderSpecifier));
 
       var url = $"v3/accounts/{accountId}/orders/{orderSpecifier}";
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request, DisposedToken);
-      return await ParseResponse<GetSingleOrderResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<GetSingleOrderResponse>(response, cts.Token);
     }
 
     /// <summary>
@@ -567,7 +600,8 @@ namespace FFT.Oanda
     /// <param name="clientRequestId">
     /// Client specified RequestID to be sent with request.
     /// </param>
-    public async Task<ReplaceOrderResponse> ReplaceOrder(string accountId, string orderSpecifier, OrderRequest replacementOrder, string? clientRequestId = null)
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<ReplaceOrderResponse> ReplaceOrder(string accountId, string orderSpecifier, OrderRequest replacementOrder, string? clientRequestId = null, CancellationToken cancellationToken = default)
     {
       // TODO: Response header also contains a link to the new order. Add it to
       // the method's output.
@@ -579,6 +613,7 @@ namespace FFT.Oanda
         throw new ArgumentException(nameof(orderSpecifier));
 
       var url = $"v3/accounts/{accountId}/orders/{orderSpecifier}";
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Put, url)
       {
         Content = JsonContent.Create(replacementOrder, replacementOrder.GetType()),
@@ -587,8 +622,8 @@ namespace FFT.Oanda
       if (!string.IsNullOrWhiteSpace(clientRequestId))
         request.Headers.Add("ClientRequestID", clientRequestId);
 
-      using var response = await _client.SendAsync(request, DisposedToken);
-      return await ParseResponse<ReplaceOrderResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<ReplaceOrderResponse>(response, cts.Token);
     }
 
     /// <summary>
@@ -606,7 +641,8 @@ namespace FFT.Oanda
     /// prefixed by the “@” symbol.
     /// </param>
     /// <param name="clientRequestId">Client specified RequestID to be sent with request.</param>
-    public async Task<CancelOrderResponse> CancelOrder(string accountId, string orderSpecifier, string? clientRequestId = null)
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<CancelOrderResponse> CancelOrder(string accountId, string orderSpecifier, string? clientRequestId = null, CancellationToken cancellationToken = default)
     {
       if (string.IsNullOrWhiteSpace(accountId))
         throw new ArgumentException(nameof(accountId));
@@ -615,13 +651,14 @@ namespace FFT.Oanda
         throw new ArgumentException(nameof(orderSpecifier));
 
       var url = $"v3/accounts/{accountId}/orders/{orderSpecifier}/cancel";
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Put, url);
 
       if (!string.IsNullOrWhiteSpace(clientRequestId))
         request.Headers.Add("ClientRequestID", clientRequestId);
 
-      using var response = await _client.SendAsync(request, DisposedToken);
-      return await ParseResponse<CancelOrderResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<CancelOrderResponse>(response, cts.Token);
     }
 
     /// <summary>
@@ -648,7 +685,8 @@ namespace FFT.Oanda
     /// filled. Do not set, modify, or delete clientExtensions if your account
     /// is associated with MT4.
     /// </param>
-    public async Task<UpdateOrderClientExtensionsResponse> SetOrderClientExtensions(string accountId, string orderSpecifier, ClientExtensions? clientExtensions, ClientExtensions? tradeClientExtensions)
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<UpdateOrderClientExtensionsResponse> SetOrderClientExtensions(string accountId, string orderSpecifier, ClientExtensions? clientExtensions, ClientExtensions? tradeClientExtensions, CancellationToken cancellationToken = default)
     {
       if (string.IsNullOrWhiteSpace(accountId))
         throw new ArgumentException(nameof(accountId));
@@ -657,6 +695,7 @@ namespace FFT.Oanda
         throw new ArgumentException(nameof(orderSpecifier));
 
       var url = $"v3/accounts/{accountId}/orders/{orderSpecifier}/clientExtensions";
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Put, url)
       {
         Content = JsonContent.Create(new
@@ -665,8 +704,8 @@ namespace FFT.Oanda
           TradeClientExtensions = tradeClientExtensions,
         }),
       };
-      using var response = await _client.SendAsync(request, DisposedToken);
-      return await ParseResponse<UpdateOrderClientExtensionsResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<UpdateOrderClientExtensionsResponse>(response, cts.Token);
     }
   }
 
@@ -686,7 +725,8 @@ namespace FFT.Oanda
     /// <param name="count">The maximum number of Trades to return. [default=50, maximum=500].</param>
     /// <param name="beforeId">The maximum Trade ID to return. If not provided the most recent Trades in the Account are returned.</param>
     /// <param name="tradeIds">List of Trade IDs to retrieve. Only supply this if you wish to specify exactly which trades you need the information for.</param>
-    public async Task<GetTradesResponse> GetTrades(string accountId, TradeStateFilter state = TradeStateFilter.OPEN, string? instrument = null, int count = 50, string? beforeId = null, string[]? tradeIds = null)
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<GetTradesResponse> GetTrades(string accountId, TradeStateFilter state = TradeStateFilter.OPEN, string? instrument = null, int count = 50, string? beforeId = null, string[]? tradeIds = null, CancellationToken cancellationToken = default)
     {
       // TODO: Check if state is actually a csv list.
 
@@ -712,9 +752,10 @@ namespace FFT.Oanda
         query.Add("instrument", instrument);
 
       var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/trades", query);
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request, DisposedToken);
-      return await ParseResponse<GetTradesResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<GetTradesResponse>(response, cts.Token);
     }
 
     /// <summary>
@@ -725,14 +766,16 @@ namespace FFT.Oanda
     /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
     /// 001-011-5838423-001.
     /// </param>
-    public async Task<GetTradesResponse> GetOpenTrades(string accountId)
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<GetTradesResponse> GetOpenTrades(string accountId, CancellationToken cancellationToken = default)
     {
       if (string.IsNullOrWhiteSpace(accountId))
         throw new ArgumentException(nameof(accountId));
 
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}/openTrades");
-      using var response = await _client.SendAsync(request, DisposedToken);
-      return await ParseResponse<GetTradesResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<GetTradesResponse>(response, cts.Token);
     }
 
     /// <summary>
@@ -747,7 +790,8 @@ namespace FFT.Oanda
     /// Either the Trade’s OANDA-assigned TradeID or the Trade’s client-provided
     /// ClientID prefixed by the “@” symbol.
     /// </param>
-    public async Task<GetTradeResponse> GetTrade(string accountId, string tradeSpecifier)
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<GetTradeResponse> GetTrade(string accountId, string tradeSpecifier, CancellationToken cancellationToken = default)
     {
       if (string.IsNullOrWhiteSpace(accountId))
         throw new ArgumentException(nameof(accountId));
@@ -755,9 +799,10 @@ namespace FFT.Oanda
       if (string.IsNullOrWhiteSpace(tradeSpecifier))
         throw new ArgumentException(nameof(accountId));
 
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}/trades/{tradeSpecifier}");
-      using var response = await _client.SendAsync(request, DisposedToken);
-      return await ParseResponse<GetTradeResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<GetTradeResponse>(response, cts.Token);
     }
 
     /// <summary>
@@ -780,7 +825,8 @@ namespace FFT.Oanda
     /// the magnitude of the value cannot exceed the magnitude of the Trade’s
     /// open units.
     /// </param>
-    public async Task<CloseTradeResponse> CloseTrade(string accountId, string tradeSpecifier, NumUnits numUnits)
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<CloseTradeResponse> CloseTrade(string accountId, string tradeSpecifier, NumUnits numUnits, CancellationToken cancellationToken = default)
     {
       if (string.IsNullOrWhiteSpace(accountId))
         throw new ArgumentException(nameof(accountId));
@@ -789,6 +835,7 @@ namespace FFT.Oanda
         throw new ArgumentException(nameof(accountId));
 
       var url = $"v3/accounts/{accountId}/trades/{tradeSpecifier}/close";
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Put, url)
       {
         Content = JsonContent.Create(new
@@ -796,8 +843,8 @@ namespace FFT.Oanda
           Units = numUnits,
         }),
       };
-      using var response = await _client.SendAsync(request, DisposedToken);
-      return await ParseResponse<CloseTradeResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<CloseTradeResponse>(response, cts.Token);
     }
 
     /// <summary>
@@ -815,7 +862,8 @@ namespace FFT.Oanda
     /// <param name="clientExtensions">
     /// The value to be attached to the given trade.
     /// </param>
-    public async Task<TradeClientExtensionsUpdateResponse> SetTradeClientExtensions(string accountId, string tradeSpecifier, ClientExtensions clientExtensions)
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<TradeClientExtensionsUpdateResponse> SetTradeClientExtensions(string accountId, string tradeSpecifier, ClientExtensions clientExtensions, CancellationToken cancellationToken = default)
     {
       if (string.IsNullOrWhiteSpace(accountId))
         throw new ArgumentException(nameof(accountId));
@@ -823,6 +871,7 @@ namespace FFT.Oanda
       if (string.IsNullOrWhiteSpace(tradeSpecifier))
         throw new ArgumentException(nameof(accountId));
 
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Put, $"v3/accounts/{accountId}/trades/{tradeSpecifier}/clientExtensions")
       {
         Content = JsonContent.Create(new
@@ -830,8 +879,8 @@ namespace FFT.Oanda
           ClientExtensions = clientExtensions,
         }),
       };
-      using var response = await _client.SendAsync(request, DisposedToken);
-      return await ParseResponse<TradeClientExtensionsUpdateResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<TradeClientExtensionsUpdateResponse>(response, cts.Token);
     }
 
     /// <summary>
@@ -880,7 +929,8 @@ namespace FFT.Oanda
     /// default value on create, and be inherited by the replacing order on
     /// modify.
     /// </param>
-    public async Task<SetTradeOrdersResponse> SetTradeOrders(string accountId, string tradeSpecifier, TakeProfitDetails? takeProfit, StopLossDetails? stopLoss, TrailingStopLossDetails? trailingStopLoss, GuaranteedStopLossDetails? guaranteedStopLoss)
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<SetTradeOrdersResponse> SetTradeOrders(string accountId, string tradeSpecifier, TakeProfitDetails? takeProfit, StopLossDetails? stopLoss, TrailingStopLossDetails? trailingStopLoss, GuaranteedStopLossDetails? guaranteedStopLoss, CancellationToken cancellationToken = default)
     {
       if (string.IsNullOrWhiteSpace(accountId))
         throw new ArgumentException(nameof(accountId));
@@ -888,6 +938,7 @@ namespace FFT.Oanda
       if (string.IsNullOrWhiteSpace(tradeSpecifier))
         throw new ArgumentException(nameof(accountId));
 
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Put, $"v3/accounts/{accountId}/trades/{tradeSpecifier}/orders")
       {
         Content = JsonContent.Create(new
@@ -898,8 +949,8 @@ namespace FFT.Oanda
           GuaranteedStopLoss = guaranteedStopLoss,
         }),
       };
-      using var response = await _client.SendAsync(request, DisposedToken);
-      return await ParseResponse<SetTradeOrdersResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<SetTradeOrdersResponse>(response, cts.Token);
     }
   }
 
@@ -916,14 +967,16 @@ namespace FFT.Oanda
     /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
     /// 001-011-5838423-001.
     /// </param>
-    public async Task<GetPositionsResponse> GetPositions(string accountId)
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<GetPositionsResponse> GetPositions(string accountId, CancellationToken cancellationToken = default)
     {
       if (string.IsNullOrWhiteSpace(accountId))
         throw new ArgumentException(nameof(accountId));
 
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}/positions");
-      using var response = await _client.SendAsync(request, DisposedToken);
-      return await ParseResponse<GetPositionsResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<GetPositionsResponse>(response, cts.Token);
     }
 
     /// <summary>
@@ -935,14 +988,16 @@ namespace FFT.Oanda
     /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
     /// 001-011-5838423-001.
     /// </param>
-    public async Task<GetPositionsResponse> GetOpenPositions(string accountId)
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<GetPositionsResponse> GetOpenPositions(string accountId, CancellationToken cancellationToken = default)
     {
       if (string.IsNullOrWhiteSpace(accountId))
         throw new ArgumentException(nameof(accountId));
 
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}/openPositions");
-      using var response = await _client.SendAsync(request, DisposedToken);
-      return await ParseResponse<GetPositionsResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<GetPositionsResponse>(response, cts.Token);
     }
 
     /// <summary>
@@ -955,7 +1010,8 @@ namespace FFT.Oanda
     /// 001-011-5838423-001.
     /// </param>
     /// <param name="instrument">Name of the Instrument.</param>
-    public async Task<GetPositionResponse> GetPosition(string accountId, string instrument)
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<GetPositionResponse> GetPosition(string accountId, string instrument, CancellationToken cancellationToken = default)
     {
       if (string.IsNullOrWhiteSpace(accountId))
         throw new ArgumentException(nameof(accountId));
@@ -963,9 +1019,10 @@ namespace FFT.Oanda
       if (string.IsNullOrWhiteSpace(instrument))
         throw new ArgumentException(nameof(instrument));
 
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}/positions/{instrument}");
-      using var response = await _client.SendAsync(request, DisposedToken);
-      return await ParseResponse<GetPositionResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<GetPositionResponse>(response, cts.Token);
     }
 
     /// <summary>
@@ -995,7 +1052,8 @@ namespace FFT.Oanda
     /// The client extensions to add to the MarketOrder used to close the short
     /// position.
     /// </param>
-    public async Task<ClosePositionResponse> ClosePosition(string accountId, string instrument, NumUnits longUnits, NumUnits shortUnits, ClientExtensions? longClientExtensions, ClientExtensions? shortClientExtensions)
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<ClosePositionResponse> ClosePosition(string accountId, string instrument, NumUnits longUnits, NumUnits shortUnits, ClientExtensions? longClientExtensions, ClientExtensions? shortClientExtensions, CancellationToken cancellationToken = default)
     {
       if (string.IsNullOrWhiteSpace(accountId))
         throw new ArgumentException(nameof(accountId));
@@ -1003,6 +1061,7 @@ namespace FFT.Oanda
       if (string.IsNullOrWhiteSpace(instrument))
         throw new ArgumentException(nameof(instrument));
 
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Put, $"v3/accounts/{accountId}/positions/{instrument}/close")
       {
         Content = JsonContent.Create(new
@@ -1013,8 +1072,8 @@ namespace FFT.Oanda
           shortClientExtensions,
         }),
       };
-      using var response = await _client.SendAsync(request, DisposedToken);
-      return await ParseResponse<ClosePositionResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<ClosePositionResponse>(response, cts.Token);
     }
   }
 
@@ -1038,7 +1097,8 @@ namespace FFT.Oanda
     /// The ending time (inclusive) of the time range for the Transactions being
     /// queried. If null, the current time will be used.
     /// </param>
-    public async Task<GetTransactionIdRangeResponse> GetTransactionIdRange(string accountId, DateTime? from = null, DateTime? to = null)
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<GetTransactionIdRangeResponse> GetTransactionIdRange(string accountId, DateTime? from = null, DateTime? to = null, CancellationToken cancellationToken = default)
     {
       // TODO: Test what happens when input is a range with no transactions.
 
@@ -1057,10 +1117,10 @@ namespace FFT.Oanda
         query.Add("to", to.Value.ToString(DATETIMEFORMATSTRING));
 
       var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/transactions", query);
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request, DisposedToken);
-      await RequestFailedException.ThrowIfNecessary(response);
-      return (await response.Content.ReadFromJsonAsync<GetTransactionIdRangeResponse>())!;
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<GetTransactionIdRangeResponse>(response, cts.Token);
     }
 
     /// <summary>
@@ -1072,7 +1132,8 @@ namespace FFT.Oanda
     /// 001-011-5838423-001.
     /// </param>
     /// <param name="transactionId">A Transaction ID.</param>
-    public async Task<GetTransactionResponse> GetTransaction(string accountId, string transactionId)
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<GetTransactionResponse> GetTransaction(string accountId, string transactionId, CancellationToken cancellationToken = default)
     {
       if (string.IsNullOrWhiteSpace(accountId))
         throw new ArgumentException(nameof(accountId));
@@ -1080,10 +1141,11 @@ namespace FFT.Oanda
       if (string.IsNullOrWhiteSpace(transactionId))
         throw new ArgumentException(nameof(transactionId));
 
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       var url = $"v3/accounts/{accountId}/transactions/{transactionId}";
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request, DisposedToken);
-      return await ParseResponse<GetTransactionResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<GetTransactionResponse>(response, cts.Token);
     }
 
     /// <summary>
@@ -1100,7 +1162,8 @@ namespace FFT.Oanda
     /// fetch.</param>
     /// <param name="types">The filter that restricts the types of Transactions
     /// to retrieve. Null for all transaction types.</param>
-    public async Task<GetTransactionsResponse> GetTransactions(string accountId, int fromTransactionId, int toTransactionId, TransactionFilter[]? types = null)
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<GetTransactionsResponse> GetTransactions(string accountId, int fromTransactionId, int toTransactionId, TransactionFilter[]? types = null, CancellationToken cancellationToken = default)
     {
       // TODO: Experiment to see if null filter works.
 
@@ -1129,9 +1192,10 @@ namespace FFT.Oanda
         query.Add("type", string.Join(",", types));
 
       var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/transactions/idrange", query);
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request, DisposedToken);
-      return await ParseResponse<GetTransactionsResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<GetTransactionsResponse>(response, cts.Token);
     }
 
     /// <summary>
@@ -1148,7 +1212,8 @@ namespace FFT.Oanda
     /// TransactionID.</param>
     /// <param name="types">A filter for restricting the types of Transactions
     /// to retrieve. Null to retrieve all Transaction types.</param>
-    public async Task<GetTransactionsResponse> GetTransactionsSince(string accountId, int fromTransactionId, TransactionFilter[]? types = null)
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<GetTransactionsResponse> GetTransactionsSince(string accountId, int fromTransactionId, TransactionFilter[]? types = null, CancellationToken cancellationToken = default)
     {
       if (string.IsNullOrWhiteSpace(accountId))
         throw new ArgumentException(nameof(accountId));
@@ -1157,9 +1222,10 @@ namespace FFT.Oanda
       if (types is { Length: > 0 })
         url = QueryHelpers.AddQueryString(url, "type", string.Join(",", types));
 
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request, DisposedToken);
-      return await ParseResponse<GetTransactionsResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<GetTransactionsResponse>(response, cts.Token);
     }
 
     /// <summary>
@@ -1190,7 +1256,7 @@ namespace FFT.Oanda
     }
   }
 
-  // Pricing endpoing
+  // Pricing endpoint
   public partial class OandaApiClient
   {
     /// <summary>
@@ -1222,6 +1288,7 @@ namespace FFT.Oanda
     /// that the returned times will still be represented in UTC.</param>
     /// <param name="weeklyAlignment">The day of the week used for granularities
     /// that have weekly alignment.</param>
+    /// <param name="cancellationToken">Cancels the operation.</param>
     public async Task<LatestCandlesResponse> GetLatestCandles(
       string accountId,
       CandleSpecification[] candleSpecifications,
@@ -1229,7 +1296,8 @@ namespace FFT.Oanda
       bool smooth = false,
       int dailyAlignment = 17,
       string alignmentTimezone = "America/New_York",
-      WeeklyAlignment weeklyAlignment = WeeklyAlignment.FRIDAY)
+      WeeklyAlignment weeklyAlignment = WeeklyAlignment.FRIDAY,
+      CancellationToken cancellationToken = default)
     {
       if (string.IsNullOrWhiteSpace(accountId))
         throw new ArgumentException(nameof(accountId));
@@ -1261,9 +1329,10 @@ namespace FFT.Oanda
       };
 
       var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/candles/latest", query);
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request, DisposedToken);
-      return await ParseResponse<LatestCandlesResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<LatestCandlesResponse>(response, cts.Token);
     }
 
     /// <summary>
@@ -1289,7 +1358,8 @@ namespace FFT.Oanda
     /// set of all base and quote currencies present in the requested
     /// instruments list.
     /// </param>
-    public async Task<PricingInformationResponse> GetPricingInformation(string accountId, string[] instruments, DateTime? since = null, bool includeHomeConversions = false)
+    /// <param name="cancellationToken">Cancels the operation.</param>
+    public async Task<PricingInformationResponse> GetPricingInformation(string accountId, string[] instruments, DateTime? since = null, bool includeHomeConversions = false, CancellationToken cancellationToken = default)
     {
       if (string.IsNullOrWhiteSpace(accountId))
         throw new ArgumentException(nameof(accountId));
@@ -1313,9 +1383,10 @@ namespace FFT.Oanda
         query["since"] = since.Value.ToString(DATETIMEFORMATSTRING);
 
       var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/pricing", query);
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request, DisposedToken);
-      return await ParseResponse<PricingInformationResponse>(response);
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<PricingInformationResponse>(response, cts.Token);
     }
 
     /// <summary>
@@ -1410,6 +1481,7 @@ namespace FFT.Oanda
     /// The number of units used to calculate the volume-weighted average bid
     /// and ask prices in the returned candles.
     /// </param>
+    /// <param name="cancellationToken">Cancels the operation.</param>
     public async Task<CandlestickResponse> GetCandlestickData(
       string accountId,
       CandleSpecification candleSpecification,
@@ -1418,7 +1490,8 @@ namespace FFT.Oanda
       int dailyAlignment = 17,
       string alignmentTimezone = "America/New_York",
       WeeklyAlignment weeklyAlignment = WeeklyAlignment.FRIDAY,
-      int units = 1)
+      int units = 1,
+      CancellationToken cancellationToken = default)
     {
       if (string.IsNullOrWhiteSpace(accountId))
         throw new ArgumentException(nameof(accountId));
@@ -1446,10 +1519,10 @@ namespace FFT.Oanda
         { "units", units.ToString(CultureInfo.InvariantCulture) },
       };
       var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/instruments/{candleSpecification.InstrumentName}/candles", query);
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request, DisposedToken);
-      await RequestFailedException.ThrowIfNecessary(response);
-      return (await response.Content.ReadFromJsonAsync<CandlestickResponse>())!;
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<CandlestickResponse>(response, cts.Token);
     }
 
     /// <summary>
@@ -1504,6 +1577,7 @@ namespace FFT.Oanda
     /// The number of units used to calculate the volume-weighted average bid
     /// and ask prices in the returned candles.
     /// </param>
+    /// <param name="cancellationToken">Cancels the operation.</param>
     public async Task<CandlestickResponse> GetCandlestickData(
       string accountId,
       CandleSpecification candleSpecification,
@@ -1514,7 +1588,8 @@ namespace FFT.Oanda
       int dailyAlignment = 17,
       string alignmentTimezone = "America/New_York",
       WeeklyAlignment weeklyAlignment = WeeklyAlignment.FRIDAY,
-      int units = 1)
+      int units = 1,
+      CancellationToken cancellationToken = default)
     {
       if (string.IsNullOrWhiteSpace(accountId))
         throw new ArgumentException(nameof(accountId));
@@ -1557,11 +1632,11 @@ namespace FFT.Oanda
       if (to.HasValue)
         query["to"] = to.Value.ToString(DATETIMEFORMATSTRING, CultureInfo.InvariantCulture);
 
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/instruments/{candleSpecification.InstrumentName}/candles", query);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
-      using var response = await _client.SendAsync(request, DisposedToken);
-      await RequestFailedException.ThrowIfNecessary(response);
-      return (await response.Content.ReadFromJsonAsync<CandlestickResponse>())!;
+      using var response = await _client.SendAsync(request, cts.Token);
+      return await ParseResponse<CandlestickResponse>(response, cts.Token);
     }
   }
 }
