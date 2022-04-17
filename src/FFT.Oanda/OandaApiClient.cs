@@ -85,7 +85,11 @@ namespace FFT.Oanda
       // deserializing, we will need to remember to specify the "WebOptions" to
       // be used for deserialization. The "PolymorphicDeserializer" class has an
       // example of how to do that.
-      return (await response.Content.ReadFromJsonAsync<T>(null, cancellationToken))!;
+      
+      JsonSerializerOptions webOptions = new JsonSerializerOptions(JsonSerializerDefaults.Web);
+      webOptions.Converters.Add(new JsonStringEnumConverter());
+      
+      return (await response.Content.ReadFromJsonAsync<T>(webOptions, cancellationToken))!;
 
       // TODO: Since writing the comment above, I changed the method overload
       // used above to accepting the parameters shown. Perhaps this has changed
