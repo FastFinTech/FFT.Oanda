@@ -31,7 +31,7 @@ namespace FFT.Oanda.Transactions
       decimal units,
       HomeConversionFactors homeConversionFactors,
       decimal fullVWAP,
-      decimal fullPrice,
+      ClientPrice fullPrice,
       OrderFillReason reason,
       decimal pL,
       decimal quotePL,
