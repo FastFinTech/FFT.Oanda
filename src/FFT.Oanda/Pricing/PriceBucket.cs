@@ -15,8 +15,8 @@ namespace FFT.Oanda.Pricing
     /// </summary>
     [JsonConstructor]
     public PriceBucket(
-      decimal price,
-      int liquidity)
+      string price,
+      decimal liquidity)
     {
       Price = price;
       Liquidity = liquidity;
@@ -25,11 +25,11 @@ namespace FFT.Oanda.Pricing
     /// <summary>
     /// The Price offered by the PriceBucket.
     /// </summary>
-    public decimal Price { get; }
+    public string Price { get; }
 
     /// <summary>
     /// The amount of liquidity offered by the PriceBucket.
     /// </summary>
-    public int Liquidity { get; }
+    public decimal Liquidity { get; }
   }
 }
