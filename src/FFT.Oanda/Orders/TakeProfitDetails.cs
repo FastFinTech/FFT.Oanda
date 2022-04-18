@@ -23,7 +23,7 @@ namespace FFT.Oanda.Orders
     /// </summary>
     [JsonConstructor]
     public TakeProfitDetails(
-      decimal price,
+      string price,
       TimeInForce timeInForce,
       DateTime? gtdTime,
       ClientExtensions? clientExtensions)
@@ -38,7 +38,7 @@ namespace FFT.Oanda.Orders
     /// The price that the Take Profit Order will be triggered at. Only one of
     /// the price and distance fields may be specified.
     /// </summary>
-    public decimal Price { get; }
+    public string Price { get; }
 
     /// <summary>
     /// The time in force for the created Take Profit Order. This may only be
