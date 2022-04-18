@@ -22,7 +22,20 @@ namespace FFT.Oanda
     /// These options are required to successfully deserialize the json
     /// documents received from Oanda.
     /// </summary>
-    private static readonly JsonSerializerOptions _webOptions = new JsonSerializerOptions(JsonSerializerDefaults.Web);
+    private static JsonSerializerOptions? _webOptionsObj = null;
+    private static JsonSerializerOptions _webOptions
+    {
+        get
+        {
+            if (_webOptionsObj == null)
+            {
+                _webOptionsObj = new JsonSerializerOptions(JsonSerializerDefaults.Web);
+                _webOptionsObj.Converters.Add(new JsonStringEnumConverter());
+            }
+            return _webOptionsObj;
+        }
+    }
+
 
     public static Order DeserializeOrder(string type, ref Utf8JsonReader reader)
     {
