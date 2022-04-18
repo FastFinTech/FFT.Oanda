@@ -5,7 +5,7 @@ namespace FFT.Oanda.Accounts
 {
   using System.Collections.Immutable;
   using System.Text.Json.Serialization;
-  using System.Transactions;
+  using FFT.Oanda.Transactions;
   using FFT.Oanda.Orders;
   using FFT.Oanda.Positions;
   using FFT.Oanda.Trades;
