@@ -18,7 +18,7 @@ namespace FFT.Oanda.Orders
     /// Initializes a new instance of the <see cref="StopLossDetails"/> class.
     /// </summary>
     [JsonConstructor]
-    public StopLossDetails(decimal? price, decimal? distance, TimeInForce timeInForce, DateTime? gtdTime, ClientExtensions? clientExtensions)
+    public StopLossDetails(string? price, decimal? distance, TimeInForce timeInForce, DateTime? gtdTime, ClientExtensions? clientExtensions)
     {
       Price = price;
       Distance = distance;
@@ -31,7 +31,7 @@ namespace FFT.Oanda.Orders
     /// The price that the Stop Loss Order will be triggered at. Only one of the
     /// price and distance fields may be specified.
     /// </summary>
-    public decimal? Price { get; }
+    public string? Price { get; }
 
     /// <summary>
     /// Specifies the distance (in price units) from the Trade’s open price to
