@@ -465,11 +465,30 @@ namespace FFT.Oanda
       if (string.IsNullOrWhiteSpace(accountId))
         throw new ArgumentException(nameof(accountId));
 
-      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
-      using var request = new HttpRequestMessage(HttpMethod.Post, $"v3/accounts/{accountId}/orders")
+      JsonSerializerOptions jsonOption = new JsonSerializerOptions
       {
-        Content = JsonContent.Create(orderRequest, orderRequest.GetType()),
+          DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+          PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
       };
+      
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
+      using var request = new HttpRequestMessage(HttpMethod.Post, $"v3/accounts/{accountId}/orders");
+      
+      MarketOrderRequest? marketOrderRequest = orderRequest as MarketOrderRequest;
+      if (marketOrderRequest != null)
+      {
+          SendMarketOrderRequest sendMarketOrderRequest = new SendMarketOrderRequest(marketOrderRequest);
+          request.Content = JsonContent.Create(sendMarketOrderRequest, sendMarketOrderRequest.GetType(), null, jsonOption);
+      }
+      else
+      {
+         // guess it fails for the other order types too
+         request.Content = JsonContent.Create(orderRequest, orderRequest.GetType());
+      };
+      
+      // uncomment the next line if you like to see the content youre sending on a breakpoint
+      // string contentTxt = await request.Content.ReadAsStringAsync();
+
       using var response = await _client.SendAsync(request, cts.Token);
       return await ParseResponse<CreateOrderResponse>(response, cts.Token);
     }
