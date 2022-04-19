@@ -35,7 +35,11 @@ namespace FFT.Oanda.Transactions
     {
       From = from;
       To = to;
-      LastTransactionId = int.Parse(lastTransactionId, NumberStyles.Any, CultureInfo.InvariantCulture);
+      LastTransactionId = lastTransactionId;
+      Count = count;
+      Pages = pages;
+      PageSize = pageSize;      
+      
       FromTransactionId = int.MaxValue;
       ToTransactionId = int.MinValue;
       foreach (var url in pageLinks)
@@ -76,6 +80,11 @@ namespace FFT.Oanda.Transactions
     /// <summary>
     /// The id of the last transaction ever made on the Account.
     /// </summary>
-    public int LastTransactionId { get; init; }
+    public string LastTransactionId { get; init; }
+    
+    public int Count { get; init; }
+    public int PageSize { get; init; }
+    public ImmutableList<string> Pages { get; init; }    
+    
   }
 }
