@@ -24,5 +24,9 @@ namespace FFT.Oanda.Accounts
     /// Account daily at 5pm New York time.
     /// </summary>
     DAILY,
+    
+    DAILY_FINANCING,
+    DAILY_INSTRUMENT
+    
   }
 }
