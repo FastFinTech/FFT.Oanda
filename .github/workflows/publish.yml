@@ -44,8 +44,22 @@ jobs:
         with:
           args: docfx/docfx.json
 
-      - name: Publish documentation on github pages
-        uses: maxheld83/ghpages@master
-        env:
-          BUILD_DIR: docfx/_site
-          GH_PAT: ${{ secrets.GH_PAT }}
+#      - name: Publish documentation on github pages
+#        uses: maxheld83/ghpages@master
+#        env:
+#          BUILD_DIR: docfx/_site
+#          GH_PAT: ${{ secrets.GH_PAT }}
+
+  deployPages:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment: 
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+     - name: Deploy to github pages
+       id: ghpages-deployment
+       uses: actions/deploy-pages@v1
