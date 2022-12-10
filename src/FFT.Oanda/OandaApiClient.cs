@@ -82,10 +82,10 @@ namespace FFT.Oanda
 
       // This particular extension method automatically uses the "WebOptions"
       // options for json deserialization. If we ever switch away to manually
-      // deserializing, we will need to remember to specify the "WebOptions" to
+      // deserializing, we will need to remember toa specify the "WebOptions" to
       // be used for deserialization. The "PolymorphicDeserializer" class has an
       // example of how to do that.
-      return (await response.Content.ReadFromJsonAsync<T>(null, cancellationToken))!;
+      return (await response.Content.ReadFromJsonAsync<T>(options: null, cancellationToken))!;
 
       // TODO: Since writing the comment above, I changed the method overload
       // used above to accepting the parameters shown. Perhaps this has changed
