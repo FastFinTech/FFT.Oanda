@@ -98,19 +98,19 @@ Take Profit Order is modified directly through the Trade.</p>
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_TakeProfitDetails__ctor_System_Decimal_FFT_Oanda_Orders_TimeInForce_System_Nullable_DateTime__FFT_Oanda_ClientExtensions_.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.TakeProfitDetails.%23ctor(System.Decimal%2CFFT.Oanda.Orders.TimeInForce%2CSystem.Nullable%7BDateTime%7D%2CFFT.Oanda.ClientExtensions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_TakeProfitDetails__ctor_System_Nullable_System_Decimal__System_Nullable_System_Decimal__FFT_Oanda_Orders_TimeInForce_System_Nullable_DateTime__FFT_Oanda_ClientExtensions_.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.TakeProfitDetails.%23ctor(System.Nullable%7BSystem.Decimal%7D%2CSystem.Nullable%7BSystem.Decimal%7D%2CFFT.Oanda.Orders.TimeInForce%2CSystem.Nullable%7BDateTime%7D%2CFFT.Oanda.ClientExtensions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/TakeProfitDetails.cs/#L24">View Source</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/TakeProfitDetails.cs/#L25">View Source</a>
   </span>
   <a id="FFT_Oanda_Orders_TakeProfitDetails__ctor_" data-uid="FFT.Oanda.Orders.TakeProfitDetails.#ctor*"></a>
-  <h4 id="FFT_Oanda_Orders_TakeProfitDetails__ctor_System_Decimal_FFT_Oanda_Orders_TimeInForce_System_Nullable_DateTime__FFT_Oanda_ClientExtensions_" data-uid="FFT.Oanda.Orders.TakeProfitDetails.#ctor(System.Decimal,FFT.Oanda.Orders.TimeInForce,System.Nullable{DateTime},FFT.Oanda.ClientExtensions)">TakeProfitDetails(Decimal, TimeInForce, Nullable&lt;DateTime&gt;, ClientExtensions)</h4>
+  <h4 id="FFT_Oanda_Orders_TakeProfitDetails__ctor_System_Nullable_System_Decimal__System_Nullable_System_Decimal__FFT_Oanda_Orders_TimeInForce_System_Nullable_DateTime__FFT_Oanda_ClientExtensions_" data-uid="FFT.Oanda.Orders.TakeProfitDetails.#ctor(System.Nullable{System.Decimal},System.Nullable{System.Decimal},FFT.Oanda.Orders.TimeInForce,System.Nullable{DateTime},FFT.Oanda.ClientExtensions)">TakeProfitDetails(Nullable&lt;Decimal&gt;, Nullable&lt;Decimal&gt;, TimeInForce, Nullable&lt;DateTime&gt;, ClientExtensions)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FFT.Oanda.Orders.TakeProfitDetails.html">TakeProfitDetails</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TakeProfitDetails(decimal price, TimeInForce timeInForce, DateTime? gtdTime, ClientExtensions clientExtensions)</code></pre>
+    <pre><code class="lang-csharp hljs">public TakeProfitDetails(decimal? price, decimal? distance, TimeInForce timeInForce, DateTime? gtdTime, ClientExtensions clientExtensions)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -123,8 +123,13 @@ Take Profit Order is modified directly through the Trade.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
         <td><span class="parametername">price</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td><span class="parametername">distance</span></td>
         <td></td>
       </tr>
       <tr>
@@ -151,7 +156,7 @@ Take Profit Order is modified directly through the Trade.</p>
     <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_TakeProfitDetails_ClientExtensions.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.TakeProfitDetails.ClientExtensions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/TakeProfitDetails.cs/#L58">View Source</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/TakeProfitDetails.cs/#L70">View Source</a>
   </span>
   <a id="FFT_Oanda_Orders_TakeProfitDetails_ClientExtensions_" data-uid="FFT.Oanda.Orders.TakeProfitDetails.ClientExtensions*"></a>
   <h4 id="FFT_Oanda_Orders_TakeProfitDetails_ClientExtensions" data-uid="FFT.Oanda.Orders.TakeProfitDetails.ClientExtensions">ClientExtensions</h4>
@@ -179,10 +184,43 @@ Take Profit Order is modified directly through the Trade.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_TakeProfitDetails_Distance.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.TakeProfitDetails.Distance%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/TakeProfitDetails.cs/#L52">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Orders_TakeProfitDetails_Distance_" data-uid="FFT.Oanda.Orders.TakeProfitDetails.Distance*"></a>
+  <h4 id="FFT_Oanda_Orders_TakeProfitDetails_Distance" data-uid="FFT.Oanda.Orders.TakeProfitDetails.Distance">Distance</h4>
+  <div class="markdown level1 summary"><p>Specifies the distance (in price units) from the Trade’s open price to
+use as the Stop Loss Order price. Only one of the distance and price
+fields may be specified.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal? Distance { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_TakeProfitDetails_GtdTime.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.TakeProfitDetails.GtdTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/TakeProfitDetails.cs/#L53">View Source</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/TakeProfitDetails.cs/#L65">View Source</a>
   </span>
   <a id="FFT_Oanda_Orders_TakeProfitDetails_GtdTime_" data-uid="FFT.Oanda.Orders.TakeProfitDetails.GtdTime*"></a>
   <h4 id="FFT_Oanda_Orders_TakeProfitDetails_GtdTime" data-uid="FFT.Oanda.Orders.TakeProfitDetails.GtdTime">GtdTime</h4>
@@ -214,7 +252,7 @@ is GTD.</p>
     <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_TakeProfitDetails_Price.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.TakeProfitDetails.Price%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/TakeProfitDetails.cs/#L41">View Source</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/TakeProfitDetails.cs/#L44">View Source</a>
   </span>
   <a id="FFT_Oanda_Orders_TakeProfitDetails_Price_" data-uid="FFT.Oanda.Orders.TakeProfitDetails.Price*"></a>
   <h4 id="FFT_Oanda_Orders_TakeProfitDetails_Price" data-uid="FFT.Oanda.Orders.TakeProfitDetails.Price">Price</h4>
@@ -224,7 +262,7 @@ the price and distance fields may be specified.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public decimal Price { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public decimal? Price { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -236,7 +274,7 @@ the price and distance fields may be specified.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Decimal</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -246,7 +284,7 @@ the price and distance fields may be specified.</p>
     <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_TakeProfitDetails_TimeInForce.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.TakeProfitDetails.TimeInForce%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/TakeProfitDetails.cs/#L47">View Source</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/TakeProfitDetails.cs/#L59">View Source</a>
   </span>
   <a id="FFT_Oanda_Orders_TakeProfitDetails_TimeInForce_" data-uid="FFT.Oanda.Orders.TakeProfitDetails.TimeInForce*"></a>
   <h4 id="FFT_Oanda_Orders_TakeProfitDetails_TimeInForce" data-uid="FFT.Oanda.Orders.TakeProfitDetails.TimeInForce">TimeInForce</h4>
@@ -284,7 +322,7 @@ GTC, GTD or GFD.</p>
                     <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_TakeProfitDetails.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.TakeProfitDetails%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/TakeProfitDetails.cs/#L15" class="contribution-link">View Source</a>
+                    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/TakeProfitDetails.cs/#L16" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

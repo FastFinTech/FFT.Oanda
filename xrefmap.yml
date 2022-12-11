@@ -6851,15 +6851,15 @@ references:
   commentId: T:FFT.Oanda.Orders.TakeProfitDetails
   fullName: FFT.Oanda.Orders.TakeProfitDetails
   nameWithType: TakeProfitDetails
-- uid: FFT.Oanda.Orders.TakeProfitDetails.#ctor(System.Decimal,FFT.Oanda.Orders.TimeInForce,System.Nullable{DateTime},FFT.Oanda.ClientExtensions)
-  name: TakeProfitDetails(Decimal, TimeInForce, Nullable<DateTime>, ClientExtensions)
-  href: api/FFT.Oanda.Orders.TakeProfitDetails.html#FFT_Oanda_Orders_TakeProfitDetails__ctor_System_Decimal_FFT_Oanda_Orders_TimeInForce_System_Nullable_DateTime__FFT_Oanda_ClientExtensions_
-  commentId: M:FFT.Oanda.Orders.TakeProfitDetails.#ctor(System.Decimal,FFT.Oanda.Orders.TimeInForce,System.Nullable{DateTime},FFT.Oanda.ClientExtensions)
-  name.vb: TakeProfitDetails(Decimal, TimeInForce, Nullable(Of DateTime), ClientExtensions)
-  fullName: FFT.Oanda.Orders.TakeProfitDetails.TakeProfitDetails(System.Decimal, FFT.Oanda.Orders.TimeInForce, System.Nullable<DateTime>, FFT.Oanda.ClientExtensions)
-  fullName.vb: FFT.Oanda.Orders.TakeProfitDetails.TakeProfitDetails(System.Decimal, FFT.Oanda.Orders.TimeInForce, System.Nullable(Of DateTime), FFT.Oanda.ClientExtensions)
-  nameWithType: TakeProfitDetails.TakeProfitDetails(Decimal, TimeInForce, Nullable<DateTime>, ClientExtensions)
-  nameWithType.vb: TakeProfitDetails.TakeProfitDetails(Decimal, TimeInForce, Nullable(Of DateTime), ClientExtensions)
+- uid: FFT.Oanda.Orders.TakeProfitDetails.#ctor(System.Nullable{System.Decimal},System.Nullable{System.Decimal},FFT.Oanda.Orders.TimeInForce,System.Nullable{DateTime},FFT.Oanda.ClientExtensions)
+  name: TakeProfitDetails(Nullable<Decimal>, Nullable<Decimal>, TimeInForce, Nullable<DateTime>, ClientExtensions)
+  href: api/FFT.Oanda.Orders.TakeProfitDetails.html#FFT_Oanda_Orders_TakeProfitDetails__ctor_System_Nullable_System_Decimal__System_Nullable_System_Decimal__FFT_Oanda_Orders_TimeInForce_System_Nullable_DateTime__FFT_Oanda_ClientExtensions_
+  commentId: M:FFT.Oanda.Orders.TakeProfitDetails.#ctor(System.Nullable{System.Decimal},System.Nullable{System.Decimal},FFT.Oanda.Orders.TimeInForce,System.Nullable{DateTime},FFT.Oanda.ClientExtensions)
+  name.vb: TakeProfitDetails(Nullable(Of Decimal), Nullable(Of Decimal), TimeInForce, Nullable(Of DateTime), ClientExtensions)
+  fullName: FFT.Oanda.Orders.TakeProfitDetails.TakeProfitDetails(System.Nullable<System.Decimal>, System.Nullable<System.Decimal>, FFT.Oanda.Orders.TimeInForce, System.Nullable<DateTime>, FFT.Oanda.ClientExtensions)
+  fullName.vb: FFT.Oanda.Orders.TakeProfitDetails.TakeProfitDetails(System.Nullable(Of System.Decimal), System.Nullable(Of System.Decimal), FFT.Oanda.Orders.TimeInForce, System.Nullable(Of DateTime), FFT.Oanda.ClientExtensions)
+  nameWithType: TakeProfitDetails.TakeProfitDetails(Nullable<Decimal>, Nullable<Decimal>, TimeInForce, Nullable<DateTime>, ClientExtensions)
+  nameWithType.vb: TakeProfitDetails.TakeProfitDetails(Nullable(Of Decimal), Nullable(Of Decimal), TimeInForce, Nullable(Of DateTime), ClientExtensions)
 - uid: FFT.Oanda.Orders.TakeProfitDetails.#ctor*
   name: TakeProfitDetails
   href: api/FFT.Oanda.Orders.TakeProfitDetails.html#FFT_Oanda_Orders_TakeProfitDetails__ctor_
@@ -6880,6 +6880,19 @@ references:
   isSpec: "True"
   fullName: FFT.Oanda.Orders.TakeProfitDetails.ClientExtensions
   nameWithType: TakeProfitDetails.ClientExtensions
+- uid: FFT.Oanda.Orders.TakeProfitDetails.Distance
+  name: Distance
+  href: api/FFT.Oanda.Orders.TakeProfitDetails.html#FFT_Oanda_Orders_TakeProfitDetails_Distance
+  commentId: P:FFT.Oanda.Orders.TakeProfitDetails.Distance
+  fullName: FFT.Oanda.Orders.TakeProfitDetails.Distance
+  nameWithType: TakeProfitDetails.Distance
+- uid: FFT.Oanda.Orders.TakeProfitDetails.Distance*
+  name: Distance
+  href: api/FFT.Oanda.Orders.TakeProfitDetails.html#FFT_Oanda_Orders_TakeProfitDetails_Distance_
+  commentId: Overload:FFT.Oanda.Orders.TakeProfitDetails.Distance
+  isSpec: "True"
+  fullName: FFT.Oanda.Orders.TakeProfitDetails.Distance
+  nameWithType: TakeProfitDetails.Distance
 - uid: FFT.Oanda.Orders.TakeProfitDetails.GtdTime
   name: GtdTime
   href: api/FFT.Oanda.Orders.TakeProfitDetails.html#FFT_Oanda_Orders_TakeProfitDetails_GtdTime
