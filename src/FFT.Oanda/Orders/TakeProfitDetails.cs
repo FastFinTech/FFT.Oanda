@@ -5,6 +5,7 @@ namespace FFT.Oanda.Orders
 {
   using System;
   using System.Text.Json.Serialization;
+  using FFT.Oanda.JsonConverters;
 
   /// <summary>
   /// TakeProfitDetails specifies the details of a Take Profit Order to be
@@ -23,12 +24,14 @@ namespace FFT.Oanda.Orders
     /// </summary>
     [JsonConstructor]
     public TakeProfitDetails(
-      decimal price,
+      decimal? price,
+      decimal? distance,
       TimeInForce timeInForce,
       DateTime? gtdTime,
       ClientExtensions? clientExtensions)
     {
       Price = price;
+      Distance = distance;
       TimeInForce = timeInForce;
       GtdTime = gtdTime;
       ClientExtensions = clientExtensions;
@@ -38,7 +41,16 @@ namespace FFT.Oanda.Orders
     /// The price that the Take Profit Order will be triggered at. Only one of
     /// the price and distance fields may be specified.
     /// </summary>
-    public decimal Price { get; }
+    [JsonConverter(typeof(DecimalStringConverter))]
+    public decimal? Price { get; }
+
+    /// <summary>
+    /// Specifies the distance (in price units) from the Trade’s open price to
+    /// use as the Stop Loss Order price. Only one of the distance and price
+    /// fields may be specified.
+    /// </summary>
+    [JsonConverter(typeof(DecimalStringConverter))]
+    public decimal? Distance { get; }
 
     /// <summary>
     /// The time in force for the created Take Profit Order. This may only be
