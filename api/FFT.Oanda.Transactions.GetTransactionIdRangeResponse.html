@@ -77,7 +77,7 @@
   
   <h1 id="FFT_Oanda_Transactions_GetTransactionIdRangeResponse" data-uid="FFT.Oanda.Transactions.GetTransactionIdRangeResponse" class="text-break">Class GetTransactionIdRangeResponse
   </h1>
-  <div class="markdown level0 summary"><p>Returned by the <see cref="!:OandaApiClient.GetTransactionIdRange(string,     DateTime?, DateTime?)"></see> method.</p>
+  <div class="markdown level0 summary"><p>Returned by the <a class="xref" href="FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetTransactionIdRange_System_String_System_Nullable_DateTime__System_Nullable_DateTime__CancellationToken_">GetTransactionIdRange(String, Nullable&lt;DateTime&gt;, Nullable&lt;DateTime&gt;, CancellationToken)</a> method.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -95,19 +95,19 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_GetTransactionIdRangeResponse__ctor_System_Int32_DateTime_DateTime_System_String_ImmutableList_System_String__System_Int32_.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.GetTransactionIdRangeResponse.%23ctor(System.Int32%2CDateTime%2CDateTime%2CSystem.String%2CImmutableList%7BSystem.String%7D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_GetTransactionIdRangeResponse__ctor_System_Int32_DateTime_DateTime_System_Int32_ImmutableList_System_String__System_Int32_.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.GetTransactionIdRangeResponse.%23ctor(System.Int32%2CDateTime%2CDateTime%2CSystem.Int32%2CImmutableList%7BSystem.String%7D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/GetTransactionIdRangeResponse.cs/#L27">View Source</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/GetTransactionIdRangeResponse.cs/#L30">View Source</a>
   </span>
   <a id="FFT_Oanda_Transactions_GetTransactionIdRangeResponse__ctor_" data-uid="FFT.Oanda.Transactions.GetTransactionIdRangeResponse.#ctor*"></a>
-  <h4 id="FFT_Oanda_Transactions_GetTransactionIdRangeResponse__ctor_System_Int32_DateTime_DateTime_System_String_ImmutableList_System_String__System_Int32_" data-uid="FFT.Oanda.Transactions.GetTransactionIdRangeResponse.#ctor(System.Int32,DateTime,DateTime,System.String,ImmutableList{System.String},System.Int32)">GetTransactionIdRangeResponse(Int32, DateTime, DateTime, String, ImmutableList&lt;String&gt;, Int32)</h4>
+  <h4 id="FFT_Oanda_Transactions_GetTransactionIdRangeResponse__ctor_System_Int32_DateTime_DateTime_System_Int32_ImmutableList_System_String__System_Int32_" data-uid="FFT.Oanda.Transactions.GetTransactionIdRangeResponse.#ctor(System.Int32,DateTime,DateTime,System.Int32,ImmutableList{System.String},System.Int32)">GetTransactionIdRangeResponse(Int32, DateTime, DateTime, Int32, ImmutableList&lt;String&gt;, Int32)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FFT.Oanda.Transactions.GetTransactionIdRangeResponse.html">GetTransactionIdRangeResponse</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public GetTransactionIdRangeResponse(int count, DateTime from, DateTime to, string lastTransactionId, ImmutableList&lt;string&gt; pageLinks, int pageSize)</code></pre>
+    <pre><code class="lang-csharp hljs">public GetTransactionIdRangeResponse(int count, DateTime from, DateTime to, int lastTransactionId, ImmutableList&lt;string&gt; pages, int pageSize)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -135,13 +135,13 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">lastTransactionId</span></td>
         <td></td>
       </tr>
       <tr>
         <td><span class="xref">ImmutableList</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td><span class="parametername">pageLinks</span></td>
+        <td><span class="parametername">pages</span></td>
         <td></td>
       </tr>
       <tr>
@@ -151,7 +151,7 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="FFT_Oanda_Transactions_GetTransactionIdRangeResponse__ctor_System_Int32_DateTime_DateTime_System_String_ImmutableList_System_String__System_Int32__remarks">Remarks</h5>
+  <h5 id="FFT_Oanda_Transactions_GetTransactionIdRangeResponse__ctor_System_Int32_DateTime_DateTime_System_Int32_ImmutableList_System_String__System_Int32__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Unlike most of the data models created in this project, this
 constructor contains parameters that are not also public properties, and
 processing is done to convert the json input parameters to useable
@@ -159,6 +159,37 @@ property values.</p>
 </div>
   <h3 id="properties">Properties
   </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_GetTransactionIdRangeResponse_Count.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.GetTransactionIdRangeResponse.Count%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/GetTransactionIdRangeResponse.cs/#L50">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Transactions_GetTransactionIdRangeResponse_Count_" data-uid="FFT.Oanda.Transactions.GetTransactionIdRangeResponse.Count*"></a>
+  <h4 id="FFT_Oanda_Transactions_GetTransactionIdRangeResponse_Count" data-uid="FFT.Oanda.Transactions.GetTransactionIdRangeResponse.Count">Count</h4>
+  <div class="markdown level1 summary"><p>The number of Transactions that are contained in the pages returned.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_GetTransactionIdRangeResponse_From.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.GetTransactionIdRangeResponse.From%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -193,20 +224,19 @@ being queried.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_GetTransactionIdRangeResponse_FromTransactionId.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.GetTransactionIdRangeResponse.FromTransactionId%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_GetTransactionIdRangeResponse_LastTransactionId.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.GetTransactionIdRangeResponse.LastTransactionId%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/GetTransactionIdRangeResponse.cs/#L68">View Source</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/GetTransactionIdRangeResponse.cs/#L73">View Source</a>
   </span>
-  <a id="FFT_Oanda_Transactions_GetTransactionIdRangeResponse_FromTransactionId_" data-uid="FFT.Oanda.Transactions.GetTransactionIdRangeResponse.FromTransactionId*"></a>
-  <h4 id="FFT_Oanda_Transactions_GetTransactionIdRangeResponse_FromTransactionId" data-uid="FFT.Oanda.Transactions.GetTransactionIdRangeResponse.FromTransactionId">FromTransactionId</h4>
-  <div class="markdown level1 summary"><p>The id of the first transaction of the time range for the Transactions
-being queried.</p>
+  <a id="FFT_Oanda_Transactions_GetTransactionIdRangeResponse_LastTransactionId_" data-uid="FFT.Oanda.Transactions.GetTransactionIdRangeResponse.LastTransactionId*"></a>
+  <h4 id="FFT_Oanda_Transactions_GetTransactionIdRangeResponse_LastTransactionId" data-uid="FFT.Oanda.Transactions.GetTransactionIdRangeResponse.LastTransactionId">LastTransactionId</h4>
+  <div class="markdown level1 summary"><p>The id of the last transaction ever made on the Account.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int FromTransactionId { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int LastTransactionId { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -225,19 +255,51 @@ being queried.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_GetTransactionIdRangeResponse_LastTransactionId.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.GetTransactionIdRangeResponse.LastTransactionId%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_GetTransactionIdRangeResponse_Pages.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.GetTransactionIdRangeResponse.Pages%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/GetTransactionIdRangeResponse.cs/#L79">View Source</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/GetTransactionIdRangeResponse.cs/#L68">View Source</a>
   </span>
-  <a id="FFT_Oanda_Transactions_GetTransactionIdRangeResponse_LastTransactionId_" data-uid="FFT.Oanda.Transactions.GetTransactionIdRangeResponse.LastTransactionId*"></a>
-  <h4 id="FFT_Oanda_Transactions_GetTransactionIdRangeResponse_LastTransactionId" data-uid="FFT.Oanda.Transactions.GetTransactionIdRangeResponse.LastTransactionId">LastTransactionId</h4>
-  <div class="markdown level1 summary"><p>The id of the last transaction ever made on the Account.</p>
+  <a id="FFT_Oanda_Transactions_GetTransactionIdRangeResponse_Pages_" data-uid="FFT.Oanda.Transactions.GetTransactionIdRangeResponse.Pages*"></a>
+  <h4 id="FFT_Oanda_Transactions_GetTransactionIdRangeResponse_Pages" data-uid="FFT.Oanda.Transactions.GetTransactionIdRangeResponse.Pages">Pages</h4>
+  <div class="markdown level1 summary"><p>The list of URLs that represent idrange queries providing the data for
+each page in the query results.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int LastTransactionId { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public ImmutableList&lt;string&gt; Pages { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ImmutableList</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_GetTransactionIdRangeResponse_PageSize.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.GetTransactionIdRangeResponse.PageSize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/GetTransactionIdRangeResponse.cs/#L79">View Source</a>
+  </span>
+  <a id="FFT_Oanda_Transactions_GetTransactionIdRangeResponse_PageSize_" data-uid="FFT.Oanda.Transactions.GetTransactionIdRangeResponse.PageSize*"></a>
+  <h4 id="FFT_Oanda_Transactions_GetTransactionIdRangeResponse_PageSize" data-uid="FFT.Oanda.Transactions.GetTransactionIdRangeResponse.PageSize">PageSize</h4>
+  <div class="markdown level1 summary"><p>The pageSize provided in the request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int PageSize { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -286,24 +348,24 @@ queried.</p>
       </tr>
     </tbody>
   </table>
+  <h3 id="methods">Methods
+  </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_GetTransactionIdRangeResponse_ToTransactionId.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.GetTransactionIdRangeResponse.ToTransactionId%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_GetTransactionIdRangeResponse_GetPages.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.GetTransactionIdRangeResponse.GetPages%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/GetTransactionIdRangeResponse.cs/#L74">View Source</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/GetTransactionIdRangeResponse.cs/#L81">View Source</a>
   </span>
-  <a id="FFT_Oanda_Transactions_GetTransactionIdRangeResponse_ToTransactionId_" data-uid="FFT.Oanda.Transactions.GetTransactionIdRangeResponse.ToTransactionId*"></a>
-  <h4 id="FFT_Oanda_Transactions_GetTransactionIdRangeResponse_ToTransactionId" data-uid="FFT.Oanda.Transactions.GetTransactionIdRangeResponse.ToTransactionId">ToTransactionId</h4>
-  <div class="markdown level1 summary"><p>The id of the last transaction of the time range for the Transactions
-being queried.</p>
-</div>
+  <a id="FFT_Oanda_Transactions_GetTransactionIdRangeResponse_GetPages_" data-uid="FFT.Oanda.Transactions.GetTransactionIdRangeResponse.GetPages*"></a>
+  <h4 id="FFT_Oanda_Transactions_GetTransactionIdRangeResponse_GetPages" data-uid="FFT.Oanda.Transactions.GetTransactionIdRangeResponse.GetPages">GetPages()</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int ToTransactionId { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;(int FromId, int ToId)&gt; GetPages()</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -313,7 +375,7 @@ being queried.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Int32</span></td>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<span class="xref">System.Int32</span>, <span class="xref">System.Int32</span>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -329,7 +391,7 @@ being queried.</p>
                     <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Transactions_GetTransactionIdRangeResponse.md&amp;value=---%0Auid%3A%20FFT.Oanda.Transactions.GetTransactionIdRangeResponse%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/GetTransactionIdRangeResponse.cs/#L17" class="contribution-link">View Source</a>
+                    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Transactions/GetTransactionIdRangeResponse.cs/#L20" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

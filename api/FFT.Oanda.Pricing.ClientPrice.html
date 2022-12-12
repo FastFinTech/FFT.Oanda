@@ -95,19 +95,19 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Pricing_ClientPrice__ctor_System_String_System_String_DateTime_System_Boolean_ImmutableList_FFT_Oanda_Pricing_PriceBucket__ImmutableList_FFT_Oanda_Pricing_PriceBucket__System_Decimal_System_Decimal_.md&amp;value=---%0Auid%3A%20FFT.Oanda.Pricing.ClientPrice.%23ctor(System.String%2CSystem.String%2CDateTime%2CSystem.Boolean%2CImmutableList%7BFFT.Oanda.Pricing.PriceBucket%7D%2CImmutableList%7BFFT.Oanda.Pricing.PriceBucket%7D%2CSystem.Decimal%2CSystem.Decimal)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Pricing_ClientPrice__ctor_System_String_System_Nullable_System_String__DateTime_System_Nullable_System_Boolean__ImmutableList_FFT_Oanda_Pricing_PriceBucket__ImmutableList_FFT_Oanda_Pricing_PriceBucket__System_Decimal_System_Decimal_.md&amp;value=---%0Auid%3A%20FFT.Oanda.Pricing.ClientPrice.%23ctor(System.String%2CSystem.Nullable%7BSystem.String%7D%2CDateTime%2CSystem.Nullable%7BSystem.Boolean%7D%2CImmutableList%7BFFT.Oanda.Pricing.PriceBucket%7D%2CImmutableList%7BFFT.Oanda.Pricing.PriceBucket%7D%2CSystem.Decimal%2CSystem.Decimal)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Pricing/ClientPrice.cs/#L18">View Source</a>
   </span>
   <a id="FFT_Oanda_Pricing_ClientPrice__ctor_" data-uid="FFT.Oanda.Pricing.ClientPrice.#ctor*"></a>
-  <h4 id="FFT_Oanda_Pricing_ClientPrice__ctor_System_String_System_String_DateTime_System_Boolean_ImmutableList_FFT_Oanda_Pricing_PriceBucket__ImmutableList_FFT_Oanda_Pricing_PriceBucket__System_Decimal_System_Decimal_" data-uid="FFT.Oanda.Pricing.ClientPrice.#ctor(System.String,System.String,DateTime,System.Boolean,ImmutableList{FFT.Oanda.Pricing.PriceBucket},ImmutableList{FFT.Oanda.Pricing.PriceBucket},System.Decimal,System.Decimal)">ClientPrice(String, String, DateTime, Boolean, ImmutableList&lt;PriceBucket&gt;, ImmutableList&lt;PriceBucket&gt;, Decimal, Decimal)</h4>
+  <h4 id="FFT_Oanda_Pricing_ClientPrice__ctor_System_String_System_Nullable_System_String__DateTime_System_Nullable_System_Boolean__ImmutableList_FFT_Oanda_Pricing_PriceBucket__ImmutableList_FFT_Oanda_Pricing_PriceBucket__System_Decimal_System_Decimal_" data-uid="FFT.Oanda.Pricing.ClientPrice.#ctor(System.String,System.Nullable{System.String},DateTime,System.Nullable{System.Boolean},ImmutableList{FFT.Oanda.Pricing.PriceBucket},ImmutableList{FFT.Oanda.Pricing.PriceBucket},System.Decimal,System.Decimal)">ClientPrice(String, Nullable&lt;String&gt;, DateTime, Nullable&lt;Boolean&gt;, ImmutableList&lt;PriceBucket&gt;, ImmutableList&lt;PriceBucket&gt;, Decimal, Decimal)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FFT.Oanda.Pricing.ClientPrice.html">ClientPrice</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ClientPrice(string type, string instrument, DateTime time, bool tradeable, ImmutableList&lt;PriceBucket&gt; bids, ImmutableList&lt;PriceBucket&gt; asks, decimal closeoutBid, decimal closeoutAsk)</code></pre>
+    <pre><code class="lang-csharp hljs">public ClientPrice(string type, string? instrument, DateTime timestamp, bool? tradeable, ImmutableList&lt;PriceBucket&gt; bids, ImmutableList&lt;PriceBucket&gt; asks, decimal closeoutBid, decimal closeoutAsk)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -125,17 +125,17 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td><span class="parametername">instrument</span></td>
         <td></td>
       </tr>
       <tr>
         <td><span class="xref">DateTime</span></td>
-        <td><span class="parametername">time</span></td>
+        <td><span class="parametername">timestamp</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
         <td><span class="parametername">tradeable</span></td>
         <td></td>
       </tr>
@@ -234,7 +234,7 @@ currently available for the Instrument in the Account.</p>
     <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Pricing_ClientPrice_CloseoutAsk.md&amp;value=---%0Auid%3A%20FFT.Oanda.Pricing.ClientPrice.CloseoutAsk%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Pricing/ClientPrice.cs/#L90">View Source</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Pricing/ClientPrice.cs/#L86">View Source</a>
   </span>
   <a id="FFT_Oanda_Pricing_ClientPrice_CloseoutAsk_" data-uid="FFT.Oanda.Pricing.ClientPrice.CloseoutAsk*"></a>
   <h4 id="FFT_Oanda_Pricing_ClientPrice_CloseoutAsk" data-uid="FFT.Oanda.Pricing.ClientPrice.CloseoutAsk">CloseoutAsk</h4>
@@ -267,7 +267,7 @@ liquidity. The closeout ask is never used to open a new position.</p>
     <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Pricing_ClientPrice_CloseoutBid.md&amp;value=---%0Auid%3A%20FFT.Oanda.Pricing.ClientPrice.CloseoutBid%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Pricing/ClientPrice.cs/#L81">View Source</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Pricing/ClientPrice.cs/#L79">View Source</a>
   </span>
   <a id="FFT_Oanda_Pricing_ClientPrice_CloseoutBid_" data-uid="FFT.Oanda.Pricing.ClientPrice.CloseoutBid*"></a>
   <h4 id="FFT_Oanda_Pricing_ClientPrice_CloseoutBid" data-uid="FFT.Oanda.Pricing.ClientPrice.CloseoutBid">CloseoutBid</h4>
@@ -304,12 +304,12 @@ liquidity. The closeout bid is never used to open a new position.</p>
   </span>
   <a id="FFT_Oanda_Pricing_ClientPrice_Instrument_" data-uid="FFT.Oanda.Pricing.ClientPrice.Instrument*"></a>
   <h4 id="FFT_Oanda_Pricing_ClientPrice_Instrument" data-uid="FFT.Oanda.Pricing.ClientPrice.Instrument">Instrument</h4>
-  <div class="markdown level1 summary"><p>The Price’s Instrument.</p>
+  <div class="markdown level1 summary"><p>The Price’s Instrument. Made nullable because it was found not to be included in some responses.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Instrument { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? Instrument { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -321,26 +321,26 @@ liquidity. The closeout bid is never used to open a new position.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Pricing_ClientPrice_Time.md&amp;value=---%0Auid%3A%20FFT.Oanda.Pricing.ClientPrice.Time%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Pricing_ClientPrice_Timestamp.md&amp;value=---%0Auid%3A%20FFT.Oanda.Pricing.ClientPrice.Timestamp%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Pricing/ClientPrice.cs/#L53">View Source</a>
   </span>
-  <a id="FFT_Oanda_Pricing_ClientPrice_Time_" data-uid="FFT.Oanda.Pricing.ClientPrice.Time*"></a>
-  <h4 id="FFT_Oanda_Pricing_ClientPrice_Time" data-uid="FFT.Oanda.Pricing.ClientPrice.Time">Time</h4>
+  <a id="FFT_Oanda_Pricing_ClientPrice_Timestamp_" data-uid="FFT.Oanda.Pricing.ClientPrice.Timestamp*"></a>
+  <h4 id="FFT_Oanda_Pricing_ClientPrice_Timestamp" data-uid="FFT.Oanda.Pricing.ClientPrice.Timestamp">Timestamp</h4>
   <div class="markdown level1 summary"><p>The date/time when the Price was created.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DateTime Time { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public DateTime Timestamp { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -366,12 +366,12 @@ liquidity. The closeout bid is never used to open a new position.</p>
   </span>
   <a id="FFT_Oanda_Pricing_ClientPrice_Tradeable_" data-uid="FFT.Oanda.Pricing.ClientPrice.Tradeable*"></a>
   <h4 id="FFT_Oanda_Pricing_ClientPrice_Tradeable" data-uid="FFT.Oanda.Pricing.ClientPrice.Tradeable">Tradeable</h4>
-  <div class="markdown level1 summary"><p>Flag indicating if the Price is tradeable or not.</p>
+  <div class="markdown level1 summary"><p>Flag indicating if the Price is tradeable or not. Made nullable because it was found not to be included in some responses.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool Tradeable { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool? Tradeable { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -383,7 +383,7 @@ liquidity. The closeout bid is never used to open a new position.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>

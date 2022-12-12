@@ -77,7 +77,7 @@
   
   <h1 id="FFT_Oanda_Trades_GetTradesResponse" data-uid="FFT.Oanda.Trades.GetTradesResponse" class="text-break">Class GetTradesResponse
   </h1>
-  <div class="markdown level0 summary"><p>Returned by the <see cref="!:OandaApiClient.GetTrades(string,     TradeStateFilter, string, int, string, string[])"></see> method.</p>
+  <div class="markdown level0 summary"><p>Returned by the <see cref="!:OandaApiClient.GetTrades(string,     TradeStateFilter, string, int, string, string[], CancellationToken)"></see> method.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -95,19 +95,19 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Trades_GetTradesResponse__ctor_ImmutableList_FFT_Oanda_Trades_Trade__System_String_.md&amp;value=---%0Auid%3A%20FFT.Oanda.Trades.GetTradesResponse.%23ctor(ImmutableList%7BFFT.Oanda.Trades.Trade%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Trades_GetTradesResponse__ctor_ImmutableList_FFT_Oanda_Trades_Trade__System_Int32_.md&amp;value=---%0Auid%3A%20FFT.Oanda.Trades.GetTradesResponse.%23ctor(ImmutableList%7BFFT.Oanda.Trades.Trade%7D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/GetTradesResponse.cs/#L18">View Source</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/GetTradesResponse.cs/#L19">View Source</a>
   </span>
   <a id="FFT_Oanda_Trades_GetTradesResponse__ctor_" data-uid="FFT.Oanda.Trades.GetTradesResponse.#ctor*"></a>
-  <h4 id="FFT_Oanda_Trades_GetTradesResponse__ctor_ImmutableList_FFT_Oanda_Trades_Trade__System_String_" data-uid="FFT.Oanda.Trades.GetTradesResponse.#ctor(ImmutableList{FFT.Oanda.Trades.Trade},System.String)">GetTradesResponse(ImmutableList&lt;Trade&gt;, String)</h4>
+  <h4 id="FFT_Oanda_Trades_GetTradesResponse__ctor_ImmutableList_FFT_Oanda_Trades_Trade__System_Int32_" data-uid="FFT.Oanda.Trades.GetTradesResponse.#ctor(ImmutableList{FFT.Oanda.Trades.Trade},System.Int32)">GetTradesResponse(ImmutableList&lt;Trade&gt;, Int32)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FFT.Oanda.Trades.GetTradesResponse.html">GetTradesResponse</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public GetTradesResponse(ImmutableList&lt;Trade&gt; trades, string lastTransactionID)</code></pre>
+    <pre><code class="lang-csharp hljs">public GetTradesResponse(ImmutableList&lt;Trade&gt; trades, int lastTransactionID)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -125,7 +125,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">lastTransactionID</span></td>
         <td></td>
       </tr>
@@ -138,7 +138,7 @@
     <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Trades_GetTradesResponse_LastTransactionID.md&amp;value=---%0Auid%3A%20FFT.Oanda.Trades.GetTradesResponse.LastTransactionID%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/GetTradesResponse.cs/#L35">View Source</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/GetTradesResponse.cs/#L36">View Source</a>
   </span>
   <a id="FFT_Oanda_Trades_GetTradesResponse_LastTransactionID_" data-uid="FFT.Oanda.Trades.GetTradesResponse.LastTransactionID*"></a>
   <h4 id="FFT_Oanda_Trades_GetTradesResponse_LastTransactionID" data-uid="FFT.Oanda.Trades.GetTradesResponse.LastTransactionID">LastTransactionID</h4>
@@ -147,7 +147,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string LastTransactionID { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int LastTransactionID { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -159,7 +159,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">System.Int32</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -169,7 +169,7 @@
     <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Trades_GetTradesResponse_Trades.md&amp;value=---%0Auid%3A%20FFT.Oanda.Trades.GetTradesResponse.Trades%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/GetTradesResponse.cs/#L30">View Source</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/GetTradesResponse.cs/#L31">View Source</a>
   </span>
   <a id="FFT_Oanda_Trades_GetTradesResponse_Trades_" data-uid="FFT.Oanda.Trades.GetTradesResponse.Trades*"></a>
   <h4 id="FFT_Oanda_Trades_GetTradesResponse_Trades" data-uid="FFT.Oanda.Trades.GetTradesResponse.Trades">Trades</h4>
@@ -206,7 +206,7 @@
                     <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Trades_GetTradesResponse.md&amp;value=---%0Auid%3A%20FFT.Oanda.Trades.GetTradesResponse%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/GetTradesResponse.cs/#L13" class="contribution-link">View Source</a>
+                    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Trades/GetTradesResponse.cs/#L14" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

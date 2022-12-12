@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Namespace FFT.Oanda.Trades
+    <title>Namespace FFT.Oanda.JsonConverters
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Namespace FFT.Oanda.Trades
+    <meta name="title" content="Namespace FFT.Oanda.JsonConverters
    ">
     <meta name="generator" content="docfx 2.56.7.0">
     
@@ -72,53 +72,19 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="FFT.Oanda.Trades">
+            <article class="content wrap" id="_content" data-uid="FFT.Oanda.JsonConverters">
   
-  <h1 id="FFT_Oanda_Trades" data-uid="FFT.Oanda.Trades" class="text-break">Namespace FFT.Oanda.Trades
+  <h1 id="FFT_Oanda_JsonConverters" data-uid="FFT.Oanda.JsonConverters" class="text-break">Namespace FFT.Oanda.JsonConverters
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="markdown level0 remarks"></div>
     <h3 id="classes">Classes
   </h3>
-      <h4><a class="xref" href="FFT.Oanda.Trades.CalculatedTradeState.html">CalculatedTradeState</a></h4>
-      <section><p>The dynamic (calculated) state of an open Trade.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Trades.CloseTradeResponse.html">CloseTradeResponse</a></h4>
-      <section><p>Returned by the <a class="xref" href="FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_CloseTrade_System_String_System_String_FFT_Oanda_NumUnits_CancellationToken_">CloseTrade(String, String, NumUnits, CancellationToken)</a> method when the request has been accepted.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Trades.GetTradeResponse.html">GetTradeResponse</a></h4>
-      <section><p>Returned by the <a class="xref" href="FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetTrade_System_String_System_String_CancellationToken_">GetTrade(String, String, CancellationToken)</a>
-method.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Trades.GetTradesResponse.html">GetTradesResponse</a></h4>
-      <section><p>Returned by the <see cref="!:OandaApiClient.GetTrades(string,     TradeStateFilter, string, int, string, string[], CancellationToken)"></see> method.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Trades.SetTradeOrdersResponse.html">SetTradeOrdersResponse</a></h4>
-      <section><p>Returned by the <a class="xref" href="FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_SetTradeOrders_System_String_System_String_FFT_Oanda_Orders_TakeProfitDetails_FFT_Oanda_Orders_StopLossDetails_FFT_Oanda_Orders_TrailingStopLossDetails_FFT_Oanda_Orders_GuaranteedStopLossDetails_CancellationToken_">SetTradeOrders(String, String, TakeProfitDetails, StopLossDetails, TrailingStopLossDetails, GuaranteedStopLossDetails, CancellationToken)</a> method.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Trades.Trade.html">Trade</a></h4>
-      <section><p>The specification of a Trade within an Account. This includes the full
-representation of the Trade’s dependent Orders in addition to the IDs of
-those Orders.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Trades.TradeClientExtensionsUpdateResponse.html">TradeClientExtensionsUpdateResponse</a></h4>
-      <section><p>Returned by the <a class="xref" href="FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_SetTradeClientExtensions_System_String_System_String_FFT_Oanda_ClientExtensions_CancellationToken_">SetTradeClientExtensions(String, String, ClientExtensions, CancellationToken)</a> method.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Trades.TradeSummary.html">TradeSummary</a></h4>
-      <section><p>The summary of a trade within an account. This representation does not
-provide the full details of the trade’s dependent orders.</p>
-</section>
-    <h3 id="enums">Enums
-  </h3>
-      <h4><a class="xref" href="FFT.Oanda.Trades.TradePL.html">TradePL</a></h4>
-      <section><p>The classification of trade PLs.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Trades.TradeState.html">TradeState</a></h4>
-      <section><p>The current state of the trade.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Trades.TradeStateFilter.html">TradeStateFilter</a></h4>
-      <section><p>The state to filter the trades by.</p>
+      <h4><a class="xref" href="FFT.Oanda.JsonConverters.TransactionConverter.html">TransactionConverter</a></h4>
+      <section><p>Provides a way for inherited transaction types to be deserialized by parsing the
+<a class="xref" href="FFT.Oanda.Transactions.Transaction.html#FFT_Oanda_Transactions_Transaction_Type">Type</a> property to determine the appropriate type for
+deserialization.</p>
 </section>
 </article>
           </div>

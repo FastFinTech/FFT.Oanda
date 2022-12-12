@@ -82,21 +82,22 @@
     <h3 id="classes">Classes
   </h3>
       <h4><a class="xref" href="FFT.Oanda.Orders.CancelOrderResponse.html">CancelOrderResponse</a></h4>
-      <section><p>Returned by the <see cref="!:OandaApiClient.CancelOrder(string, string,     string)"></see> method when the order is successfully canceled.</p>
+      <section><p>Returned by the <see cref="!:OandaApiClient.CancelOrder(string, string,     string, CancellationToken)"></see> method when the order is successfully canceled.</p>
 </section>
       <h4><a class="xref" href="FFT.Oanda.Orders.CreateOrderResponse.html">CreateOrderResponse</a></h4>
-      <section><p>Returned by the <see cref="!:OandaApiClient.CreateOrder(string, OrderRequest)"></see> method and contains information about an order request
-that has been accepted.</p>
+      <section><p>Returned by the <a class="xref" href="FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_CreateOrder__1_System_String___0_CancellationToken_">CreateOrder&lt;TOrderRequest&gt;(String, TOrderRequest, CancellationToken)</a>
+method and contains information about the result of an order request.</p>
 </section>
       <h4><a class="xref" href="FFT.Oanda.Orders.FixedPriceOrder.html">FixedPriceOrder</a></h4>
       <section><p>A FixedPriceOrder is an order that is filled immediately upon creation
 using a fixed price.</p>
 </section>
       <h4><a class="xref" href="FFT.Oanda.Orders.GetOrdersResponse.html">GetOrdersResponse</a></h4>
-      <section><p>Returned by the <see cref="!:OandaApiClient.GetOrders(string, string?, OrderStateFilter, int, string, string[])"></see> and the <see cref="!:OandaApiClient.GetPendingOrders(string)"></see> methods.</p>
+      <section><p>Returned by the <see cref="!:OandaApiClient.GetOrders(string, string?, OrderStateFilter, int, string, string[], CancellationToken)"></see> and the <a class="xref" href="FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetPendingOrders_System_String_CancellationToken_">GetPendingOrders(String, CancellationToken)</a> methods.</p>
 </section>
       <h4><a class="xref" href="FFT.Oanda.Orders.GetSingleOrderResponse.html">GetSingleOrderResponse</a></h4>
-      <section><p>Returned by the <see cref="!:OandaApiClient.GetSingleOrder(string, string)"></see> method. Contains information about the single order.</p>
+      <section><p>Returned by the <a class="xref" href="FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetSingleOrder_System_String_System_String_CancellationToken_">GetSingleOrder(String, String, CancellationToken)</a> method.
+Contains information about the single order.</p>
 </section>
       <h4><a class="xref" href="FFT.Oanda.Orders.GuaranteedStopLossDetails.html">GuaranteedStopLossDetails</a></h4>
       <section><p>GuaranteedStopLossDetails specifies the details of a Guaranteed Stop Loss
@@ -169,8 +170,8 @@ deserialization.</p>
 OrderID and the ClientOrderID.</p>
 </section>
       <h4><a class="xref" href="FFT.Oanda.Orders.ReplaceOrderResponse.html">ReplaceOrderResponse</a></h4>
-      <section><p>Returned by the <see cref="!:OandaApiClient.ReplaceOrder(string, string, OrderRequest, string)"></see> method when the order replacement request is
-successful.</p>
+      <section><p>Returned by the <see cref="!:OandaApiClient.ReplaceOrder(string, string, OrderRequest, string, CancellationToken)"></see>
+method.</p>
 </section>
       <h4><a class="xref" href="FFT.Oanda.Orders.StopLossDetails.html">StopLossDetails</a></h4>
       <section><p>StopLossDetails specifies the details of a Stop Loss Order to be created

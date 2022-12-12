@@ -3420,6 +3420,47 @@ references:
   commentId: F:FFT.Oanda.Instruments.WeeklyAlignment.WEDNESDAY
   fullName: FFT.Oanda.Instruments.WeeklyAlignment.WEDNESDAY
   nameWithType: WeeklyAlignment.WEDNESDAY
+- uid: FFT.Oanda.JsonConverters
+  name: FFT.Oanda.JsonConverters
+  href: api/FFT.Oanda.JsonConverters.html
+  commentId: N:FFT.Oanda.JsonConverters
+  fullName: FFT.Oanda.JsonConverters
+  nameWithType: FFT.Oanda.JsonConverters
+- uid: FFT.Oanda.JsonConverters.TransactionConverter
+  name: TransactionConverter
+  href: api/FFT.Oanda.JsonConverters.TransactionConverter.html
+  commentId: T:FFT.Oanda.JsonConverters.TransactionConverter
+  fullName: FFT.Oanda.JsonConverters.TransactionConverter
+  nameWithType: TransactionConverter
+- uid: FFT.Oanda.JsonConverters.TransactionConverter.Read(Utf8JsonReader@,Type,JsonSerializerOptions)
+  name: Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  href: api/FFT.Oanda.JsonConverters.TransactionConverter.html#FFT_Oanda_JsonConverters_TransactionConverter_Read_Utf8JsonReader__Type_JsonSerializerOptions_
+  commentId: M:FFT.Oanda.JsonConverters.TransactionConverter.Read(Utf8JsonReader@,Type,JsonSerializerOptions)
+  name.vb: Read(ByRef Utf8JsonReader, Type, JsonSerializerOptions)
+  fullName: FFT.Oanda.JsonConverters.TransactionConverter.Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  fullName.vb: FFT.Oanda.JsonConverters.TransactionConverter.Read(ByRef Utf8JsonReader, Type, JsonSerializerOptions)
+  nameWithType: TransactionConverter.Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  nameWithType.vb: TransactionConverter.Read(ByRef Utf8JsonReader, Type, JsonSerializerOptions)
+- uid: FFT.Oanda.JsonConverters.TransactionConverter.Read*
+  name: Read
+  href: api/FFT.Oanda.JsonConverters.TransactionConverter.html#FFT_Oanda_JsonConverters_TransactionConverter_Read_
+  commentId: Overload:FFT.Oanda.JsonConverters.TransactionConverter.Read
+  isSpec: "True"
+  fullName: FFT.Oanda.JsonConverters.TransactionConverter.Read
+  nameWithType: TransactionConverter.Read
+- uid: FFT.Oanda.JsonConverters.TransactionConverter.Write(Utf8JsonWriter,FFT.Oanda.Transactions.Transaction,JsonSerializerOptions)
+  name: Write(Utf8JsonWriter, Transaction, JsonSerializerOptions)
+  href: api/FFT.Oanda.JsonConverters.TransactionConverter.html#FFT_Oanda_JsonConverters_TransactionConverter_Write_Utf8JsonWriter_FFT_Oanda_Transactions_Transaction_JsonSerializerOptions_
+  commentId: M:FFT.Oanda.JsonConverters.TransactionConverter.Write(Utf8JsonWriter,FFT.Oanda.Transactions.Transaction,JsonSerializerOptions)
+  fullName: FFT.Oanda.JsonConverters.TransactionConverter.Write(Utf8JsonWriter, FFT.Oanda.Transactions.Transaction, JsonSerializerOptions)
+  nameWithType: TransactionConverter.Write(Utf8JsonWriter, Transaction, JsonSerializerOptions)
+- uid: FFT.Oanda.JsonConverters.TransactionConverter.Write*
+  name: Write
+  href: api/FFT.Oanda.JsonConverters.TransactionConverter.html#FFT_Oanda_JsonConverters_TransactionConverter_Write_
+  commentId: Overload:FFT.Oanda.JsonConverters.TransactionConverter.Write
+  isSpec: "True"
+  fullName: FFT.Oanda.JsonConverters.TransactionConverter.Write
+  nameWithType: TransactionConverter.Write
 - uid: FFT.Oanda.NumUnits
   name: NumUnits
   href: api/FFT.Oanda.NumUnits.html
@@ -3571,12 +3612,6 @@ references:
   isSpec: "True"
   fullName: FFT.Oanda.OandaApiClient.CloseTrade
   nameWithType: OandaApiClient.CloseTrade
-- uid: FFT.Oanda.OandaApiClient.CreateOrder(System.String,FFT.Oanda.Orders.OrderRequests.OrderRequest,CancellationToken)
-  name: CreateOrder(String, OrderRequest, CancellationToken)
-  href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_CreateOrder_System_String_FFT_Oanda_Orders_OrderRequests_OrderRequest_CancellationToken_
-  commentId: M:FFT.Oanda.OandaApiClient.CreateOrder(System.String,FFT.Oanda.Orders.OrderRequests.OrderRequest,CancellationToken)
-  fullName: FFT.Oanda.OandaApiClient.CreateOrder(System.String, FFT.Oanda.Orders.OrderRequests.OrderRequest, CancellationToken)
-  nameWithType: OandaApiClient.CreateOrder(String, OrderRequest, CancellationToken)
 - uid: FFT.Oanda.OandaApiClient.CreateOrder*
   name: CreateOrder
   href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_CreateOrder_
@@ -3584,6 +3619,15 @@ references:
   isSpec: "True"
   fullName: FFT.Oanda.OandaApiClient.CreateOrder
   nameWithType: OandaApiClient.CreateOrder
+- uid: FFT.Oanda.OandaApiClient.CreateOrder``1(System.String,``0,CancellationToken)
+  name: CreateOrder<TOrderRequest>(String, TOrderRequest, CancellationToken)
+  href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_CreateOrder__1_System_String___0_CancellationToken_
+  commentId: M:FFT.Oanda.OandaApiClient.CreateOrder``1(System.String,``0,CancellationToken)
+  name.vb: CreateOrder(Of TOrderRequest)(String, TOrderRequest, CancellationToken)
+  fullName: FFT.Oanda.OandaApiClient.CreateOrder<TOrderRequest>(System.String, TOrderRequest, CancellationToken)
+  fullName.vb: FFT.Oanda.OandaApiClient.CreateOrder(Of TOrderRequest)(System.String, TOrderRequest, CancellationToken)
+  nameWithType: OandaApiClient.CreateOrder<TOrderRequest>(String, TOrderRequest, CancellationToken)
+  nameWithType.vb: OandaApiClient.CreateOrder(Of TOrderRequest)(String, TOrderRequest, CancellationToken)
 - uid: FFT.Oanda.OandaApiClient.CustomDispose
   name: CustomDispose()
   href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_CustomDispose
@@ -3975,6 +4019,15 @@ references:
   commentId: M:FFT.Oanda.OandaApiClient.GetTransactionsStream(System.String,CancellationToken)
   fullName: FFT.Oanda.OandaApiClient.GetTransactionsStream(System.String, CancellationToken)
   nameWithType: OandaApiClient.GetTransactionsStream(String, CancellationToken)
+- uid: FFT.Oanda.OandaApiClient.GetTransactionsStream(System.String,System.Int32,System.Int32,FFT.Oanda.TransactionFilter[],CancellationToken)
+  name: GetTransactionsStream(String, Int32, Int32, TransactionFilter[], CancellationToken)
+  href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetTransactionsStream_System_String_System_Int32_System_Int32_FFT_Oanda_TransactionFilter___CancellationToken_
+  commentId: M:FFT.Oanda.OandaApiClient.GetTransactionsStream(System.String,System.Int32,System.Int32,FFT.Oanda.TransactionFilter[],CancellationToken)
+  name.vb: GetTransactionsStream(String, Int32, Int32, TransactionFilter(), CancellationToken)
+  fullName: FFT.Oanda.OandaApiClient.GetTransactionsStream(System.String, System.Int32, System.Int32, FFT.Oanda.TransactionFilter[], CancellationToken)
+  fullName.vb: FFT.Oanda.OandaApiClient.GetTransactionsStream(System.String, System.Int32, System.Int32, FFT.Oanda.TransactionFilter(), CancellationToken)
+  nameWithType: OandaApiClient.GetTransactionsStream(String, Int32, Int32, TransactionFilter[], CancellationToken)
+  nameWithType.vb: OandaApiClient.GetTransactionsStream(String, Int32, Int32, TransactionFilter(), CancellationToken)
 - uid: FFT.Oanda.OandaApiClient.GetTransactionsStream*
   name: GetTransactionsStream
   href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetTransactionsStream_
@@ -3982,6 +4035,22 @@ references:
   isSpec: "True"
   fullName: FFT.Oanda.OandaApiClient.GetTransactionsStream
   nameWithType: OandaApiClient.GetTransactionsStream
+- uid: FFT.Oanda.OandaApiClient.GetTransactionStreamSince(System.String,DateTime,FFT.Oanda.TransactionFilter[],CancellationToken)
+  name: GetTransactionStreamSince(String, DateTime, TransactionFilter[], CancellationToken)
+  href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetTransactionStreamSince_System_String_DateTime_FFT_Oanda_TransactionFilter___CancellationToken_
+  commentId: M:FFT.Oanda.OandaApiClient.GetTransactionStreamSince(System.String,DateTime,FFT.Oanda.TransactionFilter[],CancellationToken)
+  name.vb: GetTransactionStreamSince(String, DateTime, TransactionFilter(), CancellationToken)
+  fullName: FFT.Oanda.OandaApiClient.GetTransactionStreamSince(System.String, DateTime, FFT.Oanda.TransactionFilter[], CancellationToken)
+  fullName.vb: FFT.Oanda.OandaApiClient.GetTransactionStreamSince(System.String, DateTime, FFT.Oanda.TransactionFilter(), CancellationToken)
+  nameWithType: OandaApiClient.GetTransactionStreamSince(String, DateTime, TransactionFilter[], CancellationToken)
+  nameWithType.vb: OandaApiClient.GetTransactionStreamSince(String, DateTime, TransactionFilter(), CancellationToken)
+- uid: FFT.Oanda.OandaApiClient.GetTransactionStreamSince*
+  name: GetTransactionStreamSince
+  href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetTransactionStreamSince_
+  commentId: Overload:FFT.Oanda.OandaApiClient.GetTransactionStreamSince
+  isSpec: "True"
+  fullName: FFT.Oanda.OandaApiClient.GetTransactionStreamSince
+  nameWithType: OandaApiClient.GetTransactionStreamSince
 - uid: FFT.Oanda.OandaApiClient.Key
   name: Key
   href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_Key
@@ -7799,15 +7868,15 @@ references:
   commentId: T:FFT.Oanda.Pricing.ClientPrice
   fullName: FFT.Oanda.Pricing.ClientPrice
   nameWithType: ClientPrice
-- uid: FFT.Oanda.Pricing.ClientPrice.#ctor(System.String,System.String,DateTime,System.Boolean,ImmutableList{FFT.Oanda.Pricing.PriceBucket},ImmutableList{FFT.Oanda.Pricing.PriceBucket},System.Decimal,System.Decimal)
-  name: ClientPrice(String, String, DateTime, Boolean, ImmutableList<PriceBucket>, ImmutableList<PriceBucket>, Decimal, Decimal)
-  href: api/FFT.Oanda.Pricing.ClientPrice.html#FFT_Oanda_Pricing_ClientPrice__ctor_System_String_System_String_DateTime_System_Boolean_ImmutableList_FFT_Oanda_Pricing_PriceBucket__ImmutableList_FFT_Oanda_Pricing_PriceBucket__System_Decimal_System_Decimal_
-  commentId: M:FFT.Oanda.Pricing.ClientPrice.#ctor(System.String,System.String,DateTime,System.Boolean,ImmutableList{FFT.Oanda.Pricing.PriceBucket},ImmutableList{FFT.Oanda.Pricing.PriceBucket},System.Decimal,System.Decimal)
-  name.vb: ClientPrice(String, String, DateTime, Boolean, ImmutableList(Of PriceBucket), ImmutableList(Of PriceBucket), Decimal, Decimal)
-  fullName: FFT.Oanda.Pricing.ClientPrice.ClientPrice(System.String, System.String, DateTime, System.Boolean, ImmutableList<FFT.Oanda.Pricing.PriceBucket>, ImmutableList<FFT.Oanda.Pricing.PriceBucket>, System.Decimal, System.Decimal)
-  fullName.vb: FFT.Oanda.Pricing.ClientPrice.ClientPrice(System.String, System.String, DateTime, System.Boolean, ImmutableList(Of FFT.Oanda.Pricing.PriceBucket), ImmutableList(Of FFT.Oanda.Pricing.PriceBucket), System.Decimal, System.Decimal)
-  nameWithType: ClientPrice.ClientPrice(String, String, DateTime, Boolean, ImmutableList<PriceBucket>, ImmutableList<PriceBucket>, Decimal, Decimal)
-  nameWithType.vb: ClientPrice.ClientPrice(String, String, DateTime, Boolean, ImmutableList(Of PriceBucket), ImmutableList(Of PriceBucket), Decimal, Decimal)
+- uid: FFT.Oanda.Pricing.ClientPrice.#ctor(System.String,System.Nullable{System.String},DateTime,System.Nullable{System.Boolean},ImmutableList{FFT.Oanda.Pricing.PriceBucket},ImmutableList{FFT.Oanda.Pricing.PriceBucket},System.Decimal,System.Decimal)
+  name: ClientPrice(String, Nullable<String>, DateTime, Nullable<Boolean>, ImmutableList<PriceBucket>, ImmutableList<PriceBucket>, Decimal, Decimal)
+  href: api/FFT.Oanda.Pricing.ClientPrice.html#FFT_Oanda_Pricing_ClientPrice__ctor_System_String_System_Nullable_System_String__DateTime_System_Nullable_System_Boolean__ImmutableList_FFT_Oanda_Pricing_PriceBucket__ImmutableList_FFT_Oanda_Pricing_PriceBucket__System_Decimal_System_Decimal_
+  commentId: M:FFT.Oanda.Pricing.ClientPrice.#ctor(System.String,System.Nullable{System.String},DateTime,System.Nullable{System.Boolean},ImmutableList{FFT.Oanda.Pricing.PriceBucket},ImmutableList{FFT.Oanda.Pricing.PriceBucket},System.Decimal,System.Decimal)
+  name.vb: ClientPrice(String, Nullable(Of String), DateTime, Nullable(Of Boolean), ImmutableList(Of PriceBucket), ImmutableList(Of PriceBucket), Decimal, Decimal)
+  fullName: FFT.Oanda.Pricing.ClientPrice.ClientPrice(System.String, System.Nullable<System.String>, DateTime, System.Nullable<System.Boolean>, ImmutableList<FFT.Oanda.Pricing.PriceBucket>, ImmutableList<FFT.Oanda.Pricing.PriceBucket>, System.Decimal, System.Decimal)
+  fullName.vb: FFT.Oanda.Pricing.ClientPrice.ClientPrice(System.String, System.Nullable(Of System.String), DateTime, System.Nullable(Of System.Boolean), ImmutableList(Of FFT.Oanda.Pricing.PriceBucket), ImmutableList(Of FFT.Oanda.Pricing.PriceBucket), System.Decimal, System.Decimal)
+  nameWithType: ClientPrice.ClientPrice(String, Nullable<String>, DateTime, Nullable<Boolean>, ImmutableList<PriceBucket>, ImmutableList<PriceBucket>, Decimal, Decimal)
+  nameWithType.vb: ClientPrice.ClientPrice(String, Nullable(Of String), DateTime, Nullable(Of Boolean), ImmutableList(Of PriceBucket), ImmutableList(Of PriceBucket), Decimal, Decimal)
 - uid: FFT.Oanda.Pricing.ClientPrice.#ctor*
   name: ClientPrice
   href: api/FFT.Oanda.Pricing.ClientPrice.html#FFT_Oanda_Pricing_ClientPrice__ctor_
@@ -7880,19 +7949,19 @@ references:
   isSpec: "True"
   fullName: FFT.Oanda.Pricing.ClientPrice.Instrument
   nameWithType: ClientPrice.Instrument
-- uid: FFT.Oanda.Pricing.ClientPrice.Time
-  name: Time
-  href: api/FFT.Oanda.Pricing.ClientPrice.html#FFT_Oanda_Pricing_ClientPrice_Time
-  commentId: P:FFT.Oanda.Pricing.ClientPrice.Time
-  fullName: FFT.Oanda.Pricing.ClientPrice.Time
-  nameWithType: ClientPrice.Time
-- uid: FFT.Oanda.Pricing.ClientPrice.Time*
-  name: Time
-  href: api/FFT.Oanda.Pricing.ClientPrice.html#FFT_Oanda_Pricing_ClientPrice_Time_
-  commentId: Overload:FFT.Oanda.Pricing.ClientPrice.Time
+- uid: FFT.Oanda.Pricing.ClientPrice.Timestamp
+  name: Timestamp
+  href: api/FFT.Oanda.Pricing.ClientPrice.html#FFT_Oanda_Pricing_ClientPrice_Timestamp
+  commentId: P:FFT.Oanda.Pricing.ClientPrice.Timestamp
+  fullName: FFT.Oanda.Pricing.ClientPrice.Timestamp
+  nameWithType: ClientPrice.Timestamp
+- uid: FFT.Oanda.Pricing.ClientPrice.Timestamp*
+  name: Timestamp
+  href: api/FFT.Oanda.Pricing.ClientPrice.html#FFT_Oanda_Pricing_ClientPrice_Timestamp_
+  commentId: Overload:FFT.Oanda.Pricing.ClientPrice.Timestamp
   isSpec: "True"
-  fullName: FFT.Oanda.Pricing.ClientPrice.Time
-  nameWithType: ClientPrice.Time
+  fullName: FFT.Oanda.Pricing.ClientPrice.Timestamp
+  nameWithType: ClientPrice.Timestamp
 - uid: FFT.Oanda.Pricing.ClientPrice.Tradeable
   name: Tradeable
   href: api/FFT.Oanda.Pricing.ClientPrice.html#FFT_Oanda_Pricing_ClientPrice_Tradeable
@@ -8489,15 +8558,15 @@ references:
   commentId: T:FFT.Oanda.Trades.GetTradesResponse
   fullName: FFT.Oanda.Trades.GetTradesResponse
   nameWithType: GetTradesResponse
-- uid: FFT.Oanda.Trades.GetTradesResponse.#ctor(ImmutableList{FFT.Oanda.Trades.Trade},System.String)
-  name: GetTradesResponse(ImmutableList<Trade>, String)
-  href: api/FFT.Oanda.Trades.GetTradesResponse.html#FFT_Oanda_Trades_GetTradesResponse__ctor_ImmutableList_FFT_Oanda_Trades_Trade__System_String_
-  commentId: M:FFT.Oanda.Trades.GetTradesResponse.#ctor(ImmutableList{FFT.Oanda.Trades.Trade},System.String)
-  name.vb: GetTradesResponse(ImmutableList(Of Trade), String)
-  fullName: FFT.Oanda.Trades.GetTradesResponse.GetTradesResponse(ImmutableList<FFT.Oanda.Trades.Trade>, System.String)
-  fullName.vb: FFT.Oanda.Trades.GetTradesResponse.GetTradesResponse(ImmutableList(Of FFT.Oanda.Trades.Trade), System.String)
-  nameWithType: GetTradesResponse.GetTradesResponse(ImmutableList<Trade>, String)
-  nameWithType.vb: GetTradesResponse.GetTradesResponse(ImmutableList(Of Trade), String)
+- uid: FFT.Oanda.Trades.GetTradesResponse.#ctor(ImmutableList{FFT.Oanda.Trades.Trade},System.Int32)
+  name: GetTradesResponse(ImmutableList<Trade>, Int32)
+  href: api/FFT.Oanda.Trades.GetTradesResponse.html#FFT_Oanda_Trades_GetTradesResponse__ctor_ImmutableList_FFT_Oanda_Trades_Trade__System_Int32_
+  commentId: M:FFT.Oanda.Trades.GetTradesResponse.#ctor(ImmutableList{FFT.Oanda.Trades.Trade},System.Int32)
+  name.vb: GetTradesResponse(ImmutableList(Of Trade), Int32)
+  fullName: FFT.Oanda.Trades.GetTradesResponse.GetTradesResponse(ImmutableList<FFT.Oanda.Trades.Trade>, System.Int32)
+  fullName.vb: FFT.Oanda.Trades.GetTradesResponse.GetTradesResponse(ImmutableList(Of FFT.Oanda.Trades.Trade), System.Int32)
+  nameWithType: GetTradesResponse.GetTradesResponse(ImmutableList<Trade>, Int32)
+  nameWithType.vb: GetTradesResponse.GetTradesResponse(ImmutableList(Of Trade), Int32)
 - uid: FFT.Oanda.Trades.GetTradesResponse.#ctor*
   name: GetTradesResponse
   href: api/FFT.Oanda.Trades.GetTradesResponse.html#FFT_Oanda_Trades_GetTradesResponse__ctor_
@@ -11521,15 +11590,15 @@ references:
   commentId: T:FFT.Oanda.Transactions.GetTransactionIdRangeResponse
   fullName: FFT.Oanda.Transactions.GetTransactionIdRangeResponse
   nameWithType: GetTransactionIdRangeResponse
-- uid: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.#ctor(System.Int32,DateTime,DateTime,System.String,ImmutableList{System.String},System.Int32)
-  name: GetTransactionIdRangeResponse(Int32, DateTime, DateTime, String, ImmutableList<String>, Int32)
-  href: api/FFT.Oanda.Transactions.GetTransactionIdRangeResponse.html#FFT_Oanda_Transactions_GetTransactionIdRangeResponse__ctor_System_Int32_DateTime_DateTime_System_String_ImmutableList_System_String__System_Int32_
-  commentId: M:FFT.Oanda.Transactions.GetTransactionIdRangeResponse.#ctor(System.Int32,DateTime,DateTime,System.String,ImmutableList{System.String},System.Int32)
-  name.vb: GetTransactionIdRangeResponse(Int32, DateTime, DateTime, String, ImmutableList(Of String), Int32)
-  fullName: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.GetTransactionIdRangeResponse(System.Int32, DateTime, DateTime, System.String, ImmutableList<System.String>, System.Int32)
-  fullName.vb: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.GetTransactionIdRangeResponse(System.Int32, DateTime, DateTime, System.String, ImmutableList(Of System.String), System.Int32)
-  nameWithType: GetTransactionIdRangeResponse.GetTransactionIdRangeResponse(Int32, DateTime, DateTime, String, ImmutableList<String>, Int32)
-  nameWithType.vb: GetTransactionIdRangeResponse.GetTransactionIdRangeResponse(Int32, DateTime, DateTime, String, ImmutableList(Of String), Int32)
+- uid: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.#ctor(System.Int32,DateTime,DateTime,System.Int32,ImmutableList{System.String},System.Int32)
+  name: GetTransactionIdRangeResponse(Int32, DateTime, DateTime, Int32, ImmutableList<String>, Int32)
+  href: api/FFT.Oanda.Transactions.GetTransactionIdRangeResponse.html#FFT_Oanda_Transactions_GetTransactionIdRangeResponse__ctor_System_Int32_DateTime_DateTime_System_Int32_ImmutableList_System_String__System_Int32_
+  commentId: M:FFT.Oanda.Transactions.GetTransactionIdRangeResponse.#ctor(System.Int32,DateTime,DateTime,System.Int32,ImmutableList{System.String},System.Int32)
+  name.vb: GetTransactionIdRangeResponse(Int32, DateTime, DateTime, Int32, ImmutableList(Of String), Int32)
+  fullName: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.GetTransactionIdRangeResponse(System.Int32, DateTime, DateTime, System.Int32, ImmutableList<System.String>, System.Int32)
+  fullName.vb: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.GetTransactionIdRangeResponse(System.Int32, DateTime, DateTime, System.Int32, ImmutableList(Of System.String), System.Int32)
+  nameWithType: GetTransactionIdRangeResponse.GetTransactionIdRangeResponse(Int32, DateTime, DateTime, Int32, ImmutableList<String>, Int32)
+  nameWithType.vb: GetTransactionIdRangeResponse.GetTransactionIdRangeResponse(Int32, DateTime, DateTime, Int32, ImmutableList(Of String), Int32)
 - uid: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.#ctor*
   name: GetTransactionIdRangeResponse
   href: api/FFT.Oanda.Transactions.GetTransactionIdRangeResponse.html#FFT_Oanda_Transactions_GetTransactionIdRangeResponse__ctor_
@@ -11537,6 +11606,19 @@ references:
   isSpec: "True"
   fullName: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.GetTransactionIdRangeResponse
   nameWithType: GetTransactionIdRangeResponse.GetTransactionIdRangeResponse
+- uid: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.Count
+  name: Count
+  href: api/FFT.Oanda.Transactions.GetTransactionIdRangeResponse.html#FFT_Oanda_Transactions_GetTransactionIdRangeResponse_Count
+  commentId: P:FFT.Oanda.Transactions.GetTransactionIdRangeResponse.Count
+  fullName: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.Count
+  nameWithType: GetTransactionIdRangeResponse.Count
+- uid: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.Count*
+  name: Count
+  href: api/FFT.Oanda.Transactions.GetTransactionIdRangeResponse.html#FFT_Oanda_Transactions_GetTransactionIdRangeResponse_Count_
+  commentId: Overload:FFT.Oanda.Transactions.GetTransactionIdRangeResponse.Count
+  isSpec: "True"
+  fullName: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.Count
+  nameWithType: GetTransactionIdRangeResponse.Count
 - uid: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.From
   name: From
   href: api/FFT.Oanda.Transactions.GetTransactionIdRangeResponse.html#FFT_Oanda_Transactions_GetTransactionIdRangeResponse_From
@@ -11550,19 +11632,19 @@ references:
   isSpec: "True"
   fullName: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.From
   nameWithType: GetTransactionIdRangeResponse.From
-- uid: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.FromTransactionId
-  name: FromTransactionId
-  href: api/FFT.Oanda.Transactions.GetTransactionIdRangeResponse.html#FFT_Oanda_Transactions_GetTransactionIdRangeResponse_FromTransactionId
-  commentId: P:FFT.Oanda.Transactions.GetTransactionIdRangeResponse.FromTransactionId
-  fullName: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.FromTransactionId
-  nameWithType: GetTransactionIdRangeResponse.FromTransactionId
-- uid: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.FromTransactionId*
-  name: FromTransactionId
-  href: api/FFT.Oanda.Transactions.GetTransactionIdRangeResponse.html#FFT_Oanda_Transactions_GetTransactionIdRangeResponse_FromTransactionId_
-  commentId: Overload:FFT.Oanda.Transactions.GetTransactionIdRangeResponse.FromTransactionId
+- uid: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.GetPages
+  name: GetPages()
+  href: api/FFT.Oanda.Transactions.GetTransactionIdRangeResponse.html#FFT_Oanda_Transactions_GetTransactionIdRangeResponse_GetPages
+  commentId: M:FFT.Oanda.Transactions.GetTransactionIdRangeResponse.GetPages
+  fullName: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.GetPages()
+  nameWithType: GetTransactionIdRangeResponse.GetPages()
+- uid: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.GetPages*
+  name: GetPages
+  href: api/FFT.Oanda.Transactions.GetTransactionIdRangeResponse.html#FFT_Oanda_Transactions_GetTransactionIdRangeResponse_GetPages_
+  commentId: Overload:FFT.Oanda.Transactions.GetTransactionIdRangeResponse.GetPages
   isSpec: "True"
-  fullName: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.FromTransactionId
-  nameWithType: GetTransactionIdRangeResponse.FromTransactionId
+  fullName: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.GetPages
+  nameWithType: GetTransactionIdRangeResponse.GetPages
 - uid: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.LastTransactionId
   name: LastTransactionId
   href: api/FFT.Oanda.Transactions.GetTransactionIdRangeResponse.html#FFT_Oanda_Transactions_GetTransactionIdRangeResponse_LastTransactionId
@@ -11576,6 +11658,32 @@ references:
   isSpec: "True"
   fullName: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.LastTransactionId
   nameWithType: GetTransactionIdRangeResponse.LastTransactionId
+- uid: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.Pages
+  name: Pages
+  href: api/FFT.Oanda.Transactions.GetTransactionIdRangeResponse.html#FFT_Oanda_Transactions_GetTransactionIdRangeResponse_Pages
+  commentId: P:FFT.Oanda.Transactions.GetTransactionIdRangeResponse.Pages
+  fullName: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.Pages
+  nameWithType: GetTransactionIdRangeResponse.Pages
+- uid: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.Pages*
+  name: Pages
+  href: api/FFT.Oanda.Transactions.GetTransactionIdRangeResponse.html#FFT_Oanda_Transactions_GetTransactionIdRangeResponse_Pages_
+  commentId: Overload:FFT.Oanda.Transactions.GetTransactionIdRangeResponse.Pages
+  isSpec: "True"
+  fullName: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.Pages
+  nameWithType: GetTransactionIdRangeResponse.Pages
+- uid: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.PageSize
+  name: PageSize
+  href: api/FFT.Oanda.Transactions.GetTransactionIdRangeResponse.html#FFT_Oanda_Transactions_GetTransactionIdRangeResponse_PageSize
+  commentId: P:FFT.Oanda.Transactions.GetTransactionIdRangeResponse.PageSize
+  fullName: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.PageSize
+  nameWithType: GetTransactionIdRangeResponse.PageSize
+- uid: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.PageSize*
+  name: PageSize
+  href: api/FFT.Oanda.Transactions.GetTransactionIdRangeResponse.html#FFT_Oanda_Transactions_GetTransactionIdRangeResponse_PageSize_
+  commentId: Overload:FFT.Oanda.Transactions.GetTransactionIdRangeResponse.PageSize
+  isSpec: "True"
+  fullName: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.PageSize
+  nameWithType: GetTransactionIdRangeResponse.PageSize
 - uid: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.To
   name: To
   href: api/FFT.Oanda.Transactions.GetTransactionIdRangeResponse.html#FFT_Oanda_Transactions_GetTransactionIdRangeResponse_To
@@ -11589,19 +11697,6 @@ references:
   isSpec: "True"
   fullName: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.To
   nameWithType: GetTransactionIdRangeResponse.To
-- uid: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.ToTransactionId
-  name: ToTransactionId
-  href: api/FFT.Oanda.Transactions.GetTransactionIdRangeResponse.html#FFT_Oanda_Transactions_GetTransactionIdRangeResponse_ToTransactionId
-  commentId: P:FFT.Oanda.Transactions.GetTransactionIdRangeResponse.ToTransactionId
-  fullName: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.ToTransactionId
-  nameWithType: GetTransactionIdRangeResponse.ToTransactionId
-- uid: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.ToTransactionId*
-  name: ToTransactionId
-  href: api/FFT.Oanda.Transactions.GetTransactionIdRangeResponse.html#FFT_Oanda_Transactions_GetTransactionIdRangeResponse_ToTransactionId_
-  commentId: Overload:FFT.Oanda.Transactions.GetTransactionIdRangeResponse.ToTransactionId
-  isSpec: "True"
-  fullName: FFT.Oanda.Transactions.GetTransactionIdRangeResponse.ToTransactionId
-  nameWithType: GetTransactionIdRangeResponse.ToTransactionId
 - uid: FFT.Oanda.Transactions.GetTransactionResponse
   name: GetTransactionResponse
   href: api/FFT.Oanda.Transactions.GetTransactionResponse.html
@@ -13387,15 +13482,15 @@ references:
   commentId: T:FFT.Oanda.Transactions.OrderFillTransaction
   fullName: FFT.Oanda.Transactions.OrderFillTransaction
   nameWithType: OrderFillTransaction
-- uid: FFT.Oanda.Transactions.OrderFillTransaction.#ctor(System.String,DateTime,System.Nullable{System.Int32},System.String,System.Nullable{System.String},System.Nullable{System.String},FFT.Oanda.Transactions.TransactionType,System.String,System.Nullable{System.String},System.String,System.Decimal,FFT.Oanda.HomeConversionFactors,System.Decimal,System.Decimal,FFT.Oanda.Transactions.OrderFillReason,System.Decimal,System.Decimal,System.Decimal,System.Decimal,System.Decimal,System.Decimal,System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Decimal,FFT.Oanda.Transactions.TradeOpen,System.Nullable{ImmutableList{FFT.Oanda.Transactions.TradeReduce}},FFT.Oanda.Transactions.TradeReduce,System.Decimal)
-  name: OrderFillTransaction(String, DateTime, Nullable<Int32>, String, Nullable<String>, Nullable<String>, TransactionType, String, Nullable<String>, String, Decimal, HomeConversionFactors, Decimal, Decimal, OrderFillReason, Decimal, Decimal, Decimal, Decimal, Decimal, Decimal, Nullable<Decimal>, Nullable<Decimal>, Decimal, TradeOpen, Nullable<ImmutableList<TradeReduce>>, TradeReduce, Decimal)
-  href: api/FFT.Oanda.Transactions.OrderFillTransaction.html#FFT_Oanda_Transactions_OrderFillTransaction__ctor_System_String_DateTime_System_Nullable_System_Int32__System_String_System_Nullable_System_String__System_Nullable_System_String__FFT_Oanda_Transactions_TransactionType_System_String_System_Nullable_System_String__System_String_System_Decimal_FFT_Oanda_HomeConversionFactors_System_Decimal_System_Decimal_FFT_Oanda_Transactions_OrderFillReason_System_Decimal_System_Decimal_System_Decimal_System_Decimal_System_Decimal_System_Decimal_System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Decimal_FFT_Oanda_Transactions_TradeOpen_System_Nullable_ImmutableList_FFT_Oanda_Transactions_TradeReduce___FFT_Oanda_Transactions_TradeReduce_System_Decimal_
-  commentId: M:FFT.Oanda.Transactions.OrderFillTransaction.#ctor(System.String,DateTime,System.Nullable{System.Int32},System.String,System.Nullable{System.String},System.Nullable{System.String},FFT.Oanda.Transactions.TransactionType,System.String,System.Nullable{System.String},System.String,System.Decimal,FFT.Oanda.HomeConversionFactors,System.Decimal,System.Decimal,FFT.Oanda.Transactions.OrderFillReason,System.Decimal,System.Decimal,System.Decimal,System.Decimal,System.Decimal,System.Decimal,System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Decimal,FFT.Oanda.Transactions.TradeOpen,System.Nullable{ImmutableList{FFT.Oanda.Transactions.TradeReduce}},FFT.Oanda.Transactions.TradeReduce,System.Decimal)
-  name.vb: OrderFillTransaction(String, DateTime, Nullable(Of Int32), String, Nullable(Of String), Nullable(Of String), TransactionType, String, Nullable(Of String), String, Decimal, HomeConversionFactors, Decimal, Decimal, OrderFillReason, Decimal, Decimal, Decimal, Decimal, Decimal, Decimal, Nullable(Of Decimal), Nullable(Of Decimal), Decimal, TradeOpen, Nullable(Of ImmutableList(Of TradeReduce)), TradeReduce, Decimal)
-  fullName: FFT.Oanda.Transactions.OrderFillTransaction.OrderFillTransaction(System.String, DateTime, System.Nullable<System.Int32>, System.String, System.Nullable<System.String>, System.Nullable<System.String>, FFT.Oanda.Transactions.TransactionType, System.String, System.Nullable<System.String>, System.String, System.Decimal, FFT.Oanda.HomeConversionFactors, System.Decimal, System.Decimal, FFT.Oanda.Transactions.OrderFillReason, System.Decimal, System.Decimal, System.Decimal, System.Decimal, System.Decimal, System.Decimal, System.Nullable<System.Decimal>, System.Nullable<System.Decimal>, System.Decimal, FFT.Oanda.Transactions.TradeOpen, System.Nullable<ImmutableList<FFT.Oanda.Transactions.TradeReduce>>, FFT.Oanda.Transactions.TradeReduce, System.Decimal)
-  fullName.vb: FFT.Oanda.Transactions.OrderFillTransaction.OrderFillTransaction(System.String, DateTime, System.Nullable(Of System.Int32), System.String, System.Nullable(Of System.String), System.Nullable(Of System.String), FFT.Oanda.Transactions.TransactionType, System.String, System.Nullable(Of System.String), System.String, System.Decimal, FFT.Oanda.HomeConversionFactors, System.Decimal, System.Decimal, FFT.Oanda.Transactions.OrderFillReason, System.Decimal, System.Decimal, System.Decimal, System.Decimal, System.Decimal, System.Decimal, System.Nullable(Of System.Decimal), System.Nullable(Of System.Decimal), System.Decimal, FFT.Oanda.Transactions.TradeOpen, System.Nullable(Of ImmutableList(Of FFT.Oanda.Transactions.TradeReduce)), FFT.Oanda.Transactions.TradeReduce, System.Decimal)
-  nameWithType: OrderFillTransaction.OrderFillTransaction(String, DateTime, Nullable<Int32>, String, Nullable<String>, Nullable<String>, TransactionType, String, Nullable<String>, String, Decimal, HomeConversionFactors, Decimal, Decimal, OrderFillReason, Decimal, Decimal, Decimal, Decimal, Decimal, Decimal, Nullable<Decimal>, Nullable<Decimal>, Decimal, TradeOpen, Nullable<ImmutableList<TradeReduce>>, TradeReduce, Decimal)
-  nameWithType.vb: OrderFillTransaction.OrderFillTransaction(String, DateTime, Nullable(Of Int32), String, Nullable(Of String), Nullable(Of String), TransactionType, String, Nullable(Of String), String, Decimal, HomeConversionFactors, Decimal, Decimal, OrderFillReason, Decimal, Decimal, Decimal, Decimal, Decimal, Decimal, Nullable(Of Decimal), Nullable(Of Decimal), Decimal, TradeOpen, Nullable(Of ImmutableList(Of TradeReduce)), TradeReduce, Decimal)
+- uid: FFT.Oanda.Transactions.OrderFillTransaction.#ctor(System.String,DateTime,System.Nullable{System.Int32},System.String,System.Nullable{System.String},System.Nullable{System.String},FFT.Oanda.Transactions.TransactionType,System.String,System.Nullable{System.String},System.String,System.Decimal,FFT.Oanda.HomeConversionFactors,System.Decimal,FFT.Oanda.Pricing.ClientPrice,FFT.Oanda.Transactions.OrderFillReason,System.Decimal,System.Decimal,System.Decimal,System.Decimal,System.Decimal,System.Decimal,System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Decimal,FFT.Oanda.Transactions.TradeOpen,System.Nullable{ImmutableList{FFT.Oanda.Transactions.TradeReduce}},FFT.Oanda.Transactions.TradeReduce,System.Decimal)
+  name: OrderFillTransaction(String, DateTime, Nullable<Int32>, String, Nullable<String>, Nullable<String>, TransactionType, String, Nullable<String>, String, Decimal, HomeConversionFactors, Decimal, ClientPrice, OrderFillReason, Decimal, Decimal, Decimal, Decimal, Decimal, Decimal, Nullable<Decimal>, Nullable<Decimal>, Decimal, TradeOpen, Nullable<ImmutableList<TradeReduce>>, TradeReduce, Decimal)
+  href: api/FFT.Oanda.Transactions.OrderFillTransaction.html#FFT_Oanda_Transactions_OrderFillTransaction__ctor_System_String_DateTime_System_Nullable_System_Int32__System_String_System_Nullable_System_String__System_Nullable_System_String__FFT_Oanda_Transactions_TransactionType_System_String_System_Nullable_System_String__System_String_System_Decimal_FFT_Oanda_HomeConversionFactors_System_Decimal_FFT_Oanda_Pricing_ClientPrice_FFT_Oanda_Transactions_OrderFillReason_System_Decimal_System_Decimal_System_Decimal_System_Decimal_System_Decimal_System_Decimal_System_Nullable_System_Decimal__System_Nullable_System_Decimal__System_Decimal_FFT_Oanda_Transactions_TradeOpen_System_Nullable_ImmutableList_FFT_Oanda_Transactions_TradeReduce___FFT_Oanda_Transactions_TradeReduce_System_Decimal_
+  commentId: M:FFT.Oanda.Transactions.OrderFillTransaction.#ctor(System.String,DateTime,System.Nullable{System.Int32},System.String,System.Nullable{System.String},System.Nullable{System.String},FFT.Oanda.Transactions.TransactionType,System.String,System.Nullable{System.String},System.String,System.Decimal,FFT.Oanda.HomeConversionFactors,System.Decimal,FFT.Oanda.Pricing.ClientPrice,FFT.Oanda.Transactions.OrderFillReason,System.Decimal,System.Decimal,System.Decimal,System.Decimal,System.Decimal,System.Decimal,System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Decimal,FFT.Oanda.Transactions.TradeOpen,System.Nullable{ImmutableList{FFT.Oanda.Transactions.TradeReduce}},FFT.Oanda.Transactions.TradeReduce,System.Decimal)
+  name.vb: OrderFillTransaction(String, DateTime, Nullable(Of Int32), String, Nullable(Of String), Nullable(Of String), TransactionType, String, Nullable(Of String), String, Decimal, HomeConversionFactors, Decimal, ClientPrice, OrderFillReason, Decimal, Decimal, Decimal, Decimal, Decimal, Decimal, Nullable(Of Decimal), Nullable(Of Decimal), Decimal, TradeOpen, Nullable(Of ImmutableList(Of TradeReduce)), TradeReduce, Decimal)
+  fullName: FFT.Oanda.Transactions.OrderFillTransaction.OrderFillTransaction(System.String, DateTime, System.Nullable<System.Int32>, System.String, System.Nullable<System.String>, System.Nullable<System.String>, FFT.Oanda.Transactions.TransactionType, System.String, System.Nullable<System.String>, System.String, System.Decimal, FFT.Oanda.HomeConversionFactors, System.Decimal, FFT.Oanda.Pricing.ClientPrice, FFT.Oanda.Transactions.OrderFillReason, System.Decimal, System.Decimal, System.Decimal, System.Decimal, System.Decimal, System.Decimal, System.Nullable<System.Decimal>, System.Nullable<System.Decimal>, System.Decimal, FFT.Oanda.Transactions.TradeOpen, System.Nullable<ImmutableList<FFT.Oanda.Transactions.TradeReduce>>, FFT.Oanda.Transactions.TradeReduce, System.Decimal)
+  fullName.vb: FFT.Oanda.Transactions.OrderFillTransaction.OrderFillTransaction(System.String, DateTime, System.Nullable(Of System.Int32), System.String, System.Nullable(Of System.String), System.Nullable(Of System.String), FFT.Oanda.Transactions.TransactionType, System.String, System.Nullable(Of System.String), System.String, System.Decimal, FFT.Oanda.HomeConversionFactors, System.Decimal, FFT.Oanda.Pricing.ClientPrice, FFT.Oanda.Transactions.OrderFillReason, System.Decimal, System.Decimal, System.Decimal, System.Decimal, System.Decimal, System.Decimal, System.Nullable(Of System.Decimal), System.Nullable(Of System.Decimal), System.Decimal, FFT.Oanda.Transactions.TradeOpen, System.Nullable(Of ImmutableList(Of FFT.Oanda.Transactions.TradeReduce)), FFT.Oanda.Transactions.TradeReduce, System.Decimal)
+  nameWithType: OrderFillTransaction.OrderFillTransaction(String, DateTime, Nullable<Int32>, String, Nullable<String>, Nullable<String>, TransactionType, String, Nullable<String>, String, Decimal, HomeConversionFactors, Decimal, ClientPrice, OrderFillReason, Decimal, Decimal, Decimal, Decimal, Decimal, Decimal, Nullable<Decimal>, Nullable<Decimal>, Decimal, TradeOpen, Nullable<ImmutableList<TradeReduce>>, TradeReduce, Decimal)
+  nameWithType.vb: OrderFillTransaction.OrderFillTransaction(String, DateTime, Nullable(Of Int32), String, Nullable(Of String), Nullable(Of String), TransactionType, String, Nullable(Of String), String, Decimal, HomeConversionFactors, Decimal, ClientPrice, OrderFillReason, Decimal, Decimal, Decimal, Decimal, Decimal, Decimal, Nullable(Of Decimal), Nullable(Of Decimal), Decimal, TradeOpen, Nullable(Of ImmutableList(Of TradeReduce)), TradeReduce, Decimal)
 - uid: FFT.Oanda.Transactions.OrderFillTransaction.#ctor*
   name: OrderFillTransaction
   href: api/FFT.Oanda.Transactions.OrderFillTransaction.html#FFT_Oanda_Transactions_OrderFillTransaction__ctor_
@@ -15007,41 +15102,6 @@ references:
   isSpec: "True"
   fullName: FFT.Oanda.Transactions.Transaction.UserID
   nameWithType: Transaction.UserID
-- uid: FFT.Oanda.Transactions.TransactionConverter
-  name: TransactionConverter
-  href: api/FFT.Oanda.Transactions.TransactionConverter.html
-  commentId: T:FFT.Oanda.Transactions.TransactionConverter
-  fullName: FFT.Oanda.Transactions.TransactionConverter
-  nameWithType: TransactionConverter
-- uid: FFT.Oanda.Transactions.TransactionConverter.Read(Utf8JsonReader@,Type,JsonSerializerOptions)
-  name: Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
-  href: api/FFT.Oanda.Transactions.TransactionConverter.html#FFT_Oanda_Transactions_TransactionConverter_Read_Utf8JsonReader__Type_JsonSerializerOptions_
-  commentId: M:FFT.Oanda.Transactions.TransactionConverter.Read(Utf8JsonReader@,Type,JsonSerializerOptions)
-  name.vb: Read(ByRef Utf8JsonReader, Type, JsonSerializerOptions)
-  fullName: FFT.Oanda.Transactions.TransactionConverter.Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
-  fullName.vb: FFT.Oanda.Transactions.TransactionConverter.Read(ByRef Utf8JsonReader, Type, JsonSerializerOptions)
-  nameWithType: TransactionConverter.Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
-  nameWithType.vb: TransactionConverter.Read(ByRef Utf8JsonReader, Type, JsonSerializerOptions)
-- uid: FFT.Oanda.Transactions.TransactionConverter.Read*
-  name: Read
-  href: api/FFT.Oanda.Transactions.TransactionConverter.html#FFT_Oanda_Transactions_TransactionConverter_Read_
-  commentId: Overload:FFT.Oanda.Transactions.TransactionConverter.Read
-  isSpec: "True"
-  fullName: FFT.Oanda.Transactions.TransactionConverter.Read
-  nameWithType: TransactionConverter.Read
-- uid: FFT.Oanda.Transactions.TransactionConverter.Write(Utf8JsonWriter,FFT.Oanda.Transactions.Transaction,JsonSerializerOptions)
-  name: Write(Utf8JsonWriter, Transaction, JsonSerializerOptions)
-  href: api/FFT.Oanda.Transactions.TransactionConverter.html#FFT_Oanda_Transactions_TransactionConverter_Write_Utf8JsonWriter_FFT_Oanda_Transactions_Transaction_JsonSerializerOptions_
-  commentId: M:FFT.Oanda.Transactions.TransactionConverter.Write(Utf8JsonWriter,FFT.Oanda.Transactions.Transaction,JsonSerializerOptions)
-  fullName: FFT.Oanda.Transactions.TransactionConverter.Write(Utf8JsonWriter, FFT.Oanda.Transactions.Transaction, JsonSerializerOptions)
-  nameWithType: TransactionConverter.Write(Utf8JsonWriter, Transaction, JsonSerializerOptions)
-- uid: FFT.Oanda.Transactions.TransactionConverter.Write*
-  name: Write
-  href: api/FFT.Oanda.Transactions.TransactionConverter.html#FFT_Oanda_Transactions_TransactionConverter_Write_
-  commentId: Overload:FFT.Oanda.Transactions.TransactionConverter.Write
-  isSpec: "True"
-  fullName: FFT.Oanda.Transactions.TransactionConverter.Write
-  nameWithType: TransactionConverter.Write
 - uid: FFT.Oanda.Transactions.TransactionType
   name: TransactionType
   href: api/FFT.Oanda.Transactions.TransactionType.html
