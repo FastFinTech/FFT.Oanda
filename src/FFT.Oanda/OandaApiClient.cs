@@ -1262,8 +1262,7 @@ namespace FFT.Oanda
       // TODO: I'm pretty sure we don't need to use the WithCancellation method here because the ct is set in GetTransactionsStream. But could test to make sure it cleans up properly when cancelled.
       await foreach (var transaction in stream)
       {
-        var id = int.Parse(transaction.Id, NumberStyles.Any, InvariantCulture);
-        if (id < expectedTransactionId) continue;
+        if (transaction.Id < expectedTransactionId) continue;
         yield return transaction;
       }
     }

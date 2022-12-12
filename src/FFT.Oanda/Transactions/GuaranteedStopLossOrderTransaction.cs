@@ -19,7 +19,7 @@ namespace FFT.Oanda.Transactions
     /// </summary>
     [JsonConstructor]
     public GuaranteedStopLossOrderTransaction(
-      string id,
+      int id,
       DateTime time,
       int? userID,
       string accountID,

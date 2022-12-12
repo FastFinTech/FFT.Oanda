@@ -20,7 +20,7 @@ namespace FFT.Oanda.Transactions
     /// </summary>
     [JsonConstructor]
     public FixedPriceOrderTransaction(
-      string id,
+      int id,
       DateTime time,
       int? userID,
       string accountID,
