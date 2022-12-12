@@ -5,6 +5,7 @@ namespace FFT.Oanda.Transactions
 {
   using System;
   using System.Text.Json.Serialization;
+  using FFT.Oanda.JsonConverters;
 
   /// <summary>
   /// The base Transaction specification. Specifies properties that are common
