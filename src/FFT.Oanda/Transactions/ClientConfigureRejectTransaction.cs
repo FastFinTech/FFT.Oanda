@@ -18,7 +18,7 @@ namespace FFT.Oanda.Transactions
     /// </summary>
     [JsonConstructor]
     public ClientConfigureRejectTransaction(
-      string id,
+      int id,
       DateTime time,
       int? userID,
       string accountID,

@@ -5,6 +5,7 @@ namespace FFT.Oanda.Positions
 {
   using System.Collections.Immutable;
   using System.Text.Json.Serialization;
+  using FFT.Oanda.JsonConverters;
   using FFT.Oanda.Transactions;
 
   /// <summary>
@@ -19,14 +20,14 @@ namespace FFT.Oanda.Positions
     /// </summary>
     [JsonConstructor]
     public ClosePositionResponse(
-      MarketOrderTransaction longOrderCreateTransaction,
-      OrderFillTransaction longOrderFillTransaction,
-      OrderCancelTransaction longOrderCancelTransaction,
-      MarketOrderTransaction shortOrderCreateTransaction,
-      OrderFillTransaction shortOrderFillTransaction,
-      OrderCancelTransaction shortOrderCancelTransaction,
+      MarketOrderTransaction? longOrderCreateTransaction,
+      OrderFillTransaction? longOrderFillTransaction,
+      OrderCancelTransaction? longOrderCancelTransaction,
+      MarketOrderTransaction? shortOrderCreateTransaction,
+      OrderFillTransaction? shortOrderFillTransaction,
+      OrderCancelTransaction? shortOrderCancelTransaction,
       ImmutableList<string> relatedTransactionIDs,
-      string lastTransactionID)
+      int lastTransactionID)
     {
       LongOrderCreateTransaction = longOrderCreateTransaction;
       LongOrderFillTransaction = longOrderFillTransaction;
@@ -41,34 +42,34 @@ namespace FFT.Oanda.Positions
     /// <summary>
     /// The MarketOrderTransaction created to close the long Position.
     /// </summary>
-    public MarketOrderTransaction LongOrderCreateTransaction { get; }
+    public MarketOrderTransaction? LongOrderCreateTransaction { get; }
 
     /// <summary>
     /// OrderFill Transaction that closes the long Position.
     /// </summary>
-    public OrderFillTransaction LongOrderFillTransaction { get; }
+    public OrderFillTransaction? LongOrderFillTransaction { get; }
 
     /// <summary>
     /// OrderCancel Transaction that cancels the MarketOrder created to close
     /// the long Position.
     /// </summary>
-    public OrderCancelTransaction LongOrderCancelTransaction { get; }
+    public OrderCancelTransaction? LongOrderCancelTransaction { get; }
 
     /// <summary>
     /// The MarketOrderTransaction created to close the short Position.
     /// </summary>
-    public MarketOrderTransaction ShortOrderCreateTransaction { get; }
+    public MarketOrderTransaction? ShortOrderCreateTransaction { get; }
 
     /// <summary>
     /// OrderFill Transaction that closes the short Position.
     /// </summary>
-    public OrderFillTransaction ShortOrderFillTransaction { get; }
+    public OrderFillTransaction? ShortOrderFillTransaction { get; }
 
     /// <summary>
     /// OrderCancel Transaction that cancels the MarketOrder created to close
     /// the short Position.
     /// </summary>
-    public OrderCancelTransaction ShortOrderCancelTransaction { get; }
+    public OrderCancelTransaction? ShortOrderCancelTransaction { get; }
 
     /// <summary>
     /// The IDs of all Transactions that were created while satisfying the
@@ -79,6 +80,7 @@ namespace FFT.Oanda.Positions
     /// <summary>
     /// The ID of the most recent Transaction created for the Account.
     /// </summary>
-    public string LastTransactionID { get; }
+    [JsonConverter(typeof(Int32StringConverter))]
+    public int LastTransactionID { get; }
   }
 }

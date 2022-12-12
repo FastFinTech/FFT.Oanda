@@ -6,16 +6,16 @@ namespace FFT.Oanda.JsonConverters;
 using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using FFT.Oanda.Transactions;
+using FFT.Oanda.Orders;
 
-internal sealed class TransactionConverter : JsonConverter<Transaction>
+internal sealed class OrderConverter : JsonConverter<Order>
 {
-  public override Transaction? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+  public override Order? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
   {
     var type = reader.ExtractTypePropertyWithoutMutatingReaderState();
-    return PolymorphicDeserializer.DeserializeTransaction(type, ref reader);
+    return PolymorphicDeserializer.DeserializeOrder(type, ref reader);
   }
 
-  public override void Write(Utf8JsonWriter writer, Transaction value, JsonSerializerOptions options)
+  public override void Write(Utf8JsonWriter writer, Order value, JsonSerializerOptions options)
     => throw new NotSupportedException();
 }

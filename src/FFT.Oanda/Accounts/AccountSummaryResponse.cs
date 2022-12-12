@@ -4,6 +4,7 @@
 namespace FFT.Oanda.Accounts
 {
   using System.Text.Json.Serialization;
+  using FFT.Oanda.JsonConverters;
 
   /// <summary>
   /// The summary of a single account. Does not provide full specification of
@@ -15,7 +16,7 @@ namespace FFT.Oanda.Accounts
     /// Initializes a new instance of the <see cref="AccountSummaryResponse"/> class.
     /// </summary>
     [JsonConstructor]
-    public AccountSummaryResponse(AccountSummary account, string lastTransactionId)
+    public AccountSummaryResponse(AccountSummary account, int lastTransactionId)
     {
       Account = account;
       LastTransactionId = lastTransactionId;
@@ -29,6 +30,7 @@ namespace FFT.Oanda.Accounts
     /// <summary>
     /// The ID of the most recent transaction created for the account.
     /// </summary>
-    public string LastTransactionId { get; }
+    [JsonConverter(typeof(Int32StringConverter))]
+    public int LastTransactionId { get; }
   }
 }

@@ -38,8 +38,8 @@ namespace FFT.Oanda.Trades
       ImmutableList<string> closingTransactionIDs,
       decimal financing,
       decimal dividendAdjustment,
-      DateTime closeTime,
-      ClientExtensions clientExtensions,
+      DateTime? closeTime,
+      ClientExtensions? clientExtensions,
       TakeProfitOrder? takeProfitOrder,
       StopLossOrder? stopLossOrder,
       TrailingStopLossOrder? trailingStopLossOrder)
@@ -156,12 +156,12 @@ namespace FFT.Oanda.Trades
     /// The date/time when the Trade was fully closed. Only provided for Trades
     /// whose state is CLOSED.
     /// </summary>
-    public DateTime CloseTime { get; }
+    public DateTime? CloseTime { get; }
 
     /// <summary>
     /// The client extensions of the Trade.
     /// </summary>
-    public ClientExtensions ClientExtensions { get; }
+    public ClientExtensions? ClientExtensions { get; }
 
     /// <summary>
     /// Full representation of the Trade’s Take Profit Order, only provided if

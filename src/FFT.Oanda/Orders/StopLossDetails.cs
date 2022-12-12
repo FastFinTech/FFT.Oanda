@@ -5,6 +5,7 @@ namespace FFT.Oanda.Orders
 {
   using System;
   using System.Text.Json.Serialization;
+  using FFT.Oanda.JsonConverters;
 
   /// <summary>
   /// StopLossDetails specifies the details of a Stop Loss Order to be created
@@ -31,6 +32,7 @@ namespace FFT.Oanda.Orders
     /// The price that the Stop Loss Order will be triggered at. Only one of the
     /// price and distance fields may be specified.
     /// </summary>
+    [JsonConverter(typeof(DecimalStringConverter))]
     public decimal? Price { get; }
 
     /// <summary>
@@ -38,6 +40,7 @@ namespace FFT.Oanda.Orders
     /// use as the Stop Loss Order price. Only one of the distance and price
     /// fields may be specified.
     /// </summary>
+    [JsonConverter(typeof(DecimalStringConverter))]
     public decimal? Distance { get; }
 
     /// <summary>

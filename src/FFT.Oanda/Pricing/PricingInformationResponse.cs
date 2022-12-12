@@ -8,8 +8,7 @@ namespace FFT.Oanda.Pricing
   using System.Text.Json.Serialization;
 
   /// <summary>
-  /// Returned by the <see cref="OandaApiClient.GetPricingInformation(string,
-  /// string[], DateTime?, bool, CancellationToken)"/> method.
+  /// Returned by the <see cref="OandaApiClient.GetPricingInformation(string, string[], DateTime?, bool, CancellationToken)"/> method.
   /// </summary>
   public sealed class PricingInformationResponse
   {

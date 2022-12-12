@@ -5,6 +5,7 @@ namespace FFT.Oanda.Transactions
 {
   using System.Collections.Immutable;
   using System.Text.Json.Serialization;
+  using FFT.Oanda.JsonConverters;
 
   /// <summary>
   /// Returned by the <see cref="OandaApiClient.GetTransactions(string, int, int, TransactionFilter[], CancellationToken)"/>  method.
@@ -18,7 +19,7 @@ namespace FFT.Oanda.Transactions
     [JsonConstructor]
     public GetTransactionsResponse(
       ImmutableList<Transaction> transactions,
-      string lastTransactionId)
+      int lastTransactionId)
     {
       Transactions = transactions;
       LastTransactionId = lastTransactionId;
@@ -32,6 +33,7 @@ namespace FFT.Oanda.Transactions
     /// <summary>
     /// The ID of the most recent Transaction created for the Account.
     /// </summary>
-    public string LastTransactionId { get; }
+    [JsonConverter(typeof(Int32StringConverter))]
+    public int LastTransactionId { get; }
   }
 }

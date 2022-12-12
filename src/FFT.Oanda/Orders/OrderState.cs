@@ -1,11 +1,14 @@
 ﻿// Copyright (c) True Goodwill. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
+using System.Text.Json.Serialization;
+
 namespace FFT.Oanda.Orders
 {
   /// <summary>
   /// The current state of the order.
   /// </summary>
+  [JsonConverter(typeof(JsonStringEnumConverter))]
   public enum OrderState
   {
     /// <summary>

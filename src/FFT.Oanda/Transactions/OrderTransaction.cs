@@ -17,7 +17,7 @@ namespace FFT.Oanda.Transactions
     /// </summary>
     [JsonConstructor]
     protected OrderTransaction(
-      string id,
+      int id,
       DateTime time,
       int? userID,
       string accountID,

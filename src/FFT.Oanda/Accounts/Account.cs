@@ -56,7 +56,7 @@ namespace FFT.Oanda.Accounts
       DateTime? marginCallEnterTime,
       int marginCallExtensionCount,
       DateTime lastMarginCallExtensionTime,
-      string lastTransactionID,
+      int lastTransactionID,
       ImmutableList<TradeSummary> trades,
       ImmutableList<Position> positions,
       ImmutableList<Order> orders)

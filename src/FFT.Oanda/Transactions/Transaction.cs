@@ -19,7 +19,7 @@ namespace FFT.Oanda.Transactions
     /// </summary>
     [JsonConstructor]
     protected Transaction(
-      string id,
+      int id,
       DateTime time,
       int? userID,
       string accountID,
@@ -39,7 +39,8 @@ namespace FFT.Oanda.Transactions
     /// <summary>
     /// The Transaction’s Identifier.
     /// </summary>
-    public string Id { get; }
+    [JsonConverter(typeof(Int32StringConverter))]
+    public int Id { get; }
 
     /// <summary>
     /// The date/time when the Transaction was created.

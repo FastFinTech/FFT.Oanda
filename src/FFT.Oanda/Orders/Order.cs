@@ -6,6 +6,7 @@ namespace FFT.Oanda.Orders
   using System;
   using System.Collections.Immutable;
   using System.Text.Json.Serialization;
+  using FFT.Oanda.JsonConverters;
 
   /// <summary>
   /// The base Order definition specifies the properties that are common to all

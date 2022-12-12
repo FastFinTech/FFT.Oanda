@@ -5,11 +5,12 @@ namespace FFT.Oanda.Orders
 {
   using System.Collections.Immutable;
   using System.Text.Json.Serialization;
+  using FFT.Oanda.JsonConverters;
   using FFT.Oanda.Transactions;
 
   /// <summary>
-  /// Returned by the <see cref="OandaApiClient.CancelOrder(string, string,
-  /// string, CancellationToken)"/> method when the order is successfully canceled.
+  /// Returned by the <see cref="OandaApiClient.CancelOrder(string, string, string, CancellationToken)"/>
+  /// method when the order is successfully canceled.
   /// </summary>
   public sealed class CancelOrderResponse
   {
@@ -21,7 +22,7 @@ namespace FFT.Oanda.Orders
     public CancelOrderResponse(
       OrderCancelTransaction orderCancelTransaction,
       ImmutableList<string> relatedTransactionIDs,
-      string lastTransactionID)
+      int lastTransactionID)
     {
       OrderCancelTransaction = orderCancelTransaction;
       RelatedTransactionIDs = relatedTransactionIDs;
@@ -42,6 +43,7 @@ namespace FFT.Oanda.Orders
     /// <summary>
     /// The ID of the most recent Transaction created for the Account.
     /// </summary>
-    public string LastTransactionID { get; }
+    [JsonConverter(typeof(Int32StringConverter))]
+    public int LastTransactionID { get; }
   }
 }

@@ -10,6 +10,7 @@ namespace FFT.Oanda
   using System.Net.Http.Json;
   using System.Runtime.CompilerServices;
   using System.Text.Json;
+  using System.Text.Json.Serialization;
   using System.Threading;
   using System.Threading.Tasks;
   using System.Xml.Schema;
@@ -31,8 +32,13 @@ namespace FFT.Oanda
   /// </summary>
   public sealed partial class OandaApiClient : DisposeBase, IDisposable
   {
-    //private const string DATETIMEFORMATSTRING = "YYYY-MM-DDTHH:mm:ss.fffffffffZ";
+    // private const string DATETIMEFORMATSTRING = "YYYY-MM-DDTHH:mm:ss.fffffffffZ";
     private const string DATETIMEFORMATSTRING = "yyyy-MM-dd'T'HH:mm:ss.fffzzz"; // RFC3339/ISO 8601;
+
+    private static readonly JsonSerializerOptions _contentBodySerializationOptions = new(JsonSerializerDefaults.Web)
+    {
+      DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+    };
 
     private readonly HttpClient _client;
     private readonly HttpClient _streamClient;
@@ -209,7 +215,7 @@ namespace FFT.Oanda
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Patch, url)
       {
-        Content = JsonContent.Create(accountConfiguration),
+        Content = JsonContent.Create(accountConfiguration, null, _contentBodySerializationOptions),
       };
 
       using var response = await _client.SendAsync(request, cts.Token);
@@ -455,6 +461,7 @@ namespace FFT.Oanda
     /// <summary>
     /// Create an Order for an Account.
     /// </summary>
+    /// <typeparam name="TOrderRequest">The type of the order to be created.</typeparam>
     /// <param name="accountId">
     /// “-“-delimited string with format
     /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
@@ -471,13 +478,9 @@ namespace FFT.Oanda
       accountId.Throw().IfWhiteSpace();
 
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
-      var content = new { order = orderRequest };
-      var options = new JsonSerializerOptions(JsonSerializerDefaults.Web);
-      options.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
-      var json = JsonSerializer.Serialize(content, options);
       using var request = new HttpRequestMessage(HttpMethod.Post, $"v3/accounts/{accountId}/orders")
       {
-        Content = JsonContent.Create(content, content.GetType(), null, options),
+        Content = JsonContent.Create(new { order = orderRequest }, null, _contentBodySerializationOptions),
       };
       using var response = await _client.SendAsync(request, cts.Token);
       return await ParseResponse<CreateOrderResponse>(response, cts.Token);
@@ -615,7 +618,7 @@ namespace FFT.Oanda
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Put, url)
       {
-        Content = JsonContent.Create(replacementOrder, replacementOrder.GetType()),
+        Content = JsonContent.Create(replacementOrder, replacementOrder.GetType(), null, _contentBodySerializationOptions),
       };
 
       if (!string.IsNullOrWhiteSpace(clientRequestId))
@@ -691,11 +694,14 @@ namespace FFT.Oanda
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Put, url)
       {
-        Content = JsonContent.Create(new
-        {
-          ClientExtensions = clientExtensions,
-          TradeClientExtensions = tradeClientExtensions,
-        }),
+        Content = JsonContent.Create(
+          new
+          {
+            ClientExtensions = clientExtensions,
+            TradeClientExtensions = tradeClientExtensions,
+          },
+          null,
+          _contentBodySerializationOptions),
       };
       using var response = await _client.SendAsync(request, cts.Token);
       return await ParseResponse<UpdateOrderClientExtensionsResponse>(response, cts.Token);
@@ -821,10 +827,10 @@ namespace FFT.Oanda
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Put, url)
       {
-        Content = JsonContent.Create(new
-        {
-          Units = numUnits,
-        }),
+        Content = JsonContent.Create(
+          new { Units = numUnits, },
+          null,
+          _contentBodySerializationOptions),
       };
       using var response = await _client.SendAsync(request, cts.Token);
       return await ParseResponse<CloseTradeResponse>(response, cts.Token);
@@ -854,10 +860,10 @@ namespace FFT.Oanda
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Put, $"v3/accounts/{accountId}/trades/{tradeSpecifier}/clientExtensions")
       {
-        Content = JsonContent.Create(new
-        {
-          ClientExtensions = clientExtensions,
-        }),
+        Content = JsonContent.Create(
+          new { ClientExtensions = clientExtensions, },
+          null,
+          _contentBodySerializationOptions),
       };
       using var response = await _client.SendAsync(request, cts.Token);
       return await ParseResponse<TradeClientExtensionsUpdateResponse>(response, cts.Token);
@@ -918,13 +924,16 @@ namespace FFT.Oanda
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Put, $"v3/accounts/{accountId}/trades/{tradeSpecifier}/orders")
       {
-        Content = JsonContent.Create(new
-        {
-          TakeProfit = takeProfit,
-          StopLoss = stopLoss,
-          TrailingStopLoss = trailingStopLoss,
-          GuaranteedStopLoss = guaranteedStopLoss,
-        }),
+        Content = JsonContent.Create(
+          new
+          {
+            TakeProfit = takeProfit,
+            StopLoss = stopLoss,
+            TrailingStopLoss = trailingStopLoss,
+            GuaranteedStopLoss = guaranteedStopLoss,
+          },
+          null,
+          _contentBodySerializationOptions),
       };
       using var response = await _client.SendAsync(request, cts.Token);
       return await ParseResponse<SetTradeOrdersResponse>(response, cts.Token);
@@ -1033,13 +1042,16 @@ namespace FFT.Oanda
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Put, $"v3/accounts/{accountId}/positions/{instrument}/close")
       {
-        Content = JsonContent.Create(new
-        {
-          longUnits,
-          longClientExtensions,
-          shortUnits,
-          shortClientExtensions,
-        }),
+        Content = JsonContent.Create(
+          new
+          {
+            longUnits,
+            longClientExtensions,
+            shortUnits,
+            shortClientExtensions,
+          },
+          null,
+          _contentBodySerializationOptions),
       };
       using var response = await _client.SendAsync(request, cts.Token);
       return await ParseResponse<ClosePositionResponse>(response, cts.Token);
@@ -1151,7 +1163,7 @@ namespace FFT.Oanda
       return await ParseResponse<GetTransactionsResponse>(response, cts.Token);
     }
 
-    public async IAsyncEnumerable<Transaction> GetTransactionsStream(string accountId, int fromTransactionId, int toTransactionId, TransactionFilter[]? types = null, CancellationToken cancellationToken = default)
+    public async IAsyncEnumerable<Transaction> GetTransactionsStream(string accountId, int fromTransactionId, int toTransactionId, TransactionFilter[]? types = null, [EnumeratorCancellation] CancellationToken cancellationToken = default)
     {
       accountId.Throw().IfWhiteSpace();
       fromTransactionId.Throw().IfLessThan(0);
@@ -1244,7 +1256,8 @@ namespace FFT.Oanda
         }
       }
 
-      var expectedTransactionId = int.TryParse(lastTransaction?.Id, NumberStyles.Any, InvariantCulture, out var lastId) ? lastId + 1 : (int?)null;
+      var expectedTransactionId = lastTransaction?.Id;
+      if (expectedTransactionId.HasValue) expectedTransactionId++;
 
       // TODO: I'm pretty sure we don't need to use the WithCancellation method here because the ct is set in GetTransactionsStream. But could test to make sure it cleans up properly when cancelled.
       await foreach (var transaction in stream)

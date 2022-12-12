@@ -21,7 +21,7 @@ namespace FFT.Oanda.Transactions
     /// </summary>
     [JsonConstructor]
     public DelayedTradeClosureTransaction(
-      string id,
+      int id,
       DateTime time,
       int? userID,
       string accountID,

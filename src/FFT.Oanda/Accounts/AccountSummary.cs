@@ -5,6 +5,7 @@ namespace FFT.Oanda.Accounts
 {
   using System;
   using System.Text.Json.Serialization;
+  using FFT.Oanda.JsonConverters;
 
   /// <summary>
   /// A summary representation of a client’s account. Does not provide full
@@ -52,7 +53,7 @@ namespace FFT.Oanda.Accounts
       DateTime? marginCallEnterTime,
       int marginCallExtensionCount,
       DateTime lastMarginCallExtensionTime,
-      string lastTransactionID)
+      int lastTransactionID)
     {
       Id = id;
       Alias = alias;
@@ -305,6 +306,7 @@ namespace FFT.Oanda.Accounts
     /// <summary>
     /// The ID of the last Transaction created for the Account.
     /// </summary>
-    public string LastTransactionID { get; }
+    [JsonConverter(typeof(Int32StringConverter))]
+    public int LastTransactionID { get; }
   }
 }
