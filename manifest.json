@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Accounts.Account.html",
-          "hash": "9AFb6yGgjk7q6bCKM+KEOQ=="
+          "hash": "RiHyq/QZtCWfse86N36hwg=="
         }
       },
       "is_incremental": false,
@@ -141,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Accounts.AccountSummary.html",
-          "hash": "1zhJpLZsspBYaCuQnTrFDw=="
+          "hash": "Dzg2ife5YONbpKoIaGicTQ=="
         }
       },
       "is_incremental": false,
@@ -153,7 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Accounts.AccountSummaryResponse.html",
-          "hash": "tLNh+0FJpkHA6ouqqcr5Wg=="
+          "hash": "gKPAJIeC8EJ5bEgu/oLKsQ=="
         }
       },
       "is_incremental": false,
@@ -262,18 +262,6 @@
         ".html": {
           "relative_path": "api/FFT.Oanda.ConversionFactor.html",
           "hash": "b17HKM56r3SekOax5RyZ7w=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.DateTimeFormat.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.DateTimeFormat.html",
-          "hash": "fGq2NM2S5bRKbP+fpUndvg=="
         }
       },
       "is_incremental": false,
@@ -581,30 +569,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.JsonConverters.TransactionConverter.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.JsonConverters.TransactionConverter.html",
-          "hash": "qV3z6LLNy8G4Twi1M9wnXw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.JsonConverters.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.JsonConverters.html",
-          "hash": "m1tLpjWp79oRg14nfBt6Yg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/FFT.Oanda.NumUnits.yml",
       "output": {
         ".html": {
@@ -621,7 +585,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.OandaApiClient.html",
-          "hash": "jc6uUiPrZKXWGUz8zaEgIA=="
+          "hash": "rnMAuJQH0NHeJUiixhyjIg=="
         }
       },
       "is_incremental": false,
@@ -633,7 +597,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Orders.CancelOrderResponse.html",
-          "hash": "XCSw0OY/AMP88Y2vE+DMZA=="
+          "hash": "rdXvkmMaBJDMfSnkkWgKog=="
         }
       },
       "is_incremental": false,
@@ -873,19 +837,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Orders.Order.html",
-          "hash": "ZzXQhfIVk0bTgw7iLjeC7g=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Orders.OrderConverter.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Orders.OrderConverter.html",
-          "hash": "e43w26SXiNERSfhJHVfJww=="
+          "hash": "PVjzsxj4clOl0++sLb8V8w=="
         }
       },
       "is_incremental": false,
@@ -1065,7 +1017,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Orders.OrderState.html",
-          "hash": "mzyMtE6tTwwkTV/wKcJLaA=="
+          "hash": "XMAOXbe1UXXyRhmNBN2IFw=="
         }
       },
       "is_incremental": false,
@@ -1125,7 +1077,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Orders.StopLossDetails.html",
-          "hash": "4L0odjE+nPOwFoWGFyivMA=="
+          "hash": "xlV4V9G3qb8bW8tQp//wDQ=="
         }
       },
       "is_incremental": false,
@@ -1233,7 +1185,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Orders.html",
-          "hash": "pX9vaeoDPk3zJdSmeXKtPA=="
+          "hash": "LTzKdqLEY9We9fMj8Ujsug=="
         }
       },
       "is_incremental": false,
@@ -1257,7 +1209,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Positions.ClosePositionResponse.html",
-          "hash": "HynVzweuxUf0irwrg73PzA=="
+          "hash": "uwl0arxZqt83NR8NETqOqQ=="
         }
       },
       "is_incremental": false,
@@ -1389,7 +1341,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Pricing.PricingInformationResponse.html",
-          "hash": "td+xhnkvOXrc4wzd3fsIpA=="
+          "hash": "LK4b06cg24IlFd97Kefikw=="
         }
       },
       "is_incremental": false,
@@ -1509,7 +1461,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Trades.Trade.html",
-          "hash": "+nnHlAlJcRsLUszg9sm5YQ=="
+          "hash": "4xd8WBLbRy+Xrq7OssIdxQ=="
         }
       },
       "is_incremental": false,
@@ -1629,7 +1581,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.ClientConfigureRejectTransaction.html",
-          "hash": "PNtIdr2twBKcD6ALWHjqpA=="
+          "hash": "Q9rNsVImKNy4KTC5EMwRQw=="
         }
       },
       "is_incremental": false,
@@ -1641,7 +1593,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.ClientConfigureTransaction.html",
-          "hash": "5JroKpsAIfzJXw/98xVfjg=="
+          "hash": "GDYHOGOg7v6HKTUekB94Pw=="
         }
       },
       "is_incremental": false,
@@ -1653,7 +1605,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.CloseTransaction.html",
-          "hash": "oYvFwRnt889qUG1sWjqZSQ=="
+          "hash": "EAneuMlm+1JDi6QFAvr5vw=="
         }
       },
       "is_incremental": false,
@@ -1665,7 +1617,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.CreateTransaction.html",
-          "hash": "6OvAEyu5VtGmiSDtYM/alw=="
+          "hash": "UIdvWBGbALeJNU2NyUnF1Q=="
         }
       },
       "is_incremental": false,
@@ -1677,7 +1629,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.DailyFinancingTransaction.html",
-          "hash": "7VtDdtu0iML1ew/PAexyBA=="
+          "hash": "ct+LOVr1YbwpuE0bivmO1w=="
         }
       },
       "is_incremental": false,
@@ -1689,7 +1641,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.DelayedTradeClosureTransaction.html",
-          "hash": "KlXFaa4yfY4nOm3QvGOsyA=="
+          "hash": "eRKXgcrEYCA8SVKkb7fCEg=="
         }
       },
       "is_incremental": false,
@@ -1701,7 +1653,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.DividendAdjustmentTransaction.html",
-          "hash": "8a7ceql2DSmYIS7j8GUkow=="
+          "hash": "2D/wcoeamC1zJMLWRLF3XQ=="
         }
       },
       "is_incremental": false,
@@ -1725,7 +1677,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.FixedPriceOrderTransaction.html",
-          "hash": "afp5AWNGUftDUBZe3MaEXg=="
+          "hash": "Eu3n9oPHUjIa1xgDA7pvjw=="
         }
       },
       "is_incremental": false,
@@ -1773,7 +1725,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.GetTransactionsResponse.html",
-          "hash": "gjuPo+KNO0k+5D7SMk4w7w=="
+          "hash": "aFXtPdy7SmEnAZ24Ygk8SQ=="
         }
       },
       "is_incremental": false,
@@ -1797,7 +1749,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.GuaranteedStopLossOrderRejectTransaction.html",
-          "hash": "8bR5x8ASfWTl+KCdqe8++g=="
+          "hash": "viCUp13slU35PLt+HirDeA=="
         }
       },
       "is_incremental": false,
@@ -1809,7 +1761,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.GuaranteedStopLossOrderTransaction.html",
-          "hash": "wHOf0NXBoC/KydsPOBE6CQ=="
+          "hash": "wjUg6QMhdvyPFqMWyu8ExA=="
         }
       },
       "is_incremental": false,
@@ -1833,7 +1785,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.LimitOrderRejectTransaction.html",
-          "hash": "LdE1iyBhGwc3l335Oann3Q=="
+          "hash": "fJLZ12GHJ8FyMZB9k32ajA=="
         }
       },
       "is_incremental": false,
@@ -1845,7 +1797,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.LimitOrderTransaction.html",
-          "hash": "UXtSCmldjEEbX+z3GyZZAA=="
+          "hash": "PWnKRHoi0vw5SYYZfYU8SQ=="
         }
       },
       "is_incremental": false,
@@ -1857,7 +1809,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.MarginCallEnterTransaction.html",
-          "hash": "I9R907X7fDxeoU5nzTk7zg=="
+          "hash": "qLAKQILFkQojF9JU7PcHig=="
         }
       },
       "is_incremental": false,
@@ -1869,7 +1821,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.MarginCallExitTransaction.html",
-          "hash": "9H7mG2FIRz5nDQmnlMfNdg=="
+          "hash": "htdEWumyYQHfOqtCx8mSrw=="
         }
       },
       "is_incremental": false,
@@ -1881,7 +1833,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.MarginCallExtendTransaction.html",
-          "hash": "HDXx6TLGEOq7XpoGFB5tdA=="
+          "hash": "NK4wWFXL7gjUqvm66ywJTA=="
         }
       },
       "is_incremental": false,
@@ -1905,7 +1857,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.MarketIfTouchedOrderRejectTransaction.html",
-          "hash": "Kst4270WjZU4SDxQ3UpD4A=="
+          "hash": "G4Evgic8vhPaY6lb4ni0Ng=="
         }
       },
       "is_incremental": false,
@@ -1917,7 +1869,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.MarketIfTouchedOrderTransaction.html",
-          "hash": "OiM61SLBvjOGyhQ/liIg4Q=="
+          "hash": "qC9EJq2Mjs7I+Udia9g/kg=="
         }
       },
       "is_incremental": false,
@@ -1941,7 +1893,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.MarketOrderRejectTransaction.html",
-          "hash": "fjKIjxLO+zssw2VVl3HQ0g=="
+          "hash": "r64GTh6EIZreCINr7xlPGw=="
         }
       },
       "is_incremental": false,
@@ -1953,7 +1905,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.MarketOrderTransaction.html",
-          "hash": "VlQEh4LT5Y79XDp7muRZQw=="
+          "hash": "oDc5ImwvubFjRJ7dOOysUw=="
         }
       },
       "is_incremental": false,
@@ -1989,7 +1941,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.OpeningOrderTransaction.html",
-          "hash": "9qwfUFqzXJhezhYjxp2p3A=="
+          "hash": "ayqbE32TDJAB7zv9Q8l60g=="
         }
       },
       "is_incremental": false,
@@ -2013,7 +1965,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.OrderCancelRejectTransaction.html",
-          "hash": "AukZ+OL74lnRRm+X2YGzTQ=="
+          "hash": "M1a5PdgPoswcKUjJRJdFJg=="
         }
       },
       "is_incremental": false,
@@ -2025,7 +1977,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.OrderCancelTransaction.html",
-          "hash": "TEVT65PCHCr4G7x7u8AzaQ=="
+          "hash": "3w+HeB/F3607g/PSFS+t5g=="
         }
       },
       "is_incremental": false,
@@ -2037,7 +1989,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.OrderClientExtensionsModifyRejectTransaction.html",
-          "hash": "apSClBeiBwp1ifBf4xDqZA=="
+          "hash": "YEG/WyOiIfuqMT/c5yFNXw=="
         }
       },
       "is_incremental": false,
@@ -2049,7 +2001,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.OrderClientExtensionsModifyTransaction.html",
-          "hash": "WUT7j+WgiQqtlPis9UTOBw=="
+          "hash": "4qEyfdFWF0zwDh+B5CGUgg=="
         }
       },
       "is_incremental": false,
@@ -2073,7 +2025,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.OrderFillTransaction.html",
-          "hash": "527N4rXvl2/WPT7i/73Ftw=="
+          "hash": "SHf+M0xMymp+e/ybhLxTaw=="
         }
       },
       "is_incremental": false,
@@ -2085,7 +2037,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.OrderTransaction.html",
-          "hash": "zBjUUQpXuL9iYRdfJXybag=="
+          "hash": "Sb1Q9tixBW6rtjzW1pmYjw=="
         }
       },
       "is_incremental": false,
@@ -2109,7 +2061,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.ReopenTransaction.html",
-          "hash": "V8mlh/0AWzkgbw6DxIWaQA=="
+          "hash": "HA1Z3W0ASAz20biAzVVjFw=="
         }
       },
       "is_incremental": false,
@@ -2121,7 +2073,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.ResetResettablePLTransaction.html",
-          "hash": "5DyKEpR+V0EdMkP0GfGJhQ=="
+          "hash": "P1ipnXaOcLM5+iT5pF7eew=="
         }
       },
       "is_incremental": false,
@@ -2145,7 +2097,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.StopLossOrderRejectTransaction.html",
-          "hash": "6mIwjQfIIQS9TkpR9OrDug=="
+          "hash": "Ej9pR5RbTrqJV/BSSPERVA=="
         }
       },
       "is_incremental": false,
@@ -2157,7 +2109,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.StopLossOrderTransaction.html",
-          "hash": "QBLgEEneltEodPf0mF4fCA=="
+          "hash": "CSJtjhzU1DS6qMfxpHzSlA=="
         }
       },
       "is_incremental": false,
@@ -2181,7 +2133,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.StopOrderRejectTransaction.html",
-          "hash": "aVBDqKirhcbLPY7V+RUI7w=="
+          "hash": "LvIOOlPv4sx/xFxgIhLDog=="
         }
       },
       "is_incremental": false,
@@ -2193,7 +2145,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.StopOrderTransaction.html",
-          "hash": "QhEOXv0nrxqTPBa73iy0Pw=="
+          "hash": "tlhzzUveKWpKAsf0JCU2+g=="
         }
       },
       "is_incremental": false,
@@ -2217,7 +2169,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.TakeProfitOrderRejectTransaction.html",
-          "hash": "M7vR75Trrhw+/4CTnuzyfw=="
+          "hash": "Sxvig0NJHPIQAGMdxVlLKQ=="
         }
       },
       "is_incremental": false,
@@ -2229,7 +2181,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.TakeProfitOrderTransaction.html",
-          "hash": "lV8Ei9oMHvzH1KMKRRR8Dg=="
+          "hash": "w/YYpmWiqBWCsxM4a7DlVQ=="
         }
       },
       "is_incremental": false,
@@ -2241,7 +2193,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.TradeClientExtensionsModifyRejectTransaction.html",
-          "hash": "5MhCcgJvqPVtwIdVvZ9C6w=="
+          "hash": "K0jTZb5x4jL4vGwI1k7iDA=="
         }
       },
       "is_incremental": false,
@@ -2253,7 +2205,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.TradeClientExtensionsModifyTransaction.html",
-          "hash": "q6tFFDv35Ja/tZuofrhncw=="
+          "hash": "eB5SzdGYEKRQKu9uKlqK7A=="
         }
       },
       "is_incremental": false,
@@ -2289,7 +2241,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.TradeRelatedOrderTransaction.html",
-          "hash": "XlbhJhGUiDOXwzTMX/UNLQ=="
+          "hash": "D/UBOj5DVDjGxTvZmJPcHg=="
         }
       },
       "is_incremental": false,
@@ -2313,7 +2265,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.TrailingStopLossOrderRejectTransaction.html",
-          "hash": "5pzGVndSk5nCKaQSKPPPHg=="
+          "hash": "jrQ+NJWZu5ueI8l542KPvA=="
         }
       },
       "is_incremental": false,
@@ -2325,7 +2277,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.TrailingStopLossOrderTransaction.html",
-          "hash": "/BV/iFUnp/EanlkT5Zt+Xw=="
+          "hash": "lk+VhLI+jTAwPN7QEujgWQ=="
         }
       },
       "is_incremental": false,
@@ -2337,7 +2289,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.Transaction.html",
-          "hash": "ALAuFV/LiY+vNWs4nOCvRQ=="
+          "hash": "PZ0aUMkrH7wl3Fhuxp94Og=="
         }
       },
       "is_incremental": false,
@@ -2361,7 +2313,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.TransferFundsRejectTransaction.html",
-          "hash": "d1k7OmbHweqsPl+AhWQ1yw=="
+          "hash": "ge41Opui6Uw6WefKYhf69g=="
         }
       },
       "is_incremental": false,
@@ -2373,7 +2325,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Transactions.TransferFundsTransaction.html",
-          "hash": "FHHWs1Wrfe0tvuFkbyFmpQ=="
+          "hash": "o2o2IfgLot3XQpbx+AS7gA=="
         }
       },
       "is_incremental": false,
@@ -2433,7 +2385,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.html",
-          "hash": "BBoK+XUgkI77wED85yCRVA=="
+          "hash": "sr/7W8d04JIZc9IF4MRjwQ=="
         }
       },
       "is_incremental": false,
@@ -2457,7 +2409,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "JZk47C6evKx4VeYPMIlsLg=="
+          "hash": "eqmDHhmlV9Ci9ELoni9LKA=="
         }
       },
       "is_incremental": false,
@@ -2545,7 +2497,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 203,
+          "total_file_count": 199,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {
