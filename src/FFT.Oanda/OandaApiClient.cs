@@ -9,8 +9,10 @@ namespace FFT.Oanda
   using System.Net.Http;
   using System.Net.Http.Json;
   using System.Runtime.CompilerServices;
+  using System.Text.Json;
   using System.Threading;
   using System.Threading.Tasks;
+  using System.Xml.Schema;
   using FFT.Disposables;
   using FFT.Oanda.Accounts;
   using FFT.Oanda.Instruments;
@@ -21,13 +23,16 @@ namespace FFT.Oanda
   using FFT.Oanda.Trades;
   using FFT.Oanda.Transactions;
   using Microsoft.AspNetCore.WebUtilities;
+  using Throw;
+  using static System.Globalization.CultureInfo;
 
   /// <summary>
   /// Provides a client for the Oanda api.
   /// </summary>
   public sealed partial class OandaApiClient : DisposeBase, IDisposable
   {
-    private const string DATETIMEFORMATSTRING = "YYYY-MM-DDTHH:mm:ss.fffffffffZ";
+    //private const string DATETIMEFORMATSTRING = "YYYY-MM-DDTHH:mm:ss.fffffffffZ";
+    private const string DATETIMEFORMATSTRING = "yyyy-MM-dd'T'HH:mm:ss.fffzzz"; // RFC3339/ISO 8601;
 
     private readonly HttpClient _client;
     private readonly HttpClient _streamClient;
@@ -457,18 +462,22 @@ namespace FFT.Oanda
     /// </param>
     /// <param name="orderRequest">Specification of the Order to create.</param>
     /// <param name="cancellationToken">Cancels the operation.</param>
-    public async Task<CreateOrderResponse> CreateOrder(string accountId, OrderRequest orderRequest, CancellationToken cancellationToken = default)
+    public async Task<CreateOrderResponse> CreateOrder<TOrderRequest>(string accountId, TOrderRequest orderRequest, CancellationToken cancellationToken = default)
+      where TOrderRequest : OrderRequest
     {
       // TODO: A response to a successful request also contains a link to the
       // order that was generated. Include this in the returned data.
 
-      if (string.IsNullOrWhiteSpace(accountId))
-        throw new ArgumentException(nameof(accountId));
+      accountId.Throw().IfWhiteSpace();
 
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
+      var content = new { order = orderRequest };
+      var options = new JsonSerializerOptions(JsonSerializerDefaults.Web);
+      options.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
+      var json = JsonSerializer.Serialize(content, options);
       using var request = new HttpRequestMessage(HttpMethod.Post, $"v3/accounts/{accountId}/orders")
       {
-        Content = JsonContent.Create(orderRequest, orderRequest.GetType()),
+        Content = JsonContent.Create(content, content.GetType(), null, options),
       };
       using var response = await _client.SendAsync(request, cts.Token);
       return await ParseResponse<CreateOrderResponse>(response, cts.Token);
@@ -501,11 +510,8 @@ namespace FFT.Oanda
     /// <param name="cancellationToken">Cancels the operation.</param>
     public async Task<GetOrdersResponse> GetOrders(string accountId, string? instrumentName = null, OrderStateFilter state = OrderStateFilter.PENDING, int count = 50, string? beforeId = null, string[]? ids = null, CancellationToken cancellationToken = default)
     {
-      if (string.IsNullOrWhiteSpace(accountId))
-        throw new ArgumentException(nameof(accountId));
-
-      if (count < 1 || count > 500)
-        throw new ArgumentException(nameof(count));
+      accountId.Throw().IfWhiteSpace();
+      count.Throw().IfOutOfRange(1, 500);
 
       var query = new Dictionary<string, string>
       {
@@ -540,8 +546,7 @@ namespace FFT.Oanda
     /// <param name="cancellationToken">Cancels the operation.</param>
     public async Task<GetOrdersResponse> GetPendingOrders(string accountId, CancellationToken cancellationToken = default)
     {
-      if (string.IsNullOrWhiteSpace(accountId))
-        throw new ArgumentException(nameof(accountId));
+      accountId.Throw().IfWhiteSpace();
 
       var url = $"v3/accounts/{accountId}/pendingOrders";
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
@@ -566,11 +571,8 @@ namespace FFT.Oanda
     /// <param name="cancellationToken">Cancels the operation.</param>
     public async Task<GetSingleOrderResponse> GetSingleOrder(string accountId, string orderSpecifier, CancellationToken cancellationToken = default)
     {
-      if (string.IsNullOrWhiteSpace(accountId))
-        throw new ArgumentException(nameof(accountId));
-
-      if (string.IsNullOrWhiteSpace(orderSpecifier))
-        throw new ArgumentException(nameof(orderSpecifier));
+      accountId.Throw().IfWhiteSpace();
+      orderSpecifier.Throw().IfWhiteSpace();
 
       var url = $"v3/accounts/{accountId}/orders/{orderSpecifier}";
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
@@ -606,11 +608,8 @@ namespace FFT.Oanda
       // TODO: Response header also contains a link to the new order. Add it to
       // the method's output.
 
-      if (string.IsNullOrWhiteSpace(accountId))
-        throw new ArgumentException(nameof(accountId));
-
-      if (string.IsNullOrWhiteSpace(orderSpecifier))
-        throw new ArgumentException(nameof(orderSpecifier));
+      accountId.Throw().IfWhiteSpace();
+      orderSpecifier.Throw().IfWhiteSpace();
 
       var url = $"v3/accounts/{accountId}/orders/{orderSpecifier}";
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
@@ -644,11 +643,8 @@ namespace FFT.Oanda
     /// <param name="cancellationToken">Cancels the operation.</param>
     public async Task<CancelOrderResponse> CancelOrder(string accountId, string orderSpecifier, string? clientRequestId = null, CancellationToken cancellationToken = default)
     {
-      if (string.IsNullOrWhiteSpace(accountId))
-        throw new ArgumentException(nameof(accountId));
-
-      if (string.IsNullOrWhiteSpace(orderSpecifier))
-        throw new ArgumentException(nameof(orderSpecifier));
+      accountId.Throw().IfWhiteSpace();
+      orderSpecifier.Throw().IfWhiteSpace();
 
       var url = $"v3/accounts/{accountId}/orders/{orderSpecifier}/cancel";
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
@@ -688,11 +684,8 @@ namespace FFT.Oanda
     /// <param name="cancellationToken">Cancels the operation.</param>
     public async Task<UpdateOrderClientExtensionsResponse> SetOrderClientExtensions(string accountId, string orderSpecifier, ClientExtensions? clientExtensions, ClientExtensions? tradeClientExtensions, CancellationToken cancellationToken = default)
     {
-      if (string.IsNullOrWhiteSpace(accountId))
-        throw new ArgumentException(nameof(accountId));
-
-      if (string.IsNullOrWhiteSpace(orderSpecifier))
-        throw new ArgumentException(nameof(orderSpecifier));
+      accountId.Throw().IfWhiteSpace();
+      orderSpecifier.Throw().IfWhiteSpace();
 
       var url = $"v3/accounts/{accountId}/orders/{orderSpecifier}/clientExtensions";
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
@@ -730,11 +723,8 @@ namespace FFT.Oanda
     {
       // TODO: Check if state is actually a csv list.
 
-      if (string.IsNullOrWhiteSpace(accountId))
-        throw new ArgumentException(accountId);
-
-      if (count < 1 || count > 500)
-        throw new ArgumentException(nameof(count));
+      accountId.Throw().IfWhiteSpace();
+      count.Throw().IfOutOfRange(1, 500);
 
       var query = new Dictionary<string, string>
       {
@@ -769,8 +759,7 @@ namespace FFT.Oanda
     /// <param name="cancellationToken">Cancels the operation.</param>
     public async Task<GetTradesResponse> GetOpenTrades(string accountId, CancellationToken cancellationToken = default)
     {
-      if (string.IsNullOrWhiteSpace(accountId))
-        throw new ArgumentException(nameof(accountId));
+      accountId.Throw().IfWhiteSpace();
 
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}/openTrades");
@@ -793,11 +782,8 @@ namespace FFT.Oanda
     /// <param name="cancellationToken">Cancels the operation.</param>
     public async Task<GetTradeResponse> GetTrade(string accountId, string tradeSpecifier, CancellationToken cancellationToken = default)
     {
-      if (string.IsNullOrWhiteSpace(accountId))
-        throw new ArgumentException(nameof(accountId));
-
-      if (string.IsNullOrWhiteSpace(tradeSpecifier))
-        throw new ArgumentException(nameof(accountId));
+      accountId.Throw().IfWhiteSpace();
+      tradeSpecifier.Throw().IfWhiteSpace();
 
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}/trades/{tradeSpecifier}");
@@ -828,11 +814,8 @@ namespace FFT.Oanda
     /// <param name="cancellationToken">Cancels the operation.</param>
     public async Task<CloseTradeResponse> CloseTrade(string accountId, string tradeSpecifier, NumUnits numUnits, CancellationToken cancellationToken = default)
     {
-      if (string.IsNullOrWhiteSpace(accountId))
-        throw new ArgumentException(nameof(accountId));
-
-      if (string.IsNullOrWhiteSpace(tradeSpecifier))
-        throw new ArgumentException(nameof(accountId));
+      accountId.Throw().IfWhiteSpace();
+      tradeSpecifier.Throw().IfWhiteSpace();
 
       var url = $"v3/accounts/{accountId}/trades/{tradeSpecifier}/close";
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
@@ -865,11 +848,8 @@ namespace FFT.Oanda
     /// <param name="cancellationToken">Cancels the operation.</param>
     public async Task<TradeClientExtensionsUpdateResponse> SetTradeClientExtensions(string accountId, string tradeSpecifier, ClientExtensions clientExtensions, CancellationToken cancellationToken = default)
     {
-      if (string.IsNullOrWhiteSpace(accountId))
-        throw new ArgumentException(nameof(accountId));
-
-      if (string.IsNullOrWhiteSpace(tradeSpecifier))
-        throw new ArgumentException(nameof(accountId));
+      accountId.Throw().IfWhiteSpace();
+      tradeSpecifier.Throw().IfWhiteSpace();
 
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Put, $"v3/accounts/{accountId}/trades/{tradeSpecifier}/clientExtensions")
@@ -932,11 +912,8 @@ namespace FFT.Oanda
     /// <param name="cancellationToken">Cancels the operation.</param>
     public async Task<SetTradeOrdersResponse> SetTradeOrders(string accountId, string tradeSpecifier, TakeProfitDetails? takeProfit, StopLossDetails? stopLoss, TrailingStopLossDetails? trailingStopLoss, GuaranteedStopLossDetails? guaranteedStopLoss, CancellationToken cancellationToken = default)
     {
-      if (string.IsNullOrWhiteSpace(accountId))
-        throw new ArgumentException(nameof(accountId));
-
-      if (string.IsNullOrWhiteSpace(tradeSpecifier))
-        throw new ArgumentException(nameof(accountId));
+      accountId.Throw().IfWhiteSpace();
+      tradeSpecifier.Throw().IfWhiteSpace();
 
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Put, $"v3/accounts/{accountId}/trades/{tradeSpecifier}/orders")
@@ -970,8 +947,7 @@ namespace FFT.Oanda
     /// <param name="cancellationToken">Cancels the operation.</param>
     public async Task<GetPositionsResponse> GetPositions(string accountId, CancellationToken cancellationToken = default)
     {
-      if (string.IsNullOrWhiteSpace(accountId))
-        throw new ArgumentException(nameof(accountId));
+      accountId.Throw().IfWhiteSpace();
 
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}/positions");
@@ -991,8 +967,7 @@ namespace FFT.Oanda
     /// <param name="cancellationToken">Cancels the operation.</param>
     public async Task<GetPositionsResponse> GetOpenPositions(string accountId, CancellationToken cancellationToken = default)
     {
-      if (string.IsNullOrWhiteSpace(accountId))
-        throw new ArgumentException(nameof(accountId));
+      accountId.Throw().IfWhiteSpace();
 
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}/openPositions");
@@ -1013,11 +988,8 @@ namespace FFT.Oanda
     /// <param name="cancellationToken">Cancels the operation.</param>
     public async Task<GetPositionResponse> GetPosition(string accountId, string instrument, CancellationToken cancellationToken = default)
     {
-      if (string.IsNullOrWhiteSpace(accountId))
-        throw new ArgumentException(nameof(accountId));
-
-      if (string.IsNullOrWhiteSpace(instrument))
-        throw new ArgumentException(nameof(instrument));
+      accountId.Throw().IfWhiteSpace();
+      instrument.Throw().IfWhiteSpace();
 
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, $"v3/accounts/{accountId}/positions/{instrument}");
@@ -1055,11 +1027,8 @@ namespace FFT.Oanda
     /// <param name="cancellationToken">Cancels the operation.</param>
     public async Task<ClosePositionResponse> ClosePosition(string accountId, string instrument, NumUnits longUnits, NumUnits shortUnits, ClientExtensions? longClientExtensions, ClientExtensions? shortClientExtensions, CancellationToken cancellationToken = default)
     {
-      if (string.IsNullOrWhiteSpace(accountId))
-        throw new ArgumentException(nameof(accountId));
-
-      if (string.IsNullOrWhiteSpace(instrument))
-        throw new ArgumentException(nameof(instrument));
+      accountId.Throw().IfWhiteSpace();
+      instrument.Throw().IfWhiteSpace();
 
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Put, $"v3/accounts/{accountId}/positions/{instrument}/close")
@@ -1102,8 +1071,7 @@ namespace FFT.Oanda
     {
       // TODO: Test what happens when input is a range with no transactions.
 
-      if (string.IsNullOrWhiteSpace(accountId))
-        throw new ArgumentException(nameof(accountId));
+      accountId.Throw().IfWhiteSpace();
 
       var query = new Dictionary<string, string>
       {
@@ -1135,11 +1103,8 @@ namespace FFT.Oanda
     /// <param name="cancellationToken">Cancels the operation.</param>
     public async Task<GetTransactionResponse> GetTransaction(string accountId, string transactionId, CancellationToken cancellationToken = default)
     {
-      if (string.IsNullOrWhiteSpace(accountId))
-        throw new ArgumentException(nameof(accountId));
-
-      if (string.IsNullOrWhiteSpace(transactionId))
-        throw new ArgumentException(nameof(transactionId));
+      accountId.Throw().IfWhiteSpace();
+      transactionId.Throw().IfWhiteSpace();
 
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       var url = $"v3/accounts/{accountId}/transactions/{transactionId}";
@@ -1165,27 +1130,15 @@ namespace FFT.Oanda
     /// <param name="cancellationToken">Cancels the operation.</param>
     public async Task<GetTransactionsResponse> GetTransactions(string accountId, int fromTransactionId, int toTransactionId, TransactionFilter[]? types = null, CancellationToken cancellationToken = default)
     {
-      // TODO: Experiment to see if null filter works.
-
-      if (string.IsNullOrWhiteSpace(accountId))
-        throw new ArgumentException(nameof(accountId));
-
-      if (fromTransactionId < 0)
-        throw new ArgumentException($"Must be greater than or equal to zero.", nameof(fromTransactionId));
-
-      if (toTransactionId < 0)
-        throw new ArgumentException($"Must be greater than or equal to zero.", nameof(toTransactionId));
-
-      if (toTransactionId < fromTransactionId)
-        throw new ArgumentException($"'{nameof(toTransactionId)}' must be greater than or equal to '{nameof(fromTransactionId)}'.", nameof(toTransactionId));
-
-      if (toTransactionId - fromTransactionId >= 1000)
-        throw new ArgumentException($"Max number of transactions is 1000.", nameof(toTransactionId));
+      accountId.Throw().IfWhiteSpace();
+      fromTransactionId.Throw().IfLessThan(0);
+      toTransactionId.Throw().IfLessThan(0);
+      (toTransactionId - fromTransactionId + 1).Throw().IfOutOfRange(1, 1000);
 
       var query = new Dictionary<string, string>
       {
-        { "from", fromTransactionId.ToString(CultureInfo.InvariantCulture) },
-        { "to", toTransactionId.ToString(CultureInfo.InvariantCulture) },
+        { "from", fromTransactionId.ToString(InvariantCulture) },
+        { "to", toTransactionId.ToString(InvariantCulture) },
       };
 
       if (types is { Length: > 0 })
@@ -1196,6 +1149,26 @@ namespace FFT.Oanda
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
       using var response = await _client.SendAsync(request, cts.Token);
       return await ParseResponse<GetTransactionsResponse>(response, cts.Token);
+    }
+
+    public async IAsyncEnumerable<Transaction> GetTransactionsStream(string accountId, int fromTransactionId, int toTransactionId, TransactionFilter[]? types = null, CancellationToken cancellationToken = default)
+    {
+      accountId.Throw().IfWhiteSpace();
+      fromTransactionId.Throw().IfLessThan(0);
+      toTransactionId.Throw().IfLessThan(0);
+      (toTransactionId - fromTransactionId + 1).Throw().IfLessThan(1);
+
+      var startId = fromTransactionId;
+      while (startId <= toTransactionId)
+      {
+        var response = await GetTransactions(accountId, startId, Min(startId + 999, toTransactionId), types, cancellationToken);
+        foreach (var transaction in response.Transactions)
+        {
+          yield return transaction;
+        }
+
+        startId += 1000;
+      }
     }
 
     /// <summary>
@@ -1215,8 +1188,7 @@ namespace FFT.Oanda
     /// <param name="cancellationToken">Cancels the operation.</param>
     public async Task<GetTransactionsResponse> GetTransactionsSince(string accountId, int fromTransactionId, TransactionFilter[]? types = null, CancellationToken cancellationToken = default)
     {
-      if (string.IsNullOrWhiteSpace(accountId))
-        throw new ArgumentException(nameof(accountId));
+      accountId.Throw().IfWhiteSpace();
 
       var url = $"v3/accounts/{accountId}/transactions/sinceid?id={fromTransactionId}";
       if (types is { Length: > 0 })
@@ -1229,29 +1201,57 @@ namespace FFT.Oanda
     }
 
     /// <summary>
-    /// Get a stream of Transactions and TransactionHeartbeats for an Account
-    /// starting from when the request is made. Values returned are either
-    /// inheriting <see cref="Transaction"/> or are of type <see
-    /// cref="TransactionHeartbeat"/>.
+    /// Get a stream of objects inheriting <see cref="Transaction"/> for the given <paramref name="accountId"/> starting from the moment the request is made.
     /// </summary>
     /// <param name="accountId">
     /// “-“-delimited string with format
     /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
     /// 001-011-5838423-001.
     /// </param>
-    /// <param name="cancellationToken">Cancels the enumeration and closes the
-    /// stream connection.</param>
-    public async IAsyncEnumerable<object> GetTransactionsStream(string accountId, [EnumeratorCancellation] CancellationToken cancellationToken)
+    /// <param name="cancellationToken">Cancels the enumeration and closes the stream connection.</param>
+    public async IAsyncEnumerable<Transaction> GetTransactionsStream(string accountId, [EnumeratorCancellation] CancellationToken cancellationToken)
     {
-      if (string.IsNullOrWhiteSpace(accountId))
-        throw new ArgumentException(nameof(accountId));
+      accountId.Throw().IfWhiteSpace();
 
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       var url = $"v3/accounts/{accountId}/transactions/stream";
       using var stream = await _streamClient.GetStreamAsync(url, cts.Token);
       await foreach (var slice in stream.ReadLines(cts.Token))
       {
-        yield return PolymorphicDeserializer.DeserializeTransactionStreamObject(slice);
+        var result = PolymorphicDeserializer.DeserializeTransactionStreamObject(slice);
+        if (result is Transaction transaction)
+          yield return transaction;
+      }
+    }
+
+    public async IAsyncEnumerable<Transaction> GetTransactionStreamSince(string accountId, DateTime from, TransactionFilter[]? types = null, [EnumeratorCancellation] CancellationToken cancellationToken = default)
+    {
+      accountId.Throw().IfWhiteSpace();
+      from.Throw().IfNotUtc().IfGreaterThan(DateTime.UtcNow);
+      using var cts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, DisposedToken);
+
+      var stream = GetTransactionsStream(accountId, cts.Token);
+
+      Transaction? lastTransaction = null;
+      var rangeResponse = await GetTransactionIdRange(accountId, from, null, cts.Token);
+      foreach (var page in rangeResponse.GetPages())
+      {
+        var transactionsResponse = await GetTransactions(accountId, page.FromId, page.ToId, types, cts.Token);
+        foreach (var transaction in transactionsResponse.Transactions)
+        {
+          lastTransaction = transaction;
+          yield return transaction;
+        }
+      }
+
+      var expectedTransactionId = int.TryParse(lastTransaction?.Id, NumberStyles.Any, InvariantCulture, out var lastId) ? lastId + 1 : (int?)null;
+
+      // TODO: I'm pretty sure we don't need to use the WithCancellation method here because the ct is set in GetTransactionsStream. But could test to make sure it cleans up properly when cancelled.
+      await foreach (var transaction in stream)
+      {
+        var id = int.Parse(transaction.Id, NumberStyles.Any, InvariantCulture);
+        if (id < expectedTransactionId) continue;
+        yield return transaction;
       }
     }
   }

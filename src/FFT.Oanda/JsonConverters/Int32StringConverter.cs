@@ -6,18 +6,18 @@ namespace FFT.Oanda.JsonConverters;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-internal sealed class DecimalStringConverter : JsonConverter<decimal>
+internal sealed class Int32StringConverter : JsonConverter<int>
 {
-  public override decimal Read(ref Utf8JsonReader reader, System.Type typeToConvert, JsonSerializerOptions options)
+  public override int Read(ref Utf8JsonReader reader, System.Type typeToConvert, JsonSerializerOptions options)
   {
     if (reader.TokenType == JsonTokenType.String)
     {
-      return decimal.Parse(reader.GetString()!, NumberStyles.Any, InvariantCulture);
+      return int.Parse(reader.GetString()!, NumberStyles.Any, InvariantCulture);
     }
 
-    return reader.GetDecimal();
+    return reader.GetInt32();
   }
 
-  public override void Write(Utf8JsonWriter writer, decimal value, JsonSerializerOptions options)
+  public override void Write(Utf8JsonWriter writer, int value, JsonSerializerOptions options)
     => writer.WriteStringValue(value.ToString(InvariantCulture));
 }

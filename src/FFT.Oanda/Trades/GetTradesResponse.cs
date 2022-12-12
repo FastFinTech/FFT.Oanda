@@ -5,6 +5,7 @@ namespace FFT.Oanda.Trades
 {
   using System.Collections.Immutable;
   using System.Text.Json.Serialization;
+  using FFT.Oanda.JsonConverters;
 
   /// <summary>
   /// Returned by the <see cref="OandaApiClient.GetTrades(string,
@@ -18,7 +19,7 @@ namespace FFT.Oanda.Trades
     [JsonConstructor]
     public GetTradesResponse(
       ImmutableList<Trade> trades,
-      string lastTransactionID)
+      int lastTransactionID)
     {
       Trades = trades;
       LastTransactionID = lastTransactionID;
@@ -32,6 +33,7 @@ namespace FFT.Oanda.Trades
     /// <summary>
     /// The ID of the most recent Transaction created for the Account.
     /// </summary>
-    public string LastTransactionID { get; }
+    [JsonConverter(typeof(Int32StringConverter))]
+    public int LastTransactionID { get; }
   }
 }

@@ -4,9 +4,12 @@
 namespace FFT.Oanda.Transactions
 {
   using System;
+  using System.Collections;
   using System.Collections.Immutable;
   using System.Globalization;
+  using System.Linq;
   using System.Text.Json.Serialization;
+  using FFT.Oanda.JsonConverters;
   using Microsoft.AspNetCore.WebUtilities;
   using static System.Math;
 
@@ -29,53 +32,67 @@ namespace FFT.Oanda.Transactions
       int count,
       DateTime from,
       DateTime to,
-      string lastTransactionId,
-      ImmutableList<string> pageLinks,
+      int lastTransactionId,
+      ImmutableList<string> pages,
       int pageSize)
     {
+      Count = count;
       From = from;
       To = to;
-      LastTransactionId = int.Parse(lastTransactionId, NumberStyles.Any, CultureInfo.InvariantCulture);
-      FromTransactionId = int.MaxValue;
-      ToTransactionId = int.MinValue;
-      foreach (var url in pageLinks)
-      {
-        var query = new Uri(url).Query;
-        var queryParts = QueryHelpers.ParseQuery(query);
-        var thisFrom = int.Parse(queryParts["from"], NumberStyles.Any, CultureInfo.InvariantCulture);
-        var thisTo = int.Parse(queryParts["to"], NumberStyles.Any, CultureInfo.InvariantCulture);
-        FromTransactionId = Min(FromTransactionId, thisFrom);
-        ToTransactionId = Max(ToTransactionId, thisTo);
-      }
+      LastTransactionId = lastTransactionId;
+      PageSize = pageSize;
+      Pages = pages;
     }
+
+    /// <summary>
+    /// The number of Transactions that are contained in the pages returned.
+    /// </summary>
+    public int Count { get; }
 
     /// <summary>
     /// The starting time (inclusive) of the time range for the Transactions
     /// being queried.
     /// </summary>
-    public DateTime From { get; init; }
+    public DateTime From { get; }
 
     /// <summary>
     /// The ending time (inclusive) of the time range for the Transactions being
     /// queried.
     /// </summary>
-    public DateTime To { get; init; }
+    public DateTime To { get; }
 
     /// <summary>
-    /// The id of the first transaction of the time range for the Transactions
-    /// being queried.
+    /// The list of URLs that represent idrange queries providing the data for
+    /// each page in the query results.
     /// </summary>
-    public int FromTransactionId { get; init; }
-
-    /// <summary>
-    /// The id of the last transaction of the time range for the Transactions
-    /// being queried.
-    /// </summary>
-    public int ToTransactionId { get; init; }
+    public ImmutableList<string> Pages { get; init; }
 
     /// <summary>
     /// The id of the last transaction ever made on the Account.
     /// </summary>
+    [JsonConverter(typeof(Int32StringConverter))]
     public int LastTransactionId { get; init; }
+
+    /// <summary>
+    /// The pageSize provided in the request.
+    /// </summary>
+    public int PageSize { get; init; }
+
+    public IEnumerable<(int FromId, int ToId)> GetPages()
+    {
+      return GetPages().OrderBy(x => x.FromId);
+      IEnumerable<(int FromId, int ToId)> GetPages()
+      {
+        if (Pages.Count == 0) yield break;
+        foreach (var url in Pages)
+        {
+          var query = new Uri(url).Query;
+          var queryParts = QueryHelpers.ParseQuery(query);
+          var thisFrom = int.Parse(queryParts["from"], NumberStyles.Any, InvariantCulture);
+          var thisTo = int.Parse(queryParts["to"], NumberStyles.Any, InvariantCulture);
+          yield return (thisFrom, thisTo);
+        }
+      }
+    }
   }
 }
