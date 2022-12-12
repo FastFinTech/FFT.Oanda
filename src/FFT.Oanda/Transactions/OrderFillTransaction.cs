@@ -6,6 +6,7 @@ namespace FFT.Oanda.Transactions
   using System;
   using System.Collections.Immutable;
   using System.Text.Json.Serialization;
+  using FFT.Oanda.Pricing;
 
   /// <summary>
   /// An OrderFillTransaction represents the filling of an Order in the client’s
@@ -31,7 +32,7 @@ namespace FFT.Oanda.Transactions
       decimal units,
       HomeConversionFactors homeConversionFactors,
       decimal fullVWAP,
-      decimal fullPrice,
+      ClientPrice fullPrice,
       OrderFillReason reason,
       decimal pL,
       decimal quotePL,
@@ -118,7 +119,7 @@ namespace FFT.Oanda.Transactions
     /// <summary>
     /// The price in effect for the account at the time of the Order fill.
     /// </summary>
-    public decimal FullPrice { get; }
+    public ClientPrice FullPrice { get; }
 
     /// <summary>
     /// The reason that an Order was filled.
