@@ -8,7 +8,7 @@ namespace FFT.Oanda.Instruments
 
   /// <summary>
   /// Contains the response from calls made to the <see
-  /// cref="OandaApiClient.GetOrderBook(string, DateTime?)"/> method.
+  /// cref="OandaApiClient.GetOrderBook(string, DateTime?, CancellationToken)"/> method.
   /// </summary>
   public sealed class OrderBookResponse
   {

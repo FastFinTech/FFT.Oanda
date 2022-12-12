@@ -9,7 +9,7 @@ namespace FFT.Oanda.Pricing
 
   /// <summary>
   /// Returned by the <see cref="OandaApiClient.GetPricingInformation(string,
-  /// string[], DateTime?, bool)"/> method.
+  /// string[], DateTime?, bool, CancellationToken)"/> method.
   /// </summary>
   public sealed class PricingInformationResponse
   {

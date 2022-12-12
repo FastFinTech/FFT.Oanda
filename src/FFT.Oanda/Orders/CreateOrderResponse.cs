@@ -9,8 +9,8 @@ namespace FFT.Oanda.Orders
   using FFT.Oanda.Transactions;
 
   /// <summary>
-  /// Returned by the <see cref="OandaApiClient.CreateOrder(string, OrderRequest)"/> method and contains information about an order request
-  /// that has been accepted.
+  /// Returned by the <see cref="OandaApiClient.CreateOrder{TOrderRequest}(string, TOrderRequest, CancellationToken)"/>
+  /// method and contains information about the result of an order request.
   /// </summary>
   public sealed class CreateOrderResponse
   {

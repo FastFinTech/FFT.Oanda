@@ -9,7 +9,7 @@ namespace FFT.Oanda.Accounts
   /// <summary>
   /// Contains the response to the <see
   /// cref="OandaApiClient.SetAccountConfiguration(string,
-  /// AccountConfiguration)"/> method.
+  /// AccountConfiguration, CancellationToken)"/> method.
   /// </summary>
   public sealed class AccountConfigurationResponse
   {

@@ -6,7 +6,8 @@ namespace FFT.Oanda.Orders
   using System.Text.Json.Serialization;
 
   /// <summary>
-  /// Returned by the <see cref="OandaApiClient.GetSingleOrder(string, string)"/> method. Contains information about the single order.
+  /// Returned by the <see cref="OandaApiClient.GetSingleOrder(string, string, CancellationToken)"/> method.
+  /// Contains information about the single order.
   /// </summary>
   public sealed class GetSingleOrderResponse
   {

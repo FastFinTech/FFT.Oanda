@@ -6,7 +6,7 @@ namespace FFT.Oanda.Transactions
   using System.Text.Json.Serialization;
 
   /// <summary>
-  /// Returned by the <see cref="OandaApiClient.GetTransaction(string, string)"/>
+  /// Returned by the <see cref="OandaApiClient.GetTransaction(string, string, CancellationToken)"/>
   /// method.
   /// </summary>
   public sealed class GetTransactionResponse

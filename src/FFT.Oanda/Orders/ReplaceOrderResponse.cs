@@ -9,8 +9,8 @@ namespace FFT.Oanda.Orders
   using FFT.Oanda.Transactions;
 
   /// <summary>
-  /// Returned by the <see cref="OandaApiClient.ReplaceOrder(string, string, OrderRequest, string)"/> method when the order replacement request is
-  /// successful.
+  /// Returned by the <see cref="OandaApiClient.ReplaceOrder(string, string, OrderRequest, string, CancellationToken)"/>
+  /// method.
   /// </summary>
   public sealed class ReplaceOrderResponse
   {

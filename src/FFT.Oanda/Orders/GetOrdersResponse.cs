@@ -7,8 +7,8 @@ namespace FFT.Oanda.Orders
   using System.Text.Json.Serialization;
 
   /// <summary>
-  /// Returned by the <see cref="OandaApiClient.GetOrders(string, string?, OrderStateFilter, int, string, string[])"/> and the <see
-  /// cref="OandaApiClient.GetPendingOrders(string)"/> methods.
+  /// Returned by the <see cref="OandaApiClient.GetOrders(string, string?, OrderStateFilter, int, string, string[], CancellationToken)"/> and the <see
+  /// cref="OandaApiClient.GetPendingOrders(string, CancellationToken)"/> methods.
   /// </summary>
   public sealed class GetOrdersResponse
   {

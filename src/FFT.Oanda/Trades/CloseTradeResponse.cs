@@ -9,7 +9,7 @@ namespace FFT.Oanda.Trades
 
   /// <summary>
   /// Returned by the <see cref="OandaApiClient.CloseTrade(string, string,
-  /// NumUnits)"/> method when the request has been accepted.
+  /// NumUnits, CancellationToken)"/> method when the request has been accepted.
   /// </summary>
   public sealed class CloseTradeResponse
   {

@@ -6,7 +6,7 @@ namespace FFT.Oanda.Positions
   using System.Text.Json.Serialization;
 
   /// <summary>
-  /// Returned by the <see cref="OandaApiClient.GetPosition(string, string)"/> method.
+  /// Returned by the <see cref="OandaApiClient.GetPosition(string, string, CancellationToken)"/> method.
   /// </summary>
   public sealed class GetPositionResponse
   {

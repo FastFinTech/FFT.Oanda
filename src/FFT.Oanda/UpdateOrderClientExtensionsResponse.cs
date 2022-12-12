@@ -8,9 +8,8 @@ namespace FFT.Oanda
   using FFT.Oanda.Transactions;
 
   /// <summary>
-  /// Returned by the <see cref="OandaApiClient.SetOrderClientExtensions(string,
-  /// string, ClientExtensions?, ClientExtensions?)"/> method when the request
-  /// is successful.
+  /// Returned by the <see cref="OandaApiClient.SetOrderClientExtensions(string, string, ClientExtensions?, ClientExtensions?, CancellationToken)"/>
+  /// method when the request is successful.
   /// </summary>
   public sealed class UpdateOrderClientExtensionsResponse
   {

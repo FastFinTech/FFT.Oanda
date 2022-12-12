@@ -9,7 +9,7 @@ namespace FFT.Oanda.Positions
 
   /// <summary>
   /// Returned by the <see cref="OandaApiClient.ClosePosition(string, string,
-  /// NumUnits, NumUnits, ClientExtensions?, ClientExtensions?)"/> method.
+  /// NumUnits, NumUnits, ClientExtensions?, ClientExtensions?, CancellationToken)"/> method.
   /// </summary>
   public sealed class ClosePositionResponse
   {

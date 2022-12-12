@@ -9,8 +9,7 @@ namespace FFT.Oanda.Trades
   using FFT.Oanda.Transactions;
 
   /// <summary>
-  /// Returned by the <see cref="OandaApiClient.SetTradeClientExtensions(string,
-  /// string, ClientExtensions)"/> method.
+  /// Returned by the <see cref="OandaApiClient.SetTradeClientExtensions(string, string, ClientExtensions, CancellationToken)"/> method.
   /// </summary>
   public sealed class TradeClientExtensionsUpdateResponse
   {

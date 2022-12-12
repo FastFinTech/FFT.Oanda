@@ -8,7 +8,7 @@ namespace FFT.Oanda.Trades
 
   /// <summary>
   /// Returned by the <see cref="OandaApiClient.GetTrades(string,
-  /// TradeStateFilter, string, int, string, string[])"/> method.
+  /// TradeStateFilter, string, int, string, string[], CancellationToken)"/> method.
   /// </summary>
   public sealed class GetTradesResponse
   {

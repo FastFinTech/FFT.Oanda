@@ -11,7 +11,7 @@ namespace FFT.Oanda.Trades
   /// <summary>
   /// Returned by the <see cref="OandaApiClient.SetTradeOrders(string, string,
   /// TakeProfitDetails, StopLossDetails, TrailingStopLossDetails,
-  /// GuaranteedStopLossDetails)"/> method.
+  /// GuaranteedStopLossDetails, CancellationToken)"/> method.
   /// </summary>
   public sealed class SetTradeOrdersResponse
   {
