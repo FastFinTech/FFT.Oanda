@@ -1,16 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <!--
-    It would have been nice to target netstandard2.1 for broader useability, but we ran into this issue:
-    https://github.com/dotnet/runtime/issues/24613
-    because the Oanda api prefers a keep-alive connection as explained here:
-    https://developer.oanda.com/rest-live-v20/best-practices/
-    -->
     <TargetFramework>net7.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <IsPackable>true</IsPackable>
-
     <PackageId>FFT.Oanda</PackageId>
     <Summary>A .net client for the Oanda api.</Summary>
     <Description>$(Summary)</Description>

@@ -18,13 +18,4 @@
     <ProjectReference Include="..\FFT.Oanda\FFT.Oanda.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Update="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" />
-    <PackageReference Update="Microsoft.SourceLink.GitHub" Version="1.1.1" />
-    <PackageReference Update="Nerdbank.GitVersioning" Version="3.5.119">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
-
-</Project>
+  </Project>
