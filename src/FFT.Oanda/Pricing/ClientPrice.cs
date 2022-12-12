@@ -18,9 +18,9 @@ namespace FFT.Oanda.Pricing
     [JsonConstructor]
     public ClientPrice(
       string type,
-      string instrument,
-      DateTime time,
-      bool tradeable,
+      string? instrument,
+      DateTime timestamp,
+      bool? tradeable,
       ImmutableList<PriceBucket> bids,
       ImmutableList<PriceBucket> asks,
       decimal closeoutBid,
@@ -28,7 +28,7 @@ namespace FFT.Oanda.Pricing
     {
       Type = type;
       Instrument = instrument;
-      Time = time;
+      Timestamp = timestamp;
       Tradeable = tradeable;
       Bids = bids;
       Asks = asks;
@@ -43,19 +43,19 @@ namespace FFT.Oanda.Pricing
     public string Type { get; }
 
     /// <summary>
-    /// The Price’s Instrument.
+    /// The Price’s Instrument. Made nullable because it was found not to be included in some responses.
     /// </summary>
-    public string Instrument { get; }
+    public string? Instrument { get; }
 
     /// <summary>
     /// The date/time when the Price was created.
     /// </summary>
-    public DateTime Time { get; }
+    public DateTime Timestamp { get; }
 
     /// <summary>
-    /// Flag indicating if the Price is tradeable or not.
+    /// Flag indicating if the Price is tradeable or not. Made nullable because it was found not to be included in some responses.
     /// </summary>
-    public bool Tradeable { get; }
+    public bool? Tradeable { get; }
 
     /// <summary>
     /// The list of prices and liquidity available on the Instrument’s bid side.
@@ -71,16 +71,12 @@ namespace FFT.Oanda.Pricing
     /// </summary>
     public ImmutableList<PriceBucket> Asks { get; }
 
-    // TODO: I think this should probably be nullable for when the instrument is not tradeable
-
     /// <summary>
     /// The closeout bid Price. This Price is used when a bid is required to
     /// closeout a Position (margin closeout or manual) yet there is no bid
     /// liquidity. The closeout bid is never used to open a new position.
     /// </summary>
     public decimal CloseoutBid { get; }
-
-    // TODO: I think this should probably be nullable for when the instrument is not tradeable
 
     /// <summary>
     /// The closeout ask Price. This Price is used when a ask is required to
