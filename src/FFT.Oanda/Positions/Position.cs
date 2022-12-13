@@ -4,6 +4,7 @@
 namespace FFT.Oanda.Positions
 {
   using System.Text.Json.Serialization;
+  using FFT.Oanda.JsonConverters;
 
   /// <summary>
   /// The specification of a position within an account.
@@ -49,41 +50,48 @@ namespace FFT.Oanda.Positions
     /// Profit/loss realized by the position over the lifetime of the account.
     /// Expressed in the account's home currency.
     /// </summary>
+    [JsonConverter(typeof(DecimalStringConverter))]
     public decimal PL { get; }
 
     /// <summary>
     /// The unrealized profit/loss of all open Trades that contribute to this
     /// Position. Expressed in the account's home currency.
     /// </summary>
+    [JsonConverter(typeof(DecimalStringConverter))]
     public decimal UnrealizedPL { get; }
 
     /// <summary>
     /// Margin currently used by the Position. Expressed in the account's home currency.
     /// </summary>
+    [JsonConverter(typeof(DecimalStringConverter))]
     public decimal MarginUsed { get; }
 
     /// <summary>
     /// Profit/loss realized by the Position since the Account’s resettablePL was
     /// last reset by the client. Expressed in the account's home currency.
     /// </summary>
+    [JsonConverter(typeof(DecimalStringConverter))]
     public decimal ResettablePL { get; }
 
     /// <summary>
     /// The total amount of financing paid/collected for this instrument over the
     /// lifetime of the Account. Expressed in the account's home currency.
     /// </summary>
+    [JsonConverter(typeof(DecimalStringConverter))]
     public decimal Financing { get; }
 
     /// <summary>
     /// The total amount of commission paid for this instrument over the lifetime
     /// of the Account. Expressed in the account's home currency.
     /// </summary>
+    [JsonConverter(typeof(DecimalStringConverter))]
     public decimal Commission { get; }
 
     /// <summary>
     /// The total amount of dividend adjustment paid for this instrument over the
     /// lifetime of the Account. Expressed in the account's home currency.
     /// </summary>
+    [JsonConverter(typeof(DecimalStringConverter))]
     public decimal DividendAdjustment { get; }
 
     /// <summary>
@@ -91,6 +99,7 @@ namespace FFT.Oanda.Positions
     /// the execution of guaranteed Stop Loss Orders for this instrument.
     /// Expressed in the account's home currency.
     /// </summary>
+    [JsonConverter(typeof(DecimalStringConverter))]
     public decimal GuaranteedExecutionFees { get; }
 
     /// <summary>

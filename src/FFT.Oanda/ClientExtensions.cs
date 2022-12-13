@@ -4,6 +4,7 @@
 namespace FFT.Oanda
 {
   using System.Text.Json.Serialization;
+  using FFT.Oanda.JsonConverters;
 
   /// <summary>
   /// Allows a client to attach a clientID, tag and comment to orders and trades
@@ -16,7 +17,7 @@ namespace FFT.Oanda
     /// Initializes a new instance of the <see cref="ClientExtensions"/> class.
     /// </summary>
     [JsonConstructor]
-    public ClientExtensions(string id, string tag, string comment)
+    public ClientExtensions(string? id, string? tag, string? comment)
     {
       Id = id;
       Tag = tag;
@@ -26,16 +27,16 @@ namespace FFT.Oanda
     /// <summary>
     /// The Client ID of the order/trade.
     /// </summary>
-    public string Id { get; }
+    public string? Id { get; }
 
     /// <summary>
     /// A tag associated with the order/trade.
     /// </summary>
-    public string Tag { get; }
+    public string? Tag { get; }
 
     /// <summary>
     /// A comment associated with the order/trade.
     /// </summary>
-    public string Comment { get; }
+    public string? Comment { get; }
   }
 }

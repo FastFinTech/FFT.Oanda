@@ -90,18 +90,7 @@ namespace FFT.Oanda
     private static async Task<T> ParseResponse<T>(HttpResponseMessage response, CancellationToken cancellationToken)
     {
       await RequestFailedException.ThrowIfNecessary(response, cancellationToken);
-
-      // This particular extension method automatically uses the "WebOptions"
-      // options for json deserialization. If we ever switch away to manually
-      // deserializing, we will need to remember toa specify the "WebOptions" to
-      // be used for deserialization. The "PolymorphicDeserializer" class has an
-      // example of how to do that.
       return (await response.Content.ReadFromJsonAsync<T>(options: null, cancellationToken))!;
-
-      // TODO: Since writing the comment above, I changed the method overload
-      // used above to accepting the parameters shown. Perhaps this has changed
-      // the default behaviour of using the "WebOptions" required. Runtime
-      // exceptions (or lack of them) will show if I've broken it or not.
     }
   }
 
@@ -189,13 +178,11 @@ namespace FFT.Oanda
     /// data but will include the price-dependent state.
     /// </param>
     /// <param name="cancellationToken">Cancels the operation.</param>
-    public async Task<AccountChangesResponse> GetAccountChanges(string accountId, string? sinceTransactionId, CancellationToken cancellationToken = default)
+    public async Task<AccountChangesResponse> GetAccountChanges(string accountId, int? sinceTransactionId, CancellationToken cancellationToken = default)
     {
-      var url = $"v3/accounts/{accountId}/changes";
-      if (!string.IsNullOrWhiteSpace(sinceTransactionId))
-      {
-        url += $"?sinceTransactionID={sinceTransactionId}";
-      }
+      var url = sinceTransactionId.HasValue
+        ? $"v3/accounts/{accountId}/changes?sinceTransactionID={sinceTransactionId.Value}"
+        : $"v3/accounts/{accountId}/changes";
 
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
@@ -268,24 +255,18 @@ namespace FFT.Oanda
       WeeklyAlignment weeklyAlignment = WeeklyAlignment.FRIDAY,
       CancellationToken cancellationToken = default)
     {
-      if (candleSpecification is null)
-        throw new ArgumentNullException(nameof(candleSpecification));
-
+      candleSpecification.ThrowIfNull();
       candleSpecification.Validate();
-
-      if (dailyAlignment < 0 || dailyAlignment > 23)
-        throw new ArgumentException(nameof(dailyAlignment));
-
-      if (string.IsNullOrWhiteSpace(alignmentTimezone))
-        throw new ArgumentException(nameof(alignmentTimezone));
+      dailyAlignment.Throw().IfOutOfRange(0, 23);
+      alignmentTimezone.ThrowIfNull().Throw().IfWhiteSpace();
 
       var query = new Dictionary<string, string>
       {
         { "price", candleSpecification.PricingComponent.ToString() },
         { "granularity", candleSpecification.CandleStickGranularity.ToString() },
-        { "count", count.ToString(CultureInfo.InvariantCulture) },
+        { "count", count.ToString(InvariantCulture) },
         { "smooth", smooth.ToString() },
-        { "dailyAlignment", dailyAlignment.ToString(CultureInfo.InvariantCulture) },
+        { "dailyAlignment", dailyAlignment.ToString(InvariantCulture) },
         { "alignmentTimezone", alignmentTimezone },
         { "weeklyAlignment", weeklyAlignment.ToString() },
       };
@@ -351,24 +332,16 @@ namespace FFT.Oanda
       WeeklyAlignment weeklyAlignment = WeeklyAlignment.FRIDAY,
       CancellationToken cancellationToken = default)
     {
-      if (candleSpecification is null)
-        throw new ArgumentNullException(nameof(candleSpecification));
-
+      candleSpecification.ThrowIfNull();
       candleSpecification.Validate();
-
-      if (dailyAlignment < 0 || dailyAlignment > 23)
-        throw new ArgumentException(nameof(dailyAlignment));
-
-      if (string.IsNullOrWhiteSpace(alignmentTimezone))
-        throw new ArgumentException(nameof(alignmentTimezone));
-
-      if (from.Kind != DateTimeKind.Utc)
-        throw new ArgumentException("Kind must be set as utc.", nameof(from));
+      dailyAlignment.Throw().IfOutOfRange(0, 23);
+      alignmentTimezone.ThrowIfNull().Throw().IfWhiteSpace();
+      from.Throw().IfNotUtc().IfGreaterThanOrEqualTo(DateTime.UtcNow);
 
       if (to.HasValue)
       {
-        if (to.Value.Kind != DateTimeKind.Utc)
-          throw new ArgumentException("Kind must be set as utc.", nameof(to));
+        to.Value.Throw().IfNotUtc();
+        to.Value.Subtract(from).Ticks.Throw().IfLessThan(0);
       }
 
       var query = new Dictionary<string, string>
@@ -384,7 +357,6 @@ namespace FFT.Oanda
       };
 
       // TODO: check that this works when to is null.
-
       if (to.HasValue)
         query["to"] = to.Value.ToString(DATETIMEFORMATSTRING, CultureInfo.InvariantCulture);
 
@@ -408,13 +380,12 @@ namespace FFT.Oanda
     /// <param name="cancellationToken">Cancels the operation.</param>
     public async Task<OrderBookResponse> GetOrderBook(string instrumentName, DateTime? time = null, CancellationToken cancellationToken = default)
     {
-      if (string.IsNullOrWhiteSpace(instrumentName))
-        throw new ArgumentException(nameof(instrumentName));
+      instrumentName.ThrowIfNull().Throw().IfWhiteSpace();
 
       var url = $"v3/instruments/{instrumentName}/orderBook";
       if (time.HasValue)
       {
-        url = QueryHelpers.AddQueryString(url, "time", time.Value.ToString(DATETIMEFORMATSTRING, CultureInfo.InvariantCulture));
+        url = QueryHelpers.AddQueryString(url, "time", time.Value.ToString(DATETIMEFORMATSTRING, InvariantCulture));
       }
 
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
@@ -439,8 +410,7 @@ namespace FFT.Oanda
       // TODO: The response header contains a link to the next/previous position
       // books. Perhaps consider adding these to the method's output?
 
-      if (string.IsNullOrWhiteSpace(instrumentName))
-        throw new ArgumentException(nameof(instrumentName));
+      instrumentName.ThrowIfNull().Throw().IfWhiteSpace();
 
       var url = $"v3/instruments/{instrumentName}/positionBook";
       if (time.HasValue)
@@ -511,7 +481,7 @@ namespace FFT.Oanda
     /// List of Order IDs to retrieve.
     /// </param>
     /// <param name="cancellationToken">Cancels the operation.</param>
-    public async Task<GetOrdersResponse> GetOrders(string accountId, string? instrumentName = null, OrderStateFilter state = OrderStateFilter.PENDING, int count = 50, string? beforeId = null, string[]? ids = null, CancellationToken cancellationToken = default)
+    public async Task<GetOrdersResponse> GetOrders(string accountId, string? instrumentName = null, OrderStateFilter state = OrderStateFilter.PENDING, int count = 50, int? beforeId = null, int[]? ids = null, CancellationToken cancellationToken = default)
     {
       accountId.Throw().IfWhiteSpace();
       count.Throw().IfOutOfRange(1, 500);
@@ -525,8 +495,8 @@ namespace FFT.Oanda
       if (!string.IsNullOrWhiteSpace(instrumentName))
         query.Add("instrument", instrumentName);
 
-      if (!string.IsNullOrWhiteSpace(beforeId))
-        query.Add("beforeID", beforeId);
+      if (beforeId is not null)
+        query.Add("beforeID", beforeId.Value.ToString(InvariantCulture));
 
       if (ids is { Length: > 0 })
         query.Add("ids", string.Join(",", ids));

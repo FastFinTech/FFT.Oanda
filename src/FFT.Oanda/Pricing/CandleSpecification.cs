@@ -5,6 +5,7 @@ namespace FFT.Oanda.Pricing
 {
   using System;
   using FFT.Oanda.Instruments;
+  using Throw;
 
   /// <summary>
   /// An instrument name, a granularity, and a price component to get
@@ -38,12 +39,11 @@ namespace FFT.Oanda.Pricing
     /// Call this method to throw an exception if this instance does not contain
     /// suitable values for sending to the oanda api.
     /// </summary>
-    public void Validate()
+    public CandleSpecification Validate()
     {
-      // TODO: Does not provide clear error messages. Fix this.
-      if (string.IsNullOrWhiteSpace(InstrumentName))
-        throw new ArgumentNullException(nameof(InstrumentName));
+      InstrumentName.ThrowIfNull().Throw().IfWhiteSpace();
       PricingComponent.Validate();
+      return this;
     }
   }
 }

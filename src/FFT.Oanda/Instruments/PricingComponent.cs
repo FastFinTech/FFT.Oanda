@@ -4,6 +4,7 @@
 namespace FFT.Oanda.Instruments
 {
   using System;
+  using Throw;
 
   /// <summary>
   /// The Price component(s) to get candlestick data for.
@@ -33,10 +34,10 @@ namespace FFT.Oanda.Instruments
     /// Throws an <see cref="ArgumentException"/> if this instance contains
     /// an invalid combination of values.
     /// </summary>
-    public void Validate()
+    public PricingComponent Validate()
     {
-      if (!(Bid || Ask || Mid))
-        throw new ArgumentException("At least one pricing component must be required.");
+      (Bid || Ask || Mid).Throw("At least one pricing component must be required.").IfFalse();
+      return this;
     }
   }
 }

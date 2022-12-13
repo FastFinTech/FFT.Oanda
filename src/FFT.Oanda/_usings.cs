@@ -4,6 +4,7 @@
 #pragma warning disable SA1200 // Using directives should be placed correctly
 
 global using System.Collections.Generic;
+global using System.Collections.Immutable;
 global using System.Globalization;
 global using System.Text.Json;
 global using System.Text.Json.Serialization;
