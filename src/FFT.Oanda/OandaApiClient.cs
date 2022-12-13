@@ -154,11 +154,9 @@ namespace FFT.Oanda
     /// <param name="cancellationToken">Cancels the operation.</param>
     public async Task<AccountInstrumentListResponse> GetAccountInstruments(string accountId, string[]? specificInstruments = null, CancellationToken cancellationToken = default)
     {
-      var url = $"v3/accounts/{accountId}/instruments";
-      if (specificInstruments is { Length: > 0 })
-      {
-        url += $"?instruments={string.Join(',', specificInstruments)}";
-      }
+      var url = specificInstruments is { Length: > 0 }
+      ? $"v3/accounts/{accountId}/instruments?instruments={string.Join(',', specificInstruments)}"
+      : $"v3/accounts/{accountId}/instruments";
 
       using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
       using var request = new HttpRequestMessage(HttpMethod.Get, url);
