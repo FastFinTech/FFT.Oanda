@@ -219,12 +219,12 @@ references:
   commentId: T:FFT.Oanda.Accounts.AccountChangesResponse
   fullName: FFT.Oanda.Accounts.AccountChangesResponse
   nameWithType: AccountChangesResponse
-- uid: FFT.Oanda.Accounts.AccountChangesResponse.#ctor(FFT.Oanda.Accounts.AccountChanges,FFT.Oanda.Accounts.AccountChangesState,System.String)
-  name: AccountChangesResponse(AccountChanges, AccountChangesState, String)
-  href: api/FFT.Oanda.Accounts.AccountChangesResponse.html#FFT_Oanda_Accounts_AccountChangesResponse__ctor_FFT_Oanda_Accounts_AccountChanges_FFT_Oanda_Accounts_AccountChangesState_System_String_
-  commentId: M:FFT.Oanda.Accounts.AccountChangesResponse.#ctor(FFT.Oanda.Accounts.AccountChanges,FFT.Oanda.Accounts.AccountChangesState,System.String)
-  fullName: FFT.Oanda.Accounts.AccountChangesResponse.AccountChangesResponse(FFT.Oanda.Accounts.AccountChanges, FFT.Oanda.Accounts.AccountChangesState, System.String)
-  nameWithType: AccountChangesResponse.AccountChangesResponse(AccountChanges, AccountChangesState, String)
+- uid: FFT.Oanda.Accounts.AccountChangesResponse.#ctor(FFT.Oanda.Accounts.AccountChanges,FFT.Oanda.Accounts.AccountChangesState,System.Int32)
+  name: AccountChangesResponse(AccountChanges, AccountChangesState, Int32)
+  href: api/FFT.Oanda.Accounts.AccountChangesResponse.html#FFT_Oanda_Accounts_AccountChangesResponse__ctor_FFT_Oanda_Accounts_AccountChanges_FFT_Oanda_Accounts_AccountChangesState_System_Int32_
+  commentId: M:FFT.Oanda.Accounts.AccountChangesResponse.#ctor(FFT.Oanda.Accounts.AccountChanges,FFT.Oanda.Accounts.AccountChangesState,System.Int32)
+  fullName: FFT.Oanda.Accounts.AccountChangesResponse.AccountChangesResponse(FFT.Oanda.Accounts.AccountChanges, FFT.Oanda.Accounts.AccountChangesState, System.Int32)
+  nameWithType: AccountChangesResponse.AccountChangesResponse(AccountChanges, AccountChangesState, Int32)
 - uid: FFT.Oanda.Accounts.AccountChangesResponse.#ctor*
   name: AccountChangesResponse
   href: api/FFT.Oanda.Accounts.AccountChangesResponse.html#FFT_Oanda_Accounts_AccountChangesResponse__ctor_
@@ -637,12 +637,12 @@ references:
   commentId: T:FFT.Oanda.Accounts.AccountConfigurationResponse
   fullName: FFT.Oanda.Accounts.AccountConfigurationResponse
   nameWithType: AccountConfigurationResponse
-- uid: FFT.Oanda.Accounts.AccountConfigurationResponse.#ctor(FFT.Oanda.Transactions.ClientConfigureTransaction,System.String)
-  name: AccountConfigurationResponse(ClientConfigureTransaction, String)
-  href: api/FFT.Oanda.Accounts.AccountConfigurationResponse.html#FFT_Oanda_Accounts_AccountConfigurationResponse__ctor_FFT_Oanda_Transactions_ClientConfigureTransaction_System_String_
-  commentId: M:FFT.Oanda.Accounts.AccountConfigurationResponse.#ctor(FFT.Oanda.Transactions.ClientConfigureTransaction,System.String)
-  fullName: FFT.Oanda.Accounts.AccountConfigurationResponse.AccountConfigurationResponse(FFT.Oanda.Transactions.ClientConfigureTransaction, System.String)
-  nameWithType: AccountConfigurationResponse.AccountConfigurationResponse(ClientConfigureTransaction, String)
+- uid: FFT.Oanda.Accounts.AccountConfigurationResponse.#ctor(FFT.Oanda.Transactions.ClientConfigureTransaction,System.Int32)
+  name: AccountConfigurationResponse(ClientConfigureTransaction, Int32)
+  href: api/FFT.Oanda.Accounts.AccountConfigurationResponse.html#FFT_Oanda_Accounts_AccountConfigurationResponse__ctor_FFT_Oanda_Transactions_ClientConfigureTransaction_System_Int32_
+  commentId: M:FFT.Oanda.Accounts.AccountConfigurationResponse.#ctor(FFT.Oanda.Transactions.ClientConfigureTransaction,System.Int32)
+  fullName: FFT.Oanda.Accounts.AccountConfigurationResponse.AccountConfigurationResponse(FFT.Oanda.Transactions.ClientConfigureTransaction, System.Int32)
+  nameWithType: AccountConfigurationResponse.AccountConfigurationResponse(ClientConfigureTransaction, Int32)
 - uid: FFT.Oanda.Accounts.AccountConfigurationResponse.#ctor*
   name: AccountConfigurationResponse
   href: api/FFT.Oanda.Accounts.AccountConfigurationResponse.html#FFT_Oanda_Accounts_AccountConfigurationResponse__ctor_
@@ -790,15 +790,15 @@ references:
   commentId: T:FFT.Oanda.Accounts.AccountInstrumentListResponse
   fullName: FFT.Oanda.Accounts.AccountInstrumentListResponse
   nameWithType: AccountInstrumentListResponse
-- uid: FFT.Oanda.Accounts.AccountInstrumentListResponse.#ctor(ImmutableList{FFT.Oanda.Instruments.Instrument},System.String)
-  name: AccountInstrumentListResponse(ImmutableList<Instrument>, String)
-  href: api/FFT.Oanda.Accounts.AccountInstrumentListResponse.html#FFT_Oanda_Accounts_AccountInstrumentListResponse__ctor_ImmutableList_FFT_Oanda_Instruments_Instrument__System_String_
-  commentId: M:FFT.Oanda.Accounts.AccountInstrumentListResponse.#ctor(ImmutableList{FFT.Oanda.Instruments.Instrument},System.String)
-  name.vb: AccountInstrumentListResponse(ImmutableList(Of Instrument), String)
-  fullName: FFT.Oanda.Accounts.AccountInstrumentListResponse.AccountInstrumentListResponse(ImmutableList<FFT.Oanda.Instruments.Instrument>, System.String)
-  fullName.vb: FFT.Oanda.Accounts.AccountInstrumentListResponse.AccountInstrumentListResponse(ImmutableList(Of FFT.Oanda.Instruments.Instrument), System.String)
-  nameWithType: AccountInstrumentListResponse.AccountInstrumentListResponse(ImmutableList<Instrument>, String)
-  nameWithType.vb: AccountInstrumentListResponse.AccountInstrumentListResponse(ImmutableList(Of Instrument), String)
+- uid: FFT.Oanda.Accounts.AccountInstrumentListResponse.#ctor(ImmutableList{FFT.Oanda.Instruments.Instrument},System.Int32)
+  name: AccountInstrumentListResponse(ImmutableList<Instrument>, Int32)
+  href: api/FFT.Oanda.Accounts.AccountInstrumentListResponse.html#FFT_Oanda_Accounts_AccountInstrumentListResponse__ctor_ImmutableList_FFT_Oanda_Instruments_Instrument__System_Int32_
+  commentId: M:FFT.Oanda.Accounts.AccountInstrumentListResponse.#ctor(ImmutableList{FFT.Oanda.Instruments.Instrument},System.Int32)
+  name.vb: AccountInstrumentListResponse(ImmutableList(Of Instrument), Int32)
+  fullName: FFT.Oanda.Accounts.AccountInstrumentListResponse.AccountInstrumentListResponse(ImmutableList<FFT.Oanda.Instruments.Instrument>, System.Int32)
+  fullName.vb: FFT.Oanda.Accounts.AccountInstrumentListResponse.AccountInstrumentListResponse(ImmutableList(Of FFT.Oanda.Instruments.Instrument), System.Int32)
+  nameWithType: AccountInstrumentListResponse.AccountInstrumentListResponse(ImmutableList<Instrument>, Int32)
+  nameWithType.vb: AccountInstrumentListResponse.AccountInstrumentListResponse(ImmutableList(Of Instrument), Int32)
 - uid: FFT.Oanda.Accounts.AccountInstrumentListResponse.#ctor*
   name: AccountInstrumentListResponse
   href: api/FFT.Oanda.Accounts.AccountInstrumentListResponse.html#FFT_Oanda_Accounts_AccountInstrumentListResponse__ctor_
@@ -934,12 +934,12 @@ references:
   commentId: T:FFT.Oanda.Accounts.AccountResponse
   fullName: FFT.Oanda.Accounts.AccountResponse
   nameWithType: AccountResponse
-- uid: FFT.Oanda.Accounts.AccountResponse.#ctor(FFT.Oanda.Accounts.Account,System.String)
-  name: AccountResponse(Account, String)
-  href: api/FFT.Oanda.Accounts.AccountResponse.html#FFT_Oanda_Accounts_AccountResponse__ctor_FFT_Oanda_Accounts_Account_System_String_
-  commentId: M:FFT.Oanda.Accounts.AccountResponse.#ctor(FFT.Oanda.Accounts.Account,System.String)
-  fullName: FFT.Oanda.Accounts.AccountResponse.AccountResponse(FFT.Oanda.Accounts.Account, System.String)
-  nameWithType: AccountResponse.AccountResponse(Account, String)
+- uid: FFT.Oanda.Accounts.AccountResponse.#ctor(FFT.Oanda.Accounts.Account,System.Int32)
+  name: AccountResponse(Account, Int32)
+  href: api/FFT.Oanda.Accounts.AccountResponse.html#FFT_Oanda_Accounts_AccountResponse__ctor_FFT_Oanda_Accounts_Account_System_Int32_
+  commentId: M:FFT.Oanda.Accounts.AccountResponse.#ctor(FFT.Oanda.Accounts.Account,System.Int32)
+  fullName: FFT.Oanda.Accounts.AccountResponse.AccountResponse(FFT.Oanda.Accounts.Account, System.Int32)
+  nameWithType: AccountResponse.AccountResponse(Account, Int32)
 - uid: FFT.Oanda.Accounts.AccountResponse.#ctor*
   name: AccountResponse
   href: api/FFT.Oanda.Accounts.AccountResponse.html#FFT_Oanda_Accounts_AccountResponse__ctor_
@@ -1913,24 +1913,6 @@ references:
   commentId: F:FFT.Oanda.DayOfWeek.WEDNESDAY
   fullName: FFT.Oanda.DayOfWeek.WEDNESDAY
   nameWithType: DayOfWeek.WEDNESDAY
-- uid: FFT.Oanda.Direction
-  name: Direction
-  href: api/FFT.Oanda.Direction.html
-  commentId: T:FFT.Oanda.Direction
-  fullName: FFT.Oanda.Direction
-  nameWithType: Direction
-- uid: FFT.Oanda.Direction.LONG
-  name: LONG
-  href: api/FFT.Oanda.Direction.html#FFT_Oanda_Direction_LONG
-  commentId: F:FFT.Oanda.Direction.LONG
-  fullName: FFT.Oanda.Direction.LONG
-  nameWithType: Direction.LONG
-- uid: FFT.Oanda.Direction.SHORT
-  name: SHORT
-  href: api/FFT.Oanda.Direction.html#FFT_Oanda_Direction_SHORT
-  commentId: F:FFT.Oanda.Direction.SHORT
-  fullName: FFT.Oanda.Direction.SHORT
-  nameWithType: Direction.SHORT
 - uid: FFT.Oanda.DynamicOrderState
   name: DynamicOrderState
   href: api/FFT.Oanda.DynamicOrderState.html
@@ -4197,15 +4179,15 @@ references:
   commentId: T:FFT.Oanda.Orders.CreateOrderResponse
   fullName: FFT.Oanda.Orders.CreateOrderResponse
   nameWithType: CreateOrderResponse
-- uid: FFT.Oanda.Orders.CreateOrderResponse.#ctor(FFT.Oanda.Transactions.Transaction,FFT.Oanda.Transactions.OrderFillTransaction,FFT.Oanda.Transactions.OrderCancelTransaction,FFT.Oanda.Transactions.Transaction,FFT.Oanda.Transactions.Transaction,ImmutableList{System.String},System.String)
-  name: CreateOrderResponse(Transaction, OrderFillTransaction, OrderCancelTransaction, Transaction, Transaction, ImmutableList<String>, String)
-  href: api/FFT.Oanda.Orders.CreateOrderResponse.html#FFT_Oanda_Orders_CreateOrderResponse__ctor_FFT_Oanda_Transactions_Transaction_FFT_Oanda_Transactions_OrderFillTransaction_FFT_Oanda_Transactions_OrderCancelTransaction_FFT_Oanda_Transactions_Transaction_FFT_Oanda_Transactions_Transaction_ImmutableList_System_String__System_String_
-  commentId: M:FFT.Oanda.Orders.CreateOrderResponse.#ctor(FFT.Oanda.Transactions.Transaction,FFT.Oanda.Transactions.OrderFillTransaction,FFT.Oanda.Transactions.OrderCancelTransaction,FFT.Oanda.Transactions.Transaction,FFT.Oanda.Transactions.Transaction,ImmutableList{System.String},System.String)
-  name.vb: CreateOrderResponse(Transaction, OrderFillTransaction, OrderCancelTransaction, Transaction, Transaction, ImmutableList(Of String), String)
-  fullName: FFT.Oanda.Orders.CreateOrderResponse.CreateOrderResponse(FFT.Oanda.Transactions.Transaction, FFT.Oanda.Transactions.OrderFillTransaction, FFT.Oanda.Transactions.OrderCancelTransaction, FFT.Oanda.Transactions.Transaction, FFT.Oanda.Transactions.Transaction, ImmutableList<System.String>, System.String)
-  fullName.vb: FFT.Oanda.Orders.CreateOrderResponse.CreateOrderResponse(FFT.Oanda.Transactions.Transaction, FFT.Oanda.Transactions.OrderFillTransaction, FFT.Oanda.Transactions.OrderCancelTransaction, FFT.Oanda.Transactions.Transaction, FFT.Oanda.Transactions.Transaction, ImmutableList(Of System.String), System.String)
-  nameWithType: CreateOrderResponse.CreateOrderResponse(Transaction, OrderFillTransaction, OrderCancelTransaction, Transaction, Transaction, ImmutableList<String>, String)
-  nameWithType.vb: CreateOrderResponse.CreateOrderResponse(Transaction, OrderFillTransaction, OrderCancelTransaction, Transaction, Transaction, ImmutableList(Of String), String)
+- uid: FFT.Oanda.Orders.CreateOrderResponse.#ctor(FFT.Oanda.Transactions.Transaction,FFT.Oanda.Transactions.OrderFillTransaction,FFT.Oanda.Transactions.OrderCancelTransaction,FFT.Oanda.Transactions.Transaction,FFT.Oanda.Transactions.Transaction,ImmutableList{System.Int32},System.Int32)
+  name: CreateOrderResponse(Transaction, OrderFillTransaction, OrderCancelTransaction, Transaction, Transaction, ImmutableList<Int32>, Int32)
+  href: api/FFT.Oanda.Orders.CreateOrderResponse.html#FFT_Oanda_Orders_CreateOrderResponse__ctor_FFT_Oanda_Transactions_Transaction_FFT_Oanda_Transactions_OrderFillTransaction_FFT_Oanda_Transactions_OrderCancelTransaction_FFT_Oanda_Transactions_Transaction_FFT_Oanda_Transactions_Transaction_ImmutableList_System_Int32__System_Int32_
+  commentId: M:FFT.Oanda.Orders.CreateOrderResponse.#ctor(FFT.Oanda.Transactions.Transaction,FFT.Oanda.Transactions.OrderFillTransaction,FFT.Oanda.Transactions.OrderCancelTransaction,FFT.Oanda.Transactions.Transaction,FFT.Oanda.Transactions.Transaction,ImmutableList{System.Int32},System.Int32)
+  name.vb: CreateOrderResponse(Transaction, OrderFillTransaction, OrderCancelTransaction, Transaction, Transaction, ImmutableList(Of Int32), Int32)
+  fullName: FFT.Oanda.Orders.CreateOrderResponse.CreateOrderResponse(FFT.Oanda.Transactions.Transaction, FFT.Oanda.Transactions.OrderFillTransaction, FFT.Oanda.Transactions.OrderCancelTransaction, FFT.Oanda.Transactions.Transaction, FFT.Oanda.Transactions.Transaction, ImmutableList<System.Int32>, System.Int32)
+  fullName.vb: FFT.Oanda.Orders.CreateOrderResponse.CreateOrderResponse(FFT.Oanda.Transactions.Transaction, FFT.Oanda.Transactions.OrderFillTransaction, FFT.Oanda.Transactions.OrderCancelTransaction, FFT.Oanda.Transactions.Transaction, FFT.Oanda.Transactions.Transaction, ImmutableList(Of System.Int32), System.Int32)
+  nameWithType: CreateOrderResponse.CreateOrderResponse(Transaction, OrderFillTransaction, OrderCancelTransaction, Transaction, Transaction, ImmutableList<Int32>, Int32)
+  nameWithType.vb: CreateOrderResponse.CreateOrderResponse(Transaction, OrderFillTransaction, OrderCancelTransaction, Transaction, Transaction, ImmutableList(Of Int32), Int32)
 - uid: FFT.Oanda.Orders.CreateOrderResponse.#ctor*
   name: CreateOrderResponse
   href: api/FFT.Oanda.Orders.CreateOrderResponse.html#FFT_Oanda_Orders_CreateOrderResponse__ctor_
@@ -4419,12 +4401,12 @@ references:
   commentId: T:FFT.Oanda.Orders.GetSingleOrderResponse
   fullName: FFT.Oanda.Orders.GetSingleOrderResponse
   nameWithType: GetSingleOrderResponse
-- uid: FFT.Oanda.Orders.GetSingleOrderResponse.#ctor(FFT.Oanda.Orders.Order,System.String)
-  name: GetSingleOrderResponse(Order, String)
-  href: api/FFT.Oanda.Orders.GetSingleOrderResponse.html#FFT_Oanda_Orders_GetSingleOrderResponse__ctor_FFT_Oanda_Orders_Order_System_String_
-  commentId: M:FFT.Oanda.Orders.GetSingleOrderResponse.#ctor(FFT.Oanda.Orders.Order,System.String)
-  fullName: FFT.Oanda.Orders.GetSingleOrderResponse.GetSingleOrderResponse(FFT.Oanda.Orders.Order, System.String)
-  nameWithType: GetSingleOrderResponse.GetSingleOrderResponse(Order, String)
+- uid: FFT.Oanda.Orders.GetSingleOrderResponse.#ctor(FFT.Oanda.Orders.Order,System.Int32)
+  name: GetSingleOrderResponse(Order, Int32)
+  href: api/FFT.Oanda.Orders.GetSingleOrderResponse.html#FFT_Oanda_Orders_GetSingleOrderResponse__ctor_FFT_Oanda_Orders_Order_System_Int32_
+  commentId: M:FFT.Oanda.Orders.GetSingleOrderResponse.#ctor(FFT.Oanda.Orders.Order,System.Int32)
+  fullName: FFT.Oanda.Orders.GetSingleOrderResponse.GetSingleOrderResponse(FFT.Oanda.Orders.Order, System.Int32)
+  nameWithType: GetSingleOrderResponse.GetSingleOrderResponse(Order, Int32)
 - uid: FFT.Oanda.Orders.GetSingleOrderResponse.#ctor*
   name: GetSingleOrderResponse
   href: api/FFT.Oanda.Orders.GetSingleOrderResponse.html#FFT_Oanda_Orders_GetSingleOrderResponse__ctor_
@@ -6450,15 +6432,15 @@ references:
   commentId: T:FFT.Oanda.Orders.ReplaceOrderResponse
   fullName: FFT.Oanda.Orders.ReplaceOrderResponse
   nameWithType: ReplaceOrderResponse
-- uid: FFT.Oanda.Orders.ReplaceOrderResponse.#ctor(FFT.Oanda.Transactions.OrderCancelTransaction,FFT.Oanda.Transactions.Transaction,FFT.Oanda.Transactions.OrderFillTransaction,FFT.Oanda.Transactions.Transaction,FFT.Oanda.Transactions.Transaction,FFT.Oanda.Transactions.OrderCancelTransaction,ImmutableList{System.String},System.String)
-  name: ReplaceOrderResponse(OrderCancelTransaction, Transaction, OrderFillTransaction, Transaction, Transaction, OrderCancelTransaction, ImmutableList<String>, String)
-  href: api/FFT.Oanda.Orders.ReplaceOrderResponse.html#FFT_Oanda_Orders_ReplaceOrderResponse__ctor_FFT_Oanda_Transactions_OrderCancelTransaction_FFT_Oanda_Transactions_Transaction_FFT_Oanda_Transactions_OrderFillTransaction_FFT_Oanda_Transactions_Transaction_FFT_Oanda_Transactions_Transaction_FFT_Oanda_Transactions_OrderCancelTransaction_ImmutableList_System_String__System_String_
-  commentId: M:FFT.Oanda.Orders.ReplaceOrderResponse.#ctor(FFT.Oanda.Transactions.OrderCancelTransaction,FFT.Oanda.Transactions.Transaction,FFT.Oanda.Transactions.OrderFillTransaction,FFT.Oanda.Transactions.Transaction,FFT.Oanda.Transactions.Transaction,FFT.Oanda.Transactions.OrderCancelTransaction,ImmutableList{System.String},System.String)
-  name.vb: ReplaceOrderResponse(OrderCancelTransaction, Transaction, OrderFillTransaction, Transaction, Transaction, OrderCancelTransaction, ImmutableList(Of String), String)
-  fullName: FFT.Oanda.Orders.ReplaceOrderResponse.ReplaceOrderResponse(FFT.Oanda.Transactions.OrderCancelTransaction, FFT.Oanda.Transactions.Transaction, FFT.Oanda.Transactions.OrderFillTransaction, FFT.Oanda.Transactions.Transaction, FFT.Oanda.Transactions.Transaction, FFT.Oanda.Transactions.OrderCancelTransaction, ImmutableList<System.String>, System.String)
-  fullName.vb: FFT.Oanda.Orders.ReplaceOrderResponse.ReplaceOrderResponse(FFT.Oanda.Transactions.OrderCancelTransaction, FFT.Oanda.Transactions.Transaction, FFT.Oanda.Transactions.OrderFillTransaction, FFT.Oanda.Transactions.Transaction, FFT.Oanda.Transactions.Transaction, FFT.Oanda.Transactions.OrderCancelTransaction, ImmutableList(Of System.String), System.String)
-  nameWithType: ReplaceOrderResponse.ReplaceOrderResponse(OrderCancelTransaction, Transaction, OrderFillTransaction, Transaction, Transaction, OrderCancelTransaction, ImmutableList<String>, String)
-  nameWithType.vb: ReplaceOrderResponse.ReplaceOrderResponse(OrderCancelTransaction, Transaction, OrderFillTransaction, Transaction, Transaction, OrderCancelTransaction, ImmutableList(Of String), String)
+- uid: FFT.Oanda.Orders.ReplaceOrderResponse.#ctor(FFT.Oanda.Transactions.OrderCancelTransaction,FFT.Oanda.Transactions.Transaction,FFT.Oanda.Transactions.OrderFillTransaction,FFT.Oanda.Transactions.Transaction,FFT.Oanda.Transactions.Transaction,FFT.Oanda.Transactions.OrderCancelTransaction,ImmutableList{System.String},System.Int32)
+  name: ReplaceOrderResponse(OrderCancelTransaction, Transaction, OrderFillTransaction, Transaction, Transaction, OrderCancelTransaction, ImmutableList<String>, Int32)
+  href: api/FFT.Oanda.Orders.ReplaceOrderResponse.html#FFT_Oanda_Orders_ReplaceOrderResponse__ctor_FFT_Oanda_Transactions_OrderCancelTransaction_FFT_Oanda_Transactions_Transaction_FFT_Oanda_Transactions_OrderFillTransaction_FFT_Oanda_Transactions_Transaction_FFT_Oanda_Transactions_Transaction_FFT_Oanda_Transactions_OrderCancelTransaction_ImmutableList_System_String__System_Int32_
+  commentId: M:FFT.Oanda.Orders.ReplaceOrderResponse.#ctor(FFT.Oanda.Transactions.OrderCancelTransaction,FFT.Oanda.Transactions.Transaction,FFT.Oanda.Transactions.OrderFillTransaction,FFT.Oanda.Transactions.Transaction,FFT.Oanda.Transactions.Transaction,FFT.Oanda.Transactions.OrderCancelTransaction,ImmutableList{System.String},System.Int32)
+  name.vb: ReplaceOrderResponse(OrderCancelTransaction, Transaction, OrderFillTransaction, Transaction, Transaction, OrderCancelTransaction, ImmutableList(Of String), Int32)
+  fullName: FFT.Oanda.Orders.ReplaceOrderResponse.ReplaceOrderResponse(FFT.Oanda.Transactions.OrderCancelTransaction, FFT.Oanda.Transactions.Transaction, FFT.Oanda.Transactions.OrderFillTransaction, FFT.Oanda.Transactions.Transaction, FFT.Oanda.Transactions.Transaction, FFT.Oanda.Transactions.OrderCancelTransaction, ImmutableList<System.String>, System.Int32)
+  fullName.vb: FFT.Oanda.Orders.ReplaceOrderResponse.ReplaceOrderResponse(FFT.Oanda.Transactions.OrderCancelTransaction, FFT.Oanda.Transactions.Transaction, FFT.Oanda.Transactions.OrderFillTransaction, FFT.Oanda.Transactions.Transaction, FFT.Oanda.Transactions.Transaction, FFT.Oanda.Transactions.OrderCancelTransaction, ImmutableList(Of System.String), System.Int32)
+  nameWithType: ReplaceOrderResponse.ReplaceOrderResponse(OrderCancelTransaction, Transaction, OrderFillTransaction, Transaction, Transaction, OrderCancelTransaction, ImmutableList<String>, Int32)
+  nameWithType.vb: ReplaceOrderResponse.ReplaceOrderResponse(OrderCancelTransaction, Transaction, OrderFillTransaction, Transaction, Transaction, OrderCancelTransaction, ImmutableList(Of String), Int32)
 - uid: FFT.Oanda.Orders.ReplaceOrderResponse.#ctor*
   name: ReplaceOrderResponse
   href: api/FFT.Oanda.Orders.ReplaceOrderResponse.html#FFT_Oanda_Orders_ReplaceOrderResponse__ctor_
@@ -7364,12 +7346,12 @@ references:
   commentId: T:FFT.Oanda.Positions.GetPositionResponse
   fullName: FFT.Oanda.Positions.GetPositionResponse
   nameWithType: GetPositionResponse
-- uid: FFT.Oanda.Positions.GetPositionResponse.#ctor(FFT.Oanda.Positions.Position,System.String)
-  name: GetPositionResponse(Position, String)
-  href: api/FFT.Oanda.Positions.GetPositionResponse.html#FFT_Oanda_Positions_GetPositionResponse__ctor_FFT_Oanda_Positions_Position_System_String_
-  commentId: M:FFT.Oanda.Positions.GetPositionResponse.#ctor(FFT.Oanda.Positions.Position,System.String)
-  fullName: FFT.Oanda.Positions.GetPositionResponse.GetPositionResponse(FFT.Oanda.Positions.Position, System.String)
-  nameWithType: GetPositionResponse.GetPositionResponse(Position, String)
+- uid: FFT.Oanda.Positions.GetPositionResponse.#ctor(FFT.Oanda.Positions.Position,System.Int32)
+  name: GetPositionResponse(Position, Int32)
+  href: api/FFT.Oanda.Positions.GetPositionResponse.html#FFT_Oanda_Positions_GetPositionResponse__ctor_FFT_Oanda_Positions_Position_System_Int32_
+  commentId: M:FFT.Oanda.Positions.GetPositionResponse.#ctor(FFT.Oanda.Positions.Position,System.Int32)
+  fullName: FFT.Oanda.Positions.GetPositionResponse.GetPositionResponse(FFT.Oanda.Positions.Position, System.Int32)
+  nameWithType: GetPositionResponse.GetPositionResponse(Position, Int32)
 - uid: FFT.Oanda.Positions.GetPositionResponse.#ctor*
   name: GetPositionResponse
   href: api/FFT.Oanda.Positions.GetPositionResponse.html#FFT_Oanda_Positions_GetPositionResponse__ctor_
@@ -7409,15 +7391,15 @@ references:
   commentId: T:FFT.Oanda.Positions.GetPositionsResponse
   fullName: FFT.Oanda.Positions.GetPositionsResponse
   nameWithType: GetPositionsResponse
-- uid: FFT.Oanda.Positions.GetPositionsResponse.#ctor(ImmutableList{FFT.Oanda.Positions.Position},System.String)
-  name: GetPositionsResponse(ImmutableList<Position>, String)
-  href: api/FFT.Oanda.Positions.GetPositionsResponse.html#FFT_Oanda_Positions_GetPositionsResponse__ctor_ImmutableList_FFT_Oanda_Positions_Position__System_String_
-  commentId: M:FFT.Oanda.Positions.GetPositionsResponse.#ctor(ImmutableList{FFT.Oanda.Positions.Position},System.String)
-  name.vb: GetPositionsResponse(ImmutableList(Of Position), String)
-  fullName: FFT.Oanda.Positions.GetPositionsResponse.GetPositionsResponse(ImmutableList<FFT.Oanda.Positions.Position>, System.String)
-  fullName.vb: FFT.Oanda.Positions.GetPositionsResponse.GetPositionsResponse(ImmutableList(Of FFT.Oanda.Positions.Position), System.String)
-  nameWithType: GetPositionsResponse.GetPositionsResponse(ImmutableList<Position>, String)
-  nameWithType.vb: GetPositionsResponse.GetPositionsResponse(ImmutableList(Of Position), String)
+- uid: FFT.Oanda.Positions.GetPositionsResponse.#ctor(ImmutableList{FFT.Oanda.Positions.Position},System.Int32)
+  name: GetPositionsResponse(ImmutableList<Position>, Int32)
+  href: api/FFT.Oanda.Positions.GetPositionsResponse.html#FFT_Oanda_Positions_GetPositionsResponse__ctor_ImmutableList_FFT_Oanda_Positions_Position__System_Int32_
+  commentId: M:FFT.Oanda.Positions.GetPositionsResponse.#ctor(ImmutableList{FFT.Oanda.Positions.Position},System.Int32)
+  name.vb: GetPositionsResponse(ImmutableList(Of Position), Int32)
+  fullName: FFT.Oanda.Positions.GetPositionsResponse.GetPositionsResponse(ImmutableList<FFT.Oanda.Positions.Position>, System.Int32)
+  fullName.vb: FFT.Oanda.Positions.GetPositionsResponse.GetPositionsResponse(ImmutableList(Of FFT.Oanda.Positions.Position), System.Int32)
+  nameWithType: GetPositionsResponse.GetPositionsResponse(ImmutableList<Position>, Int32)
+  nameWithType.vb: GetPositionsResponse.GetPositionsResponse(ImmutableList(Of Position), Int32)
 - uid: FFT.Oanda.Positions.GetPositionsResponse.#ctor*
   name: GetPositionsResponse
   href: api/FFT.Oanda.Positions.GetPositionsResponse.html#FFT_Oanda_Positions_GetPositionsResponse__ctor_
@@ -8988,15 +8970,15 @@ references:
   commentId: T:FFT.Oanda.Trades.TradeClientExtensionsUpdateResponse
   fullName: FFT.Oanda.Trades.TradeClientExtensionsUpdateResponse
   nameWithType: TradeClientExtensionsUpdateResponse
-- uid: FFT.Oanda.Trades.TradeClientExtensionsUpdateResponse.#ctor(FFT.Oanda.Transactions.TradeClientExtensionsModifyTransaction,ImmutableList{System.String},System.String)
-  name: TradeClientExtensionsUpdateResponse(TradeClientExtensionsModifyTransaction, ImmutableList<String>, String)
-  href: api/FFT.Oanda.Trades.TradeClientExtensionsUpdateResponse.html#FFT_Oanda_Trades_TradeClientExtensionsUpdateResponse__ctor_FFT_Oanda_Transactions_TradeClientExtensionsModifyTransaction_ImmutableList_System_String__System_String_
-  commentId: M:FFT.Oanda.Trades.TradeClientExtensionsUpdateResponse.#ctor(FFT.Oanda.Transactions.TradeClientExtensionsModifyTransaction,ImmutableList{System.String},System.String)
-  name.vb: TradeClientExtensionsUpdateResponse(TradeClientExtensionsModifyTransaction, ImmutableList(Of String), String)
-  fullName: FFT.Oanda.Trades.TradeClientExtensionsUpdateResponse.TradeClientExtensionsUpdateResponse(FFT.Oanda.Transactions.TradeClientExtensionsModifyTransaction, ImmutableList<System.String>, System.String)
-  fullName.vb: FFT.Oanda.Trades.TradeClientExtensionsUpdateResponse.TradeClientExtensionsUpdateResponse(FFT.Oanda.Transactions.TradeClientExtensionsModifyTransaction, ImmutableList(Of System.String), System.String)
-  nameWithType: TradeClientExtensionsUpdateResponse.TradeClientExtensionsUpdateResponse(TradeClientExtensionsModifyTransaction, ImmutableList<String>, String)
-  nameWithType.vb: TradeClientExtensionsUpdateResponse.TradeClientExtensionsUpdateResponse(TradeClientExtensionsModifyTransaction, ImmutableList(Of String), String)
+- uid: FFT.Oanda.Trades.TradeClientExtensionsUpdateResponse.#ctor(FFT.Oanda.Transactions.TradeClientExtensionsModifyTransaction,ImmutableList{System.String},System.Int32)
+  name: TradeClientExtensionsUpdateResponse(TradeClientExtensionsModifyTransaction, ImmutableList<String>, Int32)
+  href: api/FFT.Oanda.Trades.TradeClientExtensionsUpdateResponse.html#FFT_Oanda_Trades_TradeClientExtensionsUpdateResponse__ctor_FFT_Oanda_Transactions_TradeClientExtensionsModifyTransaction_ImmutableList_System_String__System_Int32_
+  commentId: M:FFT.Oanda.Trades.TradeClientExtensionsUpdateResponse.#ctor(FFT.Oanda.Transactions.TradeClientExtensionsModifyTransaction,ImmutableList{System.String},System.Int32)
+  name.vb: TradeClientExtensionsUpdateResponse(TradeClientExtensionsModifyTransaction, ImmutableList(Of String), Int32)
+  fullName: FFT.Oanda.Trades.TradeClientExtensionsUpdateResponse.TradeClientExtensionsUpdateResponse(FFT.Oanda.Transactions.TradeClientExtensionsModifyTransaction, ImmutableList<System.String>, System.Int32)
+  fullName.vb: FFT.Oanda.Trades.TradeClientExtensionsUpdateResponse.TradeClientExtensionsUpdateResponse(FFT.Oanda.Transactions.TradeClientExtensionsModifyTransaction, ImmutableList(Of System.String), System.Int32)
+  nameWithType: TradeClientExtensionsUpdateResponse.TradeClientExtensionsUpdateResponse(TradeClientExtensionsModifyTransaction, ImmutableList<String>, Int32)
+  nameWithType.vb: TradeClientExtensionsUpdateResponse.TradeClientExtensionsUpdateResponse(TradeClientExtensionsModifyTransaction, ImmutableList(Of String), Int32)
 - uid: FFT.Oanda.Trades.TradeClientExtensionsUpdateResponse.#ctor*
   name: TradeClientExtensionsUpdateResponse
   href: api/FFT.Oanda.Trades.TradeClientExtensionsUpdateResponse.html#FFT_Oanda_Trades_TradeClientExtensionsUpdateResponse__ctor_
@@ -9680,12 +9662,12 @@ references:
   commentId: T:FFT.Oanda.TransactionHeartbeat
   fullName: FFT.Oanda.TransactionHeartbeat
   nameWithType: TransactionHeartbeat
-- uid: FFT.Oanda.TransactionHeartbeat.#ctor(System.String,System.String,DateTime)
-  name: TransactionHeartbeat(String, String, DateTime)
-  href: api/FFT.Oanda.TransactionHeartbeat.html#FFT_Oanda_TransactionHeartbeat__ctor_System_String_System_String_DateTime_
-  commentId: M:FFT.Oanda.TransactionHeartbeat.#ctor(System.String,System.String,DateTime)
-  fullName: FFT.Oanda.TransactionHeartbeat.TransactionHeartbeat(System.String, System.String, DateTime)
-  nameWithType: TransactionHeartbeat.TransactionHeartbeat(String, String, DateTime)
+- uid: FFT.Oanda.TransactionHeartbeat.#ctor(System.String,System.Int32,DateTime)
+  name: TransactionHeartbeat(String, Int32, DateTime)
+  href: api/FFT.Oanda.TransactionHeartbeat.html#FFT_Oanda_TransactionHeartbeat__ctor_System_String_System_Int32_DateTime_
+  commentId: M:FFT.Oanda.TransactionHeartbeat.#ctor(System.String,System.Int32,DateTime)
+  fullName: FFT.Oanda.TransactionHeartbeat.TransactionHeartbeat(System.String, System.Int32, DateTime)
+  nameWithType: TransactionHeartbeat.TransactionHeartbeat(String, Int32, DateTime)
 - uid: FFT.Oanda.TransactionHeartbeat.#ctor*
   name: TransactionHeartbeat
   href: api/FFT.Oanda.TransactionHeartbeat.html#FFT_Oanda_TransactionHeartbeat__ctor_
@@ -11599,12 +11581,12 @@ references:
   commentId: T:FFT.Oanda.Transactions.GetTransactionResponse
   fullName: FFT.Oanda.Transactions.GetTransactionResponse
   nameWithType: GetTransactionResponse
-- uid: FFT.Oanda.Transactions.GetTransactionResponse.#ctor(FFT.Oanda.Transactions.Transaction,System.String)
-  name: GetTransactionResponse(Transaction, String)
-  href: api/FFT.Oanda.Transactions.GetTransactionResponse.html#FFT_Oanda_Transactions_GetTransactionResponse__ctor_FFT_Oanda_Transactions_Transaction_System_String_
-  commentId: M:FFT.Oanda.Transactions.GetTransactionResponse.#ctor(FFT.Oanda.Transactions.Transaction,System.String)
-  fullName: FFT.Oanda.Transactions.GetTransactionResponse.GetTransactionResponse(FFT.Oanda.Transactions.Transaction, System.String)
-  nameWithType: GetTransactionResponse.GetTransactionResponse(Transaction, String)
+- uid: FFT.Oanda.Transactions.GetTransactionResponse.#ctor(FFT.Oanda.Transactions.Transaction,System.Int32)
+  name: GetTransactionResponse(Transaction, Int32)
+  href: api/FFT.Oanda.Transactions.GetTransactionResponse.html#FFT_Oanda_Transactions_GetTransactionResponse__ctor_FFT_Oanda_Transactions_Transaction_System_Int32_
+  commentId: M:FFT.Oanda.Transactions.GetTransactionResponse.#ctor(FFT.Oanda.Transactions.Transaction,System.Int32)
+  fullName: FFT.Oanda.Transactions.GetTransactionResponse.GetTransactionResponse(FFT.Oanda.Transactions.Transaction, System.Int32)
+  nameWithType: GetTransactionResponse.GetTransactionResponse(Transaction, Int32)
 - uid: FFT.Oanda.Transactions.GetTransactionResponse.#ctor*
   name: GetTransactionResponse
   href: api/FFT.Oanda.Transactions.GetTransactionResponse.html#FFT_Oanda_Transactions_GetTransactionResponse__ctor_
@@ -14406,15 +14388,15 @@ references:
   commentId: T:FFT.Oanda.Transactions.TradeOpen
   fullName: FFT.Oanda.Transactions.TradeOpen
   nameWithType: TradeOpen
-- uid: FFT.Oanda.Transactions.TradeOpen.#ctor(System.String,System.Decimal,System.Decimal,System.Nullable{System.Decimal},System.Nullable{System.Decimal},FFT.Oanda.ClientExtensions,System.Decimal,System.Decimal)
-  name: TradeOpen(String, Decimal, Decimal, Nullable<Decimal>, Nullable<Decimal>, ClientExtensions, Decimal, Decimal)
-  href: api/FFT.Oanda.Transactions.TradeOpen.html#FFT_Oanda_Transactions_TradeOpen__ctor_System_String_System_Decimal_System_Decimal_System_Nullable_System_Decimal__System_Nullable_System_Decimal__FFT_Oanda_ClientExtensions_System_Decimal_System_Decimal_
-  commentId: M:FFT.Oanda.Transactions.TradeOpen.#ctor(System.String,System.Decimal,System.Decimal,System.Nullable{System.Decimal},System.Nullable{System.Decimal},FFT.Oanda.ClientExtensions,System.Decimal,System.Decimal)
-  name.vb: TradeOpen(String, Decimal, Decimal, Nullable(Of Decimal), Nullable(Of Decimal), ClientExtensions, Decimal, Decimal)
-  fullName: FFT.Oanda.Transactions.TradeOpen.TradeOpen(System.String, System.Decimal, System.Decimal, System.Nullable<System.Decimal>, System.Nullable<System.Decimal>, FFT.Oanda.ClientExtensions, System.Decimal, System.Decimal)
-  fullName.vb: FFT.Oanda.Transactions.TradeOpen.TradeOpen(System.String, System.Decimal, System.Decimal, System.Nullable(Of System.Decimal), System.Nullable(Of System.Decimal), FFT.Oanda.ClientExtensions, System.Decimal, System.Decimal)
-  nameWithType: TradeOpen.TradeOpen(String, Decimal, Decimal, Nullable<Decimal>, Nullable<Decimal>, ClientExtensions, Decimal, Decimal)
-  nameWithType.vb: TradeOpen.TradeOpen(String, Decimal, Decimal, Nullable(Of Decimal), Nullable(Of Decimal), ClientExtensions, Decimal, Decimal)
+- uid: FFT.Oanda.Transactions.TradeOpen.#ctor(System.Int32,System.Decimal,System.Decimal,System.Nullable{System.Decimal},System.Nullable{System.Decimal},FFT.Oanda.ClientExtensions,System.Decimal,System.Decimal)
+  name: TradeOpen(Int32, Decimal, Decimal, Nullable<Decimal>, Nullable<Decimal>, ClientExtensions, Decimal, Decimal)
+  href: api/FFT.Oanda.Transactions.TradeOpen.html#FFT_Oanda_Transactions_TradeOpen__ctor_System_Int32_System_Decimal_System_Decimal_System_Nullable_System_Decimal__System_Nullable_System_Decimal__FFT_Oanda_ClientExtensions_System_Decimal_System_Decimal_
+  commentId: M:FFT.Oanda.Transactions.TradeOpen.#ctor(System.Int32,System.Decimal,System.Decimal,System.Nullable{System.Decimal},System.Nullable{System.Decimal},FFT.Oanda.ClientExtensions,System.Decimal,System.Decimal)
+  name.vb: TradeOpen(Int32, Decimal, Decimal, Nullable(Of Decimal), Nullable(Of Decimal), ClientExtensions, Decimal, Decimal)
+  fullName: FFT.Oanda.Transactions.TradeOpen.TradeOpen(System.Int32, System.Decimal, System.Decimal, System.Nullable<System.Decimal>, System.Nullable<System.Decimal>, FFT.Oanda.ClientExtensions, System.Decimal, System.Decimal)
+  fullName.vb: FFT.Oanda.Transactions.TradeOpen.TradeOpen(System.Int32, System.Decimal, System.Decimal, System.Nullable(Of System.Decimal), System.Nullable(Of System.Decimal), FFT.Oanda.ClientExtensions, System.Decimal, System.Decimal)
+  nameWithType: TradeOpen.TradeOpen(Int32, Decimal, Decimal, Nullable<Decimal>, Nullable<Decimal>, ClientExtensions, Decimal, Decimal)
+  nameWithType.vb: TradeOpen.TradeOpen(Int32, Decimal, Decimal, Nullable(Of Decimal), Nullable(Of Decimal), ClientExtensions, Decimal, Decimal)
 - uid: FFT.Oanda.Transactions.TradeOpen.#ctor*
   name: TradeOpen
   href: api/FFT.Oanda.Transactions.TradeOpen.html#FFT_Oanda_Transactions_TradeOpen__ctor_
@@ -15502,15 +15484,15 @@ references:
   commentId: T:FFT.Oanda.UpdateOrderClientExtensionsResponse
   fullName: FFT.Oanda.UpdateOrderClientExtensionsResponse
   nameWithType: UpdateOrderClientExtensionsResponse
-- uid: FFT.Oanda.UpdateOrderClientExtensionsResponse.#ctor(FFT.Oanda.Transactions.OrderClientExtensionsModifyTransaction,System.String,ImmutableList{System.String})
-  name: UpdateOrderClientExtensionsResponse(OrderClientExtensionsModifyTransaction, String, ImmutableList<String>)
-  href: api/FFT.Oanda.UpdateOrderClientExtensionsResponse.html#FFT_Oanda_UpdateOrderClientExtensionsResponse__ctor_FFT_Oanda_Transactions_OrderClientExtensionsModifyTransaction_System_String_ImmutableList_System_String__
-  commentId: M:FFT.Oanda.UpdateOrderClientExtensionsResponse.#ctor(FFT.Oanda.Transactions.OrderClientExtensionsModifyTransaction,System.String,ImmutableList{System.String})
-  name.vb: UpdateOrderClientExtensionsResponse(OrderClientExtensionsModifyTransaction, String, ImmutableList(Of String))
-  fullName: FFT.Oanda.UpdateOrderClientExtensionsResponse.UpdateOrderClientExtensionsResponse(FFT.Oanda.Transactions.OrderClientExtensionsModifyTransaction, System.String, ImmutableList<System.String>)
-  fullName.vb: FFT.Oanda.UpdateOrderClientExtensionsResponse.UpdateOrderClientExtensionsResponse(FFT.Oanda.Transactions.OrderClientExtensionsModifyTransaction, System.String, ImmutableList(Of System.String))
-  nameWithType: UpdateOrderClientExtensionsResponse.UpdateOrderClientExtensionsResponse(OrderClientExtensionsModifyTransaction, String, ImmutableList<String>)
-  nameWithType.vb: UpdateOrderClientExtensionsResponse.UpdateOrderClientExtensionsResponse(OrderClientExtensionsModifyTransaction, String, ImmutableList(Of String))
+- uid: FFT.Oanda.UpdateOrderClientExtensionsResponse.#ctor(FFT.Oanda.Transactions.OrderClientExtensionsModifyTransaction,System.Int32,ImmutableList{System.String})
+  name: UpdateOrderClientExtensionsResponse(OrderClientExtensionsModifyTransaction, Int32, ImmutableList<String>)
+  href: api/FFT.Oanda.UpdateOrderClientExtensionsResponse.html#FFT_Oanda_UpdateOrderClientExtensionsResponse__ctor_FFT_Oanda_Transactions_OrderClientExtensionsModifyTransaction_System_Int32_ImmutableList_System_String__
+  commentId: M:FFT.Oanda.UpdateOrderClientExtensionsResponse.#ctor(FFT.Oanda.Transactions.OrderClientExtensionsModifyTransaction,System.Int32,ImmutableList{System.String})
+  name.vb: UpdateOrderClientExtensionsResponse(OrderClientExtensionsModifyTransaction, Int32, ImmutableList(Of String))
+  fullName: FFT.Oanda.UpdateOrderClientExtensionsResponse.UpdateOrderClientExtensionsResponse(FFT.Oanda.Transactions.OrderClientExtensionsModifyTransaction, System.Int32, ImmutableList<System.String>)
+  fullName.vb: FFT.Oanda.UpdateOrderClientExtensionsResponse.UpdateOrderClientExtensionsResponse(FFT.Oanda.Transactions.OrderClientExtensionsModifyTransaction, System.Int32, ImmutableList(Of System.String))
+  nameWithType: UpdateOrderClientExtensionsResponse.UpdateOrderClientExtensionsResponse(OrderClientExtensionsModifyTransaction, Int32, ImmutableList<String>)
+  nameWithType.vb: UpdateOrderClientExtensionsResponse.UpdateOrderClientExtensionsResponse(OrderClientExtensionsModifyTransaction, Int32, ImmutableList(Of String))
 - uid: FFT.Oanda.UpdateOrderClientExtensionsResponse.#ctor*
   name: UpdateOrderClientExtensionsResponse
   href: api/FFT.Oanda.UpdateOrderClientExtensionsResponse.html#FFT_Oanda_UpdateOrderClientExtensionsResponse__ctor_
