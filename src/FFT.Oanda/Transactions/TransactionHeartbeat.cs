@@ -5,6 +5,7 @@ namespace FFT.Oanda
 {
   using System;
   using System.Text.Json.Serialization;
+  using FFT.Oanda.JsonConverters;
 
   /// <summary>
   /// A TransactionHeartbeat object is injected into the Transaction stream to
@@ -16,7 +17,7 @@ namespace FFT.Oanda
     /// Initializes a new instance of the <see cref="TransactionHeartbeat"/> class.
     /// </summary>
     [JsonConstructor]
-    public TransactionHeartbeat(string type, string lastTransactionId, DateTime time)
+    public TransactionHeartbeat(string type, int lastTransactionId, DateTime time)
     {
       Type = type;
       LastTransactionId = lastTransactionId;
@@ -31,7 +32,8 @@ namespace FFT.Oanda
     /// <summary>
     /// The ID of the most recent Transaction created for the Account.
     /// </summary>
-    public string LastTransactionId { get; }
+    [JsonConverter(typeof(Int32StringConverter))]
+    public int LastTransactionId { get; }
 
     /// <summary>
     /// The date/time when the TransactionHeartbeat was created.

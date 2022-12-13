@@ -4,6 +4,7 @@
 namespace FFT.Oanda.Accounts
 {
   using System.Text.Json.Serialization;
+  using FFT.Oanda.JsonConverters;
 
   /// <summary>
   /// Provides the account state and changes.
@@ -18,7 +19,7 @@ namespace FFT.Oanda.Accounts
     public AccountChangesResponse(
       AccountChanges? changes,
       AccountChangesState state,
-      string lastTransactionID)
+      int lastTransactionID)
     {
       Changes = changes;
       State = state;
@@ -42,6 +43,7 @@ namespace FFT.Oanda.Accounts
     /// ID should be used for future poll requests, as the client has already
     /// observed all changes up to and including it.
     /// </summary>
-    public string LastTransactionID { get; }
+    [JsonConverter(typeof(Int32StringConverter))]
+    public int LastTransactionID { get; }
   }
 }

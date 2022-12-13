@@ -4,6 +4,7 @@
 namespace FFT.Oanda.Accounts
 {
   using System.Text.Json.Serialization;
+  using FFT.Oanda.JsonConverters;
   using FFT.Oanda.Transactions;
 
   /// <summary>
@@ -20,7 +21,7 @@ namespace FFT.Oanda.Accounts
     [JsonConstructor]
     public AccountConfigurationResponse(
       ClientConfigureTransaction clientConfigureTransaction,
-      string lastTransactionID)
+      int lastTransactionID)
     {
       ClientConfigureTransaction = clientConfigureTransaction;
       LastTransactionID = lastTransactionID;
@@ -34,6 +35,7 @@ namespace FFT.Oanda.Accounts
     /// <summary>
     /// The ID of the last Transaction created for the Account.
     /// </summary>
-    public string LastTransactionID { get; }
+    [JsonConverter(typeof(Int32StringConverter))]
+    public int LastTransactionID { get; }
   }
 }

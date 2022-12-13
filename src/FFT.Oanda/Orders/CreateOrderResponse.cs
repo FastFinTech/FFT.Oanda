@@ -5,6 +5,7 @@ namespace FFT.Oanda.Orders
 {
   using System.Collections.Immutable;
   using System.Text.Json.Serialization;
+  using FFT.Oanda.JsonConverters;
   using FFT.Oanda.Orders.OrderRequests;
   using FFT.Oanda.Transactions;
 
@@ -25,8 +26,8 @@ namespace FFT.Oanda.Orders
       OrderCancelTransaction? orderCancelTransaction,
       Transaction? orderReissueTransaction,
       Transaction? orderReissueRejectTransaction,
-      ImmutableList<string> relatedTransactionIDs,
-      string lastTransactionID)
+      ImmutableList<int> relatedTransactionIDs,
+      int lastTransactionID)
     {
       OrderCreateTransaction = orderCreateTransaction;
       OrderFillTransaction = orderFillTransaction;
@@ -72,11 +73,12 @@ namespace FFT.Oanda.Orders
     /// The IDs of all Transactions that were created while satisfying the
     /// request.
     /// </summary>
-    public ImmutableList<string> RelatedTransactionIDs { get; }
+    public ImmutableList<int> RelatedTransactionIDs { get; }
 
     /// <summary>
     /// The ID of the most recent Transaction created for the Account.
     /// </summary>
-    public string LastTransactionID { get; }
+    [JsonConverter(typeof(Int32StringConverter))]
+    public int LastTransactionID { get; }
   }
 }

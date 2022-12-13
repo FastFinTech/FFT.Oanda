@@ -6,6 +6,7 @@ namespace FFT.Oanda.Accounts
   using System.Collections.Immutable;
   using System.Text.Json.Serialization;
   using FFT.Oanda.Instruments;
+  using FFT.Oanda.JsonConverters;
 
   /// <summary>
   /// The list of tradeable instruments for the Account.
@@ -18,7 +19,7 @@ namespace FFT.Oanda.Accounts
     [JsonConstructor]
     public AccountInstrumentListResponse(
       ImmutableList<Instrument> instruments,
-      string lastTransactionId)
+      int lastTransactionId)
     {
       Instruments = instruments;
       LastTransactionId = lastTransactionId;
@@ -32,6 +33,7 @@ namespace FFT.Oanda.Accounts
     /// <summary>
     /// The Id of the most recent transaction generated for the account.
     /// </summary>
-    public string LastTransactionId { get; }
+    [JsonConverter(typeof(Int32StringConverter))]
+    public int LastTransactionId { get; }
   }
 }

@@ -5,6 +5,7 @@ namespace FFT.Oanda.Positions
 {
   using System.Collections.Immutable;
   using System.Text.Json.Serialization;
+  using FFT.Oanda.JsonConverters;
 
   /// <summary>
   /// Returned by the <see cref="OandaApiClient.GetPositions(string, CancellationToken)"/> method.
@@ -18,7 +19,7 @@ namespace FFT.Oanda.Positions
     [JsonConstructor]
     public GetPositionsResponse(
       ImmutableList<Position> positions,
-      string lastTransactionID)
+      int lastTransactionID)
     {
       Positions = positions;
       LastTransactionID = lastTransactionID;
@@ -32,6 +33,7 @@ namespace FFT.Oanda.Positions
     /// <summary>
     /// The ID of the most recent Transaction created for the Account.
     /// </summary>
-    public string LastTransactionID { get; }
+    [JsonConverter(typeof(Int32StringConverter))]
+    public int LastTransactionID { get; }
   }
 }
