@@ -4,6 +4,7 @@
 namespace FFT.Oanda.Trades
 {
   using System.Text.Json.Serialization;
+  using FFT.Oanda.JsonConverters;
 
   /// <summary>
   /// Returned by the <see cref="OandaApiClient.GetTrade(string, string, CancellationToken)"/>
@@ -17,7 +18,7 @@ namespace FFT.Oanda.Trades
     [JsonConstructor]
     public GetTradeResponse(
       Trade trade,
-      string lastTransactionId)
+      int lastTransactionId)
     {
       Trade = trade;
       LastTransactionId = lastTransactionId;
@@ -31,6 +32,7 @@ namespace FFT.Oanda.Trades
     /// <summary>
     /// The ID of the most recent Transaction created for the Account.
     /// </summary>
-    public string LastTransactionId { get; }
+    [JsonConverter(typeof(Int32StringConverter))]
+    public int LastTransactionId { get; }
   }
 }

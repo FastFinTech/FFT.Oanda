@@ -5,6 +5,7 @@ namespace FFT.Oanda.Trades
 {
   using System.Collections.Immutable;
   using System.Text.Json.Serialization;
+  using FFT.Oanda.JsonConverters;
   using FFT.Oanda.Orders;
   using FFT.Oanda.Transactions;
 
@@ -32,8 +33,8 @@ namespace FFT.Oanda.Trades
       TrailingStopLossOrderTransaction? trailingStopLossOrderTransaction,
       OrderCancelTransaction? guaranteedStopLossOrderCancelTransaction,
       GuaranteedStopLossOrderTransaction? guaranteedStopLossOrderTransaction,
-      ImmutableList<string> relatedTransactionIDs,
-      string lastTransactionID)
+      ImmutableList<int> relatedTransactionIDs,
+      int lastTransactionID)
     {
       TakeProfitOrderCancelTransaction = takeProfitOrderCancelTransaction;
       TakeProfitOrderTransaction = takeProfitOrderTransaction;
@@ -129,11 +130,12 @@ namespace FFT.Oanda.Trades
     /// The IDs of all Transactions that were created while satisfying the
     /// request.
     /// </summary>
-    public ImmutableList<string> RelatedTransactionIDs { get; }
+    public ImmutableList<int> RelatedTransactionIDs { get; }
 
     /// <summary>
     /// The ID of the most recent Transaction created for the Account.
     /// </summary>
-    public string LastTransactionID { get; }
+    [JsonConverter(typeof(Int32StringConverter))]
+    public int LastTransactionID { get; }
   }
 }

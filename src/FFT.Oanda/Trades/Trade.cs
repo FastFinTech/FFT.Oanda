@@ -6,6 +6,7 @@ namespace FFT.Oanda.Trades
   using System;
   using System.Collections.Immutable;
   using System.Text.Json.Serialization;
+  using FFT.Oanda.JsonConverters;
   using FFT.Oanda.Orders;
 
   /// <summary>
@@ -23,7 +24,7 @@ namespace FFT.Oanda.Trades
     /// </summary>
     [JsonConstructor]
     public Trade(
-      string id,
+      int id,
       string instrument,
       decimal price,
       DateTime openTime,
@@ -69,7 +70,8 @@ namespace FFT.Oanda.Trades
     /// <summary>
     /// The Trade’s identifier, unique within the Trade’s Account.
     /// </summary>
-    public string Id { get; }
+    [JsonConverter(typeof(Int32StringConverter))]
+    public int Id { get; }
 
     /// <summary>
     /// The Trade’s Instrument.

@@ -725,7 +725,7 @@ namespace FFT.Oanda
     /// <param name="beforeId">The maximum Trade ID to return. If not provided the most recent Trades in the Account are returned.</param>
     /// <param name="tradeIds">List of Trade IDs to retrieve. Only supply this if you wish to specify exactly which trades you need the information for.</param>
     /// <param name="cancellationToken">Cancels the operation.</param>
-    public async Task<GetTradesResponse> GetTrades(string accountId, TradeStateFilter state = TradeStateFilter.OPEN, string? instrument = null, int count = 50, string? beforeId = null, string[]? tradeIds = null, CancellationToken cancellationToken = default)
+    public async Task<GetTradesResponse> GetTrades(string accountId, TradeStateFilter state = TradeStateFilter.OPEN, string? instrument = null, int count = 50, int? beforeId = null, int[]? tradeIds = null, CancellationToken cancellationToken = default)
     {
       // TODO: Check if state is actually a csv list.
 
@@ -738,8 +738,8 @@ namespace FFT.Oanda
         { "count", count.ToString(CultureInfo.InvariantCulture) },
       };
 
-      if (!string.IsNullOrWhiteSpace(beforeId))
-        query.Add("beforeID", beforeId);
+      if (beforeId is not null)
+        query.Add("beforeID", beforeId.Value.ToString());
 
       if (tradeIds is { Length: > 0 })
         query.Add("ids", string.Join(',', tradeIds));

@@ -4,6 +4,7 @@
 namespace FFT.Oanda.Trades
 {
   using System.Text.Json.Serialization;
+  using FFT.Oanda.JsonConverters;
 
   /// <summary>
   /// The dynamic (calculated) state of an open Trade.
@@ -25,6 +26,7 @@ namespace FFT.Oanda.Trades
     /// <summary>
     /// The Trade’s ID.
     /// </summary>
+    [JsonConverter(typeof(Int32StringConverter))]
     public int Id { get; }
 
     /// <summary>
