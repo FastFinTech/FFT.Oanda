@@ -3,9 +3,6 @@
 
 namespace FFT.Oanda
 {
-  using System.Text.Json.Serialization;
-  using FFT.Oanda.JsonConverters;
-
   /// <summary>
   /// Allows a client to attach a clientID, tag and comment to orders and trades
   /// in their account. Do not set, modify, or delete this field if your account

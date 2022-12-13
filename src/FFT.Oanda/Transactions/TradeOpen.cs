@@ -17,7 +17,7 @@ namespace FFT.Oanda.Transactions
     /// </summary>
     [JsonConstructor]
     public TradeOpen(
-      string tradeID,
+      int tradeID,
       decimal units,
       decimal price,
       decimal? guaranteedExecutionFee,
@@ -39,7 +39,7 @@ namespace FFT.Oanda.Transactions
     /// <summary>
     /// The ID of the Trade that was opened.
     /// </summary>
-    public string TradeID { get; }
+    public int TradeID { get; }
 
     /// <summary>
     /// The number of units opened by the Trade.
