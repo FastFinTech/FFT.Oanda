@@ -77,7 +77,7 @@
   
   <h1 id="FFT_Oanda_Orders_GetOrdersResponse" data-uid="FFT.Oanda.Orders.GetOrdersResponse" class="text-break">Class GetOrdersResponse
   </h1>
-  <div class="markdown level0 summary"><p>Returned by the <see cref="!:OandaApiClient.GetOrders(string, string?, OrderStateFilter, int, string, string[], CancellationToken)"></see> and the <a class="xref" href="FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetPendingOrders_System_String_CancellationToken_">GetPendingOrders(String, CancellationToken)</a> methods.</p>
+  <div class="markdown level0 summary"><p>Returned by the <a class="xref" href="FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetOrders_System_String_System_Nullable_System_String__FFT_Oanda_Orders_OrderStateFilter_System_Int32_System_Nullable_System_Int32__System_Int32___CancellationToken_">GetOrders(String, Nullable&lt;String&gt;, OrderStateFilter, Int32, Nullable&lt;Int32&gt;, Int32[], CancellationToken)</a> and the <a class="xref" href="FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetPendingOrders_System_String_CancellationToken_">GetPendingOrders(String, CancellationToken)</a> methods.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -95,19 +95,19 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_GetOrdersResponse__ctor_ImmutableList_FFT_Oanda_Orders_Order__System_String_.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.GetOrdersResponse.%23ctor(ImmutableList%7BFFT.Oanda.Orders.Order%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_GetOrdersResponse__ctor_ImmutableList_FFT_Oanda_Orders_Order__System_Int32_.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.GetOrdersResponse.%23ctor(ImmutableList%7BFFT.Oanda.Orders.Order%7D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/GetOrdersResponse.cs/#L18">View Source</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/GetOrdersResponse.cs/#L17">View Source</a>
   </span>
   <a id="FFT_Oanda_Orders_GetOrdersResponse__ctor_" data-uid="FFT.Oanda.Orders.GetOrdersResponse.#ctor*"></a>
-  <h4 id="FFT_Oanda_Orders_GetOrdersResponse__ctor_ImmutableList_FFT_Oanda_Orders_Order__System_String_" data-uid="FFT.Oanda.Orders.GetOrdersResponse.#ctor(ImmutableList{FFT.Oanda.Orders.Order},System.String)">GetOrdersResponse(ImmutableList&lt;Order&gt;, String)</h4>
+  <h4 id="FFT_Oanda_Orders_GetOrdersResponse__ctor_ImmutableList_FFT_Oanda_Orders_Order__System_Int32_" data-uid="FFT.Oanda.Orders.GetOrdersResponse.#ctor(ImmutableList{FFT.Oanda.Orders.Order},System.Int32)">GetOrdersResponse(ImmutableList&lt;Order&gt;, Int32)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FFT.Oanda.Orders.GetOrdersResponse.html">GetOrdersResponse</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public GetOrdersResponse(ImmutableList&lt;Order&gt; orders, string lastTransactionId)</code></pre>
+    <pre><code class="lang-csharp hljs">public GetOrdersResponse(ImmutableList&lt;Order&gt; orders, int lastTransactionId)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -125,7 +125,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">lastTransactionId</span></td>
         <td></td>
       </tr>
@@ -138,7 +138,7 @@
     <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_GetOrdersResponse_LastTransactionId.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.GetOrdersResponse.LastTransactionId%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/GetOrdersResponse.cs/#L36">View Source</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/GetOrdersResponse.cs/#L35">View Source</a>
   </span>
   <a id="FFT_Oanda_Orders_GetOrdersResponse_LastTransactionId_" data-uid="FFT.Oanda.Orders.GetOrdersResponse.LastTransactionId*"></a>
   <h4 id="FFT_Oanda_Orders_GetOrdersResponse_LastTransactionId" data-uid="FFT.Oanda.Orders.GetOrdersResponse.LastTransactionId">LastTransactionId</h4>
@@ -147,7 +147,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string LastTransactionId { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int LastTransactionId { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -159,7 +159,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">System.Int32</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -169,7 +169,7 @@
     <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_GetOrdersResponse_Orders.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.GetOrdersResponse.Orders%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/GetOrdersResponse.cs/#L31">View Source</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/GetOrdersResponse.cs/#L30">View Source</a>
   </span>
   <a id="FFT_Oanda_Orders_GetOrdersResponse_Orders_" data-uid="FFT.Oanda.Orders.GetOrdersResponse.Orders*"></a>
   <h4 id="FFT_Oanda_Orders_GetOrdersResponse_Orders" data-uid="FFT.Oanda.Orders.GetOrdersResponse.Orders">Orders</h4>
@@ -207,7 +207,7 @@ the type of order.</p>
                     <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_Orders_GetOrdersResponse.md&amp;value=---%0Auid%3A%20FFT.Oanda.Orders.GetOrdersResponse%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/GetOrdersResponse.cs/#L13" class="contribution-link">View Source</a>
+                    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/Orders/GetOrdersResponse.cs/#L12" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

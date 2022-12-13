@@ -1778,12 +1778,15 @@ references:
   commentId: T:FFT.Oanda.ClientExtensions
   fullName: FFT.Oanda.ClientExtensions
   nameWithType: ClientExtensions
-- uid: FFT.Oanda.ClientExtensions.#ctor(System.String,System.String,System.String)
-  name: ClientExtensions(String, String, String)
-  href: api/FFT.Oanda.ClientExtensions.html#FFT_Oanda_ClientExtensions__ctor_System_String_System_String_System_String_
-  commentId: M:FFT.Oanda.ClientExtensions.#ctor(System.String,System.String,System.String)
-  fullName: FFT.Oanda.ClientExtensions.ClientExtensions(System.String, System.String, System.String)
-  nameWithType: ClientExtensions.ClientExtensions(String, String, String)
+- uid: FFT.Oanda.ClientExtensions.#ctor(System.Nullable{System.String},System.Nullable{System.String},System.Nullable{System.String})
+  name: ClientExtensions(Nullable<String>, Nullable<String>, Nullable<String>)
+  href: api/FFT.Oanda.ClientExtensions.html#FFT_Oanda_ClientExtensions__ctor_System_Nullable_System_String__System_Nullable_System_String__System_Nullable_System_String__
+  commentId: M:FFT.Oanda.ClientExtensions.#ctor(System.Nullable{System.String},System.Nullable{System.String},System.Nullable{System.String})
+  name.vb: ClientExtensions(Nullable(Of String), Nullable(Of String), Nullable(Of String))
+  fullName: FFT.Oanda.ClientExtensions.ClientExtensions(System.Nullable<System.String>, System.Nullable<System.String>, System.Nullable<System.String>)
+  fullName.vb: FFT.Oanda.ClientExtensions.ClientExtensions(System.Nullable(Of System.String), System.Nullable(Of System.String), System.Nullable(Of System.String))
+  nameWithType: ClientExtensions.ClientExtensions(Nullable<String>, Nullable<String>, Nullable<String>)
+  nameWithType.vb: ClientExtensions.ClientExtensions(Nullable(Of String), Nullable(Of String), Nullable(Of String))
 - uid: FFT.Oanda.ClientExtensions.#ctor*
   name: ClientExtensions
   href: api/FFT.Oanda.ClientExtensions.html#FFT_Oanda_ClientExtensions__ctor_
@@ -3595,15 +3598,15 @@ references:
   isSpec: "True"
   fullName: FFT.Oanda.OandaApiClient.GetAccount
   nameWithType: OandaApiClient.GetAccount
-- uid: FFT.Oanda.OandaApiClient.GetAccountChanges(System.String,System.Nullable{System.String},CancellationToken)
-  name: GetAccountChanges(String, Nullable<String>, CancellationToken)
-  href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetAccountChanges_System_String_System_Nullable_System_String__CancellationToken_
-  commentId: M:FFT.Oanda.OandaApiClient.GetAccountChanges(System.String,System.Nullable{System.String},CancellationToken)
-  name.vb: GetAccountChanges(String, Nullable(Of String), CancellationToken)
-  fullName: FFT.Oanda.OandaApiClient.GetAccountChanges(System.String, System.Nullable<System.String>, CancellationToken)
-  fullName.vb: FFT.Oanda.OandaApiClient.GetAccountChanges(System.String, System.Nullable(Of System.String), CancellationToken)
-  nameWithType: OandaApiClient.GetAccountChanges(String, Nullable<String>, CancellationToken)
-  nameWithType.vb: OandaApiClient.GetAccountChanges(String, Nullable(Of String), CancellationToken)
+- uid: FFT.Oanda.OandaApiClient.GetAccountChanges(System.String,System.Nullable{System.Int32},CancellationToken)
+  name: GetAccountChanges(String, Nullable<Int32>, CancellationToken)
+  href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetAccountChanges_System_String_System_Nullable_System_Int32__CancellationToken_
+  commentId: M:FFT.Oanda.OandaApiClient.GetAccountChanges(System.String,System.Nullable{System.Int32},CancellationToken)
+  name.vb: GetAccountChanges(String, Nullable(Of Int32), CancellationToken)
+  fullName: FFT.Oanda.OandaApiClient.GetAccountChanges(System.String, System.Nullable<System.Int32>, CancellationToken)
+  fullName.vb: FFT.Oanda.OandaApiClient.GetAccountChanges(System.String, System.Nullable(Of System.Int32), CancellationToken)
+  nameWithType: OandaApiClient.GetAccountChanges(String, Nullable<Int32>, CancellationToken)
+  nameWithType.vb: OandaApiClient.GetAccountChanges(String, Nullable(Of Int32), CancellationToken)
 - uid: FFT.Oanda.OandaApiClient.GetAccountChanges*
   name: GetAccountChanges
   href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetAccountChanges_
@@ -3748,15 +3751,15 @@ references:
   isSpec: "True"
   fullName: FFT.Oanda.OandaApiClient.GetOrderBook
   nameWithType: OandaApiClient.GetOrderBook
-- uid: FFT.Oanda.OandaApiClient.GetOrders(System.String,System.Nullable{System.String},FFT.Oanda.Orders.OrderStateFilter,System.Int32,System.Nullable{System.String},System.String[],CancellationToken)
-  name: GetOrders(String, Nullable<String>, OrderStateFilter, Int32, Nullable<String>, String[], CancellationToken)
-  href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetOrders_System_String_System_Nullable_System_String__FFT_Oanda_Orders_OrderStateFilter_System_Int32_System_Nullable_System_String__System_String___CancellationToken_
-  commentId: M:FFT.Oanda.OandaApiClient.GetOrders(System.String,System.Nullable{System.String},FFT.Oanda.Orders.OrderStateFilter,System.Int32,System.Nullable{System.String},System.String[],CancellationToken)
-  name.vb: GetOrders(String, Nullable(Of String), OrderStateFilter, Int32, Nullable(Of String), String(), CancellationToken)
-  fullName: FFT.Oanda.OandaApiClient.GetOrders(System.String, System.Nullable<System.String>, FFT.Oanda.Orders.OrderStateFilter, System.Int32, System.Nullable<System.String>, System.String[], CancellationToken)
-  fullName.vb: FFT.Oanda.OandaApiClient.GetOrders(System.String, System.Nullable(Of System.String), FFT.Oanda.Orders.OrderStateFilter, System.Int32, System.Nullable(Of System.String), System.String(), CancellationToken)
-  nameWithType: OandaApiClient.GetOrders(String, Nullable<String>, OrderStateFilter, Int32, Nullable<String>, String[], CancellationToken)
-  nameWithType.vb: OandaApiClient.GetOrders(String, Nullable(Of String), OrderStateFilter, Int32, Nullable(Of String), String(), CancellationToken)
+- uid: FFT.Oanda.OandaApiClient.GetOrders(System.String,System.Nullable{System.String},FFT.Oanda.Orders.OrderStateFilter,System.Int32,System.Nullable{System.Int32},System.Int32[],CancellationToken)
+  name: GetOrders(String, Nullable<String>, OrderStateFilter, Int32, Nullable<Int32>, Int32[], CancellationToken)
+  href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetOrders_System_String_System_Nullable_System_String__FFT_Oanda_Orders_OrderStateFilter_System_Int32_System_Nullable_System_Int32__System_Int32___CancellationToken_
+  commentId: M:FFT.Oanda.OandaApiClient.GetOrders(System.String,System.Nullable{System.String},FFT.Oanda.Orders.OrderStateFilter,System.Int32,System.Nullable{System.Int32},System.Int32[],CancellationToken)
+  name.vb: GetOrders(String, Nullable(Of String), OrderStateFilter, Int32, Nullable(Of Int32), Int32(), CancellationToken)
+  fullName: FFT.Oanda.OandaApiClient.GetOrders(System.String, System.Nullable<System.String>, FFT.Oanda.Orders.OrderStateFilter, System.Int32, System.Nullable<System.Int32>, System.Int32[], CancellationToken)
+  fullName.vb: FFT.Oanda.OandaApiClient.GetOrders(System.String, System.Nullable(Of System.String), FFT.Oanda.Orders.OrderStateFilter, System.Int32, System.Nullable(Of System.Int32), System.Int32(), CancellationToken)
+  nameWithType: OandaApiClient.GetOrders(String, Nullable<String>, OrderStateFilter, Int32, Nullable<Int32>, Int32[], CancellationToken)
+  nameWithType.vb: OandaApiClient.GetOrders(String, Nullable(Of String), OrderStateFilter, Int32, Nullable(Of Int32), Int32(), CancellationToken)
 - uid: FFT.Oanda.OandaApiClient.GetOrders*
   name: GetOrders
   href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetOrders_
@@ -4368,15 +4371,15 @@ references:
   commentId: T:FFT.Oanda.Orders.GetOrdersResponse
   fullName: FFT.Oanda.Orders.GetOrdersResponse
   nameWithType: GetOrdersResponse
-- uid: FFT.Oanda.Orders.GetOrdersResponse.#ctor(ImmutableList{FFT.Oanda.Orders.Order},System.String)
-  name: GetOrdersResponse(ImmutableList<Order>, String)
-  href: api/FFT.Oanda.Orders.GetOrdersResponse.html#FFT_Oanda_Orders_GetOrdersResponse__ctor_ImmutableList_FFT_Oanda_Orders_Order__System_String_
-  commentId: M:FFT.Oanda.Orders.GetOrdersResponse.#ctor(ImmutableList{FFT.Oanda.Orders.Order},System.String)
-  name.vb: GetOrdersResponse(ImmutableList(Of Order), String)
-  fullName: FFT.Oanda.Orders.GetOrdersResponse.GetOrdersResponse(ImmutableList<FFT.Oanda.Orders.Order>, System.String)
-  fullName.vb: FFT.Oanda.Orders.GetOrdersResponse.GetOrdersResponse(ImmutableList(Of FFT.Oanda.Orders.Order), System.String)
-  nameWithType: GetOrdersResponse.GetOrdersResponse(ImmutableList<Order>, String)
-  nameWithType.vb: GetOrdersResponse.GetOrdersResponse(ImmutableList(Of Order), String)
+- uid: FFT.Oanda.Orders.GetOrdersResponse.#ctor(ImmutableList{FFT.Oanda.Orders.Order},System.Int32)
+  name: GetOrdersResponse(ImmutableList<Order>, Int32)
+  href: api/FFT.Oanda.Orders.GetOrdersResponse.html#FFT_Oanda_Orders_GetOrdersResponse__ctor_ImmutableList_FFT_Oanda_Orders_Order__System_Int32_
+  commentId: M:FFT.Oanda.Orders.GetOrdersResponse.#ctor(ImmutableList{FFT.Oanda.Orders.Order},System.Int32)
+  name.vb: GetOrdersResponse(ImmutableList(Of Order), Int32)
+  fullName: FFT.Oanda.Orders.GetOrdersResponse.GetOrdersResponse(ImmutableList<FFT.Oanda.Orders.Order>, System.Int32)
+  fullName.vb: FFT.Oanda.Orders.GetOrdersResponse.GetOrdersResponse(ImmutableList(Of FFT.Oanda.Orders.Order), System.Int32)
+  nameWithType: GetOrdersResponse.GetOrdersResponse(ImmutableList<Order>, Int32)
+  nameWithType.vb: GetOrdersResponse.GetOrdersResponse(ImmutableList(Of Order), Int32)
 - uid: FFT.Oanda.Orders.GetOrdersResponse.#ctor*
   name: GetOrdersResponse
   href: api/FFT.Oanda.Orders.GetOrdersResponse.html#FFT_Oanda_Orders_GetOrdersResponse__ctor_
