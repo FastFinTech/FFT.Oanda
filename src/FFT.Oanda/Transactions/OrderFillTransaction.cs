@@ -14,7 +14,7 @@ public sealed record OrderFillTransaction : Transaction
   /// <summary>
   /// The ID of the Order filled.
   /// </summary>
-  public string OrderID { get; init; }
+  public int OrderID { get; init; }
 
   /// <summary>
   /// The client Order ID of the Order filled (only provided if the client has
