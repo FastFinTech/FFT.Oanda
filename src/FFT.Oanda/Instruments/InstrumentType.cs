@@ -1,29 +1,28 @@
 ﻿// Copyright (c) True Goodwill. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-namespace FFT.Oanda.Instruments
+namespace FFT.Oanda.Instruments;
+
+using System.Text.Json.Serialization;
+
+/// <summary>
+/// The type of an Instrument.
+/// </summary>
+[JsonConverter(typeof(JsonStringEnumConverter))]
+public enum InstrumentType
 {
-  using System.Text.Json.Serialization;
+  /// <summary>
+  /// Currency.
+  /// </summary>
+  CURRENCY,
 
   /// <summary>
-  /// The type of an Instrument.
+  /// Contract For Difference.
   /// </summary>
-  [JsonConverter(typeof(JsonStringEnumConverter))]
-  public enum InstrumentType
-  {
-    /// <summary>
-    /// Currency.
-    /// </summary>
-    CURRENCY,
+  CFD,
 
-    /// <summary>
-    /// Contract For Difference.
-    /// </summary>
-    CFD,
-
-    /// <summary>
-    /// Metal.
-    /// </summary>
-    METAL,
-  }
+  /// <summary>
+  /// Metal.
+  /// </summary>
+  METAL,
 }

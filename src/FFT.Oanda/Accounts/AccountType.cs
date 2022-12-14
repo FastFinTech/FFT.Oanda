@@ -1,21 +1,20 @@
 ﻿// Copyright (c) True Goodwill. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-namespace FFT.Oanda.Accounts
+namespace FFT.Oanda.Accounts;
+
+/// <summary>
+/// Used to define which account api endpoint you wish to connect to.
+/// </summary>
+public enum AccountType
 {
   /// <summary>
-  /// Used to define which account api endpoint you wish to connect to.
+  /// A real-money account.
   /// </summary>
-  public enum AccountType
-  {
-    /// <summary>
-    /// A real-money account.
-    /// </summary>
-    Real,
+  Real,
 
-    /// <summary>
-    /// A practice account with pretend money.
-    /// </summary>
-    Practice,
-  }
+  /// <summary>
+  /// A practice account with pretend money.
+  /// </summary>
+  Practice,
 }

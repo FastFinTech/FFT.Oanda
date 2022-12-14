@@ -1,50 +1,49 @@
 ﻿// Copyright (c) True Goodwill. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-namespace FFT.Oanda.Instruments
+namespace FFT.Oanda.Instruments;
+
+using System.Text.Json.Serialization;
+
+/// <summary>
+/// The day of the week to use for candlestick granularities with weekly
+/// alignment.
+/// </summary>
+[JsonConverter(typeof(JsonStringEnumConverter))]
+public enum WeeklyAlignment
 {
-  using System.Text.Json.Serialization;
+  /// <summary>
+  /// Sunday.
+  /// </summary>
+  SUNDAY,
 
   /// <summary>
-  /// The day of the week to use for candlestick granularities with weekly
-  /// alignment.
+  /// Monday.
   /// </summary>
-  [JsonConverter(typeof(JsonStringEnumConverter))]
-  public enum WeeklyAlignment
-  {
-    /// <summary>
-    /// Sunday.
-    /// </summary>
-    SUNDAY,
+  MONDAY,
 
-    /// <summary>
-    /// Monday.
-    /// </summary>
-    MONDAY,
+  /// <summary>
+  /// Tuesday.
+  /// </summary>
+  TUESDAY,
 
-    /// <summary>
-    /// Tuesday.
-    /// </summary>
-    TUESDAY,
+  /// <summary>
+  /// Wednesday.
+  /// </summary>
+  WEDNESDAY,
 
-    /// <summary>
-    /// Wednesday.
-    /// </summary>
-    WEDNESDAY,
+  /// <summary>
+  /// Thursday.
+  /// </summary>
+  THURSDAY,
 
-    /// <summary>
-    /// Thursday.
-    /// </summary>
-    THURSDAY,
+  /// <summary>
+  /// Friday.
+  /// </summary>
+  FRIDAY,
 
-    /// <summary>
-    /// Friday.
-    /// </summary>
-    FRIDAY,
-
-    /// <summary>
-    /// Saturday.
-    /// </summary>
-    SATURDAY,
-  }
+  /// <summary>
+  /// Saturday.
+  /// </summary>
+  SATURDAY,
 }
