@@ -89,10 +89,6 @@ method when the order is successfully canceled.</p>
       <section><p>Returned by the <a class="xref" href="FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_CreateOrder__1_System_String___0_CancellationToken_">CreateOrder&lt;TOrderRequest&gt;(String, TOrderRequest, CancellationToken)</a>
 method and contains information about the result of an order request.</p>
 </section>
-      <h4><a class="xref" href="FFT.Oanda.Orders.FixedPriceOrder.html">FixedPriceOrder</a></h4>
-      <section><p>A FixedPriceOrder is an order that is filled immediately upon creation
-using a fixed price.</p>
-</section>
       <h4><a class="xref" href="FFT.Oanda.Orders.GetOrdersResponse.html">GetOrdersResponse</a></h4>
       <section><p>Returned by the <a class="xref" href="FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetOrders_System_String_System_Nullable_System_String__FFT_Oanda_Orders_OrderStateFilter_System_Int32_System_Nullable_System_Int32__System_Int32___CancellationToken_">GetOrders(String, Nullable&lt;String&gt;, OrderStateFilter, Int32, Nullable&lt;Int32&gt;, Int32[], CancellationToken)</a> and the <a class="xref" href="FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetPendingOrders_System_String_CancellationToken_">GetPendingOrders(String, CancellationToken)</a> methods.</p>
 </section>
@@ -107,16 +103,6 @@ is filled that opens a Trade requiring a Guaranteed Stop Loss, or when a
 Trade’s dependent Guaranteed Stop Loss Order is modified directly through
 the Trade.</p>
 </section>
-      <h4><a class="xref" href="FFT.Oanda.Orders.GuaranteedStopLossOrder.html">GuaranteedStopLossOrder</a></h4>
-      <section><p>A GuaranteedStopLossOrder is an order that is linked to an open Trade and
-created with a price threshold which is guaranteed against slippage that
-may occur as the market crosses the price set for that order. The Order
-will be filled (closing the Trade) by the first price that is equal to or
-worse than the threshold. The price level specified for the
-GuaranteedStopLossOrder must be at least the configured minimum distance
-(in price units) away from the entry price for the traded instrument. A
-GuaranteedStopLossOrder cannot be used to open a new Position.</p>
-</section>
       <h4><a class="xref" href="FFT.Oanda.Orders.GuaranteedStopLossOrderEntryData.html">GuaranteedStopLossOrderEntryData</a></h4>
       <section><p>Details required by clients creating a Guaranteed Stop Loss Order.</p>
 </section>
@@ -124,19 +110,6 @@ GuaranteedStopLossOrder cannot be used to open a new Position.</p>
       <section><p>A GuaranteedStopLossOrderLevelRestriction represents the total position
 size that can exist within a given price window for Trades with guaranteed
 Stop Loss Orders attached for a specific Instrument.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Orders.LimitOrder.html">LimitOrder</a></h4>
-      <section><p>A LimitOrder is an order that is created with a price threshold, and will
-only be filled by a price that is equal to or better than the threshold.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Orders.MarketIfTouchedOrder.html">MarketIfTouchedOrder</a></h4>
-      <section><p>A MarketIfTouchedOrder is an order that is created with a price threshold,
-and will only be filled by a market price that touches or crosses the
-threshold.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Orders.MarketOrder.html">MarketOrder</a></h4>
-      <section><p>A MarketOrder is an order that is filled immediately upon creation using
-the current market price.</p>
 </section>
       <h4><a class="xref" href="FFT.Oanda.Orders.MarketOrderDelayedTradeClose.html">MarketOrderDelayedTradeClose</a></h4>
       <section><p>Details for the Market Order extensions specific to a Market Order placed
@@ -155,12 +128,6 @@ when it has been created to closeout a specific Position.</p>
       <section><p>A MarketOrderTradeClose specifies the extensions to a Market Order that
 has been created specifically to close a Trade.</p>
 </section>
-      <h4><a class="xref" href="FFT.Oanda.Orders.Order.html">Order</a></h4>
-      <section><p>The base Order definition specifies the properties that are common to all
-orders. Implemented by: MarketOrder, FixedPriceOrder, LimitOrder,
-StopOrder, MarketIfTouchedOrder, TakeProfitOrder, StopLossOrder,
-GuaranteedStopLossOrder, TrailingStopLossOrder.</p>
-</section>
       <h4><a class="xref" href="FFT.Oanda.Orders.OrderIdentifier.html">OrderIdentifier</a></h4>
       <section><p>An OrderIdentifier is used to refer to an Order, and contains both the
 OrderID and the ClientOrderID.</p>
@@ -175,27 +142,11 @@ on behalf of a client. This may happen when an Order is filled that opens
 a Trade requiring a Stop Loss, or when a Trade’s dependent Stop Loss Order
 is modified directly through the Trade.</p>
 </section>
-      <h4><a class="xref" href="FFT.Oanda.Orders.StopLossOrder.html">StopLossOrder</a></h4>
-      <section><p>A StopLossOrder is an order that is linked to an open Trade and created
-with a price threshold. The Order will be filled (closing the Trade) by
-the first price that is equal to or worse than the threshold. A
-StopLossOrder cannot be used to open a new Position.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Orders.StopOrder.html">StopOrder</a></h4>
-      <section><p>A StopOrder is an order that is created with a price threshold, and will
-only be filled by a price that is equal to or worse than the threshold.</p>
-</section>
       <h4><a class="xref" href="FFT.Oanda.Orders.TakeProfitDetails.html">TakeProfitDetails</a></h4>
       <section><p>TakeProfitDetails specifies the details of a Take Profit Order to be
 created on behalf of a client. This may happen when an Order is filled
 that opens a Trade requiring a Take Profit, or when a Trade’s dependent
 Take Profit Order is modified directly through the Trade.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Orders.TakeProfitOrder.html">TakeProfitOrder</a></h4>
-      <section><p>A TakeProfitOrder is an order that is linked to an open Trade and created
-with a price threshold. The Order will be filled (closing the Trade) by
-the first price that is equal to or better than the threshold. A
-TakeProfitOrder cannot be used to open a new Position.</p>
 </section>
       <h4><a class="xref" href="FFT.Oanda.Orders.TrailingStopLossDetails.html">TrailingStopLossDetails</a></h4>
       <section><p>TrailingStopLossDetails specifies the details of a Trailing Stop Loss
@@ -203,16 +154,6 @@ Order to be created on behalf of a client. This may happen when an Order
 is filled that opens a Trade requiring a Trailing Stop Loss, or when a
 Trade’s dependent Trailing Stop Loss Order is modified directly through
 the Trade.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Orders.TrailingStopLossOrder.html">TrailingStopLossOrder</a></h4>
-      <section><p>A TrailingStopLossOrder is an order that is linked to an open Trade and
-created with a price distance. The price distance is used to calculate a
-trailing stop value for the order that is in the losing direction from the
-market price at the time of the order’s creation. The trailing stop value
-will follow the market price as it moves in the winning direction, and the
-order will filled (closing the Trade) by the first price that is equal to
-or worse than the trailing stop value. A TrailingStopLossOrder cannot be
-used to open a new Position.</p>
 </section>
     <h3 id="enums">Enums
   </h3>
