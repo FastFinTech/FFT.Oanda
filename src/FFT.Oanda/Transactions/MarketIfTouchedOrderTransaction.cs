@@ -9,7 +9,7 @@ using FFT.Oanda.Orders;
 /// A MarketIfTouchedOrderTransaction represents the creation of a
 /// MarketIfTouched Order in the user’s Account.
 /// </summary>
-public record MarketIfTouchedOrderTransaction : OpeningOrderTransaction
+public sealed record MarketIfTouchedOrderTransaction : OpeningOrderTransaction
 {
   /// <summary>
   /// The price threshold specified for the MarketIfTouched Order. The

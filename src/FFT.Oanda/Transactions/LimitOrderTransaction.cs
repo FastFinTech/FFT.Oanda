@@ -9,7 +9,7 @@ using FFT.Oanda.Orders;
 /// A LimitOrderTransaction represents the creation of a Limit Order in the
 /// user’s Account.
 /// </summary>
-public record LimitOrderTransaction : OpeningOrderTransaction
+public sealed record LimitOrderTransaction : OpeningOrderTransaction
 {
   /// <summary>
   /// The price threshold specified for the Limit Order. The Limit Order will

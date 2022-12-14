@@ -8,7 +8,7 @@ using FFT.Oanda.Orders;
 /// A TakeProfitOrderTransaction represents the creation of a TakeProfit Order
 /// in the user’s Account.
 /// </summary>
-public record TakeProfitOrderTransaction : TradeRelatedOrderTransaction
+public sealed record TakeProfitOrderTransaction : TradeRelatedOrderTransaction
 {
   /// <summary>
   /// The price threshold specified for the TakeProfit Order. The associated

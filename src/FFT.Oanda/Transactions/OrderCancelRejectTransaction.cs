@@ -11,7 +11,7 @@ public sealed record OrderCancelRejectTransaction : Transaction
   /// <summary>
   /// The ID of the Order intended to be cancelled.
   /// </summary>
-  public string OrderID { get; init; }
+  public int OrderID { get; init; }
 
   /// <summary>
   /// The client ID of the Order intended to be cancelled (only provided if

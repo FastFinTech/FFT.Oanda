@@ -8,7 +8,7 @@ using FFT.Oanda.Orders;
 /// A StopOrderTransaction represents the creation of a Stop Order in the
 /// user’s Account.
 /// </summary>
-public record StopOrderTransaction : OpeningOrderTransaction
+public sealed record StopOrderTransaction : OpeningOrderTransaction
 {
   /// <summary>
   /// The price threshold specified for the Stop Order. The Stop Order will

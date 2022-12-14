@@ -11,47 +11,47 @@ using FFT.Oanda.Orders;
 /// created to accomplish a specific task: to close a Trade, to closeout a
 /// Position or to participate in in a Margin closeout.
 /// </summary>
-public record MarketOrderTransaction : OpeningOrderTransaction
+public sealed record MarketOrderTransaction : OpeningOrderTransaction
 {
   /// <summary>
   /// The worst price that the client is willing to have the Market Order
   /// filled at.
   /// </summary>
-  public decimal PriceBound { get; }
+  public decimal PriceBound { get; init; }
 
   /// <summary>
   /// Details of the Trade requested to be closed, only provided when the
   /// Market Order is being used to explicitly close a Trade.
   /// </summary>
-  public MarketOrderTradeClose? TradeClose { get; }
+  public MarketOrderTradeClose? TradeClose { get; init; }
 
   /// <summary>
   /// Details of the long Position requested to be closed out, only provided
   /// when a Market Order is being used to explicitly closeout a long
   /// Position.
   /// </summary>
-  public MarketOrderPositionCloseout? LongPositionCloseout { get; }
+  public MarketOrderPositionCloseout? LongPositionCloseout { get; init; }
 
   /// <summary>
   /// Details of the short Position requested to be closed out, only provided
   /// when a Market Order is being used to explicitly closeout a short
   /// Position.
   /// </summary>
-  public MarketOrderPositionCloseout? ShortPositionCloseout { get; }
+  public MarketOrderPositionCloseout? ShortPositionCloseout { get; init; }
 
   /// <summary>
   /// Details of the Margin Closeout that this Market Order was created for.
   /// </summary>
-  public MarketOrderMarginCloseout? MarginCloseout { get; }
+  public MarketOrderMarginCloseout? MarginCloseout { get; init; }
 
   /// <summary>
   /// Details of the delayed Trade close that this Market Order was created
   /// for.
   /// </summary>
-  public MarketOrderDelayedTradeClose? DelayedTradeClose { get; }
+  public MarketOrderDelayedTradeClose? DelayedTradeClose { get; init; }
 
   /// <summary>
   /// The reason that the Market Order was created.
   /// </summary>
-  public MarketOrderReason Reason { get; }
+  public MarketOrderReason Reason { get; init; }
 }

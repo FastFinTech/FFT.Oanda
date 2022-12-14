@@ -8,7 +8,7 @@ using FFT.Oanda.Orders;
 /// A GuaranteedStopLossOrderTransaction represents the creation of a
 /// GuaranteedStopLoss Order in the user’s Account.
 /// </summary>
-public record GuaranteedStopLossOrderTransaction : TradeRelatedOrderTransaction
+public sealed record GuaranteedStopLossOrderTransaction : TradeRelatedOrderTransaction
 {
   // TODO: I'm pretty sure this fits into the category of "price and distance
   // cannot both be set". However, the spec says "price" is required. I'm apt

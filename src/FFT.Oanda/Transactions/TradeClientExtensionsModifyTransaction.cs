@@ -6,7 +6,7 @@ namespace FFT.Oanda.Transactions;
 /// A TradeClientExtensionsModifyTransaction represents the modification of a
 /// Trade’s Client Extensions.
 /// </summary>
-public record TradeClientExtensionsModifyTransaction : Transaction
+public sealed record TradeClientExtensionsModifyTransaction : Transaction
 {
   /// <summary>
   /// The ID of the Trade who’s client extensions are to be modified.

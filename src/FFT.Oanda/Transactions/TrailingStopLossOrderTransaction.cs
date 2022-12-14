@@ -8,7 +8,7 @@ using FFT.Oanda.Orders;
 /// A TrailingStopLossOrderTransaction represents the creation of a
 /// TrailingStopLoss Order in the user’s Account.
 /// </summary>
-public record TrailingStopLossOrderTransaction : TradeRelatedOrderTransaction
+public sealed record TrailingStopLossOrderTransaction : TradeRelatedOrderTransaction
 {
   /// <summary>
   /// The price distance (in price units) specified for the TrailingStopLoss

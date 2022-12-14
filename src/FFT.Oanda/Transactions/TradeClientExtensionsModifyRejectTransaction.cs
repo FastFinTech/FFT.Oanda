@@ -6,10 +6,28 @@ namespace FFT.Oanda.Transactions;
 /// A TradeClientExtensionsModifyRejectTransaction represents the rejection of
 /// the modification of a Trade’s Client Extensions.
 /// </summary>
-public sealed record TradeClientExtensionsModifyRejectTransaction : TradeClientExtensionsModifyTransaction
+public sealed record TradeClientExtensionsModifyRejectTransaction : Transaction
 {
   /// <summary>
   /// The reason that the Reject Transaction was created.
   /// </summary>
   public TransactionRejectReason RejectReason { get; init; }
+
+  // ----- Fields of the rejected transaction
+
+  /// <summary>
+  /// The ID of the Trade who’s client extensions are to be modified.
+  /// </summary>
+  public int TradeID { get; init; }
+
+  /// <summary>
+  /// The original Client ID of the Trade who’s client extensions are to be
+  /// modified.
+  /// </summary>
+  public string? ClientTradeID { get; init; }
+
+  /// <summary>
+  /// The new Client Extensions for the Trade.
+  /// </summary>
+  public ClientExtensions TradeClientExtensionsModify { get; init; }
 }

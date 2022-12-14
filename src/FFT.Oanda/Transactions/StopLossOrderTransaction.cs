@@ -6,7 +6,7 @@ namespace FFT.Oanda.Transactions;
 /// A StopLossOrderTransaction represents the creation of a StopLoss Order in
 /// the user’s Account.
 /// </summary>
-public record StopLossOrderTransaction : TradeRelatedOrderTransaction
+public sealed record StopLossOrderTransaction : TradeRelatedOrderTransaction
 {
   /// <summary>
   /// The price threshold specified for the Stop Loss Order. The associated
