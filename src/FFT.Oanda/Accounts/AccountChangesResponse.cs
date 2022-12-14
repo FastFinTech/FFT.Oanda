@@ -2,30 +2,13 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Accounts;
-
-using System.Text.Json.Serialization;
 using FFT.Oanda.JsonConverters;
 
 /// <summary>
 /// Provides the account state and changes.
 /// </summary>
-public sealed class AccountChangesResponse
+public sealed record AccountChangesResponse
 {
-  /// <summary>
-  /// Initializes a new instance of the <see cref="AccountChangesResponse"/>
-  /// class.
-  /// </summary>
-  [JsonConstructor]
-  public AccountChangesResponse(
-    AccountChanges? changes,
-    AccountChangesState state,
-    int lastTransactionID)
-  {
-    Changes = changes;
-    State = state;
-    LastTransactionID = lastTransactionID;
-  }
-
   /// <summary>
   /// The changes to the Account’s Orders, Trades and Positions since the
   /// specified Transaction ID. Only provided if the sinceTransactionID is

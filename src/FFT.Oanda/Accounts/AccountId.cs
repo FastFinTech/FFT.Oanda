@@ -2,39 +2,30 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Accounts;
-
 /// <summary>
 /// The string representation of an Account Identifier.
 /// </summary>
-public sealed class AccountId
+public sealed record AccountId
 {
-  private AccountId(string siteId, string divisionId, string userId, string accountNumber)
-  {
-    SiteId = siteId;
-    DivisionId = divisionId;
-    UserId = userId;
-    AccountNumber = accountNumber;
-  }
-
   /// <summary>
   /// The SiteId component of the account id.
   /// </summary>
-  public string SiteId { get; }
+  public required string SiteId { get; init; }
 
   /// <summary>
   /// The DivisionId component of the account id.
   /// </summary>
-  public string DivisionId { get; }
+  public required string DivisionId { get; init; }
 
   /// <summary>
   /// The UserId component of the account id.
   /// </summary>
-  public string UserId { get; }
+  public required string UserId { get; init; }
 
   /// <summary>
   /// The AccountNumber component of the account id.
   /// </summary>
-  public string AccountNumber { get; }
+  public required string AccountNumber { get; init; }
 
   /// <summary>
   /// Parses an account id of the form
@@ -43,7 +34,13 @@ public sealed class AccountId
   public static AccountId Parse(string accountId)
   {
     var parts = accountId.Split('-');
-    return new AccountId(parts[0], parts[1], parts[2], parts[3]);
+    return new AccountId
+    {
+      SiteId = parts[0],
+      DivisionId = parts[1],
+      UserId = parts[2],
+      AccountNumber = parts[3]
+    };
   }
 
   /// <inheritdoc/>

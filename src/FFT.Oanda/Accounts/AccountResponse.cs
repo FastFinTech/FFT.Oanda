@@ -2,34 +2,22 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Accounts;
-
-using System.Text.Json.Serialization;
 using FFT.Oanda.JsonConverters;
 
 /// <summary>
 /// The full details of an account. This includes full open trade, open
 /// position and pending order representation.
 /// </summary>
-public sealed class AccountResponse
+public sealed record AccountResponse
 {
-  /// <summary>
-  /// Initializes a new instance of the <see cref="AccountResponse"/> class.
-  /// </summary>
-  [JsonConstructor]
-  public AccountResponse(Account account, int lastTransactionId)
-  {
-    Account = account;
-    LastTransactionId = lastTransactionId;
-  }
-
   /// <summary>
   /// The full details of the requested account.
   /// </summary>
-  public Account Account { get; }
+  public Account Account { get; init; }
 
   /// <summary>
   /// The ID of the most recent transaction created for the account.
   /// </summary>
   [JsonConverter(typeof(Int32StringConverter))]
-  public int LastTransactionId { get; }
+  public int LastTransactionId { get; init; }
 }
