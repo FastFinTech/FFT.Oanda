@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Accounts.AccountChanges.html",
-          "hash": "Fni52HBtASEvkSxkJAw49Q=="
+          "hash": "I5j2RwLnapdlz4ar2tcODQ=="
         }
       },
       "is_incremental": false,
@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Accounts.AccountType.html",
-          "hash": "SxG2Q82/CWjKOHTeFuC0Kg=="
+          "hash": "xLCKx3xloN3Xo8Uhcdeg+w=="
         }
       },
       "is_incremental": false,
@@ -45,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Accounts.GuaranteedStopLossOrderMode.html",
-          "hash": "7LR8XCDdcQoIxU1Vk2VZCw=="
+          "hash": "yDKLqSI7F6yTK0KPBb7goA=="
         }
       },
       "is_incremental": false,
@@ -57,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Accounts.GuaranteedStopLossOrderMutability.html",
-          "hash": "ZSueByTtkJ43p1RjsaYu9Q=="
+          "hash": "ctVFGvwLYu0u6bqR1+joUA=="
         }
       },
       "is_incremental": false,
@@ -69,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Accounts.PositionAggregationMode.html",
-          "hash": "nxwRxBnrOf2KW7awl+xUuA=="
+          "hash": "L27IEWz+n2cG7ODdK/MbJw=="
         }
       },
       "is_incremental": false,
@@ -417,7 +417,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.OandaApiClient.html",
-          "hash": "qqZkOL3LBH15ph0PDk8REw=="
+          "hash": "zHDl+O0fnM9J4GIuVjHk9Q=="
         }
       },
       "is_incremental": false,
@@ -737,59 +737,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Positions.CalculatedPositionState.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Positions.CalculatedPositionState.html",
-          "hash": "wtwacw9RLPO2g4XYO0wb3A=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/FFT.Oanda.Positions.GetPositionResponse.yml",
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Positions.GetPositionResponse.html",
-          "hash": "gCLhFNWZ3leX7/oor2U+yQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Positions.GetPositionsResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Positions.GetPositionsResponse.html",
-          "hash": "XLciiHnfnQ63S8X8WITuug=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Positions.Position.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Positions.Position.html",
-          "hash": "45UjQWsqL0UU3lA6hARKmg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Positions.PositionSide.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Positions.PositionSide.html",
-          "hash": "gjq4bm8DbEhmcg52XuIHEw=="
+          "hash": "4tsAAhHpuFDIJmM1KJbEzA=="
         }
       },
       "is_incremental": false,
@@ -801,7 +753,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Positions.html",
-          "hash": "rk9ppOCWDxtI80nxitobPA=="
+          "hash": "gPQwpIabwLcbRBHU4EnPNg=="
         }
       },
       "is_incremental": false,
@@ -1437,7 +1389,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "BDXjvKn4fYXIvVI8xYmw0Q=="
+          "hash": "ITwLrIGtKjmU2Ta6GKNzSQ=="
         }
       },
       "is_incremental": false,
@@ -1525,7 +1477,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 118,
+          "total_file_count": 114,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {
