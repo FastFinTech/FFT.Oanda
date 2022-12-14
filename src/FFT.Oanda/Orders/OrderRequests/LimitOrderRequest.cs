@@ -8,10 +8,13 @@ namespace FFT.Oanda.Orders.OrderRequests;
 /// </summary>
 public sealed record LimitOrderRequest : OpenTradeOrderRequest
 {
+  /// <inheritdoc />
   public override OrderType Type => OrderType.LIMIT;
 
   /// <inheritdoc />
-  protected override void CustomValidate2() { }
+  protected override void CustomValidate2()
+  {
+  }
 
   /// <summary>
   /// The quantity requested to be filled by the Limit Order. A positive

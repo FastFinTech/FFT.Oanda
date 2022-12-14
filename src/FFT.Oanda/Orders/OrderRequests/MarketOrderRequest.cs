@@ -14,8 +14,10 @@ public sealed record MarketOrderRequest : OpenTradeOrderRequest
     TimeInForce.IOC,
   };
 
+  /// <inheritdoc/>
   public override OrderType Type => OrderType.MARKET;
 
+  /// <inheritdoc/>
   protected override void CustomValidate2()
   {
     ValidateTimeInForce(TimeInForce, _allowed);

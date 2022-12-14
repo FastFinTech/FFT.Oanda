@@ -39,7 +39,7 @@ public sealed record AccountId
       SiteId = parts[0],
       DivisionId = parts[1],
       UserId = parts[2],
-      AccountNumber = parts[3]
+      AccountNumber = parts[3],
     };
   }
 

@@ -2,74 +2,45 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Positions;
-
-using System.Collections.Immutable;
-using System.Text.Json.Serialization;
 using FFT.Oanda.JsonConverters;
 
 /// <summary>
 /// The representation of a position for a single direction (long or short).
 /// </summary>
-public sealed class PositionSide
+public sealed record PositionSide
 {
-  /// <summary>
-  /// Initializes a new instance of the <see cref="PositionSide"/> class.
-  /// </summary>
-  [JsonConstructor]
-  public PositionSide(
-    decimal units,
-    decimal averagePrice,
-    ImmutableList<string> tradeIDs,
-    decimal pL,
-    decimal unrealizedPL,
-    decimal resettablePL,
-    decimal financing,
-    decimal dividendAdjustment,
-    decimal guaranteedExecutionFees)
-  {
-    Units = units;
-    AveragePrice = averagePrice;
-    TradeIDs = tradeIDs;
-    PL = pL;
-    UnrealizedPL = unrealizedPL;
-    ResettablePL = resettablePL;
-    Financing = financing;
-    DividendAdjustment = dividendAdjustment;
-    GuaranteedExecutionFees = guaranteedExecutionFees;
-  }
-
   /// <summary>
   /// Number of units in the position (negative value indicates short
   /// position, positive indicates long position).
   /// </summary>
   [JsonConverter(typeof(DecimalStringConverter))]
-  public decimal Units { get; }
+  public decimal Units { get; init; }
 
   /// <summary>
   /// Volume-weighted average of the underlying Trade open prices for the
   /// Position.
   /// </summary>
   [JsonConverter(typeof(DecimalStringConverter))]
-  public decimal AveragePrice { get; }
+  public decimal AveragePrice { get; init; }
 
   /// <summary>
   /// List of the open Trade IDs which contribute to the open Position.
   /// </summary>
-  public ImmutableList<string> TradeIDs { get; }
+  public ImmutableList<string> TradeIDs { get; init; }
 
   /// <summary>
   /// Profit/loss realized by the PositionSide over the lifetime of the
   /// Account. Expressed in the account's home currency.
   /// </summary>
   [JsonConverter(typeof(DecimalStringConverter))]
-  public decimal PL { get; }
+  public decimal PL { get; init; }
 
   /// <summary>
   /// The unrealized profit/loss of all open Trades that contribute to this
   /// PositionSide. Expressed in the account's home currency.
   /// </summary>
   [JsonConverter(typeof(DecimalStringConverter))]
-  public decimal UnrealizedPL { get; }
+  public decimal UnrealizedPL { get; init; }
 
   /// <summary>
   /// Profit/loss realized by the PositionSide since the Account’s
@@ -77,21 +48,21 @@ public sealed class PositionSide
   /// home currency.
   /// </summary>
   [JsonConverter(typeof(DecimalStringConverter))]
-  public decimal ResettablePL { get; }
+  public decimal ResettablePL { get; init; }
 
   /// <summary>
   /// The total amount of financing paid/collected for this PositionSide over
   /// the lifetime of the Account. Expressed in the account's home currency.
   /// </summary>
   [JsonConverter(typeof(DecimalStringConverter))]
-  public decimal Financing { get; }
+  public decimal Financing { get; init; }
 
   /// <summary>
   /// The total amount of dividend adjustment paid for the PositionSide over
   /// the lifetime of the Account. Expressed in the account's home currency.
   /// </summary>
   [JsonConverter(typeof(DecimalStringConverter))]
-  public decimal DividendAdjustment { get; }
+  public decimal DividendAdjustment { get; init; }
 
   /// <summary>
   /// The total amount of fees charged over the lifetime of the Account for
@@ -99,5 +70,5 @@ public sealed class PositionSide
   /// PositionSide. Expressed in the account's home currency.
   /// </summary>
   [JsonConverter(typeof(DecimalStringConverter))]
-  public decimal GuaranteedExecutionFees { get; }
+  public decimal GuaranteedExecutionFees { get; init; }
 }

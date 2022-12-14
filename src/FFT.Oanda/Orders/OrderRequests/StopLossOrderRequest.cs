@@ -20,6 +20,7 @@ public sealed record StopLossOrderRequest : CloseTradeOrderRequest
     TimeInForce.GTD,
   };
 
+  /// <inheritdoc />
   public override OrderType Type => OrderType.STOP_LOSS;
 
   /// <inheritdoc />

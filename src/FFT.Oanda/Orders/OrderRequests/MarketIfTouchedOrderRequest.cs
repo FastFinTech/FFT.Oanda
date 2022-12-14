@@ -15,8 +15,10 @@ public sealed record MarketIfTouchedOrderRequest : OpenTradeOrderRequest
     TimeInForce.GTD,
   };
 
+  /// <inheritdoc />
   public override OrderType Type => OrderType.MARKET_IF_TOUCHED;
 
+  /// <inheritdoc />
   protected sealed override void CustomValidate2()
   {
     ValidateTimeInForce(TimeInForce, _allowed);

@@ -7,6 +7,7 @@ namespace FFT.Oanda.Orders.OrderRequests;
 /// </summary>
 public abstract record OpenTradeOrderRequest : OrderRequest
 {
+  /// <inheritdoc />
   protected sealed override void CustomValidate()
   {
     if (string.IsNullOrWhiteSpace(Instrument))
@@ -22,6 +23,9 @@ public abstract record OpenTradeOrderRequest : OrderRequest
     CustomValidate2();
   }
 
+  /// <summary>
+  /// Implement this to throw <see cref="ArgumentException"/> if the object contains invalid properties.
+  /// </summary>
   protected abstract void CustomValidate2();
 
   /// <summary>

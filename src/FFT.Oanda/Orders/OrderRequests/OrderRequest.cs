@@ -65,6 +65,9 @@ public abstract record OrderRequest
     CustomValidate();
   }
 
+  /// <summary>
+  /// Implement this to throw <see cref="ArgumentException"/> if the object contains invalid properties.
+  /// </summary>
   protected abstract void CustomValidate();
 
   /// <summary>
