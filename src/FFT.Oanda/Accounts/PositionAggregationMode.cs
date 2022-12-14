@@ -2,9 +2,6 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Accounts;
-
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// The way that position values for an Account are calculated and aggregated.
 /// </summary>

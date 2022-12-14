@@ -3,16 +3,14 @@
 
 namespace FFT.Oanda;
 
-using System;
-using System.Globalization;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+using System.Diagnostics.CodeAnalysis;
+using System.Numerics;
 
 /// <summary>
 /// Represents "ALL" units or a fixed number of units.
 /// </summary>
 [JsonConverter(typeof(NumUnitsJsonConverter))]
-public struct NumUnits
+public struct NumUnits : IEquatable<NumUnits>
 {
   private readonly decimal? _value;
 
@@ -43,7 +41,13 @@ public struct NumUnits
   /// A singleton value to be used for quick access to an instance
   /// representing "ALL" units.
   /// </summary>
-  public static NumUnits All { get; } = new NumUnits("ALL");
+  public static NumUnits All { get; } = new("ALL");
+
+  /// <summary>
+  /// A singleton value to be used for quick access to an instance
+  /// representing "0" units.
+  /// </summary>
+  public static NumUnits Zero { get; } = new(0m);
 
   /// <summary>
   /// Gets <see langword="true"/> if this value represents "ALL" units rather
@@ -60,11 +64,38 @@ public struct NumUnits
   public decimal Value => _value!.Value;
 
   /// <summary>
+  /// Implicitly converts a decimal value to a <see cref="NumUnits"/> value.
+  /// </summary>
+  /// <param name="value">The value to be converted.</param>
+  public static implicit operator NumUnits(decimal value) => new(value);
+
+  /// <summary>
+  /// Implicitly converts an int32 value to a <see cref="NumUnits"/> value.
+  /// </summary>
+  /// <param name="value">The value to be converted.</param>
+  public static implicit operator NumUnits(int value) => new(value);
+
+  public static bool operator ==(NumUnits left, NumUnits right)
+  => left.Equals(right);
+
+  public static bool operator !=(NumUnits left, NumUnits right)
+    => !left.Equals(right);
+
+  /// <summary>
   /// Returns "ALL" if this value represents all units. Otherwise, it returns
   /// a string representation of the decimal value.
   /// </summary>
   public override string ToString()
     => _value?.ToString() ?? "ALL";
+
+  public override int GetHashCode()
+    => _value?.GetHashCode() ?? 0;
+
+  public override bool Equals([NotNullWhen(true)] object? obj)
+    => obj is NumUnits other && Equals(other);
+
+  public bool Equals(NumUnits other)
+    => _value == other._value;
 
   private sealed class NumUnitsJsonConverter : JsonConverter<NumUnits>
   {

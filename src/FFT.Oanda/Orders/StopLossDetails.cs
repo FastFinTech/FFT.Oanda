@@ -2,9 +2,6 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Orders;
-
-using System;
-using System.Text.Json.Serialization;
 using FFT.Oanda.JsonConverters;
 
 /// <summary>
@@ -13,27 +10,14 @@ using FFT.Oanda.JsonConverters;
 /// a Trade requiring a Stop Loss, or when a Trade’s dependent Stop Loss Order
 /// is modified directly through the Trade.
 /// </summary>
-public sealed class StopLossDetails
+public sealed record StopLossDetails
 {
-  /// <summary>
-  /// Initializes a new instance of the <see cref="StopLossDetails"/> class.
-  /// </summary>
-  [JsonConstructor]
-  public StopLossDetails(decimal? price, decimal? distance, TimeInForce timeInForce, DateTime? gtdTime, ClientExtensions? clientExtensions)
-  {
-    Price = price;
-    Distance = distance;
-    TimeInForce = timeInForce;
-    GtdTime = gtdTime;
-    ClientExtensions = clientExtensions;
-  }
-
   /// <summary>
   /// The price that the Stop Loss Order will be triggered at. Only one of the
   /// price and distance fields may be specified.
   /// </summary>
   [JsonConverter(typeof(DecimalStringConverter))]
-  public decimal? Price { get; }
+  public decimal? Price { get; init; }
 
   /// <summary>
   /// Specifies the distance (in price units) from the Trade’s open price to
@@ -41,22 +25,22 @@ public sealed class StopLossDetails
   /// fields may be specified.
   /// </summary>
   [JsonConverter(typeof(DecimalStringConverter))]
-  public decimal? Distance { get; }
+  public decimal? Distance { get; init; }
 
   /// <summary>
   /// The time in force for the created Stop Loss Order. This may only be GTC,
   /// GTD or GFD.
   /// </summary>
-  public TimeInForce TimeInForce { get; }
+  public TimeInForce TimeInForce { get; init; }
 
   /// <summary>
   /// The date when the Stop Loss Order will be cancelled on if timeInForce is
   /// GTD.
   /// </summary>
-  public DateTime? GtdTime { get; }
+  public DateTime? GtdTime { get; init; }
 
   /// <summary>
   /// The Client Extensions to add to the Stop Loss Order when created.
   /// </summary>
-  public ClientExtensions? ClientExtensions { get; }
+  public ClientExtensions? ClientExtensions { get; init; }
 }

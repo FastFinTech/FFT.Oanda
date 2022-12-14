@@ -19,7 +19,7 @@ public abstract record AccountSummary
   /// Client-assigned alias for the Account. Only provided if the account has
   /// an alias set.
   /// </summary>
-  public string? Alias { get; init; }
+  public string Alias { get; init; }
 
   /// <summary>
   /// The home currency of the account.

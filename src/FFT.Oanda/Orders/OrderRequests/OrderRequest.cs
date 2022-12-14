@@ -2,66 +2,27 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Orders.OrderRequests;
-
-using System;
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// Base class for all order request types.
 /// </summary>
-public abstract class OrderRequest
+public abstract record OrderRequest
 {
-  /// <summary>
-  /// Initializes a new instance of the <see cref="OrderRequest"/> class.
-  /// </summary>
-  [JsonConstructor]
-  protected OrderRequest(
-    OrderType type,
-    TimeInForce timeInForce,
-    DateTime? gtdTime,
-    OrderTriggerCondition triggerCondition,
-    ClientExtensions? clientExtensions)
-  {
-    if (timeInForce == TimeInForce.GTD)
-    {
-      if (!gtdTime.HasValue)
-      {
-        var message = $"'{nameof(gtdTime)}' must have a value when {nameof(timeInForce)} is '{nameof(TimeInForce.GTD)}'";
-        throw new ArgumentException(message, nameof(gtdTime));
-      }
-    }
-    else
-    {
-      if (gtdTime.HasValue)
-      {
-        var message = $"'{nameof(gtdTime)}' must NOT have a value when {nameof(timeInForce)} is not '{nameof(TimeInForce.GTD)}'";
-        throw new ArgumentException(message, nameof(gtdTime));
-      }
-    }
-
-    Type = type;
-    TimeInForce = timeInForce;
-    GtdTime = gtdTime;
-    TriggerCondition = triggerCondition;
-    ClientExtensions = clientExtensions;
-  }
-
   /// <summary>
   /// The type of the Order to Create.
   /// </summary>
-  public OrderType Type { get; }
+  public abstract OrderType Type { get; }
 
   /// <summary>
   /// The time-in-force requested for the TrailingStopLoss Order. Restricted
   /// to“GTC”, “GFD” and “GTD” for TrailingStopLoss Orders.
   /// </summary>
-  public TimeInForce TimeInForce { get; }
+  public TimeInForce TimeInForce { get; init; }
 
   /// <summary>
   /// The date/time when the StopLoss Order will be cancelled if its
   /// timeInForce is “GTD”.
   /// </summary>
-  public DateTime? GtdTime { get; }
+  public DateTime? GtdTime { get; init; }
 
   /// <summary>
   /// Specification of which price component should be used when determining
@@ -82,13 +43,29 @@ public abstract class OrderRequest
   /// So for a Guaranteed Stop Loss Order for a long trade valid values are
   /// “DEFAULT” and “BID”, and for short trades “DEFAULT” and “ASK” are valid.
   /// </summary>
-  public OrderTriggerCondition TriggerCondition { get; }
+  public OrderTriggerCondition TriggerCondition { get; init; }
 
   /// <summary>
   /// The client extensions to add to the Order. Do not set, modify, or delete
   /// clientExtensions if your account is associated with MT4.
   /// </summary>
-  public ClientExtensions? ClientExtensions { get; }
+  public ClientExtensions? ClientExtensions { get; init; }
+
+  public void Validate()
+  {
+    if (TimeInForce == TimeInForce.GTD)
+    {
+      GtdTime.ThrowIfNull($"Must have a value when {nameof(TimeInForce)} is '{nameof(TimeInForce.GTD)}'.");
+    }
+    else
+    {
+      GtdTime?.Throw($"Must not have a value when {nameof(TimeInForce)} is not '{nameof(TimeInForce.GTD)}'.").IfTrue(true);
+    }
+
+    CustomValidate();
+  }
+
+  protected abstract void CustomValidate();
 
   /// <summary>
   /// Throws an <see cref="ArgumentException"/> if the <paramref

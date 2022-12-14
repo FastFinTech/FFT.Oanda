@@ -90,7 +90,9 @@ public sealed partial class OandaApiClient : DisposeBase, IDisposable
   private static async Task<T> ParseResponse<T>(HttpResponseMessage response, CancellationToken cancellationToken)
   {
     await RequestFailedException.ThrowIfNecessary(response, cancellationToken);
-    return (await response.Content.ReadFromJsonAsync<T>(options: null, cancellationToken))!;
+    var json = await response.Content.ReadAsStringAsync();
+    var result = (await response.Content.ReadFromJsonAsync<T>(options: null, cancellationToken))!;
+    return result;
   }
 }
 
@@ -109,7 +111,8 @@ public partial class OandaApiClient
     using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
     using var request = new HttpRequestMessage(HttpMethod.Get, "v3/users/@/accounts");
     using var response = await _client.SendAsync(request, cts.Token);
-    return await ParseResponse<AccountListResponse>(response, cts.Token);
+    var result = await ParseResponse<AccountListResponse>(response, cts.Token);
+    return result;
   }
 
   /// <summary>
@@ -444,6 +447,7 @@ public partial class OandaApiClient
     // order that was generated. Include this in the returned data.
 
     accountId.Throw().IfWhiteSpace();
+    orderRequest.Validate();
 
     using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
     using var request = new HttpRequestMessage(HttpMethod.Post, $"v3/accounts/{accountId}/orders")
@@ -988,25 +992,16 @@ public partial class OandaApiClient
   /// PositionCloseout MarketOrder. The units specified must always be
   /// positive.
   /// </param>
-  /// <param name="shortUnits">
-  /// Indication of how much of the short Position to closeout using a
-  /// PositionCloseout MarketOrder. The units specified must always be
-  /// positive.
-  /// </param>
   /// <param name="longClientExtensions">
   /// The client extensions to add to the MarketOrder used to close the long
   /// position.
   /// </param>
-  /// <param name="shortClientExtensions">
-  /// The client extensions to add to the MarketOrder used to close the short
-  /// position.
-  /// </param>
   /// <param name="cancellationToken">Cancels the operation.</param>
-  public async Task<ClosePositionResponse> ClosePosition(string accountId, string instrument, NumUnits longUnits, NumUnits shortUnits, ClientExtensions? longClientExtensions, ClientExtensions? shortClientExtensions, CancellationToken cancellationToken = default)
+  public async Task<CloseLongPositionResponse> CloseLongPosition(string accountId, string instrument, NumUnits longUnits, ClientExtensions? longClientExtensions, CancellationToken cancellationToken = default)
   {
     accountId.Throw().IfWhiteSpace();
     instrument.Throw().IfWhiteSpace();
-
+    longUnits.Throw().IfEquals(NumUnits.Zero);
     using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
     using var request = new HttpRequestMessage(HttpMethod.Put, $"v3/accounts/{accountId}/positions/{instrument}/close")
     {
@@ -1015,6 +1010,44 @@ public partial class OandaApiClient
         {
           longUnits,
           longClientExtensions,
+        },
+        null,
+        _contentBodySerializationOptions),
+    };
+    using var response = await _client.SendAsync(request, cts.Token);
+    return await ParseResponse<CloseLongPositionResponse>(response, cts.Token);
+  }
+
+  /// <summary>
+  /// Closeout the open Position for a specific instrument in an Account.
+  /// </summary>
+  /// <param name="accountId">
+  /// “-“-delimited string with format
+  /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+  /// 001-011-5838423-001.
+  /// </param>
+  /// <param name="instrument">Name of the Instrument.</param>
+  /// <param name="shortUnits">
+  /// Indication of how much of the short Position to closeout using a
+  /// PositionCloseout MarketOrder. The units specified must always be
+  /// positive.
+  /// </param>
+  /// <param name="shortClientExtensions">
+  /// The client extensions to add to the MarketOrder used to close the short
+  /// position.
+  /// </param>
+  /// <param name="cancellationToken">Cancels the operation.</param>
+  public async Task<CloseShortPositionResponse> CloseShortPosition(string accountId, string instrument, NumUnits shortUnits, ClientExtensions? shortClientExtensions, CancellationToken cancellationToken = default)
+  {
+    accountId.Throw().IfWhiteSpace();
+    instrument.Throw().IfWhiteSpace();
+    shortUnits.Throw().IfEquals(NumUnits.Zero);
+    using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
+    using var request = new HttpRequestMessage(HttpMethod.Put, $"v3/accounts/{accountId}/positions/{instrument}/close")
+    {
+      Content = JsonContent.Create(
+        new
+        {
           shortUnits,
           shortClientExtensions,
         },
@@ -1022,7 +1055,7 @@ public partial class OandaApiClient
         _contentBodySerializationOptions),
     };
     using var response = await _client.SendAsync(request, cts.Token);
-    return await ParseResponse<ClosePositionResponse>(response, cts.Token);
+    return await ParseResponse<CloseShortPositionResponse>(response, cts.Token);
   }
 }
 

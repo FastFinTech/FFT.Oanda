@@ -2,12 +2,12 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Accounts;
-
 /// <summary>
 /// For accounts that support guaranteed Stop Loss Orders, describes the
 /// actions that can be be performed on guaranteed Stop Loss Orders for that
 /// account.
 /// </summary>
+[JsonConverter(typeof(JsonStringEnumConverter))]
 public enum GuaranteedStopLossOrderMutability
 {
   /// <summary>

@@ -9,6 +9,7 @@ global using System.Globalization;
 global using System.Text.Json;
 global using System.Text.Json.Serialization;
 global using System.Threading;
+global using Throw;
 global using static System.Globalization.CultureInfo;
 global using static System.Math;
 

@@ -11,7 +11,7 @@ using System.Text.Json.Serialization;
 /// creating a Stop Loss Order. Only one of the price and distance fields may
 /// be specified.
 /// </summary>
-public sealed class StopLossOrderRequest : CloseTradeOrderRequest
+public sealed record StopLossOrderRequest : CloseTradeOrderRequest
 {
   private static readonly TimeInForce[] _allowed = new[]
   {
@@ -20,42 +20,22 @@ public sealed class StopLossOrderRequest : CloseTradeOrderRequest
     TimeInForce.GTD,
   };
 
-  /// <summary>
-  /// Initializes a new instance of the <see cref="StopLossOrderRequest"/>
-  /// class.
-  /// </summary>
-  [JsonConstructor]
-  public StopLossOrderRequest(
-    TimeInForce timeInForce,
-    DateTime? gtdTime,
-    OrderTriggerCondition triggerCondition,
-    ClientExtensions? clientExtensions,
-    string tradeID,
-    string? clientTradeID,
-    decimal? price,
-    decimal? distance)
-      : base(
-          OrderType.STOP_LOSS,
-          timeInForce,
-          gtdTime,
-          triggerCondition,
-          clientExtensions,
-          tradeID,
-          clientTradeID)
+  public override OrderType Type => OrderType.STOP_LOSS;
+
+  /// <inheritdoc />
+  protected override void CustomValidate()
   {
-    if (price is null && distance is null)
+    if (Price is null && Distance is null)
     {
-      throw new ArgumentException($"Either '{nameof(price)}' or '{nameof(distance)}' must be specified.");
+      throw new ArgumentException($"Either '{nameof(Price)}' or '{nameof(Distance)}' must be specified.");
     }
 
-    if (price is not null && distance is not null)
+    if (Price is not null && Distance is not null)
     {
-      throw new ArgumentException($"'{nameof(price)}' and '{nameof(distance)}' cannot both be specified.");
+      throw new ArgumentException($"'{nameof(Price)}' and '{nameof(Distance)}' cannot both be specified.");
     }
 
-    ValidateTimeInForce(timeInForce, _allowed);
-    Price = price;
-    Distance = distance;
+    ValidateTimeInForce(TimeInForce, _allowed);
   }
 
   /// <summary>
@@ -63,12 +43,12 @@ public sealed class StopLossOrderRequest : CloseTradeOrderRequest
   /// Trade will be closed by a market price that is equal to or worse than
   /// this threshold.
   /// </summary>
-  public decimal? Price { get; }
+  public decimal? Price { get; init; }
 
   /// <summary>
   /// Specifies the distance (in price units) from the Account’s current price
   /// to use as the Stop Loss Order price. If the Trade is short the
   /// Instrument’s bid price is used, and for long Trades the ask is used.
   /// </summary>
-  public decimal? Distance { get; }
+  public decimal? Distance { get; init; }
 }

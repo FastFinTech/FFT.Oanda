@@ -2,15 +2,11 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Orders.OrderRequests;
-
-using System;
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// A MarketOrderRequest specifies the parameters that may be set when
 /// creating a Market Order.
 /// </summary>
-public sealed class MarketOrderRequest : OpenTradeOrderRequest
+public sealed record MarketOrderRequest : OpenTradeOrderRequest
 {
   private static readonly TimeInForce[] _allowed = new[]
   {
@@ -18,42 +14,11 @@ public sealed class MarketOrderRequest : OpenTradeOrderRequest
     TimeInForce.IOC,
   };
 
-  /// <summary>
-  /// Initializes a new instance of the <see cref="MarketOrderRequest"/>
-  /// class.
-  /// </summary>
-  [JsonConstructor]
-  public MarketOrderRequest(
-    TimeInForce timeInForce,
-    DateTime? gtdTime,
-    OrderTriggerCondition triggerCondition,
-    ClientExtensions? clientExtensions,
-    string instrument,
-    OrderPositionFill positionFill,
-    TakeProfitDetails? takeProfitOnFill,
-    StopLossDetails? stopLossOnFill,
-    GuaranteedStopLossDetails? guaranteedStopLossOnFill,
-    TrailingStopLossDetails? trailingStopLossOnFill,
-    ClientExtensions? tradeClientExtensions,
-    decimal units,
-    decimal? priceBound)
-      : base(
-          OrderType.MARKET,
-          timeInForce,
-          gtdTime,
-          triggerCondition,
-          clientExtensions,
-          instrument,
-          positionFill,
-          takeProfitOnFill,
-          stopLossOnFill,
-          guaranteedStopLossOnFill,
-          trailingStopLossOnFill,
-          tradeClientExtensions)
+  public override OrderType Type => OrderType.MARKET;
+
+  protected override void CustomValidate2()
   {
-    ValidateTimeInForce(timeInForce, _allowed);
-    Units = units;
-    PriceBound = priceBound;
+    ValidateTimeInForce(TimeInForce, _allowed);
   }
 
   /// <summary>
@@ -61,11 +26,11 @@ public sealed class MarketOrderRequest : OpenTradeOrderRequest
   /// number of units results in a long Order, and a negative number of units
   /// results in a short Order.
   /// </summary>
-  public decimal Units { get; }
+  public decimal Units { get; init; }
 
   /// <summary>
   /// The worst price that the client is willing to have the Market Order
   /// filled at.
   /// </summary>
-  public decimal? PriceBound { get; }
+  public decimal? PriceBound { get; init; }
 }

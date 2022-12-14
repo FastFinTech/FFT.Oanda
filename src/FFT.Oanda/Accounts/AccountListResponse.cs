@@ -12,5 +12,5 @@ public sealed record AccountListResponse
   /// The list of Accounts the client is authorized to access and their
   /// associated properties.
   /// </summary>
-  public ImmutableList<AccountProperties> Accounts { get; }
+  public ImmutableList<AccountProperties> Accounts { get; init; }
 }

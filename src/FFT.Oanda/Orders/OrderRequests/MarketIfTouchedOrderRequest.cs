@@ -2,15 +2,11 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Orders.OrderRequests;
-
-using System;
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// A MarketIfTouchedOrderRequest specifies the parameters that may be set
 /// when creating a Market-if-Touched Order.
 /// </summary>
-public sealed class MarketIfTouchedOrderRequest : OpenTradeOrderRequest
+public sealed record MarketIfTouchedOrderRequest : OpenTradeOrderRequest
 {
   private static readonly TimeInForce[] _allowed = new[]
   {
@@ -19,42 +15,11 @@ public sealed class MarketIfTouchedOrderRequest : OpenTradeOrderRequest
     TimeInForce.GTD,
   };
 
-  /// <summary>
-  /// Initializes a new instance of the <see
-  /// cref="MarketIfTouchedOrderRequest"/> class.
-  /// </summary>
-  [JsonConstructor]
-  public MarketIfTouchedOrderRequest(
-    TimeInForce timeInForce,
-    DateTime? gtdTime,
-    OrderTriggerCondition triggerCondition,
-    ClientExtensions? clientExtensions,
-    string instrument,
-    OrderPositionFill positionFill,
-    TakeProfitDetails? takeProfitOnFill,
-    StopLossDetails? stopLossOnFill,
-    GuaranteedStopLossDetails? guaranteedStopLossOnFill,
-    TrailingStopLossDetails? trailingStopLossOnFill,
-    ClientExtensions? tradeClientExtensions,
-    decimal price,
-    decimal? priceBound)
-      : base(
-          OrderType.MARKET_IF_TOUCHED,
-          timeInForce,
-          gtdTime,
-          triggerCondition,
-          clientExtensions,
-          instrument,
-          positionFill,
-          takeProfitOnFill,
-          stopLossOnFill,
-          guaranteedStopLossOnFill,
-          trailingStopLossOnFill,
-          tradeClientExtensions)
+  public override OrderType Type => OrderType.MARKET_IF_TOUCHED;
+
+  protected sealed override void CustomValidate2()
   {
-    ValidateTimeInForce(timeInForce, _allowed);
-    Price = price;
-    PriceBound = priceBound;
+    ValidateTimeInForce(TimeInForce, _allowed);
   }
 
   /// <summary>
@@ -65,11 +30,11 @@ public sealed class MarketIfTouchedOrderRequest : OpenTradeOrderRequest
   /// the Order’s price and initialMarketPrice, the MarketIfTouchedOrder will
   /// behave like a Limit or a Stop Order.
   /// </summary>
-  public decimal Price { get; }
+  public decimal Price { get; init; }
 
   /// <summary>
   /// The worst market price that may be used to fill this MarketIfTouched
   /// Order.
   /// </summary>
-  public decimal? PriceBound { get; }
+  public decimal? PriceBound { get; init; }
 }
