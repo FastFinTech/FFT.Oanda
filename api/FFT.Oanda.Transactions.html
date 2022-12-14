@@ -81,40 +81,6 @@
   <div class="markdown level0 remarks"></div>
     <h3 id="classes">Classes
   </h3>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.ClientConfigureRejectTransaction.html">ClientConfigureRejectTransaction</a></h4>
-      <section><p>A ClientConfigureRejectTransaction represents the reject of configuration
-of an Account by a client.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.ClientConfigureTransaction.html">ClientConfigureTransaction</a></h4>
-      <section><p>A ClientConfigureTransaction represents the configuration of an Account by
-a client.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.CloseTransaction.html">CloseTransaction</a></h4>
-      <section><p>A CloseTransaction represents the closing of an Account.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.CreateTransaction.html">CreateTransaction</a></h4>
-      <section><p>A CreateTransaction represents the creation of an Account.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.DailyFinancingTransaction.html">DailyFinancingTransaction</a></h4>
-      <section><p>A DailyFinancingTransaction represents the daily payment/collection of
-financing for an Account.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.DelayedTradeClosureTransaction.html">DelayedTradeClosureTransaction</a></h4>
-      <section><p>A DelayedTradeClosure Transaction is created administratively to indicate
-open trades that should have been closed but weren’t because the open
-trades’ instruments were untradeable at the time. Open trades listed in
-this transaction will be closed once their respective instruments become
-tradeable.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.DividendAdjustmentTransaction.html">DividendAdjustmentTransaction</a></h4>
-      <section><p>A DividendAdjustment Transaction is created administratively to pay or
-collect dividend adjustment mounts to or from an Account.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.FixedPriceOrderTransaction.html">FixedPriceOrderTransaction</a></h4>
-      <section><p>A FixedPriceOrderTransaction represents the creation of a Fixed Price
-Order in the user’s account. A Fixed Price Order is an Order that is
-filled immediately at a specified price.</p>
-</section>
       <h4><a class="xref" href="FFT.Oanda.Transactions.GetTransactionIdRangeResponse.html">GetTransactionIdRangeResponse</a></h4>
       <section><p>Returned by the <a class="xref" href="FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetTransactionIdRange_System_String_System_Nullable_DateTime__System_Nullable_DateTime__CancellationToken_">GetTransactionIdRange(String, Nullable&lt;DateTime&gt;, Nullable&lt;DateTime&gt;, CancellationToken)</a> method.</p>
 </section>
@@ -125,58 +91,6 @@ method.</p>
       <h4><a class="xref" href="FFT.Oanda.Transactions.GetTransactionsResponse.html">GetTransactionsResponse</a></h4>
       <section><p>Returned by the <a class="xref" href="FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetTransactions_System_String_System_Int32_System_Int32_FFT_Oanda_TransactionFilter___CancellationToken_">GetTransactions(String, Int32, Int32, TransactionFilter[], CancellationToken)</a>  method.</p>
 </section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.GuaranteedStopLossOrderRejectTransaction.html">GuaranteedStopLossOrderRejectTransaction</a></h4>
-      <section><p>A GuaranteedStopLossOrderRejectTransaction represents the rejection of the
-creation of a GuaranteedStopLoss Order.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.GuaranteedStopLossOrderTransaction.html">GuaranteedStopLossOrderTransaction</a></h4>
-      <section><p>A GuaranteedStopLossOrderTransaction represents the creation of a
-GuaranteedStopLoss Order in the user’s Account.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.LimitOrderRejectTransaction.html">LimitOrderRejectTransaction</a></h4>
-      <section><p>A LimitOrderRejectTransaction represents the rejection of the creation of
-a Limit Order.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.LimitOrderTransaction.html">LimitOrderTransaction</a></h4>
-      <section><p>A LimitOrderTransaction represents the creation of a Limit Order in the
-user’s Account.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.MarginCallEnterTransaction.html">MarginCallEnterTransaction</a></h4>
-      <section><p>A MarginCallEnterTransaction is created when an Account enters the margin
-call state.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.MarginCallExitTransaction.html">MarginCallExitTransaction</a></h4>
-      <section><p>A MarginCallExitTransaction is created when an Account leaves the margin
-call state.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.MarginCallExtendTransaction.html">MarginCallExtendTransaction</a></h4>
-      <section><p>A MarginCallExtendTransaction is created when the margin call state for an
-Account has been extended.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.MarketIfTouchedOrderRejectTransaction.html">MarketIfTouchedOrderRejectTransaction</a></h4>
-      <section><p>A MarketIfTouchedOrderRejectTransaction represents the rejection of the
-creation of a MarketIfTouched Order.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.MarketIfTouchedOrderTransaction.html">MarketIfTouchedOrderTransaction</a></h4>
-      <section><p>A MarketIfTouchedOrderTransaction represents the creation of a
-MarketIfTouched Order in the user’s Account.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.MarketOrderRejectTransaction.html">MarketOrderRejectTransaction</a></h4>
-      <section><p>A MarketOrderRejectTransaction represents the rejection of the creation of
-a Market Order.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.MarketOrderTransaction.html">MarketOrderTransaction</a></h4>
-      <section><p>A MarketOrderTransaction represents the creation of a Market Order in the
-user’s account. A Market Order is an Order that is filled immediately at
-the current market price. Market Orders can be specialized when they are
-created to accomplish a specific task: to close a Trade, to closeout a
-Position or to participate in in a Margin closeout.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.OpeningOrderTransaction.html">OpeningOrderTransaction</a></h4>
-      <section><p>Base class for transactions that can open new trades. Note that the Market
-orders also inherit this base class, but they can also be used for closing
-trades.</p>
-</section>
       <h4><a class="xref" href="FFT.Oanda.Transactions.OpenTradeDividendAdjustment.html">OpenTradeDividendAdjustment</a></h4>
       <section><p>Used to pay or collect a dividend adjustment amount for an open Trade within the Account.</p>
 </section>
@@ -184,71 +98,9 @@ trades.</p>
       <section><p>OpenTradeFinancing is used to pay/collect daily financing charge for an
 open Trade within an Account.</p>
 </section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.OrderCancelRejectTransaction.html">OrderCancelRejectTransaction</a></h4>
-      <section><p>An OrderCancelRejectTransaction represents the rejection of the
-cancellation of an Order in the client’s Account.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.OrderCancelTransaction.html">OrderCancelTransaction</a></h4>
-      <section><p>An OrderCancelTransaction represents the cancellation of an Order in the
-client’s Account.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.OrderClientExtensionsModifyRejectTransaction.html">OrderClientExtensionsModifyRejectTransaction</a></h4>
-      <section><p>A OrderClientExtensionsModifyRejectTransaction represents the rejection of
-the modification of an Order’s Client Extensions.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.OrderClientExtensionsModifyTransaction.html">OrderClientExtensionsModifyTransaction</a></h4>
-      <section><p>A OrderClientExtensionsModifyTransaction represents the modification of an
-Order’s Client Extensions.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.OrderFillTransaction.html">OrderFillTransaction</a></h4>
-      <section><p>An OrderFillTransaction represents the filling of an Order in the client’s
-Account.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.OrderTransaction.html">OrderTransaction</a></h4>
-      <section><p>Base class for transactions related to orders.</p>
-</section>
       <h4><a class="xref" href="FFT.Oanda.Transactions.PositionFinancing.html">PositionFinancing</a></h4>
       <section><p>PositionFinancing is used to pay/collect daily financing charge for a
 Position within an Account.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.ReopenTransaction.html">ReopenTransaction</a></h4>
-      <section><p>A ReopenTransaction represents the re-opening of a closed Account.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.ResetResettablePLTransaction.html">ResetResettablePLTransaction</a></h4>
-      <section><p>A ResetResettablePLTransaction represents the resetting of the Account’s
-resettable PL counters.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.StopLossOrderRejectTransaction.html">StopLossOrderRejectTransaction</a></h4>
-      <section><p>A StopLossOrderRejectTransaction represents the rejection of the creation
-of a StopLoss Order.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.StopLossOrderTransaction.html">StopLossOrderTransaction</a></h4>
-      <section><p>A StopLossOrderTransaction represents the creation of a StopLoss Order in
-the user’s Account.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.StopOrderRejectTransaction.html">StopOrderRejectTransaction</a></h4>
-      <section><p>A StopOrderRejectTransaction represents the rejection of the creation of a
-Stop Order.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.StopOrderTransaction.html">StopOrderTransaction</a></h4>
-      <section><p>A StopOrderTransaction represents the creation of a Stop Order in the
-user’s Account.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.TakeProfitOrderRejectTransaction.html">TakeProfitOrderRejectTransaction</a></h4>
-      <section><p>A TakeProfitOrderRejectTransaction represents the rejection of the
-creation of a TakeProfit Order.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.TakeProfitOrderTransaction.html">TakeProfitOrderTransaction</a></h4>
-      <section><p>A TakeProfitOrderTransaction represents the creation of a TakeProfit Order
-in the user’s Account.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.TradeClientExtensionsModifyRejectTransaction.html">TradeClientExtensionsModifyRejectTransaction</a></h4>
-      <section><p>A TradeClientExtensionsModifyRejectTransaction represents the rejection of
-the modification of a Trade’s Client Extensions.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.TradeClientExtensionsModifyTransaction.html">TradeClientExtensionsModifyTransaction</a></h4>
-      <section><p>A TradeClientExtensionsModifyTransaction represents the modification of a
-Trade’s Client Extensions.</p>
 </section>
       <h4><a class="xref" href="FFT.Oanda.Transactions.TradeOpen.html">TradeOpen</a></h4>
       <section><p>A TradeOpen object represents a Trade for an instrument that was opened in
@@ -260,29 +112,6 @@ of an instrument in the Account, specifically the OrderFill Transaction.</p>
 (either partially or fully) in an Account. It is found embedded in
 Transactions that affect the position of an instrument in the account,
 specifically the OrderFill Transaction.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.TradeRelatedOrderTransaction.html">TradeRelatedOrderTransaction</a></h4>
-      <section><p>Base class for order transactions that are related to existing trades.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.TrailingStopLossOrderRejectTransaction.html">TrailingStopLossOrderRejectTransaction</a></h4>
-      <section><p>A TrailingStopLossOrderRejectTransaction represents the rejection of the
-creation of a TrailingStopLoss Order.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.TrailingStopLossOrderTransaction.html">TrailingStopLossOrderTransaction</a></h4>
-      <section><p>A TrailingStopLossOrderTransaction represents the creation of a
-TrailingStopLoss Order in the user’s Account.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.Transaction.html">Transaction</a></h4>
-      <section><p>The base Transaction specification. Specifies properties that are common
-between all Transactions.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.TransferFundsRejectTransaction.html">TransferFundsRejectTransaction</a></h4>
-      <section><p>A TransferFundsRejectTransaction represents the rejection of the transfer
-of funds in/out of an Account.</p>
-</section>
-      <h4><a class="xref" href="FFT.Oanda.Transactions.TransferFundsTransaction.html">TransferFundsTransaction</a></h4>
-      <section><p>A TransferFundsTransaction represents the transfer of funds in/out of an
-Account.</p>
 </section>
     <h3 id="enums">Enums
   </h3>

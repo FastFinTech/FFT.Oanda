@@ -78,7 +78,7 @@
   <h1 id="FFT_Oanda_RequestFailedException" data-uid="FFT.Oanda.RequestFailedException" class="text-break">Class RequestFailedException
   </h1>
   <div class="markdown level0 summary"><p>Thrown when an api request is denied. Check the <a class="xref" href="FFT.Oanda.RequestFailedException.html#FFT_Oanda_RequestFailedException_StatusCode">StatusCode</a>
-and <a class="xref" href="FFT.Oanda.RequestFailedException.html#FFT_Oanda_RequestFailedException_Content">Content</a> properties for information returned by the api.</p>
+and <a class="xref" href="FFT.Oanda.RequestFailedException.html#FFT_Oanda_RequestFailedException_ResponseContent">ResponseContent</a> properties for information returned by the api.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -96,19 +96,19 @@ and <a class="xref" href="FFT.Oanda.RequestFailedException.html#FFT_Oanda_Reques
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_RequestFailedException_Content.md&amp;value=---%0Auid%3A%20FFT.Oanda.RequestFailedException.Content%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_RequestFailedException_ResponseContent.md&amp;value=---%0Auid%3A%20FFT.Oanda.RequestFailedException.ResponseContent%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/RequestFailedException.cs/#L34">View Source</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/RequestFailedException.cs/#L29">View Source</a>
   </span>
-  <a id="FFT_Oanda_RequestFailedException_Content_" data-uid="FFT.Oanda.RequestFailedException.Content*"></a>
-  <h4 id="FFT_Oanda_RequestFailedException_Content" data-uid="FFT.Oanda.RequestFailedException.Content">Content</h4>
+  <a id="FFT_Oanda_RequestFailedException_ResponseContent_" data-uid="FFT.Oanda.RequestFailedException.ResponseContent*"></a>
+  <h4 id="FFT_Oanda_RequestFailedException_ResponseContent" data-uid="FFT.Oanda.RequestFailedException.ResponseContent">ResponseContent</h4>
   <div class="markdown level1 summary"><p>The deserialized json content of the reponse that denied the request.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public JsonElement Content { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string ResponseContent { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -120,7 +120,7 @@ and <a class="xref" href="FFT.Oanda.RequestFailedException.html#FFT_Oanda_Reques
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">JsonElement</span></td>
+        <td><span class="xref">System.String</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -130,7 +130,7 @@ and <a class="xref" href="FFT.Oanda.RequestFailedException.html#FFT_Oanda_Reques
     <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_RequestFailedException_StatusCode.md&amp;value=---%0Auid%3A%20FFT.Oanda.RequestFailedException.StatusCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/RequestFailedException.cs/#L29">View Source</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/RequestFailedException.cs/#L24">View Source</a>
   </span>
   <a id="FFT_Oanda_RequestFailedException_StatusCode_" data-uid="FFT.Oanda.RequestFailedException.StatusCode*"></a>
   <h4 id="FFT_Oanda_RequestFailedException_StatusCode" data-uid="FFT.Oanda.RequestFailedException.StatusCode">StatusCode</h4>
@@ -167,7 +167,7 @@ and <a class="xref" href="FFT.Oanda.RequestFailedException.html#FFT_Oanda_Reques
                     <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_RequestFailedException.md&amp;value=---%0Auid%3A%20FFT.Oanda.RequestFailedException%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/RequestFailedException.cs/#L18" class="contribution-link">View Source</a>
+                    <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/RequestFailedException.cs/#L13" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
