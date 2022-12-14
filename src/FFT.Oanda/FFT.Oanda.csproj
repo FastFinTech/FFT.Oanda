@@ -7,10 +7,10 @@
     <PackageId>FFT.Oanda</PackageId>
     <Summary>A .net client for the Oanda api.</Summary>
     <Description>$(Summary)</Description>
-    <Company>True Goodwill</Company>
+    <Company>https://github.com/FastFinTech</Company>
     <Authors>True Goodwill</Authors>
     <PackageProjectUrl>https://github.com/FastFinTech/FFT.Oanda</PackageProjectUrl>
-    <RepositoryUrl>$(PackageProjectUrl)</RepositoryUrl>
+    <RepositoryUrl>https://github.com/FastFinTech/FFT.Oanda.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>oanda;api</PackageTags>
   </PropertyGroup>
