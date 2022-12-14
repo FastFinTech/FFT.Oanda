@@ -3,77 +3,20 @@
 
 namespace FFT.Oanda.Transactions;
 
-using System;
-using System.Text.Json.Serialization;
 using FFT.Oanda.Orders;
 
 /// <summary>
 /// A LimitOrderTransaction represents the creation of a Limit Order in the
 /// user’s Account.
 /// </summary>
-public class LimitOrderTransaction : OpeningOrderTransaction
+public record LimitOrderTransaction : OpeningOrderTransaction
 {
-  /// <summary>
-  /// Initializes a new instance of the <see cref="LimitOrderTransaction"/> class.
-  /// </summary>
-  [JsonConstructor]
-  public LimitOrderTransaction(
-    int id,
-    DateTime time,
-    int? userID,
-    string accountID,
-    string? batchID,
-    string? requestID,
-    TransactionType type,
-    ClientExtensions? clientExtensions,
-    string? replacesOrderID,
-    string? cancellingTransactionID,
-    TimeInForce timeInForce,
-    DateTime? gtdTime,
-    string instrument,
-    decimal units,
-    OrderPositionFill positionFill,
-    TakeProfitDetails? takeProfitOnFill,
-    StopLossDetails? stopLossOnFill,
-    TrailingStopLossDetails? trailingStopLossOnFill,
-    GuaranteedStopLossDetails? guaranteedStopLossOnFill,
-    ClientExtensions? tradeClientExtensions,
-    decimal price,
-    OrderTriggerCondition triggerCondition,
-    LimitOrderReason reason)
-      : base(
-          id,
-          time,
-          userID,
-          accountID,
-          batchID,
-          requestID,
-          type,
-          clientExtensions,
-          replacesOrderID,
-          cancellingTransactionID,
-          timeInForce,
-          gtdTime,
-          instrument,
-          units,
-          positionFill,
-          takeProfitOnFill,
-          stopLossOnFill,
-          trailingStopLossOnFill,
-          guaranteedStopLossOnFill,
-          tradeClientExtensions)
-  {
-    Price = price;
-    TriggerCondition = triggerCondition;
-    Reason = reason;
-  }
-
   /// <summary>
   /// The price threshold specified for the Limit Order. The Limit Order will
   /// only be filled by a market price that is equal to or better than this
   /// price.
   /// </summary>
-  public decimal Price { get; }
+  public decimal Price { get; init; }
 
   /// <summary>
   /// Specification of which price component should be used when determining
@@ -94,10 +37,10 @@ public class LimitOrderTransaction : OpeningOrderTransaction
   /// So for a Guaranteed Stop Loss Order for a long trade valid values are
   /// “DEFAULT” and “BID”, and for short trades “DEFAULT” and “ASK” are valid.
   /// </summary>
-  public OrderTriggerCondition TriggerCondition { get; }
+  public OrderTriggerCondition TriggerCondition { get; init; }
 
   /// <summary>
   /// The reason that the Limit Order was initiated.
   /// </summary>
-  public LimitOrderReason Reason { get; }
+  public LimitOrderReason Reason { get; init; }
 }

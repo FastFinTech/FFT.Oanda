@@ -13,6 +13,7 @@
     <RepositoryUrl>https://github.com/FastFinTech/FFT.Oanda.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>oanda;api</PackageTags>
+    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>

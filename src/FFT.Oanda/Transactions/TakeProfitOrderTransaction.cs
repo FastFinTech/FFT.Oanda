@@ -2,71 +2,20 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Transactions;
-
-using System;
-using System.Text.Json.Serialization;
 using FFT.Oanda.Orders;
-
-// closing order transactions
 
 /// <summary>
 /// A TakeProfitOrderTransaction represents the creation of a TakeProfit Order
 /// in the user’s Account.
 /// </summary>
-public class TakeProfitOrderTransaction : TradeRelatedOrderTransaction
+public record TakeProfitOrderTransaction : TradeRelatedOrderTransaction
 {
-  /// <summary>
-  /// Initializes a new instance of the <see
-  /// cref="TakeProfitOrderTransaction"/> class.
-  /// </summary>
-  [JsonConstructor]
-  public TakeProfitOrderTransaction(
-    int id,
-    DateTime time,
-    int? userID,
-    string accountID,
-    string? batchID,
-    string? requestID,
-    TransactionType type,
-    ClientExtensions? clientExtensions,
-    string? replacesOrderID,
-    string? cancellingTransactionID,
-    TimeInForce timeInForce,
-    DateTime? gtdTime,
-    string tradeID,
-    string? clientTradeID,
-    decimal price,
-    OrderTriggerCondition triggerCondition,
-    TakeProfitOrderReason reason,
-    string? orderFillTransactionID)
-      : base(
-          id,
-          time,
-          userID,
-          accountID,
-          batchID,
-          requestID,
-          type,
-          clientExtensions,
-          replacesOrderID,
-          cancellingTransactionID,
-          timeInForce,
-          gtdTime,
-          tradeID,
-          clientTradeID)
-  {
-    Price = price;
-    TriggerCondition = triggerCondition;
-    Reason = reason;
-    OrderFillTransactionID = orderFillTransactionID;
-  }
-
   /// <summary>
   /// The price threshold specified for the TakeProfit Order. The associated
   /// Trade will be closed by a market price that is equal to or better than
   /// this threshold.
   /// </summary>
-  public decimal Price { get; }
+  public decimal Price { get; init; }
 
   /// <summary>
   /// Specification of which price component should be used when determining
@@ -87,17 +36,17 @@ public class TakeProfitOrderTransaction : TradeRelatedOrderTransaction
   /// So for a Guaranteed Stop Loss Order for a long trade valid values are
   /// “DEFAULT” and “BID”, and for short trades “DEFAULT” and “ASK” are valid.
   /// </summary>
-  public OrderTriggerCondition TriggerCondition { get; }
+  public OrderTriggerCondition TriggerCondition { get; init; }
 
   /// <summary>
   /// The reason that the Take Profit Order was initiated.
   /// </summary>
-  public TakeProfitOrderReason Reason { get; }
+  public TakeProfitOrderReason Reason { get; init; }
 
   /// <summary>
   /// The ID of the OrderFill Transaction that caused this Order to be created
   /// (only provided if this Order was created automatically when another
   /// Order was filled).
   /// </summary>
-  public string? OrderFillTransactionID { get; }
+  public int? OrderFillTransactionID { get; init; }
 }

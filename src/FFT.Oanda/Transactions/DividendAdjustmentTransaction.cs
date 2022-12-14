@@ -2,52 +2,12 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Transactions;
-
-using System;
-using System.Collections.Immutable;
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// A DividendAdjustment Transaction is created administratively to pay or
 /// collect dividend adjustment mounts to or from an Account.
 /// </summary>
-public sealed class DividendAdjustmentTransaction : Transaction
+public sealed record DividendAdjustmentTransaction : Transaction
 {
-  /// <summary>
-  /// Initializes a new instance of the <see cref="DividendAdjustmentTransaction"/> class.
-  /// </summary>
-  [JsonConstructor]
-  public DividendAdjustmentTransaction(
-    int id,
-    DateTime time,
-    int? userID,
-    string accountID,
-    string? batchID,
-    string? requestID,
-    TransactionType type,
-    string instrument,
-    decimal dividendAdjustment,
-    decimal quoteDividendAdjustment,
-    HomeConversionFactors homeConversionFactors,
-    decimal accountBalance,
-    ImmutableList<OpenTradeDividendAdjustment> openTradeDividendAdjustments)
-      : base(
-        id,
-        time,
-        userID,
-        accountID,
-        batchID,
-        requestID,
-        type)
-  {
-    Instrument = instrument;
-    DividendAdjustment = dividendAdjustment;
-    QuoteDividendAdjustment = quoteDividendAdjustment;
-    HomeConversionFactors = homeConversionFactors;
-    AccountBalance = accountBalance;
-    OpenTradeDividendAdjustments = openTradeDividendAdjustments;
-  }
-
   /// <summary>
   /// The name of the instrument for the dividendAdjustment transaction.
   /// </summary>

@@ -3,107 +3,39 @@
 
 namespace FFT.Oanda.Transactions;
 
-using System;
-using System.Collections.Immutable;
-using System.Text.Json.Serialization;
 using FFT.Oanda.Pricing;
 
 /// <summary>
 /// An OrderFillTransaction represents the filling of an Order in the client’s
 /// Account.
 /// </summary>
-public sealed class OrderFillTransaction : Transaction
+public sealed record OrderFillTransaction : Transaction
 {
-  /// <summary>
-  /// Initializes a new instance of the <see cref="OrderFillTransaction"/> class.
-  /// </summary>
-  [JsonConstructor]
-  public OrderFillTransaction(
-    int id,
-    DateTime time,
-    int? userID,
-    string accountID,
-    string? batchID,
-    string? requestID,
-    TransactionType type,
-    string orderID,
-    string? clientOrderID,
-    string instrument,
-    decimal units,
-    HomeConversionFactors homeConversionFactors,
-    decimal fullVWAP,
-    ClientPrice fullPrice,
-    OrderFillReason reason,
-    decimal pL,
-    decimal quotePL,
-    decimal financing,
-    decimal baseFinancing,
-    decimal quoteFinancing,
-    decimal commission,
-    decimal? guaranteedExecutionFee,
-    decimal? quoteGuaranteedExecutionFee,
-    decimal accountBalance,
-    TradeOpen? tradeOpened,
-    ImmutableList<TradeReduce>? tradesClosed,
-    TradeReduce? tradeReduced,
-    decimal halfSpreadCost)
-      : base(
-        id,
-        time,
-        userID,
-        accountID,
-        batchID,
-        requestID,
-        type)
-  {
-    OrderID = orderID;
-    ClientOrderID = clientOrderID;
-    Instrument = instrument;
-    Units = units;
-    HomeConversionFactors = homeConversionFactors;
-    FullVWAP = fullVWAP;
-    FullPrice = fullPrice;
-    Reason = reason;
-    PL = pL;
-    QuotePL = quotePL;
-    Financing = financing;
-    BaseFinancing = baseFinancing;
-    QuoteFinancing = quoteFinancing;
-    Commission = commission;
-    GuaranteedExecutionFee = guaranteedExecutionFee;
-    QuoteGuaranteedExecutionFee = quoteGuaranteedExecutionFee;
-    AccountBalance = accountBalance;
-    TradeOpened = tradeOpened;
-    TradesClosed = tradesClosed;
-    TradeReduced = tradeReduced;
-    HalfSpreadCost = halfSpreadCost;
-  }
-
   /// <summary>
   /// The ID of the Order filled.
   /// </summary>
-  public string OrderID { get; }
+  public string OrderID { get; init; }
 
   /// <summary>
   /// The client Order ID of the Order filled (only provided if the client has
   /// assigned one).
   /// </summary>
-  public string? ClientOrderID { get; }
+  public string? ClientOrderID { get; init; }
 
   /// <summary>
   /// The name of the filled Order’s instrument.
   /// </summary>
-  public string Instrument { get; }
+  public string Instrument { get; init; }
 
   /// <summary>
   /// The number of units filled by the OrderFill.
   /// </summary>
-  public decimal Units { get; }
+  public decimal Units { get; init; }
 
   /// <summary>
   /// The HomeConversionFactors in effect at the time of the OrderFill.
   /// </summary>
-  public HomeConversionFactors HomeConversionFactors { get; }
+  public HomeConversionFactors HomeConversionFactors { get; init; }
 
   /// <summary>
   /// The price that all of the units of the OrderFill should have been filled
@@ -114,47 +46,47 @@ public sealed class OrderFillTransaction : Transaction
   /// fields of each Trade opened, closed, and reduced, and they will all be
   /// the exact same.
   /// </summary>
-  public decimal FullVWAP { get; }
+  public decimal FullVWAP { get; init; }
 
   /// <summary>
   /// The price in effect for the account at the time of the Order fill.
   /// </summary>
-  public ClientPrice FullPrice { get; }
+  public ClientPrice FullPrice { get; init; }
 
   /// <summary>
   /// The reason that an Order was filled.
   /// </summary>
-  public OrderFillReason Reason { get; }
+  public OrderFillReason Reason { get; init; }
 
   /// <summary>
   /// The profit or loss incurred when the Order was filled. Expressed in the
   /// account's home currency.
   /// </summary>
-  public decimal PL { get; }
+  public decimal PL { get; init; }
 
   /// <summary>
   /// The profit or loss incurred when the Order was filled, in the
   /// Instrument’s quote currency.
   /// </summary>
-  public decimal QuotePL { get; }
+  public decimal QuotePL { get; init; }
 
   /// <summary>
   /// The financing paid or collected when the Order was filled. Expressed in
   /// the account's home currency.
   /// </summary>
-  public decimal Financing { get; }
+  public decimal Financing { get; init; }
 
   /// <summary>
   /// The financing paid or collected when the Order was filled, in the
   /// Instrument’s base currency.
   /// </summary>
-  public decimal BaseFinancing { get; }
+  public decimal BaseFinancing { get; init; }
 
   /// <summary>
   /// The financing paid or collected when the Order was filled, in the
   /// Instrument’s quote currency.
   /// </summary>
-  public decimal QuoteFinancing { get; }
+  public decimal QuoteFinancing { get; init; }
 
   /// <summary>
   /// The commission charged in the Account’s home currency as a result of
@@ -162,45 +94,45 @@ public sealed class OrderFillTransaction : Transaction
   /// quantity of the Account’s home currency, however it reduces the balance
   /// in the Account. Expressed in the account's home currency.
   /// </summary>
-  public decimal Commission { get; }
+  public decimal Commission { get; init; }
 
   /// <summary>
   /// The total guaranteed execution fees charged for all Trades opened,
   /// closed or reduced with guaranteed Stop Loss Orders. Expressed in the
   /// account's home currency.
   /// </summary>
-  public decimal? GuaranteedExecutionFee { get; }
+  public decimal? GuaranteedExecutionFee { get; init; }
 
   /// <summary>
   /// The total guaranteed execution fees charged for all Trades opened,
   /// closed or reduced with guaranteed Stop Loss Orders, expressed in the
   /// Instrument’s quote currency.
   /// </summary>
-  public decimal? QuoteGuaranteedExecutionFee { get; }
+  public decimal? QuoteGuaranteedExecutionFee { get; init; }
 
   /// <summary>
   /// The Account’s balance after the Order was filled. Expressed in the
   /// account's home currency.
   /// </summary>
-  public decimal AccountBalance { get; }
+  public decimal AccountBalance { get; init; }
 
   /// <summary>
   /// The Trade that was opened when the Order was filled (only provided if
   /// filling the Order resulted in a new Trade).
   /// </summary>
-  public TradeOpen? TradeOpened { get; }
+  public TradeOpen? TradeOpened { get; init; }
 
   /// <summary>
   /// The Trades that were closed when the Order was filled (only provided if
   /// filling the Order resulted in a closing open Trades).
   /// </summary>
-  public ImmutableList<TradeReduce>? TradesClosed { get; }
+  public ImmutableList<TradeReduce>? TradesClosed { get; init; }
 
   /// <summary>
   /// The Trade that was reduced when the Order was filled (only provided if
   /// filling the Order resulted in reducing an open Trade).
   /// </summary>
-  public TradeReduce? TradeReduced { get; }
+  public TradeReduce? TradeReduced { get; init; }
 
   /// <summary>
   /// The half spread cost for the OrderFill, which is the sum of the
@@ -208,5 +140,5 @@ public sealed class OrderFillTransaction : Transaction
   /// fields. This can be a positive or negative value. Expressed in the
   /// account's home currency.
   /// </summary>
-  public decimal HalfSpreadCost { get; }
+  public decimal HalfSpreadCost { get; init; }
 }

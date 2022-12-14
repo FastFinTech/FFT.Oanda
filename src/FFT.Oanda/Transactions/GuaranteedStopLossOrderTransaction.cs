@@ -2,67 +2,14 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Transactions;
-
-using System;
-using System.Text.Json.Serialization;
 using FFT.Oanda.Orders;
 
 /// <summary>
 /// A GuaranteedStopLossOrderTransaction represents the creation of a
 /// GuaranteedStopLoss Order in the user’s Account.
 /// </summary>
-public class GuaranteedStopLossOrderTransaction : TradeRelatedOrderTransaction
+public record GuaranteedStopLossOrderTransaction : TradeRelatedOrderTransaction
 {
-  /// <summary>
-  /// Initializes a new instance of the <see
-  /// cref="GuaranteedStopLossOrderTransaction"/> class.
-  /// </summary>
-  [JsonConstructor]
-  public GuaranteedStopLossOrderTransaction(
-    int id,
-    DateTime time,
-    int? userID,
-    string accountID,
-    string? batchID,
-    string? requestID,
-    TransactionType type,
-    ClientExtensions? clientExtensions,
-    string? replacesOrderID,
-    string? cancellingTransactionID,
-    TimeInForce timeInForce,
-    DateTime? gtdTime,
-    string tradeID,
-    string? clientTradeID,
-    decimal price,
-    decimal? distance,
-    OrderTriggerCondition triggerCondition,
-    decimal? guaranteedExecutionPremium,
-    GuaranteedStopLossOrderReason reason,
-    string? orderFillTransactionID)
-      : base(
-          id,
-          time,
-          userID,
-          accountID,
-          batchID,
-          requestID,
-          type,
-          clientExtensions,
-          replacesOrderID,
-          cancellingTransactionID,
-          timeInForce,
-          gtdTime,
-          tradeID,
-          clientTradeID)
-  {
-    Price = price;
-    Distance = distance;
-    TriggerCondition = triggerCondition;
-    GuaranteedExecutionPremium = guaranteedExecutionPremium;
-    Reason = reason;
-    OrderFillTransactionID = orderFillTransactionID;
-  }
-
   // TODO: I'm pretty sure this fits into the category of "price and distance
   // cannot both be set". However, the spec says "price" is required. I'm apt
   // to believe this is untrue, and we need to test what happens when a
@@ -72,14 +19,14 @@ public class GuaranteedStopLossOrderTransaction : TradeRelatedOrderTransaction
   /// The price threshold specified for the Guaranteed Stop Loss Order. The
   /// associated Trade will be closed at this price.
   /// </summary>
-  public decimal Price { get; }
+  public decimal Price { get; init; }
 
   /// <summary>
   /// Specifies the distance (in price units) from the Account’s current price
   /// to use as the Guaranteed Stop Loss Order price. If the Trade is short the
   /// Instrument’s bid price is used, and for long Trades the ask is used.
   /// </summary>
-  public decimal? Distance { get; }
+  public decimal? Distance { get; init; }
 
   /// <summary>
   /// Specification of which price component should be used when determining if
@@ -100,24 +47,24 @@ public class GuaranteedStopLossOrderTransaction : TradeRelatedOrderTransaction
   /// Loss Order for a long trade valid values are “DEFAULT” and “BID”, and for
   /// short trades “DEFAULT” and “ASK” are valid.
   /// </summary>
-  public OrderTriggerCondition TriggerCondition { get; }
+  public OrderTriggerCondition TriggerCondition { get; init; }
 
   /// <summary>
   /// The fee that will be charged if the Guaranteed Stop Loss Order is filled
   /// at the guaranteed price. The value is determined at Order creation time.
   /// It is in price units and is charged for each unit of the Trade.
   /// </summary>
-  public decimal? GuaranteedExecutionPremium { get; }
+  public decimal? GuaranteedExecutionPremium { get; init; }
 
   /// <summary>
   /// The reason that the Guaranteed Stop Loss Order was initiated.
   /// </summary>
-  public GuaranteedStopLossOrderReason Reason { get; }
+  public GuaranteedStopLossOrderReason Reason { get; init; }
 
   /// <summary>
   /// The ID of the OrderFill Transaction that caused this Order to be created
   /// (only provided if this Order was created automatically when another Order
   /// was filled).
   /// </summary>
-  public string? OrderFillTransactionID { get; }
+  public int? OrderFillTransactionID { get; init; }
 }

@@ -2,9 +2,6 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Transactions;
-
-using System;
-using System.Text.Json.Serialization;
 using FFT.Oanda.Orders;
 
 /// <summary>
@@ -14,72 +11,8 @@ using FFT.Oanda.Orders;
 /// created to accomplish a specific task: to close a Trade, to closeout a
 /// Position or to participate in in a Margin closeout.
 /// </summary>
-public class MarketOrderTransaction : OpeningOrderTransaction
+public record MarketOrderTransaction : OpeningOrderTransaction
 {
-  /// <summary>
-  /// Initializes a new instance of the <see cref="MarketOrderTransaction"/>
-  /// class.
-  /// </summary>
-  [JsonConstructor]
-  public MarketOrderTransaction(
-    int id,
-    DateTime time,
-    int? userID,
-    string accountID,
-    string? batchID,
-    string? requestID,
-    TransactionType type,
-    ClientExtensions? clientExtensions,
-    string? replacesOrderID,
-    string? cancellingTransactionID,
-    TimeInForce timeInForce,
-    DateTime? gtdTime,
-    string instrument,
-    decimal units,
-    OrderPositionFill positionFill,
-    TakeProfitDetails? takeProfitOnFill,
-    StopLossDetails? stopLossOnFill,
-    TrailingStopLossDetails? trailingStopLossOnFill,
-    GuaranteedStopLossDetails? guaranteedStopLossOnFill,
-    ClientExtensions? tradeClientExtensions,
-    decimal priceBound,
-    MarketOrderTradeClose? tradeClose,
-    MarketOrderPositionCloseout? longPositionCloseout,
-    MarketOrderPositionCloseout? shortPositionCloseout,
-    MarketOrderMarginCloseout? marginCloseout,
-    MarketOrderDelayedTradeClose? delayedTradeClose,
-    MarketOrderReason reason)
-      : base(
-          id,
-          time,
-          userID,
-          accountID,
-          batchID,
-          requestID,
-          type,
-          clientExtensions,
-          replacesOrderID,
-          cancellingTransactionID,
-          timeInForce,
-          gtdTime,
-          instrument,
-          units,
-          positionFill,
-          takeProfitOnFill,
-          stopLossOnFill,
-          trailingStopLossOnFill,
-          guaranteedStopLossOnFill,
-          tradeClientExtensions)
-  {
-    PriceBound = priceBound;
-    TradeClose = tradeClose;
-    LongPositionCloseout = longPositionCloseout;
-    ShortPositionCloseout = shortPositionCloseout;
-    MarginCloseout = marginCloseout;
-    DelayedTradeClose = delayedTradeClose;
-    Reason = reason;
-  }
-
   /// <summary>
   /// The worst price that the client is willing to have the Market Order
   /// filled at.
