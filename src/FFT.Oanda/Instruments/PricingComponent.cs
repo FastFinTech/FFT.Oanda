@@ -3,9 +3,6 @@
 
 namespace FFT.Oanda.Instruments;
 
-using System;
-using Throw;
-
 /// <summary>
 /// The Price component(s) to get candlestick data for.
 /// </summary>

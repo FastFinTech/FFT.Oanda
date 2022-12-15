@@ -3,34 +3,19 @@
 
 namespace FFT.Oanda.Pricing;
 
-using System;
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// A PricingHeartbeat object is injected into the Pricing stream to ensure
 /// that the HTTP connection remains active.
 /// </summary>
-public sealed class PricingHeartbeat
+public sealed record PricingHeartbeat
 {
-  /// <summary>
-  /// Initializes a new instance of the <see cref="PricingHeartbeat"/> class.
-  /// </summary>
-  [JsonConstructor]
-  public PricingHeartbeat(
-    string type,
-    DateTime time)
-  {
-    Type = type;
-    Time = time;
-  }
-
   /// <summary>
   /// The string “HEARTBEAT”.
   /// </summary>
-  public string Type { get; }
+  public string Type { get; init; }
 
   /// <summary>
   /// The date/time when the Heartbeat was created.
   /// </summary>
-  public DateTime Time { get; }
+  public DateTime Time { get; init; }
 }

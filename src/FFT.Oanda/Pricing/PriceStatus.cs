@@ -3,7 +3,7 @@
 
 namespace FFT.Oanda.Pricing;
 
-using System.Text.Json.Serialization;
+using FFT.Oanda.JsonConverters;
 
 /// <summary>
 /// The status of the Price.

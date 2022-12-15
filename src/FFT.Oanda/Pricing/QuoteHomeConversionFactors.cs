@@ -3,35 +3,20 @@
 
 namespace FFT.Oanda.Pricing;
 
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// QuoteHomeConversionFactors represents the factors that can be used used to
 /// convert quantities of a Price’s Instrument’s quote currency into the
 /// Account’s home currency.
 /// </summary>
-public sealed class QuoteHomeConversionFactors
+public sealed record QuoteHomeConversionFactors
 {
-  /// <summary>
-  /// Initializes a new instance of the <see
-  /// cref="QuoteHomeConversionFactors"/> class.
-  /// </summary>
-  [JsonConstructor]
-  public QuoteHomeConversionFactors(
-    decimal positiveUnits,
-    decimal negativeUnits)
-  {
-    PositiveUnits = positiveUnits;
-    NegativeUnits = negativeUnits;
-  }
-
   /// <summary>
   /// The factor used to convert a positive amount of the Price’s Instrument’s
   /// quote currency into a positive amount of the Account’s home currency.
   /// Conversion is performed by multiplying the quote units by the conversion
   /// factor.
   /// </summary>
-  public decimal PositiveUnits { get; }
+  public decimal PositiveUnits { get; init; }
 
   /// <summary>
   /// The factor used to convert a negative amount of the Price’s Instrument’s
@@ -39,5 +24,5 @@ public sealed class QuoteHomeConversionFactors
   /// Conversion is performed by multiplying the quote units by the conversion
   /// factor.
   /// </summary>
-  public decimal NegativeUnits { get; }
+  public decimal NegativeUnits { get; init; }
 }

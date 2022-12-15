@@ -3,32 +3,18 @@
 
 namespace FFT.Oanda.Pricing;
 
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// A PriceBucket represents a price available for an amount of liquidity.
 /// </summary>
-public sealed class PriceBucket
+public sealed record PriceBucket
 {
-  /// <summary>
-  /// Initializes a new instance of the <see cref="PriceBucket"/> class.
-  /// </summary>
-  [JsonConstructor]
-  public PriceBucket(
-    decimal price,
-    int liquidity)
-  {
-    Price = price;
-    Liquidity = liquidity;
-  }
-
   /// <summary>
   /// The Price offered by the PriceBucket.
   /// </summary>
-  public decimal Price { get; }
+  public decimal Price { get; init; }
 
   /// <summary>
   /// The amount of liquidity offered by the PriceBucket.
   /// </summary>
-  public int Liquidity { get; }
+  public int Liquidity { get; init; }
 }

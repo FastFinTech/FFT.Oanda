@@ -3,8 +3,6 @@
 
 namespace FFT.Oanda.Instruments;
 
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// The granularity of a candlestick.
 /// </summary>

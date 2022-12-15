@@ -3,35 +3,17 @@
 
 namespace FFT.Oanda.Pricing;
 
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// HomeConversions represents the factors to use to convert quantities of a
 /// given currency into the Account’s home currency. The conversion factor
 /// depends on the scenario the conversion is required for.
 /// </summary>
-public sealed class HomeConversions
+public sealed record HomeConversions
 {
-  /// <summary>
-  /// Initializes a new instance of the <see cref="HomeConversions"/> class.
-  /// </summary>
-  [JsonConstructor]
-  public HomeConversions(
-    string currency,
-    decimal accountGain,
-    decimal accountLoss,
-    decimal positionValue)
-  {
-    Currency = currency;
-    AccountGain = accountGain;
-    AccountLoss = accountLoss;
-    PositionValue = positionValue;
-  }
-
   /// <summary>
   /// The currency to be converted into the home currency.
   /// </summary>
-  public string Currency { get; }
+  public string Currency { get; init; }
 
   /// <summary>
   /// The factor used to convert any gains for an Account in the specified
@@ -39,7 +21,7 @@ public sealed class HomeConversions
   /// realized P/L and positive financing amounts. Conversion is performed by
   /// multiplying the positive P/L by the conversion factor.
   /// </summary>
-  public decimal AccountGain { get; }
+  public decimal AccountGain { get; init; }
 
   // TODO: I think the commenting below should say "negative P/L"
 
@@ -49,12 +31,12 @@ public sealed class HomeConversions
   /// realized P/L and negative financing amounts. Conversion is performed by
   /// multiplying the positive P/L by the conversion factor.
   /// </summary>
-  public decimal AccountLoss { get; }
+  public decimal AccountLoss { get; init; }
 
   /// <summary>
   /// The factor used to convert a Position or Trade Value in the specified
   /// currency into the Account’s home currency. Conversion is performed by
   /// multiplying the Position or Trade Value by the conversion factor.
   /// </summary>
-  public decimal PositionValue { get; }
+  public decimal PositionValue { get; init; }
 }
