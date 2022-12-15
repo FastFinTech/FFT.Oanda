@@ -2,6 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Accounts;
+
 /// <summary>
 /// Used to set account configuration parameters.
 /// </summary>

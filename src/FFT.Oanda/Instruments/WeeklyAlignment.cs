@@ -3,8 +3,6 @@
 
 namespace FFT.Oanda.Instruments;
 
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// The day of the week to use for candlestick granularities with weekly
 /// alignment.

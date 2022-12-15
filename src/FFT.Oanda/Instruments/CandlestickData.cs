@@ -3,30 +3,12 @@
 
 namespace FFT.Oanda.Instruments;
 
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// The price data (open, high, low, close) for the Candlestick
 /// representation.
 /// </summary>
-public sealed class CandlestickData
+public sealed record CandlestickData
 {
-  /// <summary>
-  /// Initializes a new instance of the <see cref="CandlestickData"/> class.
-  /// </summary>
-  [JsonConstructor]
-  public CandlestickData(
-    double open,
-    double high,
-    double low,
-    double close)
-  {
-    Open = open;
-    High = high;
-    Low = low;
-    Close = close;
-  }
-
   /// <summary>
   /// The first (open) price in the time-range represented by the candlestick.
   /// </summary>

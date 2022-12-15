@@ -22,7 +22,8 @@ public sealed record ClientPrice
   /// <summary>
   /// The date/time when the Price was created.
   /// </summary>
-  public DateTime Timestamp { get; init; }
+  [JsonPropertyName("timestamp")]
+  public DateTime Time { get; init; }
 
   /// <summary>
   /// Flag indicating if the Price is tradeable or not. Made nullable because it was found not to be included in some responses.

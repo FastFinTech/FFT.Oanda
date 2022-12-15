@@ -3,66 +3,43 @@
 
 namespace FFT.Oanda.Instruments;
 
-using System;
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// The Candlestick representation.
 /// </summary>
-public sealed class CandleStick
+public sealed record CandleStick
 {
-  /// <summary>
-  /// Initializes a new instance of the <see cref="CandleStick"/> class.
-  /// </summary>
-  [JsonConstructor]
-  public CandleStick(
-    DateTime time,
-    CandlestickData? bid,
-    CandlestickData? ask,
-    CandlestickData? mid,
-    double volume,
-    bool complete)
-  {
-    Time = time;
-    Bid = bid;
-    Ask = ask;
-    Mid = mid;
-    Volume = volume;
-    Complete = complete;
-  }
-
   /// <summary>
   /// The start time of the candlestick.
   /// </summary>
-  public DateTime Time { get; }
+  public DateTime Time { get; init; }
 
   /// <summary>
   /// The candlestick data based on bids. Only provided if bid-based candles
   /// were requested.
   /// </summary>
-  public CandlestickData? Bid { get; }
+  public CandlestickData? Bid { get; init; }
 
   /// <summary>
   /// The candlestick data based on asks. Only provided if ask-based candles
   /// were requested.
   /// </summary>
-  public CandlestickData? Ask { get; }
+  public CandlestickData? Ask { get; init; }
 
   /// <summary>
   /// The candlestick data based on midpoints. Only provided if midpoint-based
   /// candles were requested.
   /// </summary>
-  public CandlestickData? Mid { get; }
+  public CandlestickData? Mid { get; init; }
 
   /// <summary>
   /// The number of prices created during the time-range represented by the
   /// candlestick.
   /// </summary>
-  public double Volume { get; }
+  public double Volume { get; init; }
 
   /// <summary>
   /// A flag indicating if the candlestick is complete. A complete candlestick
   /// is one whose ending time is not in the future.
   /// </summary>
-  public bool Complete { get; }
+  public bool Complete { get; init; }
 }

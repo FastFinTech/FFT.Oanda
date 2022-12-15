@@ -3,9 +3,6 @@
 
 namespace FFT.Oanda.JsonConverters;
 
-using System;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using FFT.Oanda.Transactions;
 
 internal sealed class TransactionConverter : JsonConverter<Transaction>

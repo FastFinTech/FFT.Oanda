@@ -6,6 +6,7 @@ namespace FFT.Oanda.Accounts;
 /// <summary>
 /// The financing mode of an Account.
 /// </summary>
+[JsonConverter(typeof(JsonStringEnumConverter))]
 public enum AccountFinancingMode
 {
   /// <summary>

@@ -3,27 +3,13 @@
 
 namespace FFT.Oanda.Instruments;
 
-using System.Collections.Immutable;
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// TODO.
 /// </summary>
-public sealed class LatestCandlesResponse
+public sealed record LatestCandlesResponse
 {
-  /// <summary>
-  /// Initializes a new instance of the <see cref="LatestCandlesResponse"/>
-  /// class.
-  /// </summary>
-  [JsonConstructor]
-  public LatestCandlesResponse(
-    ImmutableList<CandlestickResponse> latestCandles)
-  {
-    LatestCandles = latestCandles;
-  }
-
   /// <summary>
   /// The latest candle sticks.
   /// </summary>
-  public ImmutableList<CandlestickResponse> LatestCandles { get; }
+  public ImmutableList<CandlestickResponse> LatestCandles { get; init; }
 }

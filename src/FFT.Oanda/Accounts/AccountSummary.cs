@@ -8,7 +8,7 @@ using FFT.Oanda.JsonConverters;
 /// A summary representation of a client’s account. Does not provide full
 /// specification of pending Orders, open Trades and Positions.
 /// </summary>
-public abstract record AccountSummary
+public record AccountSummary
 {
   /// <summary>
   /// The account’s identifier.
@@ -48,12 +48,11 @@ public abstract record AccountSummary
   /// </summary>
   public GuaranteedStopLossOrderMode GuaranteedStopLossOrderMode { get; init; }
 
-  /*
   /// <summary>
   /// The date/time that the account’s resettablePL was last reset.
   /// </summary>
-  public DateTime ResettablePLTime { get; init; }
-  */
+  [JsonConverter(typeof(ResettablePLDateConverter))]
+  public DateTime? ResettablePLTime { get; init; }
 
   /// <summary>
   /// Client-provided margin rate override for the account. The effective

@@ -3,42 +3,25 @@
 
 namespace FFT.Oanda.Instruments;
 
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// An InstrumentCommission represents an instrument-specific commission.
 /// </summary>
-public sealed class InstrumentCommission
+public sealed record InstrumentCommission
 {
-  /// <summary>
-  /// Initializes a new instance of the <see cref="InstrumentCommission"/>
-  /// class.
-  /// </summary>
-  [JsonConstructor]
-  public InstrumentCommission(
-    decimal commission,
-    decimal unitsTraded,
-    decimal minimumCommission)
-  {
-    Commission = commission;
-    UnitsTraded = unitsTraded;
-    MinimumCommission = minimumCommission;
-  }
-
   /// <summary>
   /// The commission amount (in the Account’s home currency) charged per
   /// unitsTraded of the instrument.
   /// </summary>
-  public decimal Commission { get; }
+  public decimal Commission { get; init; }
 
   /// <summary>
   /// The number of units traded that the commission amount is based on.
   /// </summary>
-  public decimal UnitsTraded { get; }
+  public decimal UnitsTraded { get; init; }
 
   /// <summary>
   /// The minimum commission amount (in the Account’s home currency) that is
   /// charged when an Order is filled for this instrument.
   /// </summary>
-  public decimal MinimumCommission { get; }
+  public decimal MinimumCommission { get; init; }
 }

@@ -3,8 +3,6 @@
 
 namespace FFT.Oanda.Instruments;
 
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// The overall behaviour of the Account regarding Guaranteed Stop Loss Orders
 /// for a specific Instrument.

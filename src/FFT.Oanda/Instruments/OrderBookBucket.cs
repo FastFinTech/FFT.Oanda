@@ -6,23 +6,23 @@ namespace FFT.Oanda.Instruments;
 /// <summary>
 /// The order book data for a partition of the instrument’s prices.
 /// </summary>
-public sealed class OrderBookBucket
+public sealed record OrderBookBucket
 {
   /// <summary>
   /// The lowest price (inclusive) covered by the bucket. The bucket covers
   /// the price range from the price to price + the order book’s bucketWidth.
   /// </summary>
-  public decimal Price { get; }
+  public decimal Price { get; init; }
 
   /// <summary>
   /// The percentage of the total number of orders represented by the long
   /// orders found in this bucket.
   /// </summary>
-  public decimal LongCountPercent { get; }
+  public decimal LongCountPercent { get; init; }
 
   /// <summary>
   /// The percentage of the total number of orders represented by the short
   /// orders found in this bucket.
   /// </summary>
-  public decimal ShortCountPercent { get; }
+  public decimal ShortCountPercent { get; init; }
 }

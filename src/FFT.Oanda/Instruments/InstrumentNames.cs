@@ -8,6 +8,8 @@ namespace FFT.Oanda.Instruments;
 /// </summary>
 public static class InstrumentNames
 {
+  // TODO: Finish this list
+
   /// <summary>
   /// EUR/USD currency pair.
   /// </summary>
