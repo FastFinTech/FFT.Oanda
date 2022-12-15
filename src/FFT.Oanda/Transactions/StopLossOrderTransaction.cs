@@ -2,6 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Transactions;
+
 /// <summary>
 /// A StopLossOrderTransaction represents the creation of a StopLoss Order in
 /// the user’s Account.

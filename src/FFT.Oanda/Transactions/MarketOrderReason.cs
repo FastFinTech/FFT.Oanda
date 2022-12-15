@@ -3,8 +3,6 @@
 
 namespace FFT.Oanda.Transactions;
 
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// The reason that the Market Order was created.
 /// </summary>

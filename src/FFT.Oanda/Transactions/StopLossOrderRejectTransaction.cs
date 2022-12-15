@@ -2,6 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Transactions;
+
 /// <summary>
 /// A StopLossOrderRejectTransaction represents the rejection of the creation
 /// of a StopLoss Order.

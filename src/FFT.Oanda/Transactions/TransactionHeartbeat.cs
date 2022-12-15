@@ -2,41 +2,27 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda;
-
-using System;
-using System.Text.Json.Serialization;
 using FFT.Oanda.JsonConverters;
 
 /// <summary>
 /// A TransactionHeartbeat object is injected into the Transaction stream to
 /// ensure that the HTTP connection remains active.
 /// </summary>
-public sealed class TransactionHeartbeat
+public sealed record TransactionHeartbeat
 {
-  /// <summary>
-  /// Initializes a new instance of the <see cref="TransactionHeartbeat"/> class.
-  /// </summary>
-  [JsonConstructor]
-  public TransactionHeartbeat(string type, int lastTransactionId, DateTime time)
-  {
-    Type = type;
-    LastTransactionId = lastTransactionId;
-    Time = time;
-  }
-
   /// <summary>
   /// Always equals "HEARTBEAT".
   /// </summary>
-  public string Type { get; }
+  public string Type { get; init; }
 
   /// <summary>
   /// The ID of the most recent Transaction created for the Account.
   /// </summary>
   [JsonConverter(typeof(Int32StringConverter))]
-  public int LastTransactionId { get; }
+  public int LastTransactionId { get; init; }
 
   /// <summary>
   /// The date/time when the TransactionHeartbeat was created.
   /// </summary>
-  public DateTime Time { get; }
+  public DateTime Time { get; init; }
 }

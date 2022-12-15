@@ -2,6 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Transactions;
+
 /// <summary>
 /// A DailyFinancingTransaction represents the daily payment/collection of
 /// financing for an Account.

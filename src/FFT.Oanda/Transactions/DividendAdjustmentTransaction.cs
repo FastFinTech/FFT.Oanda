@@ -2,6 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Transactions;
+
 /// <summary>
 /// A DividendAdjustment Transaction is created administratively to pay or
 /// collect dividend adjustment mounts to or from an Account.

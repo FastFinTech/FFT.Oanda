@@ -2,6 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Transactions;
+
 /// <summary>
 /// A MarginCallExtendTransaction is created when the margin call state for an
 /// Account has been extended.

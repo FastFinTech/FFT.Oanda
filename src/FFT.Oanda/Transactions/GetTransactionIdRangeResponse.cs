@@ -2,64 +2,31 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Transactions;
-
-using System;
-using System.Collections;
-using System.Collections.Immutable;
-using System.Globalization;
-using System.Linq;
-using System.Text.Json.Serialization;
 using FFT.Oanda.JsonConverters;
 using Microsoft.AspNetCore.WebUtilities;
-using static System.Math;
 
 /// <summary>
 /// Returned by the <see cref="OandaApiClient.GetTransactionIdRange(string,
 /// DateTime?, DateTime?, CancellationToken)"/> method.
 /// </summary>
-public sealed class GetTransactionIdRangeResponse
+public sealed record GetTransactionIdRangeResponse
 {
-  /// <summary>
-  /// Initializes a new instance of the <see
-  /// cref="GetTransactionIdRangeResponse"/> class.
-  /// </summary>
-  /// <remarks>Unlike most of the data models created in this project, this
-  /// constructor contains parameters that are not also public properties, and
-  /// processing is done to convert the json input parameters to useable
-  /// property values.</remarks>
-  [JsonConstructor]
-  public GetTransactionIdRangeResponse(
-    int count,
-    DateTime from,
-    DateTime to,
-    int lastTransactionId,
-    ImmutableList<string> pages,
-    int pageSize)
-  {
-    Count = count;
-    From = from;
-    To = to;
-    LastTransactionId = lastTransactionId;
-    PageSize = pageSize;
-    Pages = pages;
-  }
-
   /// <summary>
   /// The number of Transactions that are contained in the pages returned.
   /// </summary>
-  public int Count { get; }
+  public int Count { get; init; }
 
   /// <summary>
   /// The starting time (inclusive) of the time range for the Transactions
   /// being queried.
   /// </summary>
-  public DateTime From { get; }
+  public DateTime From { get; init; }
 
   /// <summary>
   /// The ending time (inclusive) of the time range for the Transactions being
   /// queried.
   /// </summary>
-  public DateTime To { get; }
+  public DateTime To { get; init; }
 
   /// <summary>
   /// The list of URLs that represent idrange queries providing the data for

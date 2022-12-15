@@ -3,8 +3,6 @@
 
 namespace FFT.Oanda.Transactions;
 
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// The possible types of a Transaction.
 /// </summary>

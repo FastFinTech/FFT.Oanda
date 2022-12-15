@@ -3,8 +3,6 @@
 
 namespace FFT.Oanda;
 
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// The reason that a Transaction was rejected.
 /// </summary>

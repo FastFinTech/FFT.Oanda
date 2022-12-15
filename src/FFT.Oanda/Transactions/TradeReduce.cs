@@ -3,82 +3,50 @@
 
 namespace FFT.Oanda.Transactions;
 
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// A TradeReduce object represents a Trade for an instrument that was reduced
 /// (either partially or fully) in an Account. It is found embedded in
 /// Transactions that affect the position of an instrument in the account,
 /// specifically the OrderFill Transaction.
 /// </summary>
-public sealed class TradeReduce
+public sealed record TradeReduce
 {
-  /// <summary>
-  /// Initializes a new instance of the <see cref="TradeReduce"/> class.
-  /// </summary>
-  [JsonConstructor]
-  public TradeReduce(
-    string tradeID,
-    decimal units,
-    decimal price,
-    decimal realizedPL,
-    decimal financing,
-    decimal baseFinancing,
-    decimal quoteFinancing,
-    decimal financingRate,
-    decimal? guaranteedExecutionFee,
-    decimal? quoteGuaranteedExecutionFee,
-    decimal halfSpreadCost)
-  {
-    TradeID = tradeID;
-    Units = units;
-    Price = price;
-    RealizedPL = realizedPL;
-    Financing = financing;
-    BaseFinancing = baseFinancing;
-    QuoteFinancing = quoteFinancing;
-    FinancingRate = financingRate;
-    GuaranteedExecutionFee = guaranteedExecutionFee;
-    QuoteGuaranteedExecutionFee = quoteGuaranteedExecutionFee;
-    HalfSpreadCost = halfSpreadCost;
-  }
-
   /// <summary>
   /// The ID of the Trade that was opened.
   /// </summary>
-  public string TradeID { get; }
+  public int TradeID { get; init; }
 
   /// <summary>
   /// The number of units opened by the Trade.
   /// </summary>
-  public decimal Units { get; }
+  public decimal Units { get; init; }
 
   /// <summary>
   /// The average price that the units were opened at.
   /// </summary>
-  public decimal Price { get; }
+  public decimal Price { get; init; }
 
   /// <summary>
   /// The PL realized when reducing the Trade. Expressed in the account's home
   /// currency.
   /// </summary>
-  public decimal RealizedPL { get; }
+  public decimal RealizedPL { get; init; }
 
   /// <summary>
   /// The financing paid/collected when reducing the Trade. Expressed in the
   /// account's home currency.
   /// </summary>
-  public decimal Financing { get; }
+  public decimal Financing { get; init; }
 
   /// <summary>
   /// The base financing paid/collected when reducing the Trade.
   /// </summary>
-  public decimal BaseFinancing { get; }
+  public decimal BaseFinancing { get; init; }
 
   /// <summary>
   /// The quote financing paid/collected when reducing the Trade.
   /// </summary>
-  public decimal QuoteFinancing { get; }
+  public decimal QuoteFinancing { get; init; }
 
   /// <summary>
   /// The financing rate in effect for the instrument used to calculate the
@@ -87,25 +55,25 @@ public sealed class TradeReduce
   /// fill is SECOND_BY_SECOND_INSTRUMENT. The value is in decimal rather than
   /// percentage points, e.g. 5% is represented as 0.05.
   /// </summary>
-  public decimal FinancingRate { get; }
+  public decimal FinancingRate { get; init; }
 
   /// <summary>
   /// This is the fee that is charged for closing the Trade if it has a
   /// guaranteed Stop Loss Order attached to it. Expressed in the account's
   /// home currency.
   /// </summary>
-  public decimal? GuaranteedExecutionFee { get; }
+  public decimal? GuaranteedExecutionFee { get; init; }
 
   /// <summary>
   /// This is the fee that is charged for closing the Trade if it has a
   /// guaranteed Stop Loss Order attached to it, expressed in the Instrument’s
   /// quote currency.
   /// </summary>
-  public decimal? QuoteGuaranteedExecutionFee { get; }
+  public decimal? QuoteGuaranteedExecutionFee { get; init; }
 
   /// <summary>
   /// The half spread cost for the trade reduce/close. This can be a positive
   /// or negative value. Expressed in the account's home currency.
   /// </summary>
-  public decimal HalfSpreadCost { get; }
+  public decimal HalfSpreadCost { get; init; }
 }

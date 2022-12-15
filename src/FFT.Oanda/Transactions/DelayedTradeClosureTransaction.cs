@@ -2,6 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Transactions;
+
 /// <summary>
 /// A DelayedTradeClosure Transaction is created administratively to indicate
 /// open trades that should have been closed but weren’t because the open

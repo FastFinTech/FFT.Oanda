@@ -3,8 +3,6 @@
 
 namespace FFT.Oanda;
 
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// A filter that can be used when fetching Transactions.
 /// </summary>

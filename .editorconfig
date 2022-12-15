@@ -242,7 +242,7 @@ dotnet_diagnostic.SA1134.severity = silent
 
 # SA1649: File name should match first type name
 dotnet_diagnostic.SA1649.severity = none
-csharp_using_directive_placement = inside_namespace:silent
+csharp_using_directive_placement = inside_namespace:warning
 csharp_prefer_simple_using_statement = true:suggestion
 csharp_style_namespace_declarations = file_scoped:warning
 csharp_style_prefer_method_group_conversion = true:silent
