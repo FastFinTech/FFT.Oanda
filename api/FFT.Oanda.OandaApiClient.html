@@ -273,26 +273,26 @@ prefixed by the “@” symbol.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="FFT.Oanda.Orders.CancelOrderResponse.html">CancelOrderResponse</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">CancelOrderResponse</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_OandaApiClient_CloseLongPosition_System_String_System_String_FFT_Oanda_NumUnits_FFT_Oanda_ClientExtensions_CancellationToken_.md&amp;value=---%0Auid%3A%20FFT.Oanda.OandaApiClient.CloseLongPosition(System.String%2CSystem.String%2CFFT.Oanda.NumUnits%2CFFT.Oanda.ClientExtensions%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_OandaApiClient_CloseLongPosition_System_String_System_String_FFT_Oanda_NumUnits_System_Nullable_ClientExtensions__CancellationToken_.md&amp;value=---%0Auid%3A%20FFT.Oanda.OandaApiClient.CloseLongPosition(System.String%2CSystem.String%2CFFT.Oanda.NumUnits%2CSystem.Nullable%7BClientExtensions%7D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/OandaApiClient.cs/#L1000">View Source</a>
   </span>
   <a id="FFT_Oanda_OandaApiClient_CloseLongPosition_" data-uid="FFT.Oanda.OandaApiClient.CloseLongPosition*"></a>
-  <h4 id="FFT_Oanda_OandaApiClient_CloseLongPosition_System_String_System_String_FFT_Oanda_NumUnits_FFT_Oanda_ClientExtensions_CancellationToken_" data-uid="FFT.Oanda.OandaApiClient.CloseLongPosition(System.String,System.String,FFT.Oanda.NumUnits,FFT.Oanda.ClientExtensions,CancellationToken)">CloseLongPosition(String, String, NumUnits, ClientExtensions, CancellationToken)</h4>
+  <h4 id="FFT_Oanda_OandaApiClient_CloseLongPosition_System_String_System_String_FFT_Oanda_NumUnits_System_Nullable_ClientExtensions__CancellationToken_" data-uid="FFT.Oanda.OandaApiClient.CloseLongPosition(System.String,System.String,FFT.Oanda.NumUnits,System.Nullable{ClientExtensions},CancellationToken)">CloseLongPosition(String, String, NumUnits, Nullable&lt;ClientExtensions&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Closeout the open Position for a specific instrument in an Account.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;CloseLongPositionResponse&gt; CloseLongPosition(string accountId, string instrument, NumUnits longUnits, ClientExtensions longClientExtensions, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;CloseLongPositionResponse&gt; CloseLongPosition(string accountId, string instrument, NumUnits longUnits, ClientExtensions? longClientExtensions, CancellationToken cancellationToken = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -327,7 +327,7 @@ positive.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="FFT.Oanda.ClientExtensions.html">ClientExtensions</a></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ClientExtensions</span>&gt;</td>
         <td><span class="parametername">longClientExtensions</span></td>
         <td><p>The client extensions to add to the MarketOrder used to close the long
 position.</p>
@@ -358,19 +358,19 @@ position.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_OandaApiClient_CloseShortPosition_System_String_System_String_FFT_Oanda_NumUnits_FFT_Oanda_ClientExtensions_CancellationToken_.md&amp;value=---%0Auid%3A%20FFT.Oanda.OandaApiClient.CloseShortPosition(System.String%2CSystem.String%2CFFT.Oanda.NumUnits%2CFFT.Oanda.ClientExtensions%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_OandaApiClient_CloseShortPosition_System_String_System_String_FFT_Oanda_NumUnits_System_Nullable_ClientExtensions__CancellationToken_.md&amp;value=---%0Auid%3A%20FFT.Oanda.OandaApiClient.CloseShortPosition(System.String%2CSystem.String%2CFFT.Oanda.NumUnits%2CSystem.Nullable%7BClientExtensions%7D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/OandaApiClient.cs/#L1040">View Source</a>
   </span>
   <a id="FFT_Oanda_OandaApiClient_CloseShortPosition_" data-uid="FFT.Oanda.OandaApiClient.CloseShortPosition*"></a>
-  <h4 id="FFT_Oanda_OandaApiClient_CloseShortPosition_System_String_System_String_FFT_Oanda_NumUnits_FFT_Oanda_ClientExtensions_CancellationToken_" data-uid="FFT.Oanda.OandaApiClient.CloseShortPosition(System.String,System.String,FFT.Oanda.NumUnits,FFT.Oanda.ClientExtensions,CancellationToken)">CloseShortPosition(String, String, NumUnits, ClientExtensions, CancellationToken)</h4>
+  <h4 id="FFT_Oanda_OandaApiClient_CloseShortPosition_System_String_System_String_FFT_Oanda_NumUnits_System_Nullable_ClientExtensions__CancellationToken_" data-uid="FFT.Oanda.OandaApiClient.CloseShortPosition(System.String,System.String,FFT.Oanda.NumUnits,System.Nullable{ClientExtensions},CancellationToken)">CloseShortPosition(String, String, NumUnits, Nullable&lt;ClientExtensions&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Closeout the open Position for a specific instrument in an Account.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;CloseShortPositionResponse&gt; CloseShortPosition(string accountId, string instrument, NumUnits shortUnits, ClientExtensions shortClientExtensions, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;CloseShortPositionResponse&gt; CloseShortPosition(string accountId, string instrument, NumUnits shortUnits, ClientExtensions? shortClientExtensions, CancellationToken cancellationToken = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -405,7 +405,7 @@ positive.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="FFT.Oanda.ClientExtensions.html">ClientExtensions</a></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ClientExtensions</span>&gt;</td>
         <td><span class="parametername">shortClientExtensions</span></td>
         <td><p>The client extensions to add to the MarketOrder used to close the short
 position.</p>
@@ -504,7 +504,7 @@ open units.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="FFT.Oanda.Trades.CloseTradeResponse.html">CloseTradeResponse</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">CloseTradeResponse</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -568,7 +568,7 @@ open units.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="FFT.Oanda.Orders.CreateOrderResponse.html">CreateOrderResponse</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">CreateOrderResponse</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -999,7 +999,7 @@ represented in UTC. [default=America/New_York].</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="FFT.Oanda.Instruments.CandlestickResponse.html">CandlestickResponse</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">CandlestickResponse</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1095,7 +1095,7 @@ represented in UTC. [default=America/New_York].</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="FFT.Oanda.Instruments.CandlestickResponse.html">CandlestickResponse</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">CandlestickResponse</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1223,7 +1223,7 @@ and ask prices in the returned candles.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="FFT.Oanda.Instruments.CandlestickResponse.html">CandlestickResponse</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">CandlestickResponse</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1334,7 +1334,7 @@ and ask prices in the returned candles.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="FFT.Oanda.Instruments.CandlestickResponse.html">CandlestickResponse</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">CandlestickResponse</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1440,7 +1440,7 @@ that have weekly alignment.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="FFT.Oanda.Instruments.LatestCandlesResponse.html">LatestCandlesResponse</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">LatestCandlesResponse</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1555,7 +1555,7 @@ that currently has a Trade opened for it.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="FFT.Oanda.Trades.GetTradesResponse.html">GetTradesResponse</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">GetTradesResponse</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1617,7 +1617,7 @@ recent snapshot is fetched.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="FFT.Oanda.Instruments.OrderBookResponse.html">OrderBookResponse</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">OrderBookResponse</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1705,7 +1705,7 @@ in the Account are returned.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="FFT.Oanda.Orders.GetOrdersResponse.html">GetOrdersResponse</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">GetOrdersResponse</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1762,7 +1762,7 @@ in the Account are returned.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="FFT.Oanda.Orders.GetOrdersResponse.html">GetOrdersResponse</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">GetOrdersResponse</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1826,7 +1826,7 @@ Position may by open or not.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="FFT.Oanda.Positions.GetPositionResponse.html">GetPositionResponse</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">GetPositionResponse</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1888,7 +1888,7 @@ recent snapshot is fetched.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="FFT.Oanda.Instruments.PositionBookResponse.html">PositionBookResponse</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">PositionBookResponse</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -2029,7 +2029,7 @@ instruments list.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="FFT.Oanda.Pricing.PricingInformationResponse.html">PricingInformationResponse</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">PricingInformationResponse</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -2184,7 +2184,7 @@ prefixed by the “@” symbol.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="FFT.Oanda.Orders.GetSingleOrderResponse.html">GetSingleOrderResponse</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">GetSingleOrderResponse</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -2248,7 +2248,7 @@ ClientID prefixed by the “@” symbol.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="FFT.Oanda.Trades.GetTradeResponse.html">GetTradeResponse</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">GetTradeResponse</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -2335,7 +2335,7 @@ ClientID prefixed by the “@” symbol.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="FFT.Oanda.Trades.GetTradesResponse.html">GetTradesResponse</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">GetTradesResponse</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -2886,7 +2886,7 @@ prefixed by the “@” symbol.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="FFT.Oanda.Orders.ReplaceOrderResponse.html">ReplaceOrderResponse</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">ReplaceOrderResponse</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -2954,13 +2954,13 @@ prefixed by the “@” symbol.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_OandaApiClient_SetOrderClientExtensions_System_String_System_String_FFT_Oanda_ClientExtensions_FFT_Oanda_ClientExtensions_CancellationToken_.md&amp;value=---%0Auid%3A%20FFT.Oanda.OandaApiClient.SetOrderClientExtensions(System.String%2CSystem.String%2CFFT.Oanda.ClientExtensions%2CFFT.Oanda.ClientExtensions%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_OandaApiClient_SetOrderClientExtensions_System_String_System_String_System_Nullable_ClientExtensions__System_Nullable_ClientExtensions__CancellationToken_.md&amp;value=---%0Auid%3A%20FFT.Oanda.OandaApiClient.SetOrderClientExtensions(System.String%2CSystem.String%2CSystem.Nullable%7BClientExtensions%7D%2CSystem.Nullable%7BClientExtensions%7D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/OandaApiClient.cs/#L660">View Source</a>
   </span>
   <a id="FFT_Oanda_OandaApiClient_SetOrderClientExtensions_" data-uid="FFT.Oanda.OandaApiClient.SetOrderClientExtensions*"></a>
-  <h4 id="FFT_Oanda_OandaApiClient_SetOrderClientExtensions_System_String_System_String_FFT_Oanda_ClientExtensions_FFT_Oanda_ClientExtensions_CancellationToken_" data-uid="FFT.Oanda.OandaApiClient.SetOrderClientExtensions(System.String,System.String,FFT.Oanda.ClientExtensions,FFT.Oanda.ClientExtensions,CancellationToken)">SetOrderClientExtensions(String, String, ClientExtensions, ClientExtensions, CancellationToken)</h4>
+  <h4 id="FFT_Oanda_OandaApiClient_SetOrderClientExtensions_System_String_System_String_System_Nullable_ClientExtensions__System_Nullable_ClientExtensions__CancellationToken_" data-uid="FFT.Oanda.OandaApiClient.SetOrderClientExtensions(System.String,System.String,System.Nullable{ClientExtensions},System.Nullable{ClientExtensions},CancellationToken)">SetOrderClientExtensions(String, String, Nullable&lt;ClientExtensions&gt;, Nullable&lt;ClientExtensions&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Update the Client Extensions for an Order in an Account.Do not set,
 modify, or delete clientExtensions if your account is associated with
 MT4.</p>
@@ -2968,7 +2968,7 @@ MT4.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;UpdateOrderClientExtensionsResponse&gt; SetOrderClientExtensions(string accountId, string orderSpecifier, ClientExtensions clientExtensions, ClientExtensions tradeClientExtensions, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;UpdateOrderClientExtensionsResponse&gt; SetOrderClientExtensions(string accountId, string orderSpecifier, ClientExtensions? clientExtensions, ClientExtensions? tradeClientExtensions, CancellationToken cancellationToken = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2997,14 +2997,14 @@ prefixed by the “@” symbol.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="FFT.Oanda.ClientExtensions.html">ClientExtensions</a></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ClientExtensions</span>&gt;</td>
         <td><span class="parametername">clientExtensions</span></td>
         <td><p>The Client Extensions to update for the Order. Do not set, modify, or
 delete clientExtensions if your account is associated with MT4.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="FFT.Oanda.ClientExtensions.html">ClientExtensions</a></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ClientExtensions</span>&gt;</td>
         <td><span class="parametername">tradeClientExtensions</span></td>
         <td><p>The Client Extensions to update for the Trade created when the Order is
 filled. Do not set, modify, or delete clientExtensions if your account
@@ -3029,20 +3029,20 @@ is associated with MT4.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="FFT.Oanda.UpdateOrderClientExtensionsResponse.html">UpdateOrderClientExtensionsResponse</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">UpdateOrderClientExtensionsResponse</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_OandaApiClient_SetTradeClientExtensions_System_String_System_String_FFT_Oanda_ClientExtensions_CancellationToken_.md&amp;value=---%0Auid%3A%20FFT.Oanda.OandaApiClient.SetTradeClientExtensions(System.String%2CSystem.String%2CFFT.Oanda.ClientExtensions%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_OandaApiClient_SetTradeClientExtensions_System_String_System_String_ClientExtensions_CancellationToken_.md&amp;value=---%0Auid%3A%20FFT.Oanda.OandaApiClient.SetTradeClientExtensions(System.String%2CSystem.String%2CClientExtensions%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/OandaApiClient.cs/#L827">View Source</a>
   </span>
   <a id="FFT_Oanda_OandaApiClient_SetTradeClientExtensions_" data-uid="FFT.Oanda.OandaApiClient.SetTradeClientExtensions*"></a>
-  <h4 id="FFT_Oanda_OandaApiClient_SetTradeClientExtensions_System_String_System_String_FFT_Oanda_ClientExtensions_CancellationToken_" data-uid="FFT.Oanda.OandaApiClient.SetTradeClientExtensions(System.String,System.String,FFT.Oanda.ClientExtensions,CancellationToken)">SetTradeClientExtensions(String, String, ClientExtensions, CancellationToken)</h4>
+  <h4 id="FFT_Oanda_OandaApiClient_SetTradeClientExtensions_System_String_System_String_ClientExtensions_CancellationToken_" data-uid="FFT.Oanda.OandaApiClient.SetTradeClientExtensions(System.String,System.String,ClientExtensions,CancellationToken)">SetTradeClientExtensions(String, String, ClientExtensions, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Update the Client Extensions for a Trade. Do not add, update, or delete the Client Extensions if your account is associated with MT4.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -3076,7 +3076,7 @@ ClientID prefixed by the “@” symbol.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="FFT.Oanda.ClientExtensions.html">ClientExtensions</a></td>
+        <td><span class="xref">ClientExtensions</span></td>
         <td><span class="parametername">clientExtensions</span></td>
         <td><p>The value to be attached to the given trade.</p>
 </td>
@@ -3099,27 +3099,27 @@ ClientID prefixed by the “@” symbol.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="FFT.Oanda.Trades.TradeClientExtensionsUpdateResponse.html">TradeClientExtensionsUpdateResponse</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">TradeClientExtensionsUpdateResponse</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_OandaApiClient_SetTradeOrders_System_String_System_String_System_Nullable_TakeProfitDetails__System_Nullable_StopLossDetails__FFT_Oanda_Orders_TrailingStopLossDetails_FFT_Oanda_Orders_GuaranteedStopLossDetails_CancellationToken_.md&amp;value=---%0Auid%3A%20FFT.Oanda.OandaApiClient.SetTradeOrders(System.String%2CSystem.String%2CSystem.Nullable%7BTakeProfitDetails%7D%2CSystem.Nullable%7BStopLossDetails%7D%2CFFT.Oanda.Orders.TrailingStopLossDetails%2CFFT.Oanda.Orders.GuaranteedStopLossDetails%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/FastFinTech/FFT.Oanda/new/main/apiSpec/new?filename=FFT_Oanda_OandaApiClient_SetTradeOrders_System_String_System_String_System_Nullable_TakeProfitDetails__System_Nullable_StopLossDetails__System_Nullable_TrailingStopLossDetails__System_Nullable_GuaranteedStopLossDetails__CancellationToken_.md&amp;value=---%0Auid%3A%20FFT.Oanda.OandaApiClient.SetTradeOrders(System.String%2CSystem.String%2CSystem.Nullable%7BTakeProfitDetails%7D%2CSystem.Nullable%7BStopLossDetails%7D%2CSystem.Nullable%7BTrailingStopLossDetails%7D%2CSystem.Nullable%7BGuaranteedStopLossDetails%7D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/FastFinTech/FFT.Oanda/blob/main/src/FFT.Oanda/OandaApiClient.cs/#L891">View Source</a>
   </span>
   <a id="FFT_Oanda_OandaApiClient_SetTradeOrders_" data-uid="FFT.Oanda.OandaApiClient.SetTradeOrders*"></a>
-  <h4 id="FFT_Oanda_OandaApiClient_SetTradeOrders_System_String_System_String_System_Nullable_TakeProfitDetails__System_Nullable_StopLossDetails__FFT_Oanda_Orders_TrailingStopLossDetails_FFT_Oanda_Orders_GuaranteedStopLossDetails_CancellationToken_" data-uid="FFT.Oanda.OandaApiClient.SetTradeOrders(System.String,System.String,System.Nullable{TakeProfitDetails},System.Nullable{StopLossDetails},FFT.Oanda.Orders.TrailingStopLossDetails,FFT.Oanda.Orders.GuaranteedStopLossDetails,CancellationToken)">SetTradeOrders(String, String, Nullable&lt;TakeProfitDetails&gt;, Nullable&lt;StopLossDetails&gt;, TrailingStopLossDetails, GuaranteedStopLossDetails, CancellationToken)</h4>
+  <h4 id="FFT_Oanda_OandaApiClient_SetTradeOrders_System_String_System_String_System_Nullable_TakeProfitDetails__System_Nullable_StopLossDetails__System_Nullable_TrailingStopLossDetails__System_Nullable_GuaranteedStopLossDetails__CancellationToken_" data-uid="FFT.Oanda.OandaApiClient.SetTradeOrders(System.String,System.String,System.Nullable{TakeProfitDetails},System.Nullable{StopLossDetails},System.Nullable{TrailingStopLossDetails},System.Nullable{GuaranteedStopLossDetails},CancellationToken)">SetTradeOrders(String, String, Nullable&lt;TakeProfitDetails&gt;, Nullable&lt;StopLossDetails&gt;, Nullable&lt;TrailingStopLossDetails&gt;, Nullable&lt;GuaranteedStopLossDetails&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Create, replace and cancel a Trade’s dependent Orders (Take Profit, Stop
 Loss and Trailing Stop Loss) through the Trade itself.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;SetTradeOrdersResponse&gt; SetTradeOrders(string accountId, string tradeSpecifier, TakeProfitDetails? takeProfit, StopLossDetails? stopLoss, TrailingStopLossDetails trailingStopLoss, GuaranteedStopLossDetails guaranteedStopLoss, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;SetTradeOrdersResponse&gt; SetTradeOrders(string accountId, string tradeSpecifier, TakeProfitDetails? takeProfit, StopLossDetails? stopLoss, TrailingStopLossDetails? trailingStopLoss, GuaranteedStopLossDetails? guaranteedStopLoss, CancellationToken cancellationToken = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -3169,7 +3169,7 @@ on modify.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="FFT.Oanda.Orders.TrailingStopLossDetails.html">TrailingStopLossDetails</a></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">TrailingStopLossDetails</span>&gt;</td>
         <td><span class="parametername">trailingStopLoss</span></td>
         <td><p>The specification of the Trailing Stop Loss to create/modify/cancel. If
 trailingStopLoss is set to null, the Trailing Stop Loss Order will be
@@ -3180,7 +3180,7 @@ value on create, and be inherited by the replacing order on modify.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="FFT.Oanda.Orders.GuaranteedStopLossDetails.html">GuaranteedStopLossDetails</a></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">GuaranteedStopLossDetails</span>&gt;</td>
         <td><span class="parametername">guaranteedStopLoss</span></td>
         <td><p>The specification of the Guaranteed Stop Loss to create/modify/cancel. If
 guaranteedStopLoss is set to null, the Guaranteed Stop Loss Order will be
@@ -3209,7 +3209,7 @@ modify.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="FFT.Oanda.Trades.SetTradeOrdersResponse.html">SetTradeOrdersResponse</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">SetTradeOrdersResponse</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>

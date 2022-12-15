@@ -5,18 +5,6 @@
   "files": [
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Accounts.AccountChanges.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Accounts.AccountChanges.html",
-          "hash": "I5j2RwLnapdlz4ar2tcODQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/FFT.Oanda.Accounts.AccountFinancingMode.yml",
       "output": {
         ".html": {
@@ -81,31 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Accounts.html",
-          "hash": "fyMVuOVxbbDmOldHRxcvNw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.ClientExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.ClientExtensions.html",
-          "hash": "8yHEPeLtLMQzZVDiClRqSw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.ConversionFactor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.ConversionFactor.html",
-          "hash": "b17HKM56r3SekOax5RyZ7w=="
+          "hash": "rN7zJWr6vpH21JLipn7d3Q=="
         }
       },
       "is_incremental": false,
@@ -117,67 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.DayOfWeek.html",
-          "hash": "zfSRGAemRL2Jctw5hExH8g=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.DynamicOrderState.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.DynamicOrderState.html",
-          "hash": "5flPzxA0UbcLcVXz7LhNow=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.FinancingDayOfWeek.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.FinancingDayOfWeek.html",
-          "hash": "eMJ1PIfQ1AZtdBeijb3S4Q=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.HomeConversionFactors.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.HomeConversionFactors.html",
-          "hash": "6hnqE02SGG9QCVRtxpxGRQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Instruments.CandleStick.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Instruments.CandleStick.html",
-          "hash": "/E812a/6/9ZMwsZwnpOJZQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Instruments.CandlestickData.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Instruments.CandlestickData.html",
-          "hash": "Cr/ZZ/n1+04up0YMiZedgg=="
+          "hash": "8b1nYon7hznARNY0I3hR7A=="
         }
       },
       "is_incremental": false,
@@ -189,31 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Instruments.CandlestickGranularity.html",
-          "hash": "WiC/ZxdX+gLItmRf3rO14g=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Instruments.CandlestickResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Instruments.CandlestickResponse.html",
-          "hash": "bt2bClIRqUDqHSW1PCsYnw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Instruments.GuaranteedStopLossOrderLevelRestriction.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Instruments.GuaranteedStopLossOrderLevelRestriction.html",
-          "hash": "3YFhYchaSuSxL3So/1yxDQ=="
+          "hash": "0lIXf/V+CFnonwlurPaSEw=="
         }
       },
       "is_incremental": false,
@@ -225,43 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Instruments.GuaranteedStopLossOrderModeForInstrument.html",
-          "hash": "wgUytaTrWhfJDfyy8bYXbg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Instruments.Instrument.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Instruments.Instrument.html",
-          "hash": "CLq8hLV8/+dxEJpgG9a0ug=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Instruments.InstrumentCommission.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Instruments.InstrumentCommission.html",
-          "hash": "C6oh+de8sHuKclgQ6ksKMQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Instruments.InstrumentFinancing.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Instruments.InstrumentFinancing.html",
-          "hash": "aEmSpN2LqhJ021avDFlJhA=="
+          "hash": "+Rd4qFsRpVaMP/Iq0VgiGg=="
         }
       },
       "is_incremental": false,
@@ -273,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Instruments.InstrumentNames.html",
-          "hash": "u0bGHvehVe2n/5v0gnxnuA=="
+          "hash": "e5fEW5HJnDpRvL2tNb6gLw=="
         }
       },
       "is_incremental": false,
@@ -285,91 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Instruments.InstrumentType.html",
-          "hash": "U6yHQN6iYyYUANNILyKLHQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Instruments.LatestCandlesResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Instruments.LatestCandlesResponse.html",
-          "hash": "UwSQTMt78pKAOy8Q3rafOQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Instruments.OrderBook.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Instruments.OrderBook.html",
-          "hash": "a3n0f76r64OeAJuEnReMTA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Instruments.OrderBookBucket.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Instruments.OrderBookBucket.html",
-          "hash": "9TsVkPLh53wTd5BKjhkLIA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Instruments.OrderBookResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Instruments.OrderBookResponse.html",
-          "hash": "QKZ7u5zV2z5aSxxShwXiXg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Instruments.PositionBook.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Instruments.PositionBook.html",
-          "hash": "kb6zTGqihRKdFy4337rl0w=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Instruments.PositionBookBucket.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Instruments.PositionBookBucket.html",
-          "hash": "ehIIQThToSjzDYsxTa4wfA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Instruments.PositionBookResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Instruments.PositionBookResponse.html",
-          "hash": "2QnsbcD7B3PMnk7CmkwSSg=="
+          "hash": "GTMVRDMxHWQfe0NsGPtcdw=="
         }
       },
       "is_incremental": false,
@@ -381,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Instruments.WeeklyAlignment.html",
-          "hash": "TbbHTcDgc2IXDhL8KLf7dg=="
+          "hash": "brGgjgXXL360kB3sqiU+hA=="
         }
       },
       "is_incremental": false,
@@ -393,7 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Instruments.html",
-          "hash": "Kw41CsbF3QlgBmpLtUbe7g=="
+          "hash": "RZ2TH+D92RjmMaE/SZhUDw=="
         }
       },
       "is_incremental": false,
@@ -405,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.NumUnits.html",
-          "hash": "HaEjOwdoMENl5rqgAu4TTg=="
+          "hash": "wECXBDI9OiDI0PysjhN+kQ=="
         }
       },
       "is_incremental": false,
@@ -417,19 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.OandaApiClient.html",
-          "hash": "X1gdOZIt/kTlTRsaMXeBIw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Orders.CancelOrderResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Orders.CancelOrderResponse.html",
-          "hash": "kxWu35t2HvaEWdjqKKphIw=="
+          "hash": "z2IUaqk+MtmxoX0Uf4SV4g=="
         }
       },
       "is_incremental": false,
@@ -441,79 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Orders.CancellableOrderType.html",
-          "hash": "AB6T7r0CG0qqtm9c2/mxIw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Orders.CreateOrderResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Orders.CreateOrderResponse.html",
-          "hash": "iH7frJnG8Ka9Blkvy0QAVA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Orders.GetOrdersResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Orders.GetOrdersResponse.html",
-          "hash": "Azdno+Jk/jO9ScBfJBbtxg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Orders.GetSingleOrderResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Orders.GetSingleOrderResponse.html",
-          "hash": "AmqTqT1l7Wm53OE4ralJYQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Orders.GuaranteedStopLossDetails.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Orders.GuaranteedStopLossDetails.html",
-          "hash": "KdtX1l4tKNKe80phyYh0/g=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Orders.GuaranteedStopLossOrderEntryData.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Orders.GuaranteedStopLossOrderEntryData.html",
-          "hash": "eOjua3I4O1rdL0Nljp4yaw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Orders.GuaranteedStopLossOrderLevelRestriction.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Orders.GuaranteedStopLossOrderLevelRestriction.html",
-          "hash": "C7EHd3u7lnTM8XuHD4l7Vg=="
+          "hash": "eA/DtRNFbH8sFxDcCFsGCQ=="
         }
       },
       "is_incremental": false,
@@ -545,30 +221,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Orders.MarketOrderDelayedTradeClose.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Orders.MarketOrderDelayedTradeClose.html",
-          "hash": "7dwbLMlwEVAlCJBUgzB57g=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Orders.MarketOrderMarginCloseout.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Orders.MarketOrderMarginCloseout.html",
-          "hash": "mqKrdUPw3h6Z9bWP3aE0Vg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/FFT.Oanda.Orders.MarketOrderMarginCloseoutReason.yml",
       "output": {
         ".html": {
@@ -581,47 +233,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Orders.MarketOrderPositionCloseout.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Orders.MarketOrderPositionCloseout.html",
-          "hash": "JomIDjgGq1bWACROUQ4ctA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Orders.MarketOrderTradeClose.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Orders.MarketOrderTradeClose.html",
-          "hash": "WhJAbSgc9HN5+YzDAD+BHg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Orders.OrderIdentifier.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Orders.OrderIdentifier.html",
-          "hash": "Q2QbdPSEtZ2PrAphA4008g=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/FFT.Oanda.Orders.OrderPositionFill.yml",
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Orders.OrderPositionFill.html",
-          "hash": "zEBDgNh+q1FzrAcccJM/sg=="
+          "hash": "7UzvcWhTtawh8lbagBmvXg=="
         }
       },
       "is_incremental": false,
@@ -645,7 +261,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Orders.OrderStateFilter.html",
-          "hash": "H+tbs5i1jUiLrlgm4f2LLA=="
+          "hash": "cLi4DX+rlGCHjn4U8r218g=="
         }
       },
       "is_incremental": false,
@@ -657,7 +273,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Orders.OrderTriggerCondition.html",
-          "hash": "P+M9AF48JbbSx3TdyOgX6Q=="
+          "hash": "1dzxX8tSLZWyTSRVwHkWJQ=="
         }
       },
       "is_incremental": false,
@@ -669,19 +285,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Orders.OrderType.html",
-          "hash": "YbwMKme+GZPSQhiRJpWqsA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Orders.ReplaceOrderResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Orders.ReplaceOrderResponse.html",
-          "hash": "MSXcLJ06wwnA4xszihcS3Q=="
+          "hash": "whGobuzOhsHDuoGzrzgT8A=="
         }
       },
       "is_incremental": false,
@@ -693,7 +297,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Orders.StopOrderReason.html",
-          "hash": "Sn2SbdWCfCWnQasypBtL7Q=="
+          "hash": "Jm+xBrSgBxoBFP2FChb5SQ=="
         }
       },
       "is_incremental": false,
@@ -705,19 +309,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Orders.TimeInForce.html",
-          "hash": "w2Z9YS977Mb/PEhRBhtwoA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Orders.TrailingStopLossDetails.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Orders.TrailingStopLossDetails.html",
-          "hash": "+EWzzQ9DeR6XbSSUUD3VPg=="
+          "hash": "3djDvhtJu8zwJVF1jF3xqg=="
         }
       },
       "is_incremental": false,
@@ -729,67 +321,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Orders.html",
-          "hash": "HNmrsM8whv9NNFqNVS7ogQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Positions.GetPositionResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Positions.GetPositionResponse.html",
-          "hash": "4tsAAhHpuFDIJmM1KJbEzA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Positions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Positions.html",
-          "hash": "gPQwpIabwLcbRBHU4EnPNg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Pricing.ClientPrice.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Pricing.ClientPrice.html",
-          "hash": "XO6H78gh5nhW/Lm0ZlpIWw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Pricing.HomeConversions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Pricing.HomeConversions.html",
-          "hash": "CJM7GvomUbzl/5lQL2helA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Pricing.PriceBucket.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Pricing.PriceBucket.html",
-          "hash": "kelKjXYK3K76xGGGRdVWsg=="
+          "hash": "w+i5NznadlI/kV+IsiGETg=="
         }
       },
       "is_incremental": false,
@@ -809,47 +341,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Pricing.PricingHeartbeat.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Pricing.PricingHeartbeat.html",
-          "hash": "7PhmenfEKM5+qnybrDbCpA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Pricing.PricingInformationResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Pricing.PricingInformationResponse.html",
-          "hash": "LK4b06cg24IlFd97Kefikw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Pricing.QuoteHomeConversionFactors.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Pricing.QuoteHomeConversionFactors.html",
-          "hash": "zfcj02NmCZdd29gdJ7RdLA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/FFT.Oanda.Pricing.yml",
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Pricing.html",
-          "hash": "g2zg7x/yOISwGW8RBYiCPQ=="
+          "hash": "iFXy5J8FZGHES9S8WJK8Gw=="
         }
       },
       "is_incremental": false,
@@ -861,103 +357,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.RequestFailedException.html",
-          "hash": "n0bXXwtgUG178MYGVQjzDg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Tag.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Tag.html",
-          "hash": "ltlrjj0fRO0W7ltPXtXjnw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Trades.CalculatedTradeState.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Trades.CalculatedTradeState.html",
-          "hash": "k9IoNuep+aNSA2qm90v2Qw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Trades.CloseTradeResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Trades.CloseTradeResponse.html",
-          "hash": "j3aXzWT7jB8KJDDwJGZGrw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Trades.GetTradeResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Trades.GetTradeResponse.html",
-          "hash": "jcOIYGXjoWTNk8+XDRIw9Q=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Trades.GetTradesResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Trades.GetTradesResponse.html",
-          "hash": "jkVSMydGMLdKhM/BYO09zg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Trades.SetTradeOrdersResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Trades.SetTradeOrdersResponse.html",
-          "hash": "3KO/oXcF652RTomYUmhwag=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Trades.Trade.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Trades.Trade.html",
-          "hash": "zgVvXML9odcYDZf6GfZKRw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Trades.TradeClientExtensionsUpdateResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Trades.TradeClientExtensionsUpdateResponse.html",
-          "hash": "zK8AddXVZBy6S5F+shSIxw=="
+          "hash": "FZ7ghv7q7RZKW030gaTLNg=="
         }
       },
       "is_incremental": false,
@@ -969,7 +369,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Trades.TradePL.html",
-          "hash": "dyyRW4XnCvnu2OaKtb+tpQ=="
+          "hash": "dmFdZkBn3SprV3iq/ImfFA=="
         }
       },
       "is_incremental": false,
@@ -981,7 +381,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Trades.TradeState.html",
-          "hash": "vIWQtldEvzBSdRck7esHHA=="
+          "hash": "pRc9qdpcA8sf+POYQTMVvQ=="
         }
       },
       "is_incremental": false,
@@ -993,19 +393,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Trades.TradeStateFilter.html",
-          "hash": "K/PnfBUXRkjo55G6Md+D2g=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.Trades.TradeSummary.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.Trades.TradeSummary.html",
-          "hash": "9BCAXE+SJcBUQMUTAbt+Ng=="
+          "hash": "LhaHNtnJZZIAHVOIblkz1g=="
         }
       },
       "is_incremental": false,
@@ -1017,7 +405,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.Trades.html",
-          "hash": "So9FYq+xkTvDm07T8s0u8g=="
+          "hash": "YUFQhm9l+hPtt8MkiomZjg=="
         }
       },
       "is_incremental": false,
@@ -1217,47 +605,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.UnitsAvailable.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.UnitsAvailable.html",
-          "hash": "lI4Lle2LRKms/BtPYKwy5g=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.UnitsAvailableDetails.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.UnitsAvailableDetails.html",
-          "hash": "k7cC50Za6BKPDccencUMZg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FFT.Oanda.UpdateOrderClientExtensionsResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FFT.Oanda.UpdateOrderClientExtensionsResponse.html",
-          "hash": "MtrYTM7SUl8hrxFI3+LpjA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/FFT.Oanda.yml",
       "output": {
         ".html": {
           "relative_path": "api/FFT.Oanda.html",
-          "hash": "ao8dikEhljcbSx6mrQ4WgA=="
+          "hash": "abRuLp2pmViiefdH9BrExA=="
         }
       },
       "is_incremental": false,
@@ -1281,7 +633,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "P9t93xbPenBZLYTyo9bbLg=="
+          "hash": "Ns0dkJMWqm+Y4CBjc88RxA=="
         }
       },
       "is_incremental": false,
@@ -1369,7 +721,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 105,
+          "total_file_count": 51,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {
