@@ -3,60 +3,32 @@
 
 namespace FFT.Oanda.Orders;
 
-using System.Collections.Immutable;
-using System.Text.Json.Serialization;
 using FFT.Oanda.JsonConverters;
-using FFT.Oanda.Orders.OrderRequests;
 using FFT.Oanda.Transactions;
 
 /// <summary>
-/// Returned by the <see cref="OandaApiClient.ReplaceOrder(string, string, OrderRequest, string, CancellationToken)"/>
+/// Returned by the <see cref="OandaApiClient.ReplaceOrder(string, string, OrderRequests.OrderRequest, string?, CancellationToken)"/>"/>
 /// method.
 /// </summary>
-public sealed class ReplaceOrderResponse
+public sealed record ReplaceOrderResponse
 {
-  /// <summary>
-  /// Initializes a new instance of the <see cref="ReplaceOrderResponse"/>
-  /// class.
-  /// </summary>
-  [JsonConstructor]
-  public ReplaceOrderResponse(
-    OrderCancelTransaction orderCancelTransaction,
-    Transaction orderCreateTransaction,
-    OrderFillTransaction? orderFillTransaction,
-    Transaction? orderReissueTransaction,
-    Transaction? orderReissueRejectTransaction,
-    OrderCancelTransaction? replacingOrderCancelTransaction,
-    ImmutableList<string> relatedTransactionIDs,
-    int lastTransactionID)
-  {
-    OrderCancelTransaction = orderCancelTransaction;
-    OrderCreateTransaction = orderCreateTransaction;
-    OrderFillTransaction = orderFillTransaction;
-    OrderReissueTransaction = orderReissueTransaction;
-    OrderReissueRejectTransaction = orderReissueRejectTransaction;
-    ReplacingOrderCancelTransaction = replacingOrderCancelTransaction;
-    RelatedTransactionIDs = relatedTransactionIDs;
-    LastTransactionID = lastTransactionID;
-  }
-
   /// <summary>
   /// The Transaction that cancelled the Order to be replaced.
   /// </summary>
-  public OrderCancelTransaction OrderCancelTransaction { get; }
+  public OrderCancelTransaction OrderCancelTransaction { get; init; }
 
   /// <summary>
   /// The Transaction that created the replacing Order as requested. The
   /// actual instance type will vary depending on the type of the replacement
   /// order.
   /// </summary>
-  public Transaction OrderCreateTransaction { get; }
+  public Transaction OrderCreateTransaction { get; init; }
 
   /// <summary>
   /// The Transaction that filled the replacing Order. This is only provided
   /// when the replacing Order was immediately filled.
   /// </summary>
-  public OrderFillTransaction? OrderFillTransaction { get; }
+  public OrderFillTransaction? OrderFillTransaction { get; init; }
 
   /// <summary>
   /// The Transaction that reissues the replacing Order. Only provided when
@@ -64,7 +36,7 @@ public sealed class ReplaceOrderResponse
   /// to be reissued for its remaining units. Actual instance type varies
   /// depending on the type of the replacement order.
   /// </summary>
-  public Transaction? OrderReissueTransaction { get; }
+  public Transaction? OrderReissueTransaction { get; init; }
 
   /// <summary>
   /// The Transaction that rejects the reissue of the Order. Only provided
@@ -72,23 +44,23 @@ public sealed class ReplaceOrderResponse
   /// configured to be reissued, however the reissue was rejected. Actual
   /// instance type varies depending on the type of the replacement order.
   /// </summary>
-  public Transaction? OrderReissueRejectTransaction { get; }
+  public Transaction? OrderReissueRejectTransaction { get; init; }
 
   /// <summary>
   /// The Transaction that cancelled the replacing Order. Only provided when
   /// the replacing Order was immediately cancelled.
   /// </summary>
-  public OrderCancelTransaction? ReplacingOrderCancelTransaction { get; }
+  public OrderCancelTransaction? ReplacingOrderCancelTransaction { get; init; }
 
   /// <summary>
   /// The IDs of all Transactions that were created while satisfying the
   /// request.
   /// </summary>
-  public ImmutableList<string> RelatedTransactionIDs { get; }
+  public ImmutableList<string> RelatedTransactionIDs { get; init; }
 
   /// <summary>
   /// The ID of the most recent Transaction created for the Account.
   /// </summary>
   [JsonConverter(typeof(Int32StringConverter))]
-  public int LastTransactionID { get; }
+  public int LastTransactionID { get; init; }
 }

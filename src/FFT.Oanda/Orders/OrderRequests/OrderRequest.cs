@@ -2,6 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Orders.OrderRequests;
+
 /// <summary>
 /// Base class for all order request types.
 /// </summary>
@@ -51,7 +52,7 @@ public abstract record OrderRequest
   /// </summary>
   public ClientExtensions? ClientExtensions { get; init; }
 
-  public void Validate()
+  internal void Validate()
   {
     if (TimeInForce == TimeInForce.GTD)
     {
@@ -68,19 +69,19 @@ public abstract record OrderRequest
   /// <summary>
   /// Implement this to throw <see cref="ArgumentException"/> if the object contains invalid properties.
   /// </summary>
-  protected abstract void CustomValidate();
+  private protected abstract void CustomValidate();
 
-  /// <summary>
-  /// Throws an <see cref="ArgumentException"/> if the <paramref
-  /// name="timeInForce"/> is not one of the <paramref name="allowed"/>
-  /// values.
-  /// </summary>
-  /// <param name="timeInForce">The value being tested.</param>
-  /// <param name="allowed">The allowed values.</param>
-  /// <exception cref="ArgumentException">Thrown if <paramref
-  /// name="timeInForce"/> is not found in <paramref
-  /// name="allowed"/>.</exception>
-  protected static void ValidateTimeInForce(TimeInForce timeInForce, TimeInForce[] allowed)
+  // /// <summary>
+  // /// Throws an <see cref="ArgumentException"/> if the <paramref
+  // /// name="timeInForce"/> is not one of the <paramref name="allowed"/>
+  // /// values.
+  // /// </summary>
+  // /// <param name="timeInForce">The value being tested.</param>
+  // /// <param name="allowed">The allowed values.</param>
+  // /// <exception cref="ArgumentException">Thrown if <paramref
+  // /// name="timeInForce"/> is not found in <paramref
+  // /// name="allowed"/>.</exception>
+  private protected static void ValidateTimeInForce(TimeInForce timeInForce, TimeInForce[] allowed)
   {
     if (Array.IndexOf(allowed, timeInForce) == -1)
     {

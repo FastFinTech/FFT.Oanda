@@ -7,6 +7,7 @@ namespace FFT.Oanda.Orders;
 /// The overall behaviour of the Account regarding Guaranteed Stop Loss Orders
 /// for a specific Instrument.
 /// </summary>
+[JsonConverter(typeof(JsonStringEnumConverter))]
 public enum GuaranteedStopLossOrderModeForInstrument
 {
   /// <summary>

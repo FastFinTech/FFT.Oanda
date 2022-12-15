@@ -2,6 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Orders.OrderRequests;
+
 /// <summary>
 /// A StopOrderRequest specifies the parameters that may be set when creating
 /// a Stop Order.
@@ -32,6 +33,5 @@ public sealed record StopOrderRequest : OpenTradeOrderRequest
   /// </summary>
   public decimal PriceBound { get; init; }
 
-  /// <inheritdoc />
-  protected override void CustomValidate2() { }
+  private protected override void CustomValidate2() { }
 }

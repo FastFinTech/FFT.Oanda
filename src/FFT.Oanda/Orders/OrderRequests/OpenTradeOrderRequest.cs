@@ -2,13 +2,13 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Orders.OrderRequests;
+
 /// <summary>
 /// Base class for all order requests that will open a new trade.
 /// </summary>
 public abstract record OpenTradeOrderRequest : OrderRequest
 {
-  /// <inheritdoc />
-  protected sealed override void CustomValidate()
+  private protected sealed override void CustomValidate()
   {
     if (string.IsNullOrWhiteSpace(Instrument))
     {
@@ -23,10 +23,7 @@ public abstract record OpenTradeOrderRequest : OrderRequest
     CustomValidate2();
   }
 
-  /// <summary>
-  /// Implement this to throw <see cref="ArgumentException"/> if the object contains invalid properties.
-  /// </summary>
-  protected abstract void CustomValidate2();
+  private protected abstract void CustomValidate2();
 
   /// <summary>
   /// The Order’s Instrument.

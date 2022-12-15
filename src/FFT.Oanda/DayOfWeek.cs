@@ -3,8 +3,6 @@
 
 namespace FFT.Oanda;
 
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// The DayOfWeek provides a representation of the day of the week.
 /// </summary>

@@ -3,8 +3,6 @@
 
 namespace FFT.Oanda.Orders;
 
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// The reason that the Stop Order was initiated.
 /// </summary>

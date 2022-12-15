@@ -2,6 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Orders.OrderRequests;
+
 /// <summary>
 /// Base class for all order requests that will close an existing trade.
 /// </summary>

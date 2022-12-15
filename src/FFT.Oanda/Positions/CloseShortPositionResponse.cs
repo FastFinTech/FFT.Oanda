@@ -2,7 +2,6 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Positions;
-
 using FFT.Oanda.JsonConverters;
 using FFT.Oanda.Transactions;
 

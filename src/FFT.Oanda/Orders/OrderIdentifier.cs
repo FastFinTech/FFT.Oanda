@@ -3,35 +3,19 @@
 
 namespace FFT.Oanda.Orders;
 
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// An OrderIdentifier is used to refer to an Order, and contains both the
 /// OrderID and the ClientOrderID.
 /// </summary>
-public sealed class OrderIdentifier
+public sealed record OrderIdentifier
 {
-  // TODO:"clientOrderId" should probably be made nullable.
-
-  /// <summary>
-  /// Initializes a new instance of the <see cref="OrderIdentifier"/> class.
-  /// </summary>
-  [JsonConstructor]
-  public OrderIdentifier(
-    string orderId,
-    string clientOrderId)
-  {
-    OrderId = orderId;
-    ClientOrderId = clientOrderId;
-  }
-
   /// <summary>
   /// The OANDA-assigned Order ID.
   /// </summary>
-  public string OrderId { get; }
+  public int OrderId { get; init; }
 
   /// <summary>
   /// The client-provided client Order ID.
   /// </summary>
-  public string ClientOrderId { get; }
+  public string? ClientOrderId { get; init; }
 }

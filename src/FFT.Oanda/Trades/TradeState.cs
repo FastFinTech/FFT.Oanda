@@ -3,8 +3,6 @@
 
 namespace FFT.Oanda.Trades;
 
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// The current state of the trade.
 /// </summary>

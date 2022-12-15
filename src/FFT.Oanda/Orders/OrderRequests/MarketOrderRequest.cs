@@ -2,6 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Orders.OrderRequests;
+
 /// <summary>
 /// A MarketOrderRequest specifies the parameters that may be set when
 /// creating a Market Order.
@@ -17,12 +18,6 @@ public sealed record MarketOrderRequest : OpenTradeOrderRequest
   /// <inheritdoc/>
   public override OrderType Type => OrderType.MARKET;
 
-  /// <inheritdoc/>
-  protected override void CustomValidate2()
-  {
-    ValidateTimeInForce(TimeInForce, _allowed);
-  }
-
   /// <summary>
   /// The quantity requested to be filled by the Market Order. A positive
   /// number of units results in a long Order, and a negative number of units
@@ -35,4 +30,9 @@ public sealed record MarketOrderRequest : OpenTradeOrderRequest
   /// filled at.
   /// </summary>
   public decimal? PriceBound { get; init; }
+
+  private protected override void CustomValidate2()
+  {
+    ValidateTimeInForce(TimeInForce, _allowed);
+  }
 }

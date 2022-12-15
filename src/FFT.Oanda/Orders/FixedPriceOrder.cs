@@ -2,10 +2,6 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Orders;
-
-using System;
-using System.Collections.Immutable;
-using System.Text.Json.Serialization;
 using FFT.Oanda.Trades;
 
 /// <summary>

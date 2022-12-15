@@ -6,6 +6,7 @@ namespace FFT.Oanda.Orders;
 /// <summary>
 /// The reason that the Limit Order was initiated.
 /// </summary>
+[JsonConverter(typeof(JsonStringEnumConverter))]
 public enum LimitOrderReason
 {
   /// <summary>

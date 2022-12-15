@@ -2,6 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Orders;
+
 /// <summary>
 /// A TakeProfitOrder is an order that is linked to an open Trade and created
 /// with a price threshold. The Order will be filled (closing the Trade) by
@@ -13,7 +14,7 @@ public sealed record TakeProfitOrder : Order
   /// <summary>
   /// The ID of the Trade to close when the price threshold is breached.
   /// </summary>
-  public string TradeID { get; init; }
+  public int TradeID { get; init; }
 
   /// <summary>
   /// The client ID of the Trade to be closed when the price threshold is

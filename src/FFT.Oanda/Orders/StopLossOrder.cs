@@ -2,6 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Orders;
+
 /// <summary>
 /// A StopLossOrder is an order that is linked to an open Trade and created
 /// with a price threshold. The Order will be filled (closing the Trade) by

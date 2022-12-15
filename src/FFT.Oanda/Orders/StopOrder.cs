@@ -2,6 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Orders;
+
 /// <summary>
 /// A StopOrder is an order that is created with a price threshold, and will
 /// only be filled by a price that is equal to or worse than the threshold.

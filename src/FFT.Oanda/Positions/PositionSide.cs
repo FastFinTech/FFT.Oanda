@@ -26,7 +26,7 @@ public sealed record PositionSide
   /// <summary>
   /// List of the open Trade IDs which contribute to the open Position.
   /// </summary>
-  public ImmutableList<string> TradeIDs { get; init; }
+  public ImmutableList<int> TradeIDs { get; init; }
 
   /// <summary>
   /// Profit/loss realized by the PositionSide over the lifetime of the

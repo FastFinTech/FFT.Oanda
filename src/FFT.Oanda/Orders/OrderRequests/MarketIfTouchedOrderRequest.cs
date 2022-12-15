@@ -2,6 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Orders.OrderRequests;
+
 /// <summary>
 /// A MarketIfTouchedOrderRequest specifies the parameters that may be set
 /// when creating a Market-if-Touched Order.
@@ -18,12 +19,6 @@ public sealed record MarketIfTouchedOrderRequest : OpenTradeOrderRequest
   /// <inheritdoc />
   public override OrderType Type => OrderType.MARKET_IF_TOUCHED;
 
-  /// <inheritdoc />
-  protected sealed override void CustomValidate2()
-  {
-    ValidateTimeInForce(TimeInForce, _allowed);
-  }
-
   /// <summary>
   /// The price threshold specified for the MarketIfTouched Order. The
   /// MarketIfTouched Order will only be filled by a market price that crosses
@@ -39,4 +34,9 @@ public sealed record MarketIfTouchedOrderRequest : OpenTradeOrderRequest
   /// Order.
   /// </summary>
   public decimal? PriceBound { get; init; }
+
+  private protected override void CustomValidate2()
+  {
+    ValidateTimeInForce(TimeInForce, _allowed);
+  }
 }

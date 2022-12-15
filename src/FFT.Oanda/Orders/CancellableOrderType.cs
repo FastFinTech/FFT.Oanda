@@ -3,8 +3,6 @@
 
 namespace FFT.Oanda.Orders;
 
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// The type of the Order.
 /// </summary>

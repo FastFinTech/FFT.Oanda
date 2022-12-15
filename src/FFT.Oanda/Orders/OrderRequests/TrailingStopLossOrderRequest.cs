@@ -3,9 +3,6 @@
 
 namespace FFT.Oanda.Orders.OrderRequests;
 
-using System;
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// A TrailingStopLossOrderRequest specifies the parameters that may be set
 /// when creating a Trailing Stop Loss Order.
@@ -28,8 +25,7 @@ public sealed record TrailingStopLossOrderRequest : CloseTradeOrderRequest
   /// </summary>
   public decimal Distance { get; init; }
 
-  /// <inheritdoc />
-  protected override void CustomValidate()
+  private protected override void CustomValidate()
   {
     ValidateTimeInForce(TimeInForce, _allowed);
   }

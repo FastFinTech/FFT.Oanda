@@ -3,10 +3,8 @@
 
 namespace FFT.Oanda;
 
-using System;
 using System.Buffers;
 using System.Runtime.CompilerServices;
-using System.Text.Json;
 using FFT.Oanda.Orders;
 using FFT.Oanda.Pricing;
 using FFT.Oanda.Transactions;

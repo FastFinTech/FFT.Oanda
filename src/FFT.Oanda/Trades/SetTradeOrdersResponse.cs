@@ -2,9 +2,6 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Trades;
-
-using System.Collections.Immutable;
-using System.Text.Json.Serialization;
 using FFT.Oanda.JsonConverters;
 using FFT.Oanda.Orders;
 using FFT.Oanda.Transactions;
@@ -14,44 +11,8 @@ using FFT.Oanda.Transactions;
 /// TakeProfitDetails, StopLossDetails, TrailingStopLossDetails,
 /// GuaranteedStopLossDetails, CancellationToken)"/> method.
 /// </summary>
-public sealed class SetTradeOrdersResponse
+public sealed record SetTradeOrdersResponse
 {
-  /// <summary>
-  /// Initializes a new instance of the <see cref="SetTradeOrdersResponse"/> class.
-  /// </summary>
-  [JsonConstructor]
-  public SetTradeOrdersResponse(
-    OrderCancelTransaction? takeProfitOrderCancelTransaction,
-    TakeProfitOrderTransaction? takeProfitOrderTransaction,
-    OrderFillTransaction? takeProfitOrderFillTransaction,
-    OrderCancelTransaction? takeProfitOrderCreatedCancelTransaction,
-    OrderCancelTransaction? stopLossOrderCancelTransaction,
-    StopLossOrderTransaction? stopLossOrderTransaction,
-    OrderFillTransaction? stopLossOrderFillTransaction,
-    OrderCancelTransaction? stopLossOrderCreatedCancelTransaction,
-    OrderCancelTransaction? trailingStopLossOrderCancelTransaction,
-    TrailingStopLossOrderTransaction? trailingStopLossOrderTransaction,
-    OrderCancelTransaction? guaranteedStopLossOrderCancelTransaction,
-    GuaranteedStopLossOrderTransaction? guaranteedStopLossOrderTransaction,
-    ImmutableList<int> relatedTransactionIDs,
-    int lastTransactionID)
-  {
-    TakeProfitOrderCancelTransaction = takeProfitOrderCancelTransaction;
-    TakeProfitOrderTransaction = takeProfitOrderTransaction;
-    TakeProfitOrderFillTransaction = takeProfitOrderFillTransaction;
-    TakeProfitOrderCreatedCancelTransaction = takeProfitOrderCreatedCancelTransaction;
-    StopLossOrderCancelTransaction = stopLossOrderCancelTransaction;
-    StopLossOrderTransaction = stopLossOrderTransaction;
-    StopLossOrderFillTransaction = stopLossOrderFillTransaction;
-    StopLossOrderCreatedCancelTransaction = stopLossOrderCreatedCancelTransaction;
-    TrailingStopLossOrderCancelTransaction = trailingStopLossOrderCancelTransaction;
-    TrailingStopLossOrderTransaction = trailingStopLossOrderTransaction;
-    GuaranteedStopLossOrderCancelTransaction = guaranteedStopLossOrderCancelTransaction;
-    GuaranteedStopLossOrderTransaction = guaranteedStopLossOrderTransaction;
-    RelatedTransactionIDs = relatedTransactionIDs;
-    LastTransactionID = lastTransactionID;
-  }
-
   /// <summary>
   /// The Transaction created that cancels the Trade’s existing Take Profit
   /// Order.

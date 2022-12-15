@@ -2,6 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Orders.OrderRequests;
+
 /// <summary>
 /// A GuaranteedStopLossOrderRequest specifies the parameters that may be set
 /// when creating a Guaranteed Stop Loss Order. Only one of the price and
@@ -32,8 +33,7 @@ public sealed record GuaranteedStopLossOrderRequest : CloseTradeOrderRequest
   /// </summary>
   public decimal? Distance { get; init; }
 
-  /// <inheritdoc />
-  protected override void CustomValidate()
+  private protected override void CustomValidate()
   {
     if (Price is null && Distance is null)
     {

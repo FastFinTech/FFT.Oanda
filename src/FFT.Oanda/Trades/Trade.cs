@@ -2,10 +2,6 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Trades;
-
-using System;
-using System.Collections.Immutable;
-using System.Text.Json.Serialization;
 using FFT.Oanda.JsonConverters;
 using FFT.Oanda.Orders;
 
@@ -14,58 +10,10 @@ using FFT.Oanda.Orders;
 /// representation of the Trade’s dependent Orders in addition to the IDs of
 /// those Orders.
 /// </summary>
-public sealed class Trade
+public sealed record Trade
 {
   // TODO: This class seems to be missing the GuaranteedStopLossOrder property
   // (omitted from documenation, perhaps?)
-
-  /// <summary>
-  /// Initializes a new instance of the <see cref="Trade"/> class.
-  /// </summary>
-  [JsonConstructor]
-  public Trade(
-    int id,
-    string instrument,
-    decimal price,
-    DateTime openTime,
-    TradeState state,
-    decimal initialUnits,
-    decimal initialMarginRequired,
-    decimal currentUnits,
-    decimal realizedPL,
-    decimal unrealizedPL,
-    decimal marginUsed,
-    decimal? averageClosePrice,
-    ImmutableList<string> closingTransactionIDs,
-    decimal financing,
-    decimal dividendAdjustment,
-    DateTime? closeTime,
-    ClientExtensions? clientExtensions,
-    TakeProfitOrder? takeProfitOrder,
-    StopLossOrder? stopLossOrder,
-    TrailingStopLossOrder? trailingStopLossOrder)
-  {
-    Id = id;
-    Instrument = instrument;
-    Price = price;
-    OpenTime = openTime;
-    State = state;
-    InitialUnits = initialUnits;
-    InitialMarginRequired = initialMarginRequired;
-    CurrentUnits = currentUnits;
-    RealizedPL = realizedPL;
-    UnrealizedPL = unrealizedPL;
-    MarginUsed = marginUsed;
-    AverageClosePrice = averageClosePrice;
-    ClosingTransactionIDs = closingTransactionIDs;
-    Financing = financing;
-    DividendAdjustment = dividendAdjustment;
-    CloseTime = closeTime;
-    ClientExtensions = clientExtensions;
-    TakeProfitOrder = takeProfitOrder;
-    StopLossOrder = stopLossOrder;
-    TrailingStopLossOrder = trailingStopLossOrder;
-  }
 
   /// <summary>
   /// The Trade’s identifier, unique within the Trade’s Account.
@@ -140,7 +88,7 @@ public sealed class Trade
   /// <summary>
   /// The IDs of the Transactions that have closed portions of this Trade.
   /// </summary>
-  public ImmutableList<string> ClosingTransactionIDs { get; }
+  public ImmutableList<int> ClosingTransactionIDs { get; }
 
   /// <summary>
   /// The financing paid/collected for this Trade. Expressed in the account's

@@ -10,7 +10,7 @@ using System.Net;
 /// Thrown when an api request is denied. Check the <see cref="StatusCode"/>
 /// and <see cref="ResponseContent"/> properties for information returned by the api.
 /// </summary>
-public class RequestFailedException : Exception
+public sealed class RequestFailedException : Exception
 {
   internal RequestFailedException(HttpStatusCode statusCode, string responseContent)
   {

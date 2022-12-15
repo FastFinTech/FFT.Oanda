@@ -3,8 +3,6 @@
 
 namespace FFT.Oanda.Orders;
 
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// The state to filter the requested Orders by.
 /// </summary>

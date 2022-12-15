@@ -3,8 +3,6 @@
 
 namespace FFT.Oanda.Orders;
 
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// Specification of which price component should be used when determining if
 /// an Order should be triggered and filled. This allows Orders to be

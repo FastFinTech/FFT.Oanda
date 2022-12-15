@@ -3,8 +3,6 @@
 
 namespace FFT.Oanda.Orders;
 
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// The time-in-force of an Order. TimeInForce describes how long an Order
 /// should remain pending before being automatically cancelled by the

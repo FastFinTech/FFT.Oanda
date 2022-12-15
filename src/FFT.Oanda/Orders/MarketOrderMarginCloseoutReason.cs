@@ -6,6 +6,7 @@ namespace FFT.Oanda.Orders;
 /// <summary>
 /// The reason that the Market Order was created to perform a margin closeout.
 /// </summary>
+[JsonConverter(typeof(JsonStringEnumConverter))]
 public enum MarketOrderMarginCloseoutReason
 {
   /// <summary>

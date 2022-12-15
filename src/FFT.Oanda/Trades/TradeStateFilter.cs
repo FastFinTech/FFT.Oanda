@@ -3,8 +3,6 @@
 
 namespace FFT.Oanda.Trades;
 
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// The state to filter the trades by.
 /// </summary>

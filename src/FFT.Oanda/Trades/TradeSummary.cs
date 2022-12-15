@@ -2,99 +2,45 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Trades;
-
-using System;
-using System.Collections.Immutable;
-using System.Text.Json.Serialization;
 using FFT.Oanda.JsonConverters;
 
 /// <summary>
 /// The summary of a trade within an account. This representation does not
 /// provide the full details of the trade’s dependent orders.
 /// </summary>
-public sealed class TradeSummary
+public sealed record TradeSummary
 {
-  /// <summary>
-  /// Initializes a new instance of the <see cref="TradeSummary"/> class.
-  /// </summary>
-  [JsonConstructor]
-  public TradeSummary(
-    int id,
-    string instrument,
-    decimal price,
-    DateTime openTime,
-    TradeState state,
-    decimal initialUnits,
-    decimal initialMarginRequired,
-    decimal currentUnits,
-    decimal realizedPL,
-    decimal unrealizedPL,
-    decimal marginUsed,
-    decimal? averageClosePrice,
-    ImmutableList<string> closingTransactionIDs,
-    decimal financing,
-    decimal dividendAdjustment,
-    DateTime closeTime,
-    ClientExtensions clientExtensions,
-    string? takeProfitOrderID,
-    string? stopLossOrderID,
-    string? guaranteedStopLossOrderID,
-    string? trailingStopLossOrderID)
-  {
-    Id = id;
-    Instrument = instrument;
-    Price = price;
-    OpenTime = openTime;
-    State = state;
-    InitialUnits = initialUnits;
-    InitialMarginRequired = initialMarginRequired;
-    CurrentUnits = currentUnits;
-    RealizedPL = realizedPL;
-    UnrealizedPL = unrealizedPL;
-    MarginUsed = marginUsed;
-    AverageClosePrice = averageClosePrice;
-    ClosingTransactionIDs = closingTransactionIDs;
-    Financing = financing;
-    DividendAdjustment = dividendAdjustment;
-    CloseTime = closeTime;
-    ClientExtensions = clientExtensions;
-    TakeProfitOrderID = takeProfitOrderID;
-    StopLossOrderID = stopLossOrderID;
-    GuaranteedStopLossOrderID = guaranteedStopLossOrderID;
-    TrailingStopLossOrderID = trailingStopLossOrderID;
-  }
-
   /// <summary>
   /// The Trade’s identifier, unique within the Trade’s Account.
   /// </summary>
   [JsonConverter(typeof(Int32StringConverter))]
-  public int Id { get; }
+  public int Id { get; init; }
 
   /// <summary>
   /// The Trade’s Instrument.
   /// </summary>
-  public string Instrument { get; }
+  public string Instrument { get; init; }
 
   /// <summary>
   /// The execution price of the Trade.
   /// </summary>
-  public decimal Price { get; }
+  public decimal Price { get; init; }
 
   /// <summary>
   /// The date/time when the Trade was opened.
   /// </summary>
-  public DateTime OpenTime { get; }
+  public DateTime OpenTime { get; init; }
 
   /// <summary>
   /// The current state of the Trade.
   /// </summary>
-  public TradeState State { get; }
+  public TradeState State { get; init; }
 
   /// <summary>
   /// The initial size of the Trade. Negative values indicate a short Trade,
   /// and positive values indicate a long Trade.
   /// </summary>
-  public decimal InitialUnits { get; }
+  public decimal InitialUnits { get; init; }
 
   /// <summary>
   /// The margin required at the time the Trade was created. Note, this is the
@@ -102,87 +48,87 @@ public sealed class TradeSummary
   /// factors in the trade risk if a GSLO is attached to the trade. Expressed
   /// in the account's home currency.
   /// </summary>
-  public decimal InitialMarginRequired { get; }
+  public decimal InitialMarginRequired { get; init; }
 
   /// <summary>
   /// The number of units currently open for the Trade. This value is reduced
   /// to 0.0 as the Trade is closed.
   /// </summary>
-  public decimal CurrentUnits { get; }
+  public decimal CurrentUnits { get; init; }
 
   /// <summary>
   /// The total profit/loss realized on the closed portion of the Trade.
   /// Expressed in the account's home currency.
   /// </summary>
-  public decimal RealizedPL { get; }
+  public decimal RealizedPL { get; init; }
 
   /// <summary>
   /// The unrealized profit/loss on the open portion of the Trade. Expressed
   /// in the account's home currency.
   /// </summary>
-  public decimal UnrealizedPL { get; }
+  public decimal UnrealizedPL { get; init; }
 
   /// <summary>
   /// Margin currently used by the Trade. Expressed in the account's home
   /// currency.
   /// </summary>
-  public decimal MarginUsed { get; }
+  public decimal MarginUsed { get; init; }
 
   /// <summary>
   /// The average closing price of the Trade. Only present if the Trade has
   /// been closed or reduced at least once.
   /// </summary>
-  public decimal? AverageClosePrice { get; }
+  public decimal? AverageClosePrice { get; init; }
 
   /// <summary>
   /// The IDs of the Transactions that have closed portions of this Trade.
   /// </summary>
-  public ImmutableList<string> ClosingTransactionIDs { get; }
+  public ImmutableList<int> ClosingTransactionIDs { get; init; }
 
   /// <summary>
   /// The financing paid/collected for this Trade. Expressed in the account's
   /// home currency.
   /// </summary>
-  public decimal Financing { get; }
+  public decimal Financing { get; init; }
 
   /// <summary>
   /// The dividend adjustment paid for this Trade. Expressed in the account's
   /// home currency.
   /// </summary>
-  public decimal DividendAdjustment { get; }
+  public decimal DividendAdjustment { get; init; }
 
   /// <summary>
   /// The date/time when the Trade was fully closed. Only provided for Trades
   /// whose state is CLOSED.
   /// </summary>
-  public DateTime CloseTime { get; }
+  public DateTime? CloseTime { get; init; }
 
   /// <summary>
   /// The client extensions of the Trade.
   /// </summary>
-  public ClientExtensions ClientExtensions { get; }
+  public ClientExtensions? ClientExtensions { get; init; }
 
   /// <summary>
   /// ID of the Trade’s Take Profit Order, only provided if such an Order
   /// exists.
   /// </summary>
-  public string? TakeProfitOrderID { get; }
+  public int? TakeProfitOrderID { get; init; }
 
   /// <summary>
   /// ID of the Trade’s Stop Loss Order, only provided if such an Order
   /// exists.
   /// </summary>
-  public string? StopLossOrderID { get; }
+  public int? StopLossOrderID { get; init; }
 
   /// <summary>
   /// ID of the Trade’s Guaranteed Stop Loss Order, only provided if such an
   /// Order exists.
   /// </summary>
-  public string? GuaranteedStopLossOrderID { get; }
+  public int? GuaranteedStopLossOrderID { get; init; }
 
   /// <summary>
   /// ID of the Trade’s Trailing Stop Loss Order, only provided if such an
   /// Order exists.
   /// </summary>
-  public string? TrailingStopLossOrderID { get; }
+  public int? TrailingStopLossOrderID { get; init; }
 }

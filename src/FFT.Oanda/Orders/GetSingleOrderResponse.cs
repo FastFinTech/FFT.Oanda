@@ -3,37 +3,23 @@
 
 namespace FFT.Oanda.Orders;
 
-using System.Text.Json.Serialization;
 using FFT.Oanda.JsonConverters;
 
 /// <summary>
 /// Returned by the <see cref="OandaApiClient.GetSingleOrder(string, string, CancellationToken)"/> method.
 /// Contains information about the single order.
 /// </summary>
-public sealed class GetSingleOrderResponse
+public sealed record GetSingleOrderResponse
 {
-  /// <summary>
-  /// Initializes a new instance of the <see cref="GetSingleOrderResponse"/>
-  /// class.
-  /// </summary>
-  [JsonConstructor]
-  public GetSingleOrderResponse(
-    Order order,
-    int lastTransactionId)
-  {
-    Order = order;
-    LastTransactionId = lastTransactionId;
-  }
-
   /// <summary>
   /// The details of the Order requested. Actual instance type will vary
   /// depending on the order type.
   /// </summary>
-  public Order Order { get; }
+  public Order Order { get; init; }
 
   /// <summary>
   /// The ID of the most recent Transaction created for the Account.
   /// </summary>
   [JsonConverter(typeof(Int32StringConverter))]
-  public int LastTransactionId { get; }
+  public int LastTransactionId { get; init; }
 }

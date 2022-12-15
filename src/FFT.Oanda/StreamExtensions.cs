@@ -3,13 +3,10 @@
 
 namespace FFT.Oanda;
 
-using System;
 using System.Buffers;
-using System.Collections.Generic;
 using System.IO;
 using System.IO.Pipelines;
 using System.Runtime.CompilerServices;
-using System.Threading;
 
 internal static class StreamExtensions
 {

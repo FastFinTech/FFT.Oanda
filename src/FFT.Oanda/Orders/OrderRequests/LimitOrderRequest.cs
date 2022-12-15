@@ -2,6 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace FFT.Oanda.Orders.OrderRequests;
+
 /// <summary>
 /// A LimitOrderRequest specifies the parameters that may be set when creating
 /// a Limit Order.
@@ -10,11 +11,6 @@ public sealed record LimitOrderRequest : OpenTradeOrderRequest
 {
   /// <inheritdoc />
   public override OrderType Type => OrderType.LIMIT;
-
-  /// <inheritdoc />
-  protected override void CustomValidate2()
-  {
-  }
 
   /// <summary>
   /// The quantity requested to be filled by the Limit Order. A positive
@@ -29,4 +25,8 @@ public sealed record LimitOrderRequest : OpenTradeOrderRequest
   /// price.
   /// </summary>
   public decimal Price { get; init; }
+
+  private protected override void CustomValidate2()
+  {
+  }
 }

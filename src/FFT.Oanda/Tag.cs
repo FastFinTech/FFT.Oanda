@@ -3,32 +3,18 @@
 
 namespace FFT.Oanda;
 
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// A tag associated with an entity.
 /// </summary>
-public sealed class Tag
+public sealed record Tag
 {
-  /// <summary>
-  /// Initializes a new instance of the <see cref="Tag"/> class.
-  /// </summary>
-  [JsonConstructor]
-  public Tag(
-    string type,
-    string name)
-  {
-    Type = type;
-    Name = name;
-  }
-
   /// <summary>
   /// The type of the tag.
   /// </summary>
-  public string Type { get; }
+  public string Type { get; init; }
 
   /// <summary>
   /// The name of the tag.
   /// </summary>
-  public string Name { get; }
+  public string Name { get; init; }
 }
