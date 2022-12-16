@@ -17,12 +17,12 @@ public sealed record TradeReduce
   public int TradeID { get; init; }
 
   /// <summary>
-  /// The number of units opened by the Trade.
+  /// The number of units that the trade was reduced by.
   /// </summary>
   public decimal Units { get; init; }
 
   /// <summary>
-  /// The average price that the units were opened at.
+  /// The average price that the units were closed at.
   /// </summary>
   public decimal Price { get; init; }
 
