@@ -3,7 +3,6 @@
 
 namespace FFT.Oanda.Pricing;
 
-using System;
 using FFT.Oanda.Instruments;
 using Throw;
 
