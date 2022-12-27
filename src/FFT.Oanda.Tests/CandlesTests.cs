@@ -6,7 +6,6 @@
 namespace FFT.Oanda.Tests;
 
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 using FFT.Oanda.Instruments;
 using FFT.Oanda.Pricing;
@@ -16,21 +15,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 [TestClass]
 public class CandlesTests
 {
-  private static string _accountId = null!;
-
-  [ClassInitialize]
-  public static async Task Initialize(TestContext context)
-  {
-    _accountId = (await Services.Client.GetAccounts()).Accounts.First().Id;
-  }
-
   [TestMethod]
   public async Task TestCandles()
   {
     var client = Services.Client;
-    var accountId = (await client.GetAccounts()).Accounts.First().Id;
     var data = await client.GetCandlestickData(
-      accountId: accountId,
       candleSpecification: new()
       {
         InstrumentName = "AUD_USD",
@@ -39,17 +28,19 @@ public class CandlesTests
       },
       from: DateTime.UtcNow.Date.AddDays(-30),
       to: null,
+      includeFirst: true,
       cancellationToken: default);
+
+    data.Candles.Count.Should().Be(5000);
   }
 
   [TestMethod]
   public async Task Latest5000Candles()
   {
     var data = await Services.Client.GetCandlestickData(
-      accountId: _accountId,
       candleSpecification: new CandleSpecification() { InstrumentName = "AUD_USD", CandleStickGranularity = CandlestickGranularity.S5, PricingComponent = new() { Bid = true, Ask = true, Mid = true } },
       from: null,
-      to: null,
+      to: DateTime.UtcNow.AddSeconds(-1),
       count: 5000,
       smooth: false,
       includeFirst: null);

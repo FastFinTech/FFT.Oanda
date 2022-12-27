@@ -213,159 +213,159 @@ public partial class OandaApiClient
 // Instrument endpoint
 public partial class OandaApiClient
 {
-  /// <summary>
-  /// Fetch candlestick data for an instrument. This method overload uses the
-  /// "count" parameter (instead of the "from" and "to" parameters) to
-  /// determine the range of candles to return.
-  /// </summary>
-  /// <param name="candleSpecification">
-  /// An instrument name, a granularity, and a price component to get
-  /// candlestick data for.
-  /// </param>
-  /// <param name="count">
-  /// The number of candlesticks to return in the response. [maximum=5000].
-  /// </param>
-  /// <param name="smooth">
-  /// A flag that controls whether the candlestick is “smoothed” or not. A
-  /// smoothed candlestick uses the previous candle’s close price as its open
-  /// price, while an un-smoothed candlestick uses the first price from its
-  /// time range as its open price.
-  /// </param>
-  /// <param name="dailyAlignment">
-  /// The hour of the day (in the specified timezone) to use for granularities
-  /// that have daily alignments. [default=17, minimum=0, maximum=23].
-  /// </param>
-  /// <param name="alignmentTimezone">
-  /// The timezone to use for the dailyAlignment parameter. Candlesticks with
-  /// daily alignment will be aligned to the dailyAlignment hour within the
-  /// alignmentTimezone. Note that the returned times will still be
-  /// represented in UTC. [default=America/New_York].
-  /// </param>
-  /// <param name="weeklyAlignment">
-  /// The day of the week used for granularities that have weekly alignment.
-  /// [default=Friday].
-  /// </param>
-  /// <param name="cancellationToken">Cancels the operation.</param>
-  public async Task<CandlestickResponse> GetCandlestickData(
-    CandleSpecification candleSpecification,
-    int count = 500,
-    bool smooth = false,
-    int dailyAlignment = 17,
-    string alignmentTimezone = "America/New_York",
-    WeeklyAlignment weeklyAlignment = WeeklyAlignment.FRIDAY,
-    CancellationToken cancellationToken = default)
-  {
-    candleSpecification.ThrowIfNull();
-    candleSpecification.Validate();
-    dailyAlignment.Throw().IfOutOfRange(0, 23);
-    alignmentTimezone.ThrowIfNull().Throw().IfWhiteSpace();
+  ///// <summary>
+  ///// Fetch candlestick data for an instrument. This method overload uses the
+  ///// "count" parameter (instead of the "from" and "to" parameters) to
+  ///// determine the range of candles to return.
+  ///// </summary>
+  ///// <param name="candleSpecification">
+  ///// An instrument name, a granularity, and a price component to get
+  ///// candlestick data for.
+  ///// </param>
+  ///// <param name="count">
+  ///// The number of candlesticks to return in the response. [maximum=5000].
+  ///// </param>
+  ///// <param name="smooth">
+  ///// A flag that controls whether the candlestick is “smoothed” or not. A
+  ///// smoothed candlestick uses the previous candle’s close price as its open
+  ///// price, while an un-smoothed candlestick uses the first price from its
+  ///// time range as its open price.
+  ///// </param>
+  ///// <param name="dailyAlignment">
+  ///// The hour of the day (in the specified timezone) to use for granularities
+  ///// that have daily alignments. [default=17, minimum=0, maximum=23].
+  ///// </param>
+  ///// <param name="alignmentTimezone">
+  ///// The timezone to use for the dailyAlignment parameter. Candlesticks with
+  ///// daily alignment will be aligned to the dailyAlignment hour within the
+  ///// alignmentTimezone. Note that the returned times will still be
+  ///// represented in UTC. [default=America/New_York].
+  ///// </param>
+  ///// <param name="weeklyAlignment">
+  ///// The day of the week used for granularities that have weekly alignment.
+  ///// [default=Friday].
+  ///// </param>
+  ///// <param name="cancellationToken">Cancels the operation.</param>
+  //public async Task<CandlestickResponse> GetCandlestickData(
+  //  CandleSpecification candleSpecification,
+  //  int count = 500,
+  //  bool smooth = false,
+  //  int dailyAlignment = 17,
+  //  string alignmentTimezone = "America/New_York",
+  //  WeeklyAlignment weeklyAlignment = WeeklyAlignment.FRIDAY,
+  //  CancellationToken cancellationToken = default)
+  //{
+  //  candleSpecification.ThrowIfNull();
+  //  candleSpecification.Validate();
+  //  dailyAlignment.Throw().IfOutOfRange(0, 23);
+  //  alignmentTimezone.ThrowIfNull().Throw().IfWhiteSpace();
 
-    var query = new Dictionary<string, string>
-    {
-      { "price", candleSpecification.PricingComponent.ToString() },
-      { "granularity", candleSpecification.CandleStickGranularity.ToString() },
-      { "count", count.ToString(InvariantCulture) },
-      { "smooth", smooth.ToString() },
-      { "dailyAlignment", dailyAlignment.ToString(InvariantCulture) },
-      { "alignmentTimezone", alignmentTimezone },
-      { "weeklyAlignment", weeklyAlignment.ToString() },
-    };
-    var url = QueryHelpers.AddQueryString($"v3/instruments/{candleSpecification.InstrumentName}/candles", query);
-    using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
-    using var request = new HttpRequestMessage(HttpMethod.Get, url);
-    using var response = await _client.SendAsync(request, cts.Token);
-    return await ParseResponse<CandlestickResponse>(response, cts.Token);
-  }
+  //  var query = new Dictionary<string, string>
+  //  {
+  //    { "price", candleSpecification.PricingComponent.ToString() },
+  //    { "granularity", candleSpecification.CandleStickGranularity.ToString() },
+  //    { "count", count.ToString(InvariantCulture) },
+  //    { "smooth", smooth.ToString() },
+  //    { "dailyAlignment", dailyAlignment.ToString(InvariantCulture) },
+  //    { "alignmentTimezone", alignmentTimezone },
+  //    { "weeklyAlignment", weeklyAlignment.ToString() },
+  //  };
+  //  var url = QueryHelpers.AddQueryString($"v3/instruments/{candleSpecification.InstrumentName}/candles", query);
+  //  using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
+  //  using var request = new HttpRequestMessage(HttpMethod.Get, url);
+  //  using var response = await _client.SendAsync(request, cts.Token);
+  //  return await ParseResponse<CandlestickResponse>(response, cts.Token);
+  //}
 
-  /// <summary>
-  /// Fetch candlestick data for an instrument. This method overload uses the
-  /// "count" parameter (instead of the "from" and "to" parameters) to
-  /// determine the range of candles to return.
-  /// </summary>
-  /// <param name="candleSpecification">
-  /// An instrument name, a granularity, and a price component to get
-  /// candlestick data for.
-  /// </param>
-  /// <param name="from">
-  /// The start of the time range to fetch candlesticks for.
-  /// </param>
-  /// <param name="to">
-  /// The end of the time range to fetch candlesticks for.
-  /// When null, to the present time. TODO: Check this actually works.
-  /// </param>
-  /// <param name="smooth">
-  /// A flag that controls whether the candlestick is “smoothed” or not. A
-  /// smoothed candlestick uses the previous candle’s close price as its open
-  /// price, while an un-smoothed candlestick uses the first price from its
-  /// time range as its open price.
-  /// </param>
-  /// <param name="includeFirst">
-  /// A flag that controls whether the candlestick that is covered by the from
-  /// time should be included in the results. This flag enables clients to use
-  /// the timestamp of the last completed candlestick received to poll for
-  /// future candlesticks but avoid receiving the previous candlestick
-  /// repeatedly.
-  /// </param>
-  /// <param name="dailyAlignment">
-  /// The hour of the day (in the specified timezone) to use for granularities
-  /// that have daily alignments. [default=17, minimum=0, maximum=23].
-  /// </param>
-  /// <param name="alignmentTimezone">
-  /// The timezone to use for the dailyAlignment parameter. Candlesticks with
-  /// daily alignment will be aligned to the dailyAlignment hour within the
-  /// alignmentTimezone. Note that the returned times will still be
-  /// represented in UTC. [default=America/New_York].
-  /// </param>
-  /// <param name="weeklyAlignment">
-  /// The day of the week used for granularities that have weekly alignment.
-  /// [default=Friday].
-  /// </param>
-  /// <param name="cancellationToken">Cancels the operation.</param>
-  public async Task<CandlestickResponse> GetCandlestickData(
-    CandleSpecification candleSpecification,
-    DateTime from,
-    DateTime? to,
-    bool smooth = false,
-    bool includeFirst = true,
-    int dailyAlignment = 17,
-    string alignmentTimezone = "America/New_York",
-    WeeklyAlignment weeklyAlignment = WeeklyAlignment.FRIDAY,
-    CancellationToken cancellationToken = default)
-  {
-    candleSpecification.ThrowIfNull();
-    candleSpecification.Validate();
-    dailyAlignment.Throw().IfOutOfRange(0, 23);
-    alignmentTimezone.ThrowIfNull().Throw().IfWhiteSpace();
-    from.Throw().IfNotUtc().IfGreaterThanOrEqualTo(DateTime.UtcNow);
+  ///// <summary>
+  ///// Fetch candlestick data for an instrument. This method overload uses the
+  ///// "count" parameter (instead of the "from" and "to" parameters) to
+  ///// determine the range of candles to return.
+  ///// </summary>
+  ///// <param name="candleSpecification">
+  ///// An instrument name, a granularity, and a price component to get
+  ///// candlestick data for.
+  ///// </param>
+  ///// <param name="from">
+  ///// The start of the time range to fetch candlesticks for.
+  ///// </param>
+  ///// <param name="to">
+  ///// The end of the time range to fetch candlesticks for.
+  ///// When null, to the present time. TODO: Check this actually works.
+  ///// </param>
+  ///// <param name="smooth">
+  ///// A flag that controls whether the candlestick is “smoothed” or not. A
+  ///// smoothed candlestick uses the previous candle’s close price as its open
+  ///// price, while an un-smoothed candlestick uses the first price from its
+  ///// time range as its open price.
+  ///// </param>
+  ///// <param name="includeFirst">
+  ///// A flag that controls whether the candlestick that is covered by the from
+  ///// time should be included in the results. This flag enables clients to use
+  ///// the timestamp of the last completed candlestick received to poll for
+  ///// future candlesticks but avoid receiving the previous candlestick
+  ///// repeatedly.
+  ///// </param>
+  ///// <param name="dailyAlignment">
+  ///// The hour of the day (in the specified timezone) to use for granularities
+  ///// that have daily alignments. [default=17, minimum=0, maximum=23].
+  ///// </param>
+  ///// <param name="alignmentTimezone">
+  ///// The timezone to use for the dailyAlignment parameter. Candlesticks with
+  ///// daily alignment will be aligned to the dailyAlignment hour within the
+  ///// alignmentTimezone. Note that the returned times will still be
+  ///// represented in UTC. [default=America/New_York].
+  ///// </param>
+  ///// <param name="weeklyAlignment">
+  ///// The day of the week used for granularities that have weekly alignment.
+  ///// [default=Friday].
+  ///// </param>
+  ///// <param name="cancellationToken">Cancels the operation.</param>
+  //public async Task<CandlestickResponse> GetCandlestickData(
+  //  CandleSpecification candleSpecification,
+  //  DateTime from,
+  //  DateTime? to,
+  //  bool smooth = false,
+  //  bool includeFirst = true,
+  //  int dailyAlignment = 17,
+  //  string alignmentTimezone = "America/New_York",
+  //  WeeklyAlignment weeklyAlignment = WeeklyAlignment.FRIDAY,
+  //  CancellationToken cancellationToken = default)
+  //{
+  //  candleSpecification.ThrowIfNull();
+  //  candleSpecification.Validate();
+  //  dailyAlignment.Throw().IfOutOfRange(0, 23);
+  //  alignmentTimezone.ThrowIfNull().Throw().IfWhiteSpace();
+  //  from.Throw().IfNotUtc().IfGreaterThanOrEqualTo(DateTime.UtcNow);
 
-    if (to.HasValue)
-    {
-      to.Value.Throw().IfNotUtc();
-      to.Value.Subtract(from).Ticks.Throw().IfLessThan(0);
-    }
+  //  if (to.HasValue)
+  //  {
+  //    to.Value.Throw().IfNotUtc();
+  //    to.Value.Subtract(from).Ticks.Throw().IfLessThan(0);
+  //  }
 
-    var query = new Dictionary<string, string>
-    {
-      { "price", candleSpecification.PricingComponent.ToString() },
-      { "granularity", candleSpecification.CandleStickGranularity.ToString() },
-      { "from", from.ToString(DATETIMEFORMATSTRING, CultureInfo.InvariantCulture) },
-      { "smooth", smooth.ToString() },
-      { "includeFirst", includeFirst.ToString() },
-      { "dailyAlignment", dailyAlignment.ToString(CultureInfo.InvariantCulture) },
-      { "alignmentTimezone", alignmentTimezone },
-      { "weeklyAlignment", weeklyAlignment.ToString() },
-    };
+  //  var query = new Dictionary<string, string>
+  //  {
+  //    { "price", candleSpecification.PricingComponent.ToString() },
+  //    { "granularity", candleSpecification.CandleStickGranularity.ToString() },
+  //    { "from", from.ToString(DATETIMEFORMATSTRING, CultureInfo.InvariantCulture) },
+  //    { "smooth", smooth.ToString() },
+  //    { "includeFirst", includeFirst.ToString() },
+  //    { "dailyAlignment", dailyAlignment.ToString(CultureInfo.InvariantCulture) },
+  //    { "alignmentTimezone", alignmentTimezone },
+  //    { "weeklyAlignment", weeklyAlignment.ToString() },
+  //  };
 
-    // TODO: check that this works when to is null.
-    if (to.HasValue)
-      query["to"] = to.Value.ToString(DATETIMEFORMATSTRING, CultureInfo.InvariantCulture);
+  //  // TODO: check that this works when to is null.
+  //  if (to.HasValue)
+  //    query["to"] = to.Value.ToString(DATETIMEFORMATSTRING, CultureInfo.InvariantCulture);
 
-    var url = QueryHelpers.AddQueryString($"v3/instruments/{candleSpecification.InstrumentName}/candles", query);
-    using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
-    using var request = new HttpRequestMessage(HttpMethod.Get, url);
-    using var response = await _client.SendAsync(request, cts.Token);
-    return await ParseResponse<CandlestickResponse>(response, cts.Token);
-  }
+  //  var url = QueryHelpers.AddQueryString($"v3/instruments/{candleSpecification.InstrumentName}/candles", query);
+  //  using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
+  //  using var request = new HttpRequestMessage(HttpMethod.Get, url);
+  //  using var response = await _client.SendAsync(request, cts.Token);
+  //  return await ParseResponse<CandlestickResponse>(response, cts.Token);
+  //}
 
   /// <summary>
   /// Fetch an order book for an instrument.
@@ -1271,81 +1271,81 @@ public partial class OandaApiClient
 // Pricing endpoint
 public partial class OandaApiClient
 {
-  /// <summary>
-  /// Get dancing bears and most recently completed candles within an Account
-  /// for specified combinations of instrument, granularity, and price
-  /// component.
-  /// </summary>
-  /// <param name="accountId">
-  /// “-“-delimited string with format
-  /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
-  /// 001-011-5838423-001.
-  /// </param>
-  /// <param name="candleSpecifications">List of candle specifications to get
-  /// pricing for.</param>
-  /// <param name="units">The number of units used to calculate the
-  /// volume-weighted average bid and ask prices in the returned
-  /// candles.</param>
-  /// <param name="smooth">A flag that controls whether the candlestick is
-  /// “smoothed” or not. A smoothed candlestick uses the previous candle’s
-  /// close price as its open price, while an unsmoothed candlestick uses the
-  /// first price from its time range as its open price.</param>
-  /// <param name="dailyAlignment">
-  /// The hour of the day (in the specified timezone) to use for granularities
-  /// that have daily alignments. [default=17, minimum=0, maximum=23].
-  /// </param>
-  /// <param name="alignmentTimezone">The timezone to use for the
-  /// dailyAlignment parameter. Candlesticks with daily alignment will be
-  /// aligned to the dailyAlignment hour within the alignmentTimezone. Note
-  /// that the returned times will still be represented in UTC.</param>
-  /// <param name="weeklyAlignment">The day of the week used for granularities
-  /// that have weekly alignment.</param>
-  /// <param name="cancellationToken">Cancels the operation.</param>
-  public async Task<LatestCandlesResponse> GetLatestCandles(
-    string accountId,
-    CandleSpecification[] candleSpecifications,
-    decimal units = 1,
-    bool smooth = false,
-    int dailyAlignment = 17,
-    string alignmentTimezone = "America/New_York",
-    WeeklyAlignment weeklyAlignment = WeeklyAlignment.FRIDAY,
-    CancellationToken cancellationToken = default)
-  {
-    if (string.IsNullOrWhiteSpace(accountId))
-      throw new ArgumentException(nameof(accountId));
+  ///// <summary>
+  ///// Get dancing bears and most recently completed candles within an Account
+  ///// for specified combinations of instrument, granularity, and price
+  ///// component.
+  ///// </summary>
+  ///// <param name="accountId">
+  ///// “-“-delimited string with format
+  ///// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+  ///// 001-011-5838423-001.
+  ///// </param>
+  ///// <param name="candleSpecifications">List of candle specifications to get
+  ///// pricing for.</param>
+  ///// <param name="units">The number of units used to calculate the
+  ///// volume-weighted average bid and ask prices in the returned
+  ///// candles.</param>
+  ///// <param name="smooth">A flag that controls whether the candlestick is
+  ///// “smoothed” or not. A smoothed candlestick uses the previous candle’s
+  ///// close price as its open price, while an unsmoothed candlestick uses the
+  ///// first price from its time range as its open price.</param>
+  ///// <param name="dailyAlignment">
+  ///// The hour of the day (in the specified timezone) to use for granularities
+  ///// that have daily alignments. [default=17, minimum=0, maximum=23].
+  ///// </param>
+  ///// <param name="alignmentTimezone">The timezone to use for the
+  ///// dailyAlignment parameter. Candlesticks with daily alignment will be
+  ///// aligned to the dailyAlignment hour within the alignmentTimezone. Note
+  ///// that the returned times will still be represented in UTC.</param>
+  ///// <param name="weeklyAlignment">The day of the week used for granularities
+  ///// that have weekly alignment.</param>
+  ///// <param name="cancellationToken">Cancels the operation.</param>
+  //public async Task<LatestCandlesResponse> GetLatestCandles(
+  //  string accountId,
+  //  CandleSpecification[] candleSpecifications,
+  //  decimal units = 1,
+  //  bool smooth = false,
+  //  int dailyAlignment = 17,
+  //  string alignmentTimezone = "America/New_York",
+  //  WeeklyAlignment weeklyAlignment = WeeklyAlignment.FRIDAY,
+  //  CancellationToken cancellationToken = default)
+  //{
+  //  if (string.IsNullOrWhiteSpace(accountId))
+  //    throw new ArgumentException(nameof(accountId));
 
-    if (candleSpecifications is not { Length: > 0 })
-      throw new ArgumentNullException(nameof(candleSpecifications));
+  //  if (candleSpecifications is not { Length: > 0 })
+  //    throw new ArgumentNullException(nameof(candleSpecifications));
 
-    foreach (var specification in candleSpecifications)
-    {
-      if (specification is null)
-        throw new ArgumentException(nameof(candleSpecifications));
-      specification.Validate();
-    }
+  //  foreach (var specification in candleSpecifications)
+  //  {
+  //    if (specification is null)
+  //      throw new ArgumentException(nameof(candleSpecifications));
+  //    specification.Validate();
+  //  }
 
-    if (dailyAlignment < 0 || dailyAlignment > 23)
-      throw new ArgumentException(nameof(dailyAlignment));
+  //  if (dailyAlignment < 0 || dailyAlignment > 23)
+  //    throw new ArgumentException(nameof(dailyAlignment));
 
-    if (string.IsNullOrWhiteSpace(alignmentTimezone))
-      throw new ArgumentException(nameof(alignmentTimezone));
+  //  if (string.IsNullOrWhiteSpace(alignmentTimezone))
+  //    throw new ArgumentException(nameof(alignmentTimezone));
 
-    var query = new Dictionary<string, string>
-    {
-      { "units", units.ToString(InvariantCulture) },
-      { "smooth", smooth.ToString() },
-      { "dailyAlignment", dailyAlignment.ToString(InvariantCulture) },
-      { "alignmentTimezone", alignmentTimezone },
-      { "weeklyAlignment", weeklyAlignment.ToString() },
-      { "candleSpecifications", string.Join<CandleSpecification>(',', candleSpecifications) },
-    };
+  //  var query = new Dictionary<string, string>
+  //  {
+  //    { "units", units.ToString(InvariantCulture) },
+  //    { "smooth", smooth.ToString() },
+  //    { "dailyAlignment", dailyAlignment.ToString(InvariantCulture) },
+  //    { "alignmentTimezone", alignmentTimezone },
+  //    { "weeklyAlignment", weeklyAlignment.ToString() },
+  //    { "candleSpecifications", string.Join<CandleSpecification>(',', candleSpecifications) },
+  //  };
 
-    var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/candles/latest", query);
-    using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
-    using var request = new HttpRequestMessage(HttpMethod.Get, url);
-    using var response = await _client.SendAsync(request, cts.Token);
-    return await ParseResponse<LatestCandlesResponse>(response, cts.Token);
-  }
+  //  var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/candles/latest", query);
+  //  using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
+  //  using var request = new HttpRequestMessage(HttpMethod.Get, url);
+  //  using var response = await _client.SendAsync(request, cts.Token);
+  //  return await ParseResponse<LatestCandlesResponse>(response, cts.Token);
+  //}
 
   /// <summary>
   /// Get pricing information for a specified list of Instruments within an
@@ -1513,7 +1513,6 @@ public partial class OandaApiClient
   /// </param>
   /// <param name="cancellationToken">Cancels the operation.</param>
   public async Task<CandlestickResponse> GetCandlestickData(
-    string accountId,
     CandleSpecification candleSpecification,
     DateTime? from = null,
     DateTime? to = null,
@@ -1526,7 +1525,6 @@ public partial class OandaApiClient
     int units = 1,
     CancellationToken cancellationToken = default)
   {
-    accountId.ThrowIfNull().Throw().IfWhiteSpace();
     candleSpecification.ThrowIfNull().Value.Validate();
     count.Throw().IfOutOfRange(500, 5000);
     to?.Throw().IfDateTimeKindNot(DateTimeKind.Utc);
@@ -1554,7 +1552,7 @@ public partial class OandaApiClient
     if (from.HasValue) query.Add("from", from.Value.ToString(DATETIMEFORMATSTRING, InvariantCulture));
     if (includeFirst.HasValue) query.Add("includeFirst", includeFirst.Value.ToString());
 
-    var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/instruments/{candleSpecification.InstrumentName}/candles", query);
+    var url = QueryHelpers.AddQueryString($"v3/instruments/{candleSpecification.InstrumentName}/candles", query);
     using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
     using var request = new HttpRequestMessage(HttpMethod.Get, url);
     using var response = await _client.SendAsync(request, cts.Token);
