@@ -16,5 +16,5 @@ public sealed record PriceBucket
   /// <summary>
   /// The amount of liquidity offered by the PriceBucket.
   /// </summary>
-  public int Liquidity { get; init; }
+  public decimal Liquidity { get; init; }
 }
