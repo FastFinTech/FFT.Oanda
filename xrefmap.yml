@@ -799,30 +799,15 @@ references:
   isSpec: "True"
   fullName: FFT.Oanda.OandaApiClient.GetAccountSummary
   nameWithType: OandaApiClient.GetAccountSummary
-- uid: FFT.Oanda.OandaApiClient.GetCandlestickData(CandleSpecification,DateTime,System.Nullable{DateTime},System.Boolean,System.Boolean,System.Int32,System.String,FFT.Oanda.Instruments.WeeklyAlignment,CancellationToken)
-  name: GetCandlestickData(CandleSpecification, DateTime, Nullable<DateTime>, Boolean, Boolean, Int32, String, WeeklyAlignment, CancellationToken)
-  href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetCandlestickData_CandleSpecification_DateTime_System_Nullable_DateTime__System_Boolean_System_Boolean_System_Int32_System_String_FFT_Oanda_Instruments_WeeklyAlignment_CancellationToken_
-  commentId: M:FFT.Oanda.OandaApiClient.GetCandlestickData(CandleSpecification,DateTime,System.Nullable{DateTime},System.Boolean,System.Boolean,System.Int32,System.String,FFT.Oanda.Instruments.WeeklyAlignment,CancellationToken)
-  name.vb: GetCandlestickData(CandleSpecification, DateTime, Nullable(Of DateTime), Boolean, Boolean, Int32, String, WeeklyAlignment, CancellationToken)
-  fullName: FFT.Oanda.OandaApiClient.GetCandlestickData(CandleSpecification, DateTime, System.Nullable<DateTime>, System.Boolean, System.Boolean, System.Int32, System.String, FFT.Oanda.Instruments.WeeklyAlignment, CancellationToken)
-  fullName.vb: FFT.Oanda.OandaApiClient.GetCandlestickData(CandleSpecification, DateTime, System.Nullable(Of DateTime), System.Boolean, System.Boolean, System.Int32, System.String, FFT.Oanda.Instruments.WeeklyAlignment, CancellationToken)
-  nameWithType: OandaApiClient.GetCandlestickData(CandleSpecification, DateTime, Nullable<DateTime>, Boolean, Boolean, Int32, String, WeeklyAlignment, CancellationToken)
-  nameWithType.vb: OandaApiClient.GetCandlestickData(CandleSpecification, DateTime, Nullable(Of DateTime), Boolean, Boolean, Int32, String, WeeklyAlignment, CancellationToken)
-- uid: FFT.Oanda.OandaApiClient.GetCandlestickData(CandleSpecification,System.Int32,System.Boolean,System.Int32,System.String,FFT.Oanda.Instruments.WeeklyAlignment,CancellationToken)
-  name: GetCandlestickData(CandleSpecification, Int32, Boolean, Int32, String, WeeklyAlignment, CancellationToken)
-  href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetCandlestickData_CandleSpecification_System_Int32_System_Boolean_System_Int32_System_String_FFT_Oanda_Instruments_WeeklyAlignment_CancellationToken_
-  commentId: M:FFT.Oanda.OandaApiClient.GetCandlestickData(CandleSpecification,System.Int32,System.Boolean,System.Int32,System.String,FFT.Oanda.Instruments.WeeklyAlignment,CancellationToken)
-  fullName: FFT.Oanda.OandaApiClient.GetCandlestickData(CandleSpecification, System.Int32, System.Boolean, System.Int32, System.String, FFT.Oanda.Instruments.WeeklyAlignment, CancellationToken)
-  nameWithType: OandaApiClient.GetCandlestickData(CandleSpecification, Int32, Boolean, Int32, String, WeeklyAlignment, CancellationToken)
-- uid: FFT.Oanda.OandaApiClient.GetCandlestickData(System.String,CandleSpecification,System.Nullable{DateTime},System.Nullable{DateTime},System.Int32,System.Boolean,System.Nullable{System.Boolean},System.Int32,System.String,FFT.Oanda.Instruments.WeeklyAlignment,System.Int32,CancellationToken)
-  name: GetCandlestickData(String, CandleSpecification, Nullable<DateTime>, Nullable<DateTime>, Int32, Boolean, Nullable<Boolean>, Int32, String, WeeklyAlignment, Int32, CancellationToken)
-  href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetCandlestickData_System_String_CandleSpecification_System_Nullable_DateTime__System_Nullable_DateTime__System_Int32_System_Boolean_System_Nullable_System_Boolean__System_Int32_System_String_FFT_Oanda_Instruments_WeeklyAlignment_System_Int32_CancellationToken_
-  commentId: M:FFT.Oanda.OandaApiClient.GetCandlestickData(System.String,CandleSpecification,System.Nullable{DateTime},System.Nullable{DateTime},System.Int32,System.Boolean,System.Nullable{System.Boolean},System.Int32,System.String,FFT.Oanda.Instruments.WeeklyAlignment,System.Int32,CancellationToken)
-  name.vb: GetCandlestickData(String, CandleSpecification, Nullable(Of DateTime), Nullable(Of DateTime), Int32, Boolean, Nullable(Of Boolean), Int32, String, WeeklyAlignment, Int32, CancellationToken)
-  fullName: FFT.Oanda.OandaApiClient.GetCandlestickData(System.String, CandleSpecification, System.Nullable<DateTime>, System.Nullable<DateTime>, System.Int32, System.Boolean, System.Nullable<System.Boolean>, System.Int32, System.String, FFT.Oanda.Instruments.WeeklyAlignment, System.Int32, CancellationToken)
-  fullName.vb: FFT.Oanda.OandaApiClient.GetCandlestickData(System.String, CandleSpecification, System.Nullable(Of DateTime), System.Nullable(Of DateTime), System.Int32, System.Boolean, System.Nullable(Of System.Boolean), System.Int32, System.String, FFT.Oanda.Instruments.WeeklyAlignment, System.Int32, CancellationToken)
-  nameWithType: OandaApiClient.GetCandlestickData(String, CandleSpecification, Nullable<DateTime>, Nullable<DateTime>, Int32, Boolean, Nullable<Boolean>, Int32, String, WeeklyAlignment, Int32, CancellationToken)
-  nameWithType.vb: OandaApiClient.GetCandlestickData(String, CandleSpecification, Nullable(Of DateTime), Nullable(Of DateTime), Int32, Boolean, Nullable(Of Boolean), Int32, String, WeeklyAlignment, Int32, CancellationToken)
+- uid: FFT.Oanda.OandaApiClient.GetCandlestickData(CandleSpecification,System.Nullable{DateTime},System.Nullable{DateTime},System.Int32,System.Boolean,System.Nullable{System.Boolean},System.Int32,System.String,FFT.Oanda.Instruments.WeeklyAlignment,System.Int32,CancellationToken)
+  name: GetCandlestickData(CandleSpecification, Nullable<DateTime>, Nullable<DateTime>, Int32, Boolean, Nullable<Boolean>, Int32, String, WeeklyAlignment, Int32, CancellationToken)
+  href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetCandlestickData_CandleSpecification_System_Nullable_DateTime__System_Nullable_DateTime__System_Int32_System_Boolean_System_Nullable_System_Boolean__System_Int32_System_String_FFT_Oanda_Instruments_WeeklyAlignment_System_Int32_CancellationToken_
+  commentId: M:FFT.Oanda.OandaApiClient.GetCandlestickData(CandleSpecification,System.Nullable{DateTime},System.Nullable{DateTime},System.Int32,System.Boolean,System.Nullable{System.Boolean},System.Int32,System.String,FFT.Oanda.Instruments.WeeklyAlignment,System.Int32,CancellationToken)
+  name.vb: GetCandlestickData(CandleSpecification, Nullable(Of DateTime), Nullable(Of DateTime), Int32, Boolean, Nullable(Of Boolean), Int32, String, WeeklyAlignment, Int32, CancellationToken)
+  fullName: FFT.Oanda.OandaApiClient.GetCandlestickData(CandleSpecification, System.Nullable<DateTime>, System.Nullable<DateTime>, System.Int32, System.Boolean, System.Nullable<System.Boolean>, System.Int32, System.String, FFT.Oanda.Instruments.WeeklyAlignment, System.Int32, CancellationToken)
+  fullName.vb: FFT.Oanda.OandaApiClient.GetCandlestickData(CandleSpecification, System.Nullable(Of DateTime), System.Nullable(Of DateTime), System.Int32, System.Boolean, System.Nullable(Of System.Boolean), System.Int32, System.String, FFT.Oanda.Instruments.WeeklyAlignment, System.Int32, CancellationToken)
+  nameWithType: OandaApiClient.GetCandlestickData(CandleSpecification, Nullable<DateTime>, Nullable<DateTime>, Int32, Boolean, Nullable<Boolean>, Int32, String, WeeklyAlignment, Int32, CancellationToken)
+  nameWithType.vb: OandaApiClient.GetCandlestickData(CandleSpecification, Nullable(Of DateTime), Nullable(Of DateTime), Int32, Boolean, Nullable(Of Boolean), Int32, String, WeeklyAlignment, Int32, CancellationToken)
 - uid: FFT.Oanda.OandaApiClient.GetCandlestickData*
   name: GetCandlestickData
   href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetCandlestickData_
@@ -830,22 +815,6 @@ references:
   isSpec: "True"
   fullName: FFT.Oanda.OandaApiClient.GetCandlestickData
   nameWithType: OandaApiClient.GetCandlestickData
-- uid: FFT.Oanda.OandaApiClient.GetLatestCandles(System.String,CandleSpecification[],System.Decimal,System.Boolean,System.Int32,System.String,FFT.Oanda.Instruments.WeeklyAlignment,CancellationToken)
-  name: GetLatestCandles(String, CandleSpecification[], Decimal, Boolean, Int32, String, WeeklyAlignment, CancellationToken)
-  href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetLatestCandles_System_String_CandleSpecification___System_Decimal_System_Boolean_System_Int32_System_String_FFT_Oanda_Instruments_WeeklyAlignment_CancellationToken_
-  commentId: M:FFT.Oanda.OandaApiClient.GetLatestCandles(System.String,CandleSpecification[],System.Decimal,System.Boolean,System.Int32,System.String,FFT.Oanda.Instruments.WeeklyAlignment,CancellationToken)
-  name.vb: GetLatestCandles(String, CandleSpecification(), Decimal, Boolean, Int32, String, WeeklyAlignment, CancellationToken)
-  fullName: FFT.Oanda.OandaApiClient.GetLatestCandles(System.String, CandleSpecification[], System.Decimal, System.Boolean, System.Int32, System.String, FFT.Oanda.Instruments.WeeklyAlignment, CancellationToken)
-  fullName.vb: FFT.Oanda.OandaApiClient.GetLatestCandles(System.String, CandleSpecification(), System.Decimal, System.Boolean, System.Int32, System.String, FFT.Oanda.Instruments.WeeklyAlignment, CancellationToken)
-  nameWithType: OandaApiClient.GetLatestCandles(String, CandleSpecification[], Decimal, Boolean, Int32, String, WeeklyAlignment, CancellationToken)
-  nameWithType.vb: OandaApiClient.GetLatestCandles(String, CandleSpecification(), Decimal, Boolean, Int32, String, WeeklyAlignment, CancellationToken)
-- uid: FFT.Oanda.OandaApiClient.GetLatestCandles*
-  name: GetLatestCandles
-  href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetLatestCandles_
-  commentId: Overload:FFT.Oanda.OandaApiClient.GetLatestCandles
-  isSpec: "True"
-  fullName: FFT.Oanda.OandaApiClient.GetLatestCandles
-  nameWithType: OandaApiClient.GetLatestCandles
 - uid: FFT.Oanda.OandaApiClient.GetOpenPositions(System.String,CancellationToken)
   name: GetOpenPositions(String, CancellationToken)
   href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetOpenPositions_System_String_CancellationToken_
