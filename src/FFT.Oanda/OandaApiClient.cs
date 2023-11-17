@@ -12,8 +12,10 @@ using System.Runtime.CompilerServices;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 using FFT.Disposables;
+using FFT.IgnoreTasks;
 using FFT.Oanda.Accounts;
 using FFT.Oanda.Instruments;
 using FFT.Oanda.Orders;
@@ -1140,46 +1142,43 @@ public partial class OandaApiClient
   /// <param name="types">The filter that restricts the types of Transactions
   /// to retrieve. Null for all transaction types.</param>
   /// <param name="cancellationToken">Cancels the operation.</param>
-  public async Task<GetTransactionsResponse> GetTransactions(string accountId, int fromTransactionId, int toTransactionId, TransactionFilter[]? types = null, CancellationToken cancellationToken = default)
+  public async IAsyncEnumerable<Transaction> GetTransactions(string accountId, int fromTransactionId, int toTransactionId, TransactionFilter[]? types = null, [EnumeratorCancellation] CancellationToken cancellationToken = default)
   {
     accountId.Throw().IfWhiteSpace();
     fromTransactionId.Throw().IfLessThan(0);
     toTransactionId.Throw().IfLessThan(0);
-    (toTransactionId - fromTransactionId + 1).Throw().IfOutOfRange(1, 1000);
+    (toTransactionId - fromTransactionId).Throw().IfLessThan(0);
 
-    var query = new Dictionary<string, string>
-    {
-      { "from", fromTransactionId.ToString(InvariantCulture) },
-      { "to", toTransactionId.ToString(InvariantCulture) },
-    };
-
-    if (types is { Length: > 0 })
-      query.Add("type", string.Join(",", types));
-
-    var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/transactions/idrange", query);
     using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
-    using var request = new HttpRequestMessage(HttpMethod.Get, url);
-    using var response = await _client.SendAsync(request, cts.Token);
-    return await ParseResponse<GetTransactionsResponse>(response, cts.Token);
-  }
 
-  public async IAsyncEnumerable<Transaction> GetTransactionsStream(string accountId, int fromTransactionId, int toTransactionId, TransactionFilter[]? types = null, [EnumeratorCancellation] CancellationToken cancellationToken = default)
-  {
-    accountId.Throw().IfWhiteSpace();
-    fromTransactionId.Throw().IfLessThan(0);
-    toTransactionId.Throw().IfLessThan(0);
-    (toTransactionId - fromTransactionId + 1).Throw().IfLessThan(1);
-
-    var startId = fromTransactionId;
-    while (startId <= toTransactionId)
+    while (true)
     {
-      var response = await GetTransactions(accountId, startId, Min(startId + 999, toTransactionId), types, cancellationToken);
-      foreach (var transaction in response.Transactions)
+      var query = new Dictionary<string, string>
       {
-        yield return transaction;
-      }
+        { "from", fromTransactionId.ToString(InvariantCulture) },
+        { "to", Min(fromTransactionId + 999, toTransactionId).ToString(InvariantCulture) },
+      };
 
-      startId += 1000;
+      if (types is { Length: > 0 })
+        query.Add("type", string.Join(",", types));
+
+      var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/transactions/idrange", query);
+      using var request = new HttpRequestMessage(HttpMethod.Get, url);
+      using var response = await _client.SendAsync(request, cts.Token);
+      var transactions = await ParseResponse<GetTransactionsResponse>(response, cts.Token);
+
+      foreach (var transaction in transactions.Transactions)
+        yield return transaction;
+
+      if (transactions.Transactions.Count == 0)
+        yield break;
+
+      if (transactions.Transactions[^1].Id == transactions.LastTransactionId)
+        yield break;
+
+      fromTransactionId = transactions.Transactions[^1].Id + 1;
+      if (fromTransactionId > toTransactionId)
+        yield break;
     }
   }
 
@@ -1192,24 +1191,38 @@ public partial class OandaApiClient
   /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
   /// 001-011-5838423-001.
   /// </param>
-  /// <param name="fromTransactionId">The ID of the last Transaction fetched.
+  /// <param name="sinceTransactionId">The ID of the last Transaction fetched.
   /// This query will return all Transactions newer than the
-  /// TransactionID.</param>
+  /// TransactionID, up to the maximum number allowed by the Oanda api.</param>
   /// <param name="types">A filter for restricting the types of Transactions
   /// to retrieve. Null to retrieve all Transaction types.</param>
   /// <param name="cancellationToken">Cancels the operation.</param>
-  public async Task<GetTransactionsResponse> GetTransactionsSince(string accountId, int fromTransactionId, TransactionFilter[]? types = null, CancellationToken cancellationToken = default)
+  public async IAsyncEnumerable<Transaction> GetTransactionsSince(string accountId, int sinceTransactionId, TransactionFilter[]? types = null, [EnumeratorCancellation] CancellationToken cancellationToken = default)
   {
     accountId.Throw().IfWhiteSpace();
 
-    var url = $"v3/accounts/{accountId}/transactions/sinceid?id={fromTransactionId}";
-    if (types is { Length: > 0 })
-      url = QueryHelpers.AddQueryString(url, "type", string.Join(",", types));
-
     using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
-    using var request = new HttpRequestMessage(HttpMethod.Get, url);
-    using var response = await _client.SendAsync(request, cts.Token);
-    return await ParseResponse<GetTransactionsResponse>(response, cts.Token);
+
+    while (true)
+    {
+      var url = $"v3/accounts/{accountId}/transactions/sinceid?id={sinceTransactionId}";
+      if (types is { Length: > 0 })
+        url = QueryHelpers.AddQueryString(url, "type", string.Join(",", types));
+
+      using var request = new HttpRequestMessage(HttpMethod.Get, url);
+      using var response = await _client.SendAsync(request, cts.Token);
+      var transactions = await ParseResponse<GetTransactionsResponse>(response, cts.Token);
+
+      foreach (var transaction in transactions.Transactions)
+        yield return transaction;
+
+      if (transactions.Transactions.Count == 0)
+        yield break;
+
+      sinceTransactionId = transactions.Transactions[^1].Id;
+      if (sinceTransactionId == transactions.LastTransactionId)
+        yield break;
+    }
   }
 
   /// <summary>
@@ -1220,7 +1233,8 @@ public partial class OandaApiClient
   /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
   /// 001-011-5838423-001.
   /// </param>
-  /// <param name="cancellationToken">Cancels the enumeration and closes the stream connection.</param>
+  /// <param name="cancellationToken">Closes the underlying stream connection and completes the IAsyncEnumerable without error.</param>
+  /// <exception cref="TimeoutException">Thrown when the connection has not received a regular heartbeat message.</exception>
   public async IAsyncEnumerable<Transaction> GetTransactionsStream(string accountId, [EnumeratorCancellation] CancellationToken cancellationToken)
   {
     accountId.Throw().IfWhiteSpace();
@@ -1228,7 +1242,7 @@ public partial class OandaApiClient
     using var cts = CancellationTokenSource.CreateLinkedTokenSource(DisposedToken, cancellationToken);
     var url = $"v3/accounts/{accountId}/transactions/stream";
     using var stream = await _streamClient.GetStreamAsync(url, cts.Token);
-    await foreach (var slice in stream.ReadLines(cts.Token))
+    await foreach (var slice in stream.ReadLines(TimeSpan.FromSeconds(10), cts.Token))
     {
       var result = PolymorphicDeserializer.DeserializeTransactionStreamObject(slice);
       if (result is Transaction transaction)
@@ -1236,33 +1250,82 @@ public partial class OandaApiClient
     }
   }
 
-  public async IAsyncEnumerable<Transaction> GetTransactionStreamSince(string accountId, DateTime from, TransactionFilter[]? types = null, [EnumeratorCancellation] CancellationToken cancellationToken = default)
+  /// <summary>
+  /// Get a stream of objects inheriting <see cref="Transaction"/> for the given <paramref name="accountId"/> starting from the given moment of time in the past.
+  /// </summary>
+  /// <param name="accountId">
+  /// “-“-delimited string with format
+  /// “{siteID}-{divisionID}-{userID}-{accountNumber}”. Eg:
+  /// 001-011-5838423-001.
+  /// </param>
+  /// <param name="from">The time in the past at which to start load transactions from.</param>
+  /// <param name="cancellationToken">Closes the underlying stream connection and completes the IAsyncEnumerable without error.</param>
+  /// <exception cref="TimeoutException">Thrown when the stream connection has not received a regular heartbeat message.</exception>
+  public async IAsyncEnumerable<Transaction> GetTransactionStreamSince(string accountId, DateTime from, [EnumeratorCancellation] CancellationToken cancellationToken = default)
   {
     accountId.Throw().IfWhiteSpace();
     from.Throw().IfNotUtc().IfGreaterThan(DateTime.UtcNow);
+
     using var cts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, DisposedToken);
 
-    var stream = GetTransactionsStream(accountId, cts.Token);
+    var channel1 = Channel.CreateUnbounded<Transaction>();
+    var channel2 = Channel.CreateUnbounded<Transaction>();
 
-    Transaction? lastTransaction = null;
-    var rangeResponse = await GetTransactionIdRange(accountId, from, null, cts.Token);
-    foreach (var page in rangeResponse.GetPages())
-    {
-      var transactionsResponse = await GetTransactions(accountId, page.FromId, page.ToId, types, cts.Token);
-      foreach (var transaction in transactionsResponse.Transactions)
+    Task.Run(
+      async () =>
       {
-        lastTransaction = transaction;
-        yield return transaction;
-      }
+        try
+        {
+          await Task.Delay(1000, cts.Token);
+          var rangeResponse = await GetTransactionIdRange(accountId, from, null, cts.Token);
+          foreach (var page in rangeResponse.GetPages())
+          {
+            await foreach (var transaction in GetTransactions(accountId, page.FromId, page.ToId, null, cts.Token))
+            {
+              await channel1.Writer.WriteAsync(transaction);
+            }
+          }
+
+          channel1.Writer.Complete();
+        }
+        catch (Exception x)
+        {
+          channel1.Writer.Complete(x);
+        }
+      },
+      CancellationToken.None).Ignore();
+
+    Task.Run(
+      async () =>
+      {
+        try
+        {
+          await foreach (var transaction in GetTransactionsStream(accountId, cts.Token))
+          {
+            await channel2.Writer.WriteAsync(transaction);
+          }
+
+          channel2.Writer.Complete();
+        }
+        catch (Exception x)
+        {
+          channel2.Writer.Complete(x);
+        }
+      },
+      CancellationToken.None).Ignore();
+
+    int? lastTransactionId = null;
+    await foreach (var transaction in channel1.Reader.ReadAllAsync(cts.Token))
+    {
+      lastTransactionId = transaction.Id;
+      yield return transaction;
     }
 
-    var expectedTransactionId = lastTransaction?.Id;
-    if (expectedTransactionId.HasValue) expectedTransactionId++;
-
-    // TODO: I'm pretty sure we don't need to use the WithCancellation method here because the ct is set in GetTransactionsStream. But could test to make sure it cleans up properly when cancelled.
-    await foreach (var transaction in stream)
+    await foreach (var transaction in channel2.Reader.ReadAllAsync(cts.Token))
     {
-      if (transaction.Id < expectedTransactionId) continue;
+      if (transaction.Id <= lastTransactionId)
+        continue;
+
       yield return transaction;
     }
   }
@@ -1446,7 +1509,7 @@ public partial class OandaApiClient
     };
     var url = QueryHelpers.AddQueryString($"v3/accounts/{accountId}/pricing/stream", query);
     using var stream = await _streamClient.GetStreamAsync(url, cts.Token);
-    await foreach (var slice in stream.ReadLines(cts.Token))
+    await foreach (var slice in stream.ReadLines(TimeSpan.FromSeconds(10), cts.Token))
     {
       yield return PolymorphicDeserializer.DeserializePriceStreamObject(slice);
     }

@@ -76,46 +76,40 @@ public class AccountsTests
       }
     }
 
+    using var cts = new CancellationTokenSource();
     var channel = Channel.CreateUnbounded<Transaction>();
-    client.GetTransactionsStream(accountId, default).ForEachAsync(transaction => channel.Writer.TryWrite(transaction)).Ignore();
+
+    var transactionStream = client.GetTransactionsStream(accountId, cts.Token).GetAsyncEnumerator(cts.Token);
+    var streamKickoffTask = transactionStream.MoveNextAsync();
     await Task.Delay(1000);
 
-    try
-    {
-      //await using var transactionEnumerator = client.GetTransactionsStream(accountId, default).GetAsyncEnumerator();
-      //var transactionTask = transactionEnumerator.MoveNextAsync();
-      //await Task.Yield();
-
-      var openTradeResponse = await client.CreateOrder(
-        accountId,
-        new MarketOrderRequest
-        {
-          Units = 1,
-          Instrument = "AUD_USD",
-          PositionFill = OrderPositionFill.OPEN_ONLY,
-          TimeInForce = TimeInForce.FOK,
-          StopLossOnFill = new() { Distance = 0.0100m, },
-          TakeProfitOnFill = new() { Distance = 0.0100m, },
-        },
-        default);
-
-      await foreach(var transaction in channel.Reader.ReadAllAsync())
+    var response = await client.CreateOrder(
+      accountId,
+      new MarketOrderRequest
       {
-        Debugger.Break();
-      }
+        Units = 1,
+        Instrument = "AUD_USD",
+        PositionFill = OrderPositionFill.OPEN_ONLY,
+        TimeInForce = TimeInForce.FOK,
+        StopLossOnFill = new() { Distance = 0.0100m, },
+        TakeProfitOnFill = new() { Distance = 0.0100m, },
+      },
+      default);
 
-      //while (await transactionTask)
-      //{
-      //  var transaction = transactionEnumerator.Current;
-      //  Debugger.Break();
-      //  transactionTask = transactionEnumerator.MoveNextAsync();
-      //}
-    }
-    catch (Exception ex)
-    {
-      Debugger.Break();
-    }
+    Assert.IsTrue(await streamKickoffTask);
+    Assert.IsInstanceOfType<MarketOrderTransaction>(transactionStream.Current);
 
-    Debugger.Break();
+    Assert.IsTrue(await transactionStream.MoveNextAsync());
+    Assert.IsInstanceOfType<OrderFillTransaction>(transactionStream.Current);
+
+    Assert.IsTrue(await transactionStream.MoveNextAsync());
+    Assert.IsInstanceOfType<TakeProfitOrderTransaction>(transactionStream.Current);
+
+    Assert.IsTrue(await transactionStream.MoveNextAsync());
+    Assert.IsInstanceOfType<StopLossOrderTransaction>(transactionStream.Current);
+
+    cts.Cancel();
+
+    await Assert.ThrowsExceptionAsync<TaskCanceledException>(async () => await transactionStream.MoveNextAsync());
   }
 }
