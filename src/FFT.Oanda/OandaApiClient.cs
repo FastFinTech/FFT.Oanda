@@ -1312,7 +1312,7 @@ public partial class OandaApiClient
         catch (Exception x)
         {
           result.Writer.Complete(x);
-\        }
+        }
       },
       CancellationToken.None).Ignore();
 
