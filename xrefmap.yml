@@ -1069,15 +1069,6 @@ references:
   commentId: M:FFT.Oanda.OandaApiClient.GetTransactionsStream(System.String,CancellationToken)
   fullName: FFT.Oanda.OandaApiClient.GetTransactionsStream(System.String, CancellationToken)
   nameWithType: OandaApiClient.GetTransactionsStream(String, CancellationToken)
-- uid: FFT.Oanda.OandaApiClient.GetTransactionsStream(System.String,System.Int32,System.Int32,FFT.Oanda.TransactionFilter[],CancellationToken)
-  name: GetTransactionsStream(String, Int32, Int32, TransactionFilter[], CancellationToken)
-  href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetTransactionsStream_System_String_System_Int32_System_Int32_FFT_Oanda_TransactionFilter___CancellationToken_
-  commentId: M:FFT.Oanda.OandaApiClient.GetTransactionsStream(System.String,System.Int32,System.Int32,FFT.Oanda.TransactionFilter[],CancellationToken)
-  name.vb: GetTransactionsStream(String, Int32, Int32, TransactionFilter(), CancellationToken)
-  fullName: FFT.Oanda.OandaApiClient.GetTransactionsStream(System.String, System.Int32, System.Int32, FFT.Oanda.TransactionFilter[], CancellationToken)
-  fullName.vb: FFT.Oanda.OandaApiClient.GetTransactionsStream(System.String, System.Int32, System.Int32, FFT.Oanda.TransactionFilter(), CancellationToken)
-  nameWithType: OandaApiClient.GetTransactionsStream(String, Int32, Int32, TransactionFilter[], CancellationToken)
-  nameWithType.vb: OandaApiClient.GetTransactionsStream(String, Int32, Int32, TransactionFilter(), CancellationToken)
 - uid: FFT.Oanda.OandaApiClient.GetTransactionsStream*
   name: GetTransactionsStream
   href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetTransactionsStream_
@@ -1085,15 +1076,12 @@ references:
   isSpec: "True"
   fullName: FFT.Oanda.OandaApiClient.GetTransactionsStream
   nameWithType: OandaApiClient.GetTransactionsStream
-- uid: FFT.Oanda.OandaApiClient.GetTransactionStreamSince(System.String,DateTime,FFT.Oanda.TransactionFilter[],CancellationToken)
-  name: GetTransactionStreamSince(String, DateTime, TransactionFilter[], CancellationToken)
-  href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetTransactionStreamSince_System_String_DateTime_FFT_Oanda_TransactionFilter___CancellationToken_
-  commentId: M:FFT.Oanda.OandaApiClient.GetTransactionStreamSince(System.String,DateTime,FFT.Oanda.TransactionFilter[],CancellationToken)
-  name.vb: GetTransactionStreamSince(String, DateTime, TransactionFilter(), CancellationToken)
-  fullName: FFT.Oanda.OandaApiClient.GetTransactionStreamSince(System.String, DateTime, FFT.Oanda.TransactionFilter[], CancellationToken)
-  fullName.vb: FFT.Oanda.OandaApiClient.GetTransactionStreamSince(System.String, DateTime, FFT.Oanda.TransactionFilter(), CancellationToken)
-  nameWithType: OandaApiClient.GetTransactionStreamSince(String, DateTime, TransactionFilter[], CancellationToken)
-  nameWithType.vb: OandaApiClient.GetTransactionStreamSince(String, DateTime, TransactionFilter(), CancellationToken)
+- uid: FFT.Oanda.OandaApiClient.GetTransactionStreamSince(System.String,DateTime,CancellationToken)
+  name: GetTransactionStreamSince(String, DateTime, CancellationToken)
+  href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetTransactionStreamSince_System_String_DateTime_CancellationToken_
+  commentId: M:FFT.Oanda.OandaApiClient.GetTransactionStreamSince(System.String,DateTime,CancellationToken)
+  fullName: FFT.Oanda.OandaApiClient.GetTransactionStreamSince(System.String, DateTime, CancellationToken)
+  nameWithType: OandaApiClient.GetTransactionStreamSince(String, DateTime, CancellationToken)
 - uid: FFT.Oanda.OandaApiClient.GetTransactionStreamSince*
   name: GetTransactionStreamSince
   href: api/FFT.Oanda.OandaApiClient.html#FFT_Oanda_OandaApiClient_GetTransactionStreamSince_
