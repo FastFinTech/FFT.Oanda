@@ -1261,73 +1261,62 @@ public partial class OandaApiClient
   /// <param name="from">The time in the past at which to start load transactions from.</param>
   /// <param name="cancellationToken">Closes the underlying stream connection and completes the IAsyncEnumerable without error.</param>
   /// <exception cref="TimeoutException">Thrown when the stream connection has not received a regular heartbeat message.</exception>
-  public async IAsyncEnumerable<Transaction> GetTransactionStreamSince(string accountId, DateTime from, [EnumeratorCancellation] CancellationToken cancellationToken = default)
+  public IAsyncEnumerable<Transaction> GetTransactionStreamSince(string accountId, DateTime from, CancellationToken cancellationToken = default)
   {
     accountId.Throw().IfWhiteSpace();
     from.Throw().IfNotUtc().IfGreaterThan(DateTime.UtcNow);
 
-    using var cts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, DisposedToken);
-
-    var channel1 = Channel.CreateUnbounded<Transaction>();
-    var channel2 = Channel.CreateUnbounded<Transaction>();
+    var result = Channel.CreateUnbounded<Transaction>();
 
     Task.Run(
       async () =>
       {
         try
         {
-          await Task.Delay(1000, cts.Token);
-          var rangeResponse = await GetTransactionIdRange(accountId, from, null, cts.Token);
-          foreach (var page in rangeResponse.GetPages())
+          using var cts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, DisposedToken);
+
+          // Immediately calling MoveNextAsync is required to get the stream to actually connect and start receiving messages.
+          await using var liveStream = GetTransactionsStream(accountId, cts.Token).GetAsyncEnumerator(cts.Token);
+          var liveStreamMoveNext = liveStream.MoveNextAsync(cts.Token);
+          await Task.Delay(1000, cts.Token); // Give the live stream time to establish before downloading transactions from the past.
+
+          var rangeReponse = await GetTransactionIdRange(accountId, from, null, cts.Token);
+          if (rangeReponse.Pages.Count > 0)
           {
-            await foreach (var transaction in GetTransactions(accountId, page.FromId, page.ToId, null, cts.Token))
+            var lastTransactionId = 0;
+            foreach (var page in rangeReponse.GetPages())
             {
-              await channel1.Writer.WriteAsync(transaction);
+              await foreach (var transaction in GetTransactions(accountId, page.FromId, page.ToId, null, cts.Token))
+              {
+                await result.Writer.WriteAsync(transaction, cts.Token);
+                lastTransactionId = transaction.Id;
+              }
             }
+
+            while (await liveStreamMoveNext && liveStream.Current.Id <= lastTransactionId)
+              liveStreamMoveNext = liveStream.MoveNextAsync(cts.Token);
           }
 
-          channel1.Writer.Complete();
-        }
-        catch (Exception x)
-        {
-          channel1.Writer.Complete(x);
-        }
-      },
-      CancellationToken.None).Ignore();
-
-    Task.Run(
-      async () =>
-      {
-        try
-        {
-          await foreach (var transaction in GetTransactionsStream(accountId, cts.Token))
+          while (await liveStreamMoveNext)
           {
-            await channel2.Writer.WriteAsync(transaction);
+            await result.Writer.WriteAsync(liveStream.Current, cts.Token); // TODO: Throw exception if writing is blocked a long time due to slow reading by consumer.
+            liveStreamMoveNext = liveStream.MoveNextAsync(cts.Token);
           }
 
-          channel2.Writer.Complete();
+          result.Writer.Complete();
+        }
+        catch (OperationCanceledException) when (cancellationToken.IsCancellationRequested && !DisposedToken.IsCancellationRequested)
+        {
+          result.Writer.Complete();
         }
         catch (Exception x)
         {
-          channel2.Writer.Complete(x);
-        }
+          result.Writer.Complete(x);
+\        }
       },
       CancellationToken.None).Ignore();
 
-    int? lastTransactionId = null;
-    await foreach (var transaction in channel1.Reader.ReadAllAsync(cts.Token))
-    {
-      lastTransactionId = transaction.Id;
-      yield return transaction;
-    }
-
-    await foreach (var transaction in channel2.Reader.ReadAllAsync(cts.Token))
-    {
-      if (transaction.Id <= lastTransactionId)
-        continue;
-
-      yield return transaction;
-    }
+    return result.Reader.ReadAllAsync(cancellationToken);
   }
 }
 
