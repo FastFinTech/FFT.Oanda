@@ -35,7 +35,7 @@ public enum FundingReason
   ADJUSTMENT,
 
   /// <summary>
-  /// This FundingReason appears in my transaction history
+  /// Not in the Oanda API documentation but in my transaction history
   /// </summary>
   LEGACY_ACCOUNT_TRANSFER,
 }
