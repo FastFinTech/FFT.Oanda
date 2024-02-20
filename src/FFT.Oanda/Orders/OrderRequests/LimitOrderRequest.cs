@@ -17,6 +17,7 @@ public sealed record LimitOrderRequest : OpenTradeOrderRequest
   /// number of units results in a long Order, and a negative number of units
   /// results in a short Order.
   /// </summary>
+  [JsonConverter(typeof(DecimalStringConverter))]  // order request is rejected without
   public decimal Units { get; init; }
 
   /// <summary>
@@ -24,6 +25,7 @@ public sealed record LimitOrderRequest : OpenTradeOrderRequest
   /// only be filled by a market price that is equal to or better than this
   /// price.
   /// </summary>
+  [JsonConverter(typeof(DecimalStringConverter))]  // order request is rejected without
   public decimal Price { get; init; }
 
   private protected override void CustomValidate2()
