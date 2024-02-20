@@ -25,4 +25,12 @@ public enum AccountFinancingMode
   /// Account daily at 5pm New York time.
   /// </summary>
   DAILY,
+
+  /// <summary>
+  /// Not in the Oanda API documentation but in my transaction history
+  /// </summary>
+  DAILY_FINANCING, 
+  DAILY_INSTRUMENT, 
+  SECOND_BY_SECOND_COMPONENT, 
+
 }
