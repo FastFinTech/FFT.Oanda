@@ -1277,7 +1277,10 @@ public partial class OandaApiClient
 
           // Immediately calling MoveNextAsync is required to get the stream to actually connect and start receiving messages.
           await using var liveStream = GetTransactionsStream(accountId, cts.Token).GetAsyncEnumerator(cts.Token);
-          var liveStreamMoveNext = liveStream.MoveNextAsync(cts.Token);
+          
+          // var liveStreamMoveNext = liveStream.MoveNextAsync(cts.Token);
+          var liveStreamMoveNext = liveStream.MoveNextAsync(); // at least in Net8 the call is parameterless
+          
           await Task.Delay(1000, cts.Token); // Give the live stream time to establish before downloading transactions from the past.
 
           var rangeReponse = await GetTransactionIdRange(accountId, from, null, cts.Token);
@@ -1294,13 +1297,18 @@ public partial class OandaApiClient
             }
 
             while (await liveStreamMoveNext && liveStream.Current.Id <= lastTransactionId)
-              liveStreamMoveNext = liveStream.MoveNextAsync(cts.Token);
+            {
+              // liveStreamMoveNext = liveStream.MoveNextAsync(cts.Token);
+              liveStreamMoveNext = liveStream.MoveNextAsync(); // at least in Net8 the call is parameterless
+            }
           }
 
           while (await liveStreamMoveNext)
           {
             await result.Writer.WriteAsync(liveStream.Current, cts.Token); // TODO: Throw exception if writing is blocked a long time due to slow reading by consumer.
-            liveStreamMoveNext = liveStream.MoveNextAsync(cts.Token);
+            
+            // liveStreamMoveNext = liveStream.MoveNextAsync(cts.Token);
+            liveStreamMoveNext = liveStream.MoveNextAsync();  // at least in Net8 the call is parameterless
           }
 
           result.Writer.Complete();
