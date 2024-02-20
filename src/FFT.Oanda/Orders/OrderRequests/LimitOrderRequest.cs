@@ -1,6 +1,8 @@
 ﻿// Copyright (c) True Goodwill. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
+using FFT.Oanda.JsonConverters;
+
 namespace FFT.Oanda.Orders.OrderRequests;
 
 /// <summary>
