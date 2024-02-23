@@ -35,7 +35,7 @@ public sealed record CandleStick
   /// The number of prices created during the time-range represented by the
   /// candlestick.
   /// </summary>
-  public double Volume { get; init; }
+  public decimal Volume { get; init; } // no reason to use double
 
   /// <summary>
   /// A flag indicating if the candlestick is complete. A complete candlestick
