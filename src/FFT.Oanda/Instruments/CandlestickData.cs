@@ -13,24 +13,24 @@ public sealed record CandlestickData
   /// The first (open) price in the time-range represented by the candlestick.
   /// </summary>
   [JsonPropertyName("o")]
-  public required double Open { get; init; }
+  public required decimal Open { get; init; }
 
   /// <summary>
   /// The highest price in the time-range represented by the candlestick.
   /// </summary>
   [JsonPropertyName("h")]
-  public required double High { get; init; }
+  public required decimal High { get; init; }
 
   /// <summary>
   /// The lowest price in the time-range represented by the candlestick.
   /// </summary>
   [JsonPropertyName("l")]
-  public required double Low { get; init; }
+  public required decimal Low { get; init; }
 
   /// <summary>
   /// A flag indicating if the candlestick is complete. A complete candlestick
   /// is one whose ending time is not in the future.
   /// </summary>
   [JsonPropertyName("c")]
-  public required double Close { get; init; }
+  public required decimal Close { get; init; }
 }
