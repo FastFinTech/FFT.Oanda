@@ -51,7 +51,7 @@ public record AccountSummary
   /// <summary>
   /// The date/time that the account’s resettablePL was last reset.
   /// </summary>
-  [JsonConverter(typeof(ResettablePLDateConverter))]
+  // [JsonConverter(typeof(ResettablePLDateConverter))]  blows up the response if you call OandaApiClient.GetAccountSummary, ResettablePLTime comes with default dateTime spec in json data
   public DateTime? ResettablePLTime { get; init; }
 
   /// <summary>
