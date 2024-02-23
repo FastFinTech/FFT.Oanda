@@ -22,7 +22,10 @@ public sealed record ClientPrice
   /// <summary>
   /// The date/time when the Price was created.
   /// </summary>
-  [JsonPropertyName("timestamp")]
+
+  // Due to Oanda API documentation the property name shoukd be 'time'
+  // at least in the TickStream ClientPrice objects thats the case, else the TickStream will not work
+  // [JsonPropertyName("timestamp")]
   public DateTime Time { get; init; }
 
   /// <summary>

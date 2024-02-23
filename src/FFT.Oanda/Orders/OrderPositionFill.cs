@@ -10,6 +10,13 @@ namespace FFT.Oanda.Orders;
 [JsonConverter(typeof(JsonStringEnumConverter))]
 public enum OrderPositionFill
 {
+
+  /// <summary>
+  /// When the Order is filled, use REDUCE_FIRST behaviour for non-client
+  /// hedging Accounts, and OPEN_ONLY behaviour for client hedging Accounts.
+  /// </summary>
+  DEFAULT,  // moved to first place so it will be used as initialization 
+
   /// <summary>
   /// When the Order is filled, only allow Positions to be opened or extended.
   /// </summary>
@@ -26,9 +33,4 @@ public enum OrderPositionFill
   /// </summary>
   REDUCE_ONLY,
 
-  /// <summary>
-  /// When the Order is filled, use REDUCE_FIRST behaviour for non-client
-  /// hedging Accounts, and OPEN_ONLY behaviour for client hedging Accounts.
-  /// </summary>
-  DEFAULT,
 }

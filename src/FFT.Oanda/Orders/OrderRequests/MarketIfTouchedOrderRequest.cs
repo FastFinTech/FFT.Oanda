@@ -1,6 +1,8 @@
 ﻿// Copyright (c) True Goodwill. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
+using FFT.Oanda.JsonConverters;
+
 namespace FFT.Oanda.Orders.OrderRequests;
 
 /// <summary>
@@ -20,6 +22,14 @@ public sealed record MarketIfTouchedOrderRequest : OpenTradeOrderRequest
   public override OrderType Type => OrderType.MARKET_IF_TOUCHED;
 
   /// <summary>
+  /// The quantity requested to be filled by the MarketIfTouched Order. A positive
+  /// number of units results in a long Order, and a negative number of units
+  /// results in a short Order.
+  /// </summary>
+  [JsonConverter(typeof(DecimalStringConverter))]
+  public decimal Units { get; init; }
+
+  /// <summary>
   /// The price threshold specified for the MarketIfTouched Order. The
   /// MarketIfTouched Order will only be filled by a market price that crosses
   /// this price from the direction of the market price at the time when the
@@ -27,6 +37,7 @@ public sealed record MarketIfTouchedOrderRequest : OpenTradeOrderRequest
   /// the Order’s price and initialMarketPrice, the MarketIfTouchedOrder will
   /// behave like a Limit or a Stop Order.
   /// </summary>
+  [JsonConverter(typeof(DecimalStringConverter))]  // order request is rejected without
   public decimal Price { get; init; }
 
   /// <summary>

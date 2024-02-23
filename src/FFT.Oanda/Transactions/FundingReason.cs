@@ -33,4 +33,9 @@ public enum FundingReason
   /// Funds are being transferred as part of an Account adjustment
   /// </summary>
   ADJUSTMENT,
+
+  /// <summary>
+  /// Not in the Oanda API documentation but in my transaction history
+  /// </summary>
+  LEGACY_ACCOUNT_TRANSFER,
 }
