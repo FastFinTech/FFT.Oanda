@@ -1582,19 +1582,35 @@ public partial class OandaApiClient
     int dailyAlignment = 17,
     string alignmentTimezone = "America/New_York",
     WeeklyAlignment weeklyAlignment = WeeklyAlignment.FRIDAY,
-    int units = 1,
+    // int units = 1,  // not supported by the API
     CancellationToken cancellationToken = default)
   {
     candleSpecification.ThrowIfNull().Value.Validate();
     count.Throw().IfOutOfRange(500, 5000);
     to?.Throw().IfDateTimeKindNot(DateTimeKind.Utc);
     from?.Throw().IfDateTimeKindNot(DateTimeKind.Utc);
-    (includeFirst.HasValue == from.HasValue).Throw().IfFalse(); // includeFirst is required with from, and must not be set if from is not set.
-    (from.HasValue && to.HasValue).Throw().IfTrue();
+    
+    // includeFirst is required with from, and must not be set if from is not set.
+    // (includeFirst.HasValue == from.HasValue).Throw().IfFalse(); 
+    // instead of throwing an exception better to use default
+    // else you always have to set the parameters bewteen from and includeFirst
+    if (from != null && from.HasValue)
+    {
+        if (includeFirst == null || !includeFirst.HasValue)
+        {
+            includeFirst = true;
+        }
+    }
+    
+    // (from.HasValue && to.HasValue).Throw().IfTrue();
+    // why cut down the API features?
+    // it is usefull to have the option to get a specific area of candles between two timestamps
+    // at least I use that feature
+    
     dailyAlignment.Throw().IfOutOfRange(0, 23);
     alignmentTimezone.ThrowIfNull().Throw().IfWhiteSpace();
     weeklyAlignment.Throw().IfOutOfRange();
-    units.Throw().IfLessThan(1);
+    // units.Throw().IfLessThan(1); // Not supported by the API
 
     var query = new Dictionary<string, string>
     {
@@ -1604,10 +1620,16 @@ public partial class OandaApiClient
       { "dailyAlignment", dailyAlignment.ToString(InvariantCulture) },
       { "alignmentTimezone", alignmentTimezone },
       { "weeklyAlignment", weeklyAlignment.ToString() },
-      { "units", units.ToString(InvariantCulture) },
-      { "count", count.ToString(InvariantCulture) },
+      // { "units", units.ToString(InvariantCulture) }, // is not supported by the API
+      // { "count", count.ToString(InvariantCulture) },   // should not be send in any case
     };
 
+     // count is not allowed if both of 'to' and 'from' are set
+     if ((to == null) || (from == null))
+     {
+         query.Add("count", count.ToString(InvariantCulture));
+     }
+    
     if (to.HasValue) query.Add("to", to.Value.ToString(DATETIMEFORMATSTRING, InvariantCulture));
     if (from.HasValue) query.Add("from", from.Value.ToString(DATETIMEFORMATSTRING, InvariantCulture));
     if (includeFirst.HasValue) query.Add("includeFirst", includeFirst.Value.ToString());
